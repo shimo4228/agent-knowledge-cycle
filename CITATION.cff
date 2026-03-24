@@ -8,7 +8,9 @@ authors:
     given-names: Tatsuya
     alias: shimo4228
 license: MIT
+doi: 10.5281/zenodo.19200727
 repository-code: https://github.com/shimo4228/agent-knowledge-cycle
+url: https://doi.org/10.5281/zenodo.19200727
 keywords:
   - ai-agent
   - self-improvement

@@ -1,5 +1,7 @@
 # Agent Knowledge Cycle (AKC)
 
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.19200727.svg)](https://doi.org/10.5281/zenodo.19200727)
+
 A cyclic self-improvement architecture for AI coding agents.
 
 ## What is AKC?
@@ -64,14 +66,15 @@ If you use or reference the Agent Knowledge Cycle architecture, please cite:
   author       = {Shimomoto, Tatsuya},
   title        = {Agent Knowledge Cycle (AKC)},
   year         = {2026},
-  url          = {https://github.com/shimo4228/agent-knowledge-cycle},
+  doi          = {10.5281/zenodo.19200727},
+  url          = {https://doi.org/10.5281/zenodo.19200727},
   note         = {A cyclic self-improvement architecture for AI coding agents}
 }
 ```
 
 Or in text:
 
-> Shimomoto, T. (2026). Agent Knowledge Cycle (AKC). https://github.com/shimo4228/agent-knowledge-cycle
+> Shimomoto, T. (2026). Agent Knowledge Cycle (AKC). doi:10.5281/zenodo.19200727
 
 ## Related Work
 
