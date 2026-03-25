@@ -54,11 +54,11 @@ AKC treats agent knowledge as a living system that requires continuous maintenan
 
 ## Relationship to Harness Engineering
 
-AKC can be understood in the context of [harness engineering](https://mitchellh.com/writing/my-ai-adoption-journey) (Mitchell Hashimoto, 2025) — the practice of engineering solutions so that an agent never repeats the same mistake, through a combination of improved prompts (e.g., AGENTS.md updates) and programmatic tools (scripts, verification commands). AKC builds on this foundation but extends it in two directions.
+AKC shares common ground with [harness engineering](https://mitchellh.com/writing/my-ai-adoption-journey) (Mitchell Hashimoto, 2025) — the practice of engineering solutions so that an agent never repeats the same mistake, through a combination of improved prompts (e.g., AGENTS.md updates) and programmatic tools (scripts, verification commands). Both aim to make agents more reliable. They differ in what they focus on.
 
-**Correctness vs intent alignment.** Harness engineering focuses on getting the right result the first time — preventing known errors through better instructions and automated checks. AKC adds a layer above: "is this aligned with the owner's intent?" An agent can avoid all known mistakes yet still diverge from design intent — a class of problem that neither prompts nor verification scripts can fully address. Design Principle #3 (Non-destructive) exists precisely to preserve this human-in-the-loop checkpoint: propose, then wait for confirmation, because intent alignment cannot be fully automated.
+**Correctness vs intent alignment.** Harness engineering focuses on getting the right result the first time — preventing known errors through better instructions and automated checks. AKC is more concerned with a different question: "is this aligned with the owner's intent?" An agent can avoid all known mistakes yet still diverge from design intent. Design Principle #3 (Non-destructive) reflects this — propose, then wait for confirmation, because intent alignment is difficult to fully automate.
 
-**Evaluation beyond error prevention.** Harness engineering is reactive — each mistake triggers a new harness. AKC's Design Principle #5 introduces proactive meta-evaluation: systematically assessing quality dimensions that no specific harness targets, and scaling the evaluation method to model capability — rubrics for small models, holistic judgment for frontier models. This shifts from "prevent known errors" to "discover unknown quality gaps."
+**Reactive vs proactive.** Harness engineering is reactive by nature — each mistake triggers a new harness. AKC's skill-comply and skill-stocktake take a proactive approach, periodically auditing whether skills and rules are actually followed and whether they remain relevant. Design Principle #5 scales this evaluation to model capability — rubrics for small models, holistic judgment for frontier models.
 
 ## Customization
 
