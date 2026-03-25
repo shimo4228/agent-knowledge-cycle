@@ -54,11 +54,11 @@ AKC treats agent knowledge as a living system that requires continuous maintenan
 
 ## Relationship to Harness Engineering
 
-AKC can be understood in the context of [harness engineering](https://mitchellh.com/writing/my-ai-adoption-journey) (Mitchell Hashimoto, 2025) — the practice of wrapping AI-generated code in deterministic verification (linters, tests, CI, structural checks) to guarantee correctness. AKC builds on this foundation but extends it in two directions.
+AKC can be understood in the context of [harness engineering](https://mitchellh.com/writing/my-ai-adoption-journey) (Mitchell Hashimoto, 2025) — the practice of engineering solutions so that an agent never repeats the same mistake, through a combination of improved prompts (e.g., AGENTS.md updates) and programmatic tools (scripts, verification commands). AKC builds on this foundation but extends it in two directions.
 
-**Correctness vs intent alignment.** Harness engineering answers "is this structurally correct?" AKC adds a layer above: "is this aligned with the owner's intent?" Code can pass every linter and test yet still diverge from design intent — a class of problem that deterministic tools cannot detect. Design Principle #3 (Non-destructive) exists precisely to preserve this human-in-the-loop checkpoint: propose, then wait for confirmation, because intent alignment cannot be fully automated.
+**Correctness vs intent alignment.** Harness engineering focuses on getting the right result the first time — preventing known errors through better instructions and automated checks. AKC adds a layer above: "is this aligned with the owner's intent?" An agent can avoid all known mistakes yet still diverge from design intent — a class of problem that neither prompts nor verification scripts can fully address. Design Principle #3 (Non-destructive) exists precisely to preserve this human-in-the-loop checkpoint: propose, then wait for confirmation, because intent alignment cannot be fully automated.
 
-**Evaluation beyond deterministic verification.** Harness verification is deterministic by design. Design Principle #5 acknowledges that quality dimensions exist which deterministic checks cannot capture, and scales the evaluation method to model capability — rubrics for small models, holistic judgment for frontier models. This "meta-evaluation" concept is absent from the harness engineering discussion.
+**Evaluation beyond error prevention.** Harness engineering is reactive — each mistake triggers a new harness. AKC's Design Principle #5 introduces proactive meta-evaluation: systematically assessing quality dimensions that no specific harness targets, and scaling the evaluation method to model capability — rubrics for small models, holistic judgment for frontier models. This shifts from "prevent known errors" to "discover unknown quality gaps."
 
 ## Customization
 
