@@ -56,6 +56,11 @@ AKC treats agent knowledge as a living system that requires continuous maintenan
 
 AKC shares common ground with [harness engineering](https://mitchellh.com/writing/my-ai-adoption-journey) (Mitchell Hashimoto, 2025) — the practice of engineering solutions so that an agent never repeats the same mistake, through a combination of improved prompts (e.g., AGENTS.md updates) and programmatic tools (scripts, verification commands). Both aim to make agents more reliable. They differ in what they focus on.
 
+| Layer | Question | Addressed by |
+|-------|----------|-------------|
+| Harness | "Is this output correct?" | Individual linters, tests, scripts |
+| AKC | "Are the harnesses themselves still valid?" | skill-comply, skill-stocktake, context-sync |
+
 **Correctness vs intent alignment.** Harness engineering focuses on getting the right result the first time — preventing known errors through better instructions and automated checks. AKC is more concerned with a different question: "is this aligned with the owner's intent?" An agent can avoid all known mistakes yet still diverge from design intent. Design Principle #3 (Non-destructive) reflects this — propose, then wait for confirmation, because intent alignment is difficult to fully automate.
 
 **Reactive vs proactive.** Harness engineering is reactive by nature — each mistake triggers a new harness. AKC's skill-comply and skill-stocktake take a proactive approach, periodically auditing whether skills and rules are actually followed and whether they remain relevant. Design Principle #5 scales this evaluation to model capability — rubrics for small models, holistic judgment for frontier models.
