@@ -50,7 +50,8 @@ AKC treats agent knowledge as a living system that requires continuous maintenan
 2. **Observable** — skill-comply produces quantitative compliance rates, not subjective assessments.
 3. **Non-destructive** — Every skill proposes changes and waits for confirmation. Nothing is auto-applied.
 4. **Tool-agnostic in concept** — Designed for Claude Code but the architecture applies to any coding agent with persistent configuration.
-5. **Evaluation scales with model capability** — Deterministic scripts handle routine checks (file existence, path validation, structural linting); reasoning models (Opus-class) evaluate with full context and qualitative judgment. AKC does not prescribe one approach — it matches evaluation depth to the task: scripts for the mechanical, LLMs for the semantic.
+5. **Evaluation scales with model capability** — Small models benefit from rubric-based scoring; reasoning models (Opus-class) evaluate with full context and qualitative judgment. AKC does not prescribe one approach — it matches evaluation depth to the model's reasoning capacity.
+6. **Scripts for the mechanical, LLMs for the semantic** — Within each skill, deterministic scripts handle parsing, temporal ordering, and structural checks; LLMs handle classification and judgment that require understanding intent. This separation keeps pipelines fast, reproducible, and cheap where possible, while reserving LLM calls for tasks that genuinely need them.
 
 ## Customization
 
