@@ -31,13 +31,13 @@ Each skill addresses one phase of the knowledge lifecycle:
 
 ## Rules — Install the cycle without the skills
 
-You don't need all six skills to run the cycle. The [`docs/rules.md`](docs/rules.md) file distills the six phases into behavioral principles that any AI coding agent can follow through natural conversation.
+You don't need all six skills to run the cycle. The [`docs/akc-cycle.md`](docs/akc-cycle.md) file distills the six phases into behavioral principles that any AI coding agent can follow through natural conversation.
 
 ### Quick install
 
 ```bash
 # Copy to your agent's rules directory
-cp docs/rules.md ~/.claude/rules/common/akc-cycle.md
+cp docs/akc-cycle.md ~/.claude/rules/common/akc-cycle.md
 ```
 
 That's it. The cycle will run through conversation — no skills, no plugins, no CLI tools.
