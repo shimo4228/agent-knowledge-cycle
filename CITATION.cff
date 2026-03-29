@@ -2,7 +2,8 @@ cff-version: 1.2.0
 message: "If you use or reference this architecture, please cite it as below."
 type: software
 title: "Agent Knowledge Cycle (AKC)"
-abstract: "A cyclic self-improvement architecture for AI coding agents. Six composable skills form a closed loop: research existing solutions (search-first), extract reusable patterns from sessions (learn-eval), audit skill quality (skill-stocktake), distill cross-cutting principles into rules (rules-distill), measure behavioral compliance (skill-comply), and maintain documentation integrity (context-sync)."
+version: "1.4.0"
+abstract: "A cyclic self-improvement architecture for AI coding agents. Six composable skills form a closed loop: research existing solutions (search-first), extract reusable patterns from sessions (learn-eval), audit skill quality (skill-stocktake), distill cross-cutting principles into rules (rules-distill), measure behavioral compliance (skill-comply), and maintain documentation integrity (context-sync). Includes a rules-only install path and the scaffold dissolution principle — skills are scaffolding that becomes unnecessary as the cycle is internalized."
 authors:
   - family-names: Shimomoto
     given-names: Tatsuya
