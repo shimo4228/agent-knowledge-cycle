@@ -1,70 +1,71 @@
-# Scaffold Dissolution — AKC スキルの自己消滅性
+# Scaffold Dissolution — The Self-Obsolescence of AKC Skills
 
 ## Concept
 
-AKC のスキル群は **足場 (scaffold)** である。サイクルを回すうちにユーザーと AI の両方がサイクルを理解し、対話の中で自然に必要なことを行うようになる。やがてスキルを明示的に呼ぶ必要がなくなる。
+AKC skills are **scaffolding**. As users and AI agents repeatedly run the cycle, both internalize its principles. The cycle begins to run naturally through conversation, without explicitly invoking any skill. Eventually, the skills become unnecessary.
 
 ```
-Phase 1: スキルが行動を教える
-  /skill-stocktake → 棚卸しの手順を知る
-  /skill-comply → 遵守率を計測する方法を知る
+Phase 1: Skills teach the behavior
+  /skill-stocktake → Learn how to audit skills
+  /skill-comply    → Learn how to measure compliance
 
-Phase 2: サイクルが身体化される
-  スキルを呼ばなくても、対話の中で棚卸し・遵守チェックが自然に起きる
-  ルール (testing.md 等) とメモリ (feedback 等) にサイクルの原則が蓄積される
+Phase 2: The cycle becomes internalized
+  Skills are not invoked, yet auditing and compliance checking
+  happen naturally in conversation.
+  Cycle principles accumulate in rules and memory.
 
-Phase 3: スキルは不要になる
-  ユーザー: サイクルの思考パターンが定着
-  AI: ルールとメモリからサイクルの原則を再構成できる
-  スキルという形式化が冗長になる
+Phase 3: Skills become unnecessary
+  User: Cycle thinking patterns are second nature
+  AI:   Rules and memory are sufficient to reconstruct cycle behavior
+  Skills as explicit artifacts become redundant.
 ```
 
 ## Evidence
 
-2026-03-29 のセッションで、AKC の全フェーズが対話的に実行された。どのスキルも明示的に呼ばれなかった:
+In a session on 2026-03-29, all six AKC phases were executed through conversation. No AKC skill was explicitly invoked:
 
-| AKC スキル | フェーズ | 対話で行われたこと |
-|-----------|---------|-----------------|
-| search-first | Research | ECC v1.9.0 の差分を調べ、Python 関連を評価 |
-| skill-stocktake | Curate | 33 スキルを 1 個ずつ対話で判定 → 16 に削減 |
-| skill-comply | Measure | 「eval-harness は testing.md と重複」と発見 |
-| rules-distill | Promote | 整理の中で feedback_python_review を memory に保存 |
-| learn-eval | Extract | 2 つの記事ドラフトとして知見を外部化 |
-| context-sync | Maintain | /context-sync を最後に実行し整合性を確認 |
+| AKC Skill | Phase | What happened in conversation |
+|-----------|-------|-------------------------------|
+| search-first | Research | Investigated ECC v1.9.0 diff, evaluated Python-related changes |
+| skill-stocktake | Curate | Reviewed 33 skills one by one through dialogue → reduced to 16 |
+| skill-comply | Measure | Discovered eval-harness duplicates testing.md rule |
+| rules-distill | Promote | Saved feedback_python_review to memory during cleanup |
+| learn-eval | Extract | Externalized insights as two article drafts |
+| context-sync | Maintain | Ran /context-sync at the end to verify documentation consistency |
 
 ## Why This Happens
 
-### ユーザー側の学習
+### User-side learning
 
-AKC のサイクルを繰り返すうちに、「棚卸しすべきタイミング」「蒸留すべきパターン」「計測すべき指標」を暗黙的に理解する。スキルの手順書を参照しなくても、対話の中で適切な問いを発せられるようになる。
+Through repeated AKC cycles, users develop an implicit understanding of when to audit, when to distill, and what to measure. They no longer need the skill's step-by-step instructions — they ask the right questions naturally.
 
-### AI 側の蓄積
+### AI-side accumulation
 
-サイクルを回すたびに:
-- ルール (`rules/`) にサイクルの原則が蒸留される
-- メモリ (`memory/`) にフィードバックと判断履歴が蓄積される
-- ADR (`docs/adr/`) に設計判断が記録される
+Each cycle leaves traces in the persistent layers:
+- **Rules** (`rules/`) absorb cycle principles through distillation
+- **Memory** (`memory/`) accumulates feedback and decision history
+- **ADRs** (`docs/adr/`) record design decisions
 
-これらがコンテキストとしてロードされるため、AI はスキルファイルを読まなくてもサイクルの原則に沿った行動を取れる。
+These are loaded as context every session. The AI can follow cycle principles without reading skill files, because the principles are already embedded in the rules and memory it consumes.
 
-### 補助輪のアナロジー
+### The training wheels analogy
 
-スキルは自転車の補助輪に相当する:
-- 最初は補助輪がないと倒れる（スキルがないとサイクルが回らない）
-- 乗れるようになったら補助輪は邪魔になる（スキルがコンテキストを消費するだけ）
-- 補助輪を外しても自転車の乗り方は忘れない（サイクルの原則はルールとメモリに残る）
+Skills are training wheels on a bicycle:
+- At first, you fall without them (the cycle doesn't run without skills)
+- Once you can ride, they get in the way (skills consume context for no benefit)
+- Removing them doesn't make you forget how to ride (cycle principles persist in rules and memory)
 
 ## Implications
 
-1. **AKC の成功指標はスキルの使用率ではない** — 使われなくなることが成功
-2. **スキルは永続的なツールではなく、一時的な教材** — 概念を伝える役割を終えたら退役してよい
-3. **サイクルの持続性はスキルではなくルールとメモリに依存する** — スキルを削除してもサイクルは回り続ける
-4. **新しいユーザー/AI ペアにはスキルが再び必要** — 足場は人に依存する。別の文脈では再構築が必要
+1. **Success is not measured by skill usage** — Skills becoming unused is the success condition, not a failure.
+2. **Skills are temporary teaching materials, not permanent tools** — Once they have transmitted their concepts, they can be retired.
+3. **Cycle persistence depends on rules and memory, not skills** — Deleting skills does not break the cycle as long as principles are embedded in persistent layers.
+4. **New user-agent pairs need the scaffolding again** — Scaffolding is person-dependent. A different context requires reconstruction.
 
 ## Relationship to Design Principles
 
-この概念は AKC の既存の設計原則と整合する:
+This concept aligns with AKC's existing design principles:
 
-- **Composable** — 各スキルが独立しているから、個別に不要になれる
-- **Non-destructive** — スキルを削除しても蓄積されたルール・メモリ・ADR は残る
-- **Observable** — skill-comply で「スキルなしでもサイクルが回っているか」を検証できる
+- **Composable** — Because each skill is independent, each can become unnecessary independently.
+- **Non-destructive** — Deleting skills preserves all accumulated rules, memory, and ADRs.
+- **Observable** — skill-comply can verify whether the cycle runs even without skills installed.
