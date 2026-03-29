@@ -29,6 +29,36 @@ Each skill addresses one phase of the knowledge lifecycle:
 | [skill-comply](https://github.com/shimo4228/claude-skill-comply) | Measure | Test whether agents actually follow their skills and rules |
 | [context-sync](https://github.com/shimo4228/claude-skill-context-sync) | Maintain | Audit documentation for role overlaps, stale content, and missing decision records |
 
+## Rules — Install the cycle without the skills
+
+You don't need all six skills to run the cycle. The [`docs/rules.md`](docs/rules.md) file distills the six phases into behavioral principles that any AI coding agent can follow through natural conversation.
+
+### Quick install
+
+```bash
+# Copy to your agent's rules directory
+cp docs/rules.md ~/.claude/rules/common/akc-cycle.md
+```
+
+That's it. The cycle will run through conversation — no skills, no plugins, no CLI tools.
+
+### What the rules cover
+
+| Phase | Rule summary |
+|-------|-------------|
+| Research | Search for existing solutions before building new ones |
+| Extract | Capture reusable patterns from sessions with quality evaluation |
+| Curate | Periodically audit for redundancy, staleness, and silence |
+| Promote | Elevate patterns that recur 3+ times to the rule layer |
+| Measure | Verify behavioral change quantitatively, not subjectively |
+| Maintain | Keep documentation roles clean and content fresh |
+
+### Skills vs Rules
+
+- **Skills** provide deep, step-by-step workflows for each phase. Install them when you want guided execution.
+- **Rules** provide principles and trigger conditions. Install them when you want the cycle to emerge naturally from conversation.
+- Both can coexist. Rules ensure the cycle runs even when skills aren't triggered.
+
 ## Why a cycle?
 
 Static configuration drifts. Skills get added but never reviewed. Rules accumulate but compliance is never measured. Documentation grows stale.
@@ -51,6 +81,7 @@ AKC treats agent knowledge as a living system that requires continuous maintenan
 3. **Non-destructive** — Every skill proposes changes and waits for confirmation. Nothing is auto-applied.
 4. **Tool-agnostic in concept** — Designed for Claude Code but the architecture applies to any coding agent with persistent configuration.
 5. **Evaluation scales with model capability** — Small models benefit from rubric-based scoring; reasoning models (Opus-class) evaluate with full context and qualitative judgment. AKC does not prescribe one approach — it matches evaluation depth to the model's reasoning capacity.
+6. **Scaffold dissolution** — Skills are scaffolding. As the user and agent internalize the cycle, skills become unnecessary and rules alone sustain the loop. See [docs/scaffold-dissolution.md](docs/scaffold-dissolution.md).
 
 ## Relationship to Harness Engineering
 
