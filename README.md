@@ -127,7 +127,7 @@ Or in text:
 
 ## Related Work
 
-- [Contemplative AI framework](https://github.com/shimo4228/contemplative-agent) — Autonomous agent design inspired by Laukkonen et al. (2025)
+- [Contemplative Agent](https://github.com/shimo4228/contemplative-agent) — A self-improving agent running on a local 9B model, with security-by-absence design
 - [Articles on Zenn](https://zenn.dev/shimo4228) — Development journal (Japanese)
 - [Articles on Dev.to](https://dev.to/shimo4228) — English translations
 
