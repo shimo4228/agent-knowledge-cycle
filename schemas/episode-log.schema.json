@@ -1,0 +1,27 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/shimo4228/agent-knowledge-cycle/schemas/episode-log.schema.json",
+  "title": "AKC Episode Log Record",
+  "description": "One line of an AKC episode log (append-only JSONL, one record per line). See ADR-0002.",
+  "type": "object",
+  "required": ["ts", "type", "data"],
+  "additionalProperties": false,
+  "properties": {
+    "ts": {
+      "type": "string",
+      "format": "date-time",
+      "description": "ISO-8601 UTC timestamp assigned at write time."
+    },
+    "type": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 64,
+      "pattern": "^[a-z][a-z0-9_\\-]*$",
+      "description": "Event category. Lowercase identifier chosen by the adapter (e.g. 'session', 'action', 'observation', 'insight')."
+    },
+    "data": {
+      "type": "object",
+      "description": "Adapter-owned payload. AKC does not constrain this shape; downstream distillation is responsible for interpreting it."
+    }
+  }
+}

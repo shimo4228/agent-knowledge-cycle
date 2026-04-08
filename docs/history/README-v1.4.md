@@ -2,29 +2,11 @@
 
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.19200727.svg)](https://doi.org/10.5281/zenodo.19200727)
 
-A memory-centric, self-improving harness for AI coding agents.
+A cyclic self-improvement architecture for AI coding agents.
 
 ## What is AKC?
 
-AKC treats agent knowledge as a living asset: episodes are logged immutably,
-distilled into patterns, promoted to rules, and continuously audited. It is
-built on two complementary principles:
-
-1. **Self-improvement loop** — six composable phases (Research → Extract →
-   Curate → Promote → Measure → Maintain) keep skills, rules, and docs
-   aligned with reality. Without a maintenance loop, agent knowledge
-   degrades: skills go stale, rules contradict each other, documentation
-   drifts from the code.
-2. **Security by Absence** — dangerous capabilities (shell, arbitrary
-   network, filesystem traversal) are not restricted, they are *never
-   implemented*. Prompt injection cannot grant abilities the harness was
-   never built to have. See [ADR-0001](docs/adr/0001-security-by-absence.md).
-
-AKC is engineering, not ideology. It ships as specifications, schemas, ADRs,
-and a minimal reference example. Bring your own LLM, your own adapter, your
-own values.
-
-## The cycle
+AI coding agents accumulate skills, rules, and learned patterns over time. Without a maintenance loop, this knowledge degrades — skills go stale, rules contradict each other, documentation drifts from reality.
 
 AKC is a set of six composable skills that form a closed self-improvement loop:
 
@@ -100,20 +82,6 @@ AKC treats agent knowledge as a living system that requires continuous maintenan
 4. **Tool-agnostic in concept** — Designed for Claude Code but the architecture applies to any coding agent with persistent configuration.
 5. **Evaluation scales with model capability** — Small models benefit from rubric-based scoring; reasoning models (Opus-class) evaluate with full context and qualitative judgment. AKC does not prescribe one approach — it matches evaluation depth to the model's reasoning capacity.
 6. **Scaffold dissolution** — Skills are scaffolding. As the user and agent internalize the cycle, skills become unnecessary and rules alone sustain the loop. See [docs/scaffold-dissolution.md](docs/scaffold-dissolution.md).
-7. **Security by Absence** — Dangerous capabilities are not restricted, they are never implemented. See [ADR-0001](docs/adr/0001-security-by-absence.md).
-
-## Reference materials
-
-- [`docs/adr/`](docs/adr/) — architecture decision records for the seven
-  design principles, including threat model, distillation pipeline, and
-  approval gate.
-- [`schemas/`](schemas/) — JSON Schema definitions for the episode log and
-  knowledge store, usable independently of any implementation.
-- [`examples/minimal_harness/`](examples/minimal_harness/) — a dependency-free
-  Python reference implementation (~300 lines) showing the three memory
-  layers and the two-stage distill pipeline in action.
-- [`docs/inspiration.md`](docs/inspiration.md) — prior art and
-  acknowledgements.
 
 ## Relationship to Harness Engineering
 
@@ -159,22 +127,9 @@ Or in text:
 
 ## Related Work
 
-- [Contemplative Agent](https://github.com/shimo4228/contemplative-agent) — An
-  independent research repository exploring Contemplative Constitutional AI
-  on a local 9B model. Its engineering substrate (three-layer memory,
-  two-stage distillation, security-by-absence design) was the prior art that
-  seeded AKC's ADRs. See [`docs/inspiration.md`](docs/inspiration.md) for
-  details.
+- [Contemplative Agent](https://github.com/shimo4228/contemplative-agent) — A self-improving agent running on a local 9B model, with security-by-absence design
 - [Articles on Zenn](https://zenn.dev/shimo4228) — Development journal (Japanese)
 - [Articles on Dev.to](https://dev.to/shimo4228) — English translations
-
-## Acknowledgements
-
-Several ADRs and the reference implementation in `examples/minimal_harness/`
-are adapted from the [contemplative-agent](https://github.com/shimo4228/contemplative-agent)
-research repository. The contemplative research context (CCAI, Laukkonen
-et al. 2025) is not carried over; AKC treats the underlying engineering as
-harness-neutral.
 
 ## License
 

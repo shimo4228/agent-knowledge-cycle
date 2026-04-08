@@ -1,0 +1,48 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/shimo4228/agent-knowledge-cycle/schemas/knowledge.schema.json",
+  "title": "AKC Knowledge Store",
+  "description": "A list of distilled patterns produced by AKC's distill pipeline. See ADR-0003 and ADR-0004.",
+  "type": "array",
+  "items": {
+    "type": "object",
+    "required": ["pattern", "distilled", "importance"],
+    "additionalProperties": false,
+    "properties": {
+      "pattern": {
+        "type": "string",
+        "minLength": 1,
+        "description": "The distilled pattern text. Produced by Stage 2 of the two-stage distill pipeline."
+      },
+      "distilled": {
+        "type": "string",
+        "description": "ISO-8601 timestamp when the pattern was distilled, or the literal string 'unknown' for legacy entries.",
+        "anyOf": [
+          {"format": "date-time"},
+          {"const": "unknown"}
+        ]
+      },
+      "importance": {
+        "type": "number",
+        "minimum": 0.0,
+        "maximum": 1.0,
+        "description": "Base importance score. Effective importance at read time is computed as base * 0.95^days_elapsed."
+      },
+      "category": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 64,
+        "description": "Optional classification tag used to partition the store at retrieval time."
+      },
+      "source": {
+        "type": "string",
+        "description": "Optional provenance reference (e.g. batch id, log file date, distillation run id)."
+      },
+      "last_accessed": {
+        "type": "string",
+        "format": "date-time",
+        "description": "Optional ISO-8601 timestamp updated when the pattern is injected into a prompt."
+      }
+    }
+  }
+}
