@@ -4,14 +4,13 @@ All notable changes to AKC are recorded here. AKC follows semantic
 versioning; breaking changes to positioning or public interfaces bump the
 major version.
 
-## v2.0.0 — 2026-04-09
+## v1.5.0 — 2026-04-09
 
-Scope expansion: AKC is now positioned as a **memory-centric,
-self-improving harness** rather than solely a cyclic self-improvement
-architecture. The six-phase cycle remains unchanged; the v2.0 release
-adds a second foundational principle (Security by Absence) and absorbs
-engineering decisions from the contemplative-agent research repository
-as reusable specifications.
+Additive release. The six-phase cycle, the six skills, and the rules
+install path are unchanged. v1.5 adds a second foundational principle
+(Security by Absence), seven ADRs, JSON schemas, and a dependency-free
+Python reference implementation adapted from the contemplative-agent
+research repository.
 
 ### Added
 

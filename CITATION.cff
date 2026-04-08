@@ -2,7 +2,7 @@ cff-version: 1.2.0
 message: "If you use or reference this architecture, please cite it as below."
 type: software
 title: "Agent Knowledge Cycle (AKC)"
-version: "2.0.0"
+version: "1.5.0"
 abstract: "A memory-centric, self-improving harness for AI coding agents. AKC is built on two complementary principles. (1) A six-phase self-improvement loop — research existing solutions (search-first), extract reusable patterns from sessions (learn-eval), audit skill quality (skill-stocktake), distill cross-cutting principles into rules (rules-distill), measure behavioral compliance (skill-comply), and maintain documentation integrity (context-sync). (2) Security by Absence — dangerous capabilities (shell execution, arbitrary network, filesystem traversal) are not restricted; they are never implemented, so prompt injection cannot grant abilities the harness was never built to have. AKC ships as specifications, JSON schemas, seven architecture decision records, and a dependency-free Python reference implementation."
 authors:
   - family-names: Shimomoto
