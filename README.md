@@ -23,6 +23,37 @@ built on two complementary principles:
 AKC ships as specifications, schemas, ADRs, and a minimal reference
 example. Bring your own LLM and your own adapter.
 
+## What's in this repo
+
+```
+agent-knowledge-cycle/
+├── docs/
+│   ├── akc-cycle.md              # Behavioral rules — the cycle as a single rules file
+│   ├── scaffold-dissolution.md   # Skills are scaffolding; here is how they dissolve
+│   ├── inspiration.md            # Prior art
+│   └── adr/
+│       ├── 0001-security-by-absence.md           # Threat model + "what is never implemented"
+│       ├── 0002-immutable-episode-log.md         # JSONL, append-only, umask 0600
+│       ├── 0003-three-layer-distillation.md      # Raw → Knowledge → Identity/Rules
+│       ├── 0004-two-stage-distill-pipeline.md    # Free-form → structured format
+│       ├── 0005-human-approval-gate.md           # No auto-promotion to rules
+│       ├── 0006-single-external-adapter.md       # One side-effect surface per process
+│       └── 0007-untrusted-content-boundary.md    # Accumulated memory is untrusted input
+├── schemas/
+│   ├── episode-log.schema.json   # Layer 1 record shape
+│   └── knowledge.schema.json     # Layer 2 pattern shape
+└── examples/
+    └── minimal_harness/          # ~300 lines, stdlib only, deterministic demo
+        ├── episode_log.py        # Layer 1
+        ├── knowledge_store.py    # Layer 2 + time decay + forbidden-substring validation
+        ├── distill.py            # Two-stage pipeline, LLM-agnostic
+        └── demo.py               # python3 -m examples.minimal_harness.demo
+```
+
+Seven ADRs, two JSON schemas, one runnable reference, and the rules file
+that installs the whole cycle in a single `cp`. The six skills listed
+below remain the opinionated, full-fat implementation of each phase.
+
 ## The cycle
 
 AKC is a set of six composable skills that form a closed self-improvement loop:
@@ -100,19 +131,6 @@ AKC treats agent knowledge as a living system that requires continuous maintenan
 5. **Evaluation scales with model capability** — Small models benefit from rubric-based scoring; reasoning models (Opus-class) evaluate with full context and qualitative judgment. AKC does not prescribe one approach — it matches evaluation depth to the model's reasoning capacity.
 6. **Scaffold dissolution** — Skills are scaffolding. As the user and agent internalize the cycle, skills become unnecessary and rules alone sustain the loop. See [docs/scaffold-dissolution.md](docs/scaffold-dissolution.md).
 7. **Security by Absence** — Dangerous capabilities are not restricted, they are never implemented. See [ADR-0001](docs/adr/0001-security-by-absence.md).
-
-## Reference materials
-
-- [`docs/adr/`](docs/adr/) — architecture decision records for the seven
-  design principles, including threat model, distillation pipeline, and
-  approval gate.
-- [`schemas/`](schemas/) — JSON Schema definitions for the episode log and
-  knowledge store, usable independently of any implementation.
-- [`examples/minimal_harness/`](examples/minimal_harness/) — a dependency-free
-  Python reference implementation (~300 lines) showing the three memory
-  layers and the two-stage distill pipeline in action.
-- [`docs/inspiration.md`](docs/inspiration.md) — prior art and
-  acknowledgements.
 
 ## Relationship to Harness Engineering
 
