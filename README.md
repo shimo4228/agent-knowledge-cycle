@@ -33,14 +33,19 @@ agent-knowledge-cycle/
 │   ├── akc-cycle.md              # Behavioral rules — the cycle as a single rules file
 │   ├── scaffold-dissolution.md   # Skills are scaffolding; here is how they dissolve
 │   ├── inspiration.md            # Prior art
-│   └── adr/
-│       ├── 0001-security-by-absence.md           # Threat model + "what is never implemented"
-│       ├── 0002-immutable-episode-log.md         # JSONL, append-only, umask 0600
-│       ├── 0003-three-layer-distillation.md      # Raw → Knowledge → Identity/Rules
-│       ├── 0004-two-stage-distill-pipeline.md    # Free-form → structured format
-│       ├── 0005-human-approval-gate.md           # No auto-promotion to rules
-│       ├── 0006-single-external-adapter.md       # One side-effect surface per process
-│       └── 0007-untrusted-content-boundary.md    # Accumulated memory is untrusted input
+│   ├── adr/
+│   │   ├── 0001-security-by-absence.md           # Threat model + "what is never implemented"
+│   │   ├── 0002-immutable-episode-log.md         # JSONL, append-only, umask 0600
+│   │   ├── 0003-three-layer-distillation.md      # Raw → Knowledge → Identity/Rules
+│   │   ├── 0004-two-stage-distill-pipeline.md    # Free-form → structured format
+│   │   ├── 0005-human-approval-gate.md           # No auto-promotion to rules
+│   │   ├── 0006-single-external-adapter.md       # One side-effect surface per process
+│   │   ├── 0007-untrusted-content-boundary.md    # Accumulated memory is untrusted input
+│   │   └── 0008-code-and-llm-collaboration.md    # Code owns control flow, LLMs own meaning
+│   └── skills/                   # Design-pattern skills paired 1:1 with ADRs
+│       ├── when-code-when-llm.md                 # Per-task: structural vs semantic
+│       ├── code-and-llm-collaboration.md         # Per-pipeline: four layering patterns
+│       └── llm-agent-security-principles.md     # Concrete defense patterns for ADR-0001/0006/0007
 ├── schemas/
 │   ├── episode-log.schema.json   # Layer 1 record shape
 │   └── knowledge.schema.json     # Layer 2 pattern shape
@@ -52,9 +57,19 @@ agent-knowledge-cycle/
         └── demo.py               # python3 -m examples.minimal_harness.demo
 ```
 
-Seven ADRs, two JSON schemas, one runnable reference, and the rules file
-that installs the whole cycle in a single `cp`. The six skills listed
-below remain the opinionated, full-fat implementation of each phase.
+Eight ADRs, three design-pattern skills, two JSON schemas, one runnable
+reference, and the rules file that installs the whole cycle in a single
+`cp`. The six cycle skills listed below remain the opinionated,
+full-fat implementation of each phase.
+
+AKC ships **two kinds of skills**:
+
+- **Cycle skills** (external repositories) — one per phase of the
+  self-improvement loop: `search-first`, `learn-eval`, `skill-stocktake`,
+  `rules-distill`, `skill-comply`, `context-sync`.
+- **Design-pattern skills** ([`docs/skills/`](docs/skills/)) — long-form
+  "how" guides paired 1:1 with ADRs. These are cross-cutting and apply
+  in multiple phases.
 
 ## The cycle
 
@@ -133,6 +148,7 @@ AKC treats agent knowledge as a living system that requires continuous maintenan
 5. **Evaluation scales with model capability** — Small models benefit from rubric-based scoring; reasoning models (Opus-class) evaluate with full context and qualitative judgment. AKC does not prescribe one approach — it matches evaluation depth to the model's reasoning capacity.
 6. **Scaffold dissolution** — Skills are scaffolding. As the user and agent internalize the cycle, skills become unnecessary and rules alone sustain the loop. See [docs/scaffold-dissolution.md](docs/scaffold-dissolution.md).
 7. **Security by Absence** — Dangerous capabilities are not restricted, they are never implemented. See [ADR-0001](docs/adr/0001-security-by-absence.md).
+8. **Code-LLM Layering** — Code owns determinism, auditability, and control flow. LLMs own meaning. Layer them explicitly; never let the LLM own durable state or termination. See [ADR-0008](docs/adr/0008-code-and-llm-collaboration.md).
 
 ## Relationship to Harness Engineering
 

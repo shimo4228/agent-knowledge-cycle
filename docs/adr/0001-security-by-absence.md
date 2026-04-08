@@ -95,8 +95,26 @@ Before adding any new module, dependency, or capability, ask:
   unavailable. Users who need them build their own adapter and own the risk.
 - Code review gains a simple rule: "does this PR add a new side-effect type?"
   If yes, the PR either triggers a new ADR or is rejected.
-- A `git grep` for `subprocess`, `os.system`, `eval(`, `exec(`, and
-  `urllib.request.urlopen` is a valid compliance check.
+
+## Audit test
+
+Security by Absence is auditable with `grep`. If your codebase is clean,
+a single command returns zero hits (or only hits inside a reviewed
+adapter that was explicitly allowed by an ADR):
+
+```bash
+git grep -nE "subprocess|os\.system|\beval\(|\bexec\(|urlopen|requests\.(get|post|put|delete|patch)" \
+  -- ':!docs' ':!examples' ':!tests'
+```
+
+Tune the exclusions to your project. The rule is: **if the answer to
+"does capability X exist?" is not answerable by `grep`, you do not have
+Security by Absence — you have hope.** Add the grep to CI to make the
+check deterministic.
+
+See [`docs/skills/llm-agent-security-principles.md`](../skills/llm-agent-security-principles.md)
+for the full "how" reference, including the audit-test rationale,
+HTTP and credential hardening patterns, and a design-review checklist.
 
 ---
 

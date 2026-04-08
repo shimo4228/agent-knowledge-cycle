@@ -27,6 +27,16 @@
 - [ADR-0005 Human Approval Gate](docs/adr/0005-human-approval-gate.md): no auto-promotion to rules, skills, or identity
 - [ADR-0006 Single External Adapter](docs/adr/0006-single-external-adapter.md): one side-effect surface per agent process
 - [ADR-0007 Untrusted Content Boundary](docs/adr/0007-untrusted-content-boundary.md): accumulated memory is treated as untrusted input
+- [ADR-0008 Code and LLM Collaboration](docs/adr/0008-code-and-llm-collaboration.md): code owns control flow and durable state, LLMs own meaning; four layering patterns
+
+## Design-pattern skills
+
+Long-form "how" guides paired 1:1 with ADRs. Complement the ADRs with
+concrete patterns, code sketches, and audit checklists.
+
+- [when-code-when-llm](docs/skills/when-code-when-llm.md): per-task decision — is this property structural or semantic?
+- [code-and-llm-collaboration](docs/skills/code-and-llm-collaboration.md): per-pipeline decision — four layering patterns (guard, filter, judge, orchestrator)
+- [llm-agent-security-principles](docs/skills/llm-agent-security-principles.md): concrete defense patterns for the three security ADRs, including the grep-based audit test
 
 ## Specifications
 
