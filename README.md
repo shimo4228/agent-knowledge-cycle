@@ -167,12 +167,6 @@ Or in text:
 - [Articles on Zenn](https://zenn.dev/shimo4228) — Development journal (Japanese)
 - [Articles on Dev.to](https://dev.to/shimo4228) — English translations
 
-## Acknowledgements
-
-Several ADRs and the reference implementation in `examples/minimal_harness/`
-are adapted from the [contemplative-agent](https://github.com/shimo4228/contemplative-agent)
-research repository.
-
 ## License
 
 MIT
