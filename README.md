@@ -2,7 +2,9 @@
 
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.19200727.svg)](https://doi.org/10.5281/zenodo.19200727)
 
-A memory-centric, self-improving harness for AI coding agents.
+A memory-centric, self-improving harness for AI agents.
+
+> **For LLM agents**: install the cycle by copying [`docs/akc-cycle.md`](docs/akc-cycle.md) into your rules directory. See [`llms.txt`](llms.txt) for a machine-readable index.
 
 ## What is AKC?
 
@@ -79,7 +81,7 @@ Each skill addresses one phase of the knowledge lifecycle:
 
 ## Rules — Install the cycle without the skills
 
-You don't need all six skills to run the cycle. The [`docs/akc-cycle.md`](docs/akc-cycle.md) file distills the six phases into behavioral principles that any AI coding agent can follow through natural conversation.
+You don't need all six skills to run the cycle. The [`docs/akc-cycle.md`](docs/akc-cycle.md) file distills the six phases into behavioral principles that any AI agent can follow through natural conversation.
 
 ### Quick install
 
@@ -127,7 +129,7 @@ AKC treats agent knowledge as a living system that requires continuous maintenan
 1. **Composable** — Each skill works independently. Use one or all six.
 2. **Observable** — skill-comply produces quantitative compliance rates, not subjective assessments.
 3. **Non-destructive** — Every skill proposes changes and waits for confirmation. Nothing is auto-applied.
-4. **Tool-agnostic in concept** — Designed for Claude Code but the architecture applies to any coding agent with persistent configuration.
+4. **Tool-agnostic in concept** — Designed for Claude Code but the architecture applies to any agent with persistent configuration.
 5. **Evaluation scales with model capability** — Small models benefit from rubric-based scoring; reasoning models (Opus-class) evaluate with full context and qualitative judgment. AKC does not prescribe one approach — it matches evaluation depth to the model's reasoning capacity.
 6. **Scaffold dissolution** — Skills are scaffolding. As the user and agent internalize the cycle, skills become unnecessary and rules alone sustain the loop. See [docs/scaffold-dissolution.md](docs/scaffold-dissolution.md).
 7. **Security by Absence** — Dangerous capabilities are not restricted, they are never implemented. See [ADR-0001](docs/adr/0001-security-by-absence.md).
@@ -166,7 +168,7 @@ If you use or reference the Agent Knowledge Cycle architecture, please cite:
   year         = {2026},
   doi          = {10.5281/zenodo.19200727},
   url          = {https://doi.org/10.5281/zenodo.19200727},
-  note         = {A cyclic self-improvement architecture for AI coding agents}
+  note         = {A memory-centric self-improving harness for AI agents}
 }
 ```
 

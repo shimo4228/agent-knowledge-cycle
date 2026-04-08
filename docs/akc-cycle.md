@@ -1,6 +1,6 @@
 # AKC Rules
 
-Behavioral principles for AI coding agents implementing the Agent Knowledge Cycle. These rules distill the AKC phases into actionable guidance that works without installing individual AKC skills.
+Behavioral principles for AI agents implementing the Agent Knowledge Cycle. These rules distill the AKC phases into actionable guidance that works without installing individual AKC skills.
 
 Copy this file to your agent's rules directory (e.g., `~/.claude/rules/`) and the cycle will run through natural conversation.
 

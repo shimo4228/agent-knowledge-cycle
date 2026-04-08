@@ -8,7 +8,7 @@ accepted
 
 ## Context
 
-AI coding agents accumulate capabilities over time: shell execution, arbitrary
+AI agents accumulate capabilities over time: shell execution, arbitrary
 HTTP, filesystem traversal, credential access. Each capability becomes a new
 attack surface. Prompt injection — increasingly well-documented — can turn any
 capability the agent possesses into an exploit vector, regardless of how the

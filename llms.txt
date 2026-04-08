@@ -1,0 +1,52 @@
+# Agent Knowledge Cycle (AKC)
+
+> A memory-centric, self-improving harness for AI agents.
+> Built on two complementary principles: a six-phase self-improvement
+> loop (Research → Extract → Curate → Promote → Measure → Maintain),
+> and Security by Absence — dangerous capabilities (shell, arbitrary
+> network, filesystem traversal) are never implemented, so prompt
+> injection cannot grant abilities the harness was never built to have.
+>
+> AKC ships as specifications, JSON schemas, architecture decision
+> records, and a dependency-free Python reference implementation.
+
+## Core documentation
+
+- [README](README.md): project overview, repo tree, design principles
+- [AKC Cycle Rules](docs/akc-cycle.md): the cycle as a single rules file, copy-installable to any agent's rules directory
+- [Scaffold Dissolution](docs/scaffold-dissolution.md): how skills become unnecessary once the cycle is internalized
+- [Inspiration](docs/inspiration.md): prior art and acknowledgements
+- [Changelog](CHANGELOG.md): release history
+
+## Architecture Decision Records
+
+- [ADR-0001 Security by Absence](docs/adr/0001-security-by-absence.md): threat model and the list of capabilities that are never implemented
+- [ADR-0002 Immutable Episode Log](docs/adr/0002-immutable-episode-log.md): append-only JSONL, daily partitioning, owner-only permissions
+- [ADR-0003 Three-Layer Distillation](docs/adr/0003-three-layer-distillation.md): Raw episodes → Knowledge → Identity/Rules
+- [ADR-0004 Two-Stage Distill Pipeline](docs/adr/0004-two-stage-distill-pipeline.md): free-form reasoning followed by structured formatting
+- [ADR-0005 Human Approval Gate](docs/adr/0005-human-approval-gate.md): no auto-promotion to rules, skills, or identity
+- [ADR-0006 Single External Adapter](docs/adr/0006-single-external-adapter.md): one side-effect surface per agent process
+- [ADR-0007 Untrusted Content Boundary](docs/adr/0007-untrusted-content-boundary.md): accumulated memory is treated as untrusted input
+
+## Specifications
+
+- [Episode log schema](schemas/episode-log.schema.json): Layer 1 record shape
+- [Knowledge store schema](schemas/knowledge.schema.json): Layer 2 pattern shape
+
+## Reference implementation
+
+- [examples/minimal_harness/](examples/minimal_harness/): ~300-line dependency-free Python reference demonstrating the three memory layers and the two-stage distill pipeline
+- [examples/minimal_harness/demo.py](examples/minimal_harness/demo.py): deterministic end-to-end demo, runnable with `python3 -m examples.minimal_harness.demo`
+
+## Optional: the six skills
+
+AKC was originally a set of six composable skills, one per phase. They
+remain available as external repositories but are not required — the
+rules file above installs the entire cycle.
+
+- [search-first](https://github.com/shimo4228/claude-skill-search-first) (Research)
+- [learn-eval](https://github.com/shimo4228/claude-skill-learn-eval) (Extract)
+- [skill-stocktake](https://github.com/shimo4228/claude-skill-stocktake) (Curate)
+- [rules-distill](https://github.com/shimo4228/claude-skill-rules-distill) (Promote)
+- [skill-comply](https://github.com/shimo4228/claude-skill-comply) (Measure)
+- [context-sync](https://github.com/shimo4228/claude-skill-context-sync) (Maintain)
