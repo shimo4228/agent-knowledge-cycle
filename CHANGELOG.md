@@ -11,7 +11,7 @@ self-improving harness** rather than solely a cyclic self-improvement
 architecture. The six-phase cycle remains unchanged; the v2.0 release
 adds a second foundational principle (Security by Absence) and absorbs
 engineering decisions from the contemplative-agent research repository
-as harness-neutral specifications.
+as reusable specifications.
 
 ### Added
 

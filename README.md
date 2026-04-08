@@ -20,9 +20,8 @@ built on two complementary principles:
    implemented*. Prompt injection cannot grant abilities the harness was
    never built to have. See [ADR-0001](docs/adr/0001-security-by-absence.md).
 
-AKC is engineering, not ideology. It ships as specifications, schemas, ADRs,
-and a minimal reference example. Bring your own LLM, your own adapter, your
-own values.
+AKC ships as specifications, schemas, ADRs, and a minimal reference
+example. Bring your own LLM and your own adapter.
 
 ## The cycle
 
@@ -172,9 +171,7 @@ Or in text:
 
 Several ADRs and the reference implementation in `examples/minimal_harness/`
 are adapted from the [contemplative-agent](https://github.com/shimo4228/contemplative-agent)
-research repository. The contemplative research context (CCAI, Laukkonen
-et al. 2025) is not carried over; AKC treats the underlying engineering as
-harness-neutral.
+research repository.
 
 ## License
 
