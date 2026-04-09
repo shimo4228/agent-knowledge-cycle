@@ -1,5 +1,7 @@
 # ADR-0003: Three-Layer Distillation (Raw → Knowledge → Identity/Rules)
 
+> **Summary.** Agent memory is organized in three layers — raw episode log, distilled knowledge, identity and rules — each a pure function of the layer below plus a template. Layers 2 and 3 are disposable and can be regenerated from Layer 1.
+
 ## Status
 accepted
 

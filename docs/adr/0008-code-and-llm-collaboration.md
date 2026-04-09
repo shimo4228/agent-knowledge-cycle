@@ -1,5 +1,7 @@
 # ADR-0008: Code and LLM Collaboration
 
+> **Summary.** Code owns determinism, auditability, and control flow. LLMs own meaning. The two are layered explicitly through four named patterns (LLM→Code guard, Code filter→LLM, LLM judge + Code enforce, Code orchestrator + LLM worker). The LLM never owns durable state or termination.
+
 ## Status
 accepted
 

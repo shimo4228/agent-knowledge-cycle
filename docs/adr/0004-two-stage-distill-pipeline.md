@@ -1,5 +1,7 @@
 # ADR-0004: Two-Stage Distill Pipeline (Free-form → Format)
 
+> **Summary.** Distillation is split into a free-form reasoning stage followed by a strict formatting stage, so the LLM never has to discover content and satisfy a schema in the same call. This decoupling substantially improves quality on smaller local models.
+
 ## Status
 accepted
 

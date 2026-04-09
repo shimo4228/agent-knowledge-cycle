@@ -57,10 +57,13 @@ agent-knowledge-cycle/
         └── demo.py               # python3 -m examples.minimal_harness.demo
 ```
 
-Eight ADRs, three design-pattern skills, two JSON schemas, one runnable
-reference, and the rules file that installs the whole cycle in a single
-`cp`. The six cycle skills listed below remain the opinionated,
-full-fat implementation of each phase.
+Eight ADRs, eight design principles, three design-pattern skills, two
+JSON schemas, one ~300-line runnable reference implementation, and the
+rules file that installs the whole cycle in a single `cp`. AKC defines
+three memory layers, four code-LLM layering patterns, and six
+capabilities the harness deliberately never implements. The six cycle
+skills listed below remain the opinionated, full-fat implementation of
+each phase.
 
 AKC ships **two kinds of skills**:
 

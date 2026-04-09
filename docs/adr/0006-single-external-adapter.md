@@ -1,5 +1,7 @@
 # ADR-0006: Single External Adapter per Agent Process
 
+> **Summary.** A single agent process has at most one external adapter, pinned to one destination with a narrow interface. Multiple external surfaces must be split into multiple processes, each with its own log, its own knowledge, and its own adapter.
+
 ## Status
 accepted
 

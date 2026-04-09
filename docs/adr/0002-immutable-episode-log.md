@@ -1,5 +1,7 @@
 # ADR-0002: Immutable Episode Log as Source of Truth
 
+> **Summary.** A single append-only JSONL file per UTC day, written with owner-only permissions, is the only source of truth from which all higher memory layers are derived. Knowledge and rules are disposable; the log is not.
+
 ## Status
 accepted
 

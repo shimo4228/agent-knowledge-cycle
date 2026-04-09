@@ -1,5 +1,7 @@
 # ADR-0001: Security by Absence as a First-Class Principle
 
+> **Summary.** Dangerous agent capabilities — shell execution, arbitrary network access, filesystem traversal, dynamic code evaluation — are not restricted. They are never implemented. Prompt injection cannot grant abilities the harness was never built to have.
+
 ## Status
 accepted
 

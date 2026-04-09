@@ -1,5 +1,7 @@
 # ADR-0005: Human Approval Gate for Behavior-Modifying Changes
 
+> **Summary.** Changes that modify future agent behavior — rules, skills, identity — are proposed and wait for explicit human approval before taking effect. The harness never auto-applies them, and no "auto-approve after N days" escape hatch exists.
+
 ## Status
 accepted
 
