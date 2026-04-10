@@ -203,6 +203,9 @@ Or in text:
   details.
 - [Articles on Zenn](https://zenn.dev/shimo4228) — Development journal (Japanese)
 - [Articles on Dev.to](https://dev.to/shimo4228) — English translations
+
+## References
+
 - [Mind in Life](https://www.hup.harvard.edu/books/9780674057517) (Evan Thompson, 2007) —
   AKC's bidirectional loop between human and agent draws on the enactivist
   concept of structural coupling: two autonomous systems that interact
