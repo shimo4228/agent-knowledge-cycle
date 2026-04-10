@@ -9,18 +9,14 @@ A memory-centric, self-improving harness for AI agents.
 ## What is AKC?
 
 AKC treats agent knowledge as a living asset: episodes are logged immutably,
-distilled into patterns, promoted to rules, and continuously audited. It is
-built on two complementary principles:
+distilled into patterns, promoted to rules, and continuously audited.
+Six composable phases (Research → Extract → Curate → Promote → Measure →
+Maintain) keep skills, rules, and docs aligned with reality. Without a
+maintenance loop, agent knowledge degrades: skills go stale, rules
+contradict each other, documentation drifts from the code.
 
-1. **Self-improvement loop** — six composable phases (Research → Extract →
-   Curate → Promote → Measure → Maintain) keep skills, rules, and docs
-   aligned with reality. Without a maintenance loop, agent knowledge
-   degrades: skills go stale, rules contradict each other, documentation
-   drifts from the code.
-2. **Security by Absence** — dangerous capabilities (shell, arbitrary
-   network, filesystem traversal) are not restricted, they are *never
-   implemented*. Prompt injection cannot grant abilities the harness was
-   never built to have. See [ADR-0001](docs/adr/0001-security-by-absence.md).
+This is not a one-directional optimization loop — the cycle changes
+the human too. See [Why a cycle?](#why-a-cycle) below.
 
 AKC ships as specifications, schemas, ADRs, and a minimal reference
 example. Bring your own LLM and your own adapter.
@@ -210,7 +206,7 @@ Or in text:
 - [Mind in Life](https://www.hup.harvard.edu/books/9780674057517) (Evan Thompson, 2007) —
   AKC's bidirectional loop between human and agent draws on the enactivist
   concept of structural coupling: two autonomous systems that interact
-  repeatedly co-determine each other's development.
+  repeatedly shape each other's development.
 
 ## License
 

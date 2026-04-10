@@ -68,32 +68,6 @@ Every documentation file serves one of four roles: Context (how to work here), A
 
 **Trigger**: After major refactoring, when context files exceed ~200 lines, or when documentation claims feel wrong.
 
-## Security by Absence — Don't implement what can be exploited
-
-Dangerous capabilities are safer absent than restricted. Before adding a new
-module, dependency, or capability:
-
-1. Ask whether it introduces a new side effect the harness previously could
-   not perform (shell execution, arbitrary network, filesystem writes outside
-   the data directory, dynamic code loading, remote control channels)
-2. If yes, assume an attacker-controlled input could reach it via prompt
-   injection or a compromised dependency
-3. Prefer a design that does not require the capability. If it is genuinely
-   unavoidable, route it through a single pinned adapter (see ADR-0006) and
-   a human approval gate (see ADR-0005)
-
-Restrictions (allowlists, sandboxes, permission prompts) are code that must
-be maintained and can fail open on misconfiguration. Capabilities that do
-not exist in the codebase cannot be granted by any prompt.
-
-**Trigger**: Any PR that adds a new dependency, a new external surface, or
-a new side-effect type. Also: whenever a feature request reaches for
-"just shell out to …" or "just fetch …".
-
-See [`docs/adr/0001-security-by-absence.md`](adr/0001-security-by-absence.md)
-for the threat model and the full list of what the harness does not
-implement.
-
 ## Scaffold Dissolution
 
 These rules are scaffolding. As the user and agent internalize the cycle through practice:
