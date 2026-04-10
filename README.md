@@ -142,6 +142,8 @@ AKC treats agent knowledge as a living system that requires continuous maintenan
 | Wheels get reinvented | search-first checks for existing solutions first |
 | Learnings are lost | learn-eval extracts patterns with quality gates |
 
+The cycle also changes the human. Through repeated Curate and Promote decisions, users sharpen their judgment about what knowledge is worth keeping. Through Research, they develop better intuition for when to adopt existing solutions versus building new ones. Through Measure, they learn what makes a good rule versus a vague aspiration. AKC is not a one-directional optimization loop where the agent improves in isolation — it is a bidirectional growth loop where human and agent co-develop through sustained interaction.
+
 ## Design Principles
 
 1. **Composable** — Each skill works independently. Use one or all six.
@@ -205,6 +207,10 @@ Or in text:
   details.
 - [Articles on Zenn](https://zenn.dev/shimo4228) — Development journal (Japanese)
 - [Articles on Dev.to](https://dev.to/shimo4228) — English translations
+- [Mind in Life](https://www.hup.harvard.edu/books/9780674057517) (Evan Thompson, 2007) —
+  AKC's bidirectional loop between human and agent draws on the enactivist
+  concept of structural coupling: two autonomous systems that interact
+  repeatedly co-determine each other's development.
 
 ## License
 
