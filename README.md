@@ -204,28 +204,28 @@ Or in text:
 - [Articles on Zenn](https://zenn.dev/shimo4228) — Development journal (Japanese)
 - [Articles on Dev.to](https://dev.to/shimo4228) — English translations
 
+## Acknowledgments
+
+AKC stands on the foundation of [Everything Claude Code (ECC)](https://github.com/affaan-m/everything-claude-code)
+by [@affaan-m](https://github.com/affaan-m). ECC was the baseline
+harness I used every day, and its skills and rules gave me a rich
+starting point to build on. Over months of daily use I added my own
+skills and rules on top of ECC, and they proliferated faster than I
+could track — skills went stale, rules started contradicting each
+other, documentation drifted from the code. I kept having to audit
+the mess and decide what to keep, what to merge, and what to promote
+into a durable rule. The six-phase cycle is what that recurring
+maintenance work looked like once I noticed the shape of it.
+
+Without ECC as the ground to stand on, AKC would not exist. Deep
+thanks to affaan-m and every contributor to ECC.
+
 ## References
 
-AKC was built from practice, not theory. It started with the skills and
-rules shipped by [Everything Claude Code (ECC)](https://github.com/affaan-m/everything-claude-code)
-as a baseline harness. Over months of daily use I added my own skills
-and rules on top, and they proliferated faster than I could track.
-Skills went stale, rules started contradicting each other, and
-documentation drifted from the code. I kept having to audit the mess
-and decide what to keep, what to merge, and what to promote into a
-durable rule. The six-phase cycle is what that recurring maintenance
-work looked like once I noticed the shape of it.
-
-- [Everything Claude Code (ECC)](https://github.com/affaan-m/everything-claude-code) —
-  The baseline harness that AKC grew out of. ECC's skills and rules
-  gave me a rich starting point to build on, and AKC is in many ways a
-  response to the practical question of how to live with a harness
-  like ECC over time.
-
-The following works were not consulted during the process above, but
-the resulting cycle seems to share something with the ideas in them.
-They are listed here for readers who might find the resonance
-interesting.
+AKC was built from practice, not theory. The following works were not
+consulted during the process described above, but the resulting cycle
+seems to share something with the ideas in them. They are listed here
+for readers who might find the resonance interesting.
 
 - [Mind in Life](https://www.hup.harvard.edu/books/9780674057517) (Evan Thompson, 2007) —
   The bidirectional loop between human and agent has something in common
