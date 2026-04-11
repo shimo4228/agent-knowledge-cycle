@@ -2,7 +2,7 @@
 
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.19200727.svg)](https://doi.org/10.5281/zenodo.19200727)
 
-A memory-centric, self-improving harness for AI agents.
+A knowledge cycle for AI agents — one that grows with the people who shape it.
 
 > **For LLM agents**: install the cycle by copying [`docs/akc-cycle.md`](docs/akc-cycle.md) into your rules directory. See [`llms.txt`](llms.txt) for a machine-readable index.
 
@@ -57,9 +57,9 @@ Eight ADRs, eight design principles, three design-pattern skills, two
 JSON schemas, one ~300-line runnable reference implementation, and the
 rules file that installs the whole cycle in a single `cp`. AKC defines
 three memory layers, four code-LLM layering patterns, and six
-capabilities the harness deliberately never implements. The six cycle
-skills listed below remain the opinionated, full-fat implementation of
-each phase.
+capabilities the reference implementation deliberately never implements.
+The six cycle skills listed below remain the opinionated, full-fat
+implementation of each phase.
 
 AKC ships **two kinds of skills**:
 
@@ -185,7 +185,7 @@ If you use or reference the Agent Knowledge Cycle architecture, please cite:
   year         = {2026},
   doi          = {10.5281/zenodo.19200727},
   url          = {https://doi.org/10.5281/zenodo.19200727},
-  note         = {A memory-centric self-improving harness for AI agents}
+  note         = {A knowledge cycle for AI agents — one that grows with the people who shape it}
 }
 ```
 
