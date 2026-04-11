@@ -206,10 +206,18 @@ Or in text:
 
 ## References
 
+AKC was built from practice, not theory. The following works were not
+consulted during design, but the resulting cycle seems to share something
+with the ideas in them. They are listed here for readers who might find
+the resonance interesting.
+
 - [Mind in Life](https://www.hup.harvard.edu/books/9780674057517) (Evan Thompson, 2007) —
-  AKC's bidirectional loop between human and agent draws on the enactivist
-  concept of structural coupling: two autonomous systems that interact
-  repeatedly shape each other's development.
+  The bidirectional loop between human and agent has something in common
+  with the enactivist idea of structural coupling.
+- [A Beautiful Loop: An Active Inference Theory of Consciousness](https://www.sciencedirect.com/science/article/pii/S0149763425002970)
+  (Laukkonen, Friston, & Chandaria, 2025) — The way the human updates
+  rules and skills by observing what the agent actually does feels
+  vaguely like a recursive self-modeling loop.
 
 ## License
 
