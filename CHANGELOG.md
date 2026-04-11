@@ -4,6 +4,76 @@ All notable changes to AKC are recorded here. AKC follows semantic
 versioning; breaking changes to positioning or public interfaces bump the
 major version.
 
+## v1.7.0 — 2026-04-11
+
+Conceptual repositioning. AKC is no longer described as a "self-improving
+harness." It is now a **knowledge cycle for AI agents — one that grows
+with the people who shape it**. No code changes; this is a positioning
+release with significant documentation updates.
+
+See [ADR-0009](docs/adr/0009-akc-is-a-cycle-not-a-harness.md) for the
+full rationale.
+
+### Added
+
+- **ADR-0009 AKC is a Cycle, Not a Harness** — articulates why the
+  "self-improving harness" framing was wrong (layer confusion with ECC,
+  two-pillar drift, missing bidirectional growth) and how AKC is now
+  positioned. Catalogues the three concrete changes: cycle as the sole
+  defining characteristic, Security by Absence demoted to a design
+  principle, bidirectional growth made explicit.
+- **README "Acknowledgments" section** — explicit recognition that AKC
+  grew out of daily use of Everything Claude Code (ECC). Without ECC as
+  the practical baseline, AKC would not exist.
+- **README "References" section** — post-hoc theoretical resonances
+  noticed after the fact: Thompson's *Mind in Life* (structural
+  coupling) and Laukkonen, Friston, & Chandaria's *A Beautiful Loop*
+  (recursive self-modeling). AKC was built from practice, not theory;
+  these references are listed for readers who might find the resonance
+  interesting.
+- **README bidirectional growth language** — the cycle is not a
+  one-directional optimization loop. The human side changes too:
+  judgment about what to keep and discard, intuition about when to adopt
+  versus build, sensitivity to what makes a rule good versus vague.
+
+### Changed
+
+- **README tagline** — "A memory-centric, self-improving harness for
+  AI agents" → "A knowledge cycle for AI agents — one that grows with
+  the people who shape it."
+- **README "What is AKC?"** — removed Security by Absence as a co-equal
+  pillar. The cycle is now the sole defining characteristic. Security
+  by Absence remains in Design Principles #7 and ADR-0001.
+- **docs/akc-cycle.md** — removed the Security by Absence section.
+  Security remains as a design principle and as ADR-0001; it is no
+  longer presented as a phase-equivalent rule in the rules file.
+- **CITATION.cff** — bumped to v1.7.0. Abstract rewritten to match the
+  new positioning. Removed `harness` keyword; added `bidirectional-growth`
+  and `human-ai-collaboration` keywords.
+- **llms.txt** — opening summary rewritten. ADR-0009 added to the index.
+- **README BibTeX note** — updated to match new tagline.
+- **GitHub repository description** — updated to match new tagline.
+
+### Not changed
+
+- The six phases (Research → Extract → Curate → Promote → Measure →
+  Maintain). The cycle skills (`search-first`, `learn-eval`,
+  `skill-stocktake`, `rules-distill`, `skill-comply`, `context-sync`).
+- ADRs 0001–0008. Schemas. Reference implementation
+  (`examples/minimal_harness/`). Design-pattern skills.
+- Security by Absence as a design principle and as a load-bearing
+  guarantee. Only its rhetorical position changed, not its content.
+- The repository name, the abbreviation AKC, and the project identifier.
+
+### Why a minor bump
+
+Pure semver would call a docs-only change a patch. v1.7.0 is a minor
+bump because the README is part of the project's identity contract:
+what AKC *is* changed in this release, even though no code did. The
+distinction matters for academic citation — work referencing AKC v1.6
+encounters the harness framing, while v1.7 onward encounters the cycle
+framing.
+
 ## v1.6.0 — 2026-04-09
 
 Additive release. The eighth ADR and a new category of skills

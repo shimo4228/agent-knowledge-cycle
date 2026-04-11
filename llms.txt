@@ -1,11 +1,16 @@
 # Agent Knowledge Cycle (AKC)
 
-> A memory-centric, self-improving harness for AI agents.
-> Built on two complementary principles: a six-phase self-improvement
-> loop (Research → Extract → Curate → Promote → Measure → Maintain),
-> and Security by Absence — dangerous capabilities (shell, arbitrary
-> network, filesystem traversal) are never implemented, so prompt
-> injection cannot grant abilities the harness was never built to have.
+> A knowledge cycle for AI agents — one that grows with the people who
+> shape it. AKC is a six-phase self-improvement loop (Research → Extract
+> → Curate → Promote → Measure → Maintain) that keeps skills, rules,
+> and documentation aligned with reality. It is not a one-directional
+> optimization loop: as the human curates and promotes knowledge, their
+> judgment about what makes good agent behavior also sharpens.
+>
+> AKC is not a harness. It runs on top of harnesses (like Everything
+> Claude Code) to keep the harness alive as understanding evolves.
+> Security by Absence is one of eight design principles, not a
+> co-equal pillar — see ADR-0009 for the repositioning rationale.
 >
 > AKC ships as specifications, JSON schemas, architecture decision
 > records, and a dependency-free Python reference implementation.
@@ -28,6 +33,7 @@
 - [ADR-0006 Single External Adapter](docs/adr/0006-single-external-adapter.md): one side-effect surface per agent process
 - [ADR-0007 Untrusted Content Boundary](docs/adr/0007-untrusted-content-boundary.md): accumulated memory is treated as untrusted input
 - [ADR-0008 Code and LLM Collaboration](docs/adr/0008-code-and-llm-collaboration.md): code owns control flow and durable state, LLMs own meaning; four layering patterns
+- [ADR-0009 AKC is a Cycle, Not a Harness](docs/adr/0009-akc-is-a-cycle-not-a-harness.md): repositioning AKC as a knowledge cycle rather than a self-improving harness; demoting Security by Absence from co-equal pillar to design principle
 
 ## Design-pattern skills
 

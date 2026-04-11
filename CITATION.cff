@@ -2,8 +2,8 @@ cff-version: 1.2.0
 message: "If you use or reference this architecture, please cite it as below."
 type: software
 title: "Agent Knowledge Cycle (AKC)"
-version: "1.6.0"
-abstract: "A memory-centric, self-improving harness for AI agents. AKC is built on two complementary principles. (1) A six-phase self-improvement loop — research existing solutions (search-first), extract reusable patterns from sessions (learn-eval), audit skill quality (skill-stocktake), distill cross-cutting principles into rules (rules-distill), measure behavioral compliance (skill-comply), and maintain documentation integrity (context-sync). (2) Security by Absence — dangerous capabilities (shell execution, arbitrary network, filesystem traversal) are not restricted; they are never implemented, so prompt injection cannot grant abilities the harness was never built to have. AKC ships as specifications, JSON schemas, seven architecture decision records, and a dependency-free Python reference implementation."
+version: "1.7.0"
+abstract: "A knowledge cycle for AI agents — one that grows with the people who shape it. AKC is a six-phase self-improvement loop (Research → Extract → Curate → Promote → Measure → Maintain) that keeps skills, rules, and documentation aligned with reality over time. Unlike one-directional optimization frameworks, AKC is bidirectional: as the human curates and promotes knowledge, their judgment about what makes good agent behavior also sharpens. AKC is not a harness — it runs on top of harnesses (like Everything Claude Code) to keep them coherent as understanding evolves. Security by Absence is one of eight design principles (see ADR-0001), not a co-equal definitional element. AKC ships as specifications, JSON schemas, nine architecture decision records, three design-pattern skills, and a dependency-free Python reference implementation. v1.7.0 repositions AKC from a self-improving harness to a knowledge cycle (see ADR-0009)."
 authors:
   - family-names: Shimomoto
     given-names: Tatsuya
@@ -21,5 +21,6 @@ keywords:
   - agent-knowledge-cycle
   - security-by-absence
   - memory-centric
-  - harness
-date-released: "2026-04-09"
+  - bidirectional-growth
+  - human-ai-collaboration
+date-released: "2026-04-11"

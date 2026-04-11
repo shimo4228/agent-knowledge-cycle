@@ -16,6 +16,7 @@ considered, and the consequences.
 | [0006](0006-single-external-adapter.md) | Single External Adapter per Agent Process |
 | [0007](0007-untrusted-content-boundary.md) | Untrusted Content Boundary |
 | [0008](0008-code-and-llm-collaboration.md) | Code and LLM Collaboration |
+| [0009](0009-akc-is-a-cycle-not-a-harness.md) | AKC is a Cycle, Not a Harness |
 
 Several ADRs are adapted from the [contemplative-agent](https://github.com/shimo4228/contemplative-agent)
 research repository, which served as prior art. Credit is given at the
