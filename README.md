@@ -1,3 +1,5 @@
+Language: English | [日本語](README.ja.md)
+
 # Agent Knowledge Cycle (AKC)
 
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.19200727.svg)](https://doi.org/10.5281/zenodo.19200727)
@@ -37,7 +39,9 @@ agent-knowledge-cycle/
 │   │   ├── 0005-human-approval-gate.md           # No auto-promotion to rules
 │   │   ├── 0006-single-external-adapter.md       # One side-effect surface per process
 │   │   ├── 0007-untrusted-content-boundary.md    # Accumulated memory is untrusted input
-│   │   └── 0008-code-and-llm-collaboration.md    # Code owns control flow, LLMs own meaning
+│   │   ├── 0008-code-and-llm-collaboration.md    # Code owns control flow, LLMs own meaning
+│   │   ├── 0009-akc-is-a-cycle-not-a-harness.md  # Cycle as sole defining characteristic
+│   │   └── 0010-human-cognitive-resource-as-central-constraint.md  # Signal-first Research; cognitive economy
 │   └── skills/                   # Design-pattern skills paired 1:1 with ADRs
 │       ├── when-code-when-llm.md                 # Per-task: structural vs semantic
 │       ├── code-and-llm-collaboration.md         # Per-pipeline: four layering patterns
@@ -53,7 +57,7 @@ agent-knowledge-cycle/
         └── demo.py               # python3 -m examples.minimal_harness.demo
 ```
 
-Eight ADRs, eight design principles, three design-pattern skills, two
+Ten ADRs, nine design principles, three design-pattern skills, two
 JSON schemas, one ~300-line runnable reference implementation, and the
 rules file that installs the whole cycle in a single `cp`. AKC defines
 three memory layers, four code-LLM layering patterns, and six
@@ -86,7 +90,7 @@ Each skill addresses one phase of the knowledge lifecycle:
 
 | Skill | Phase | What it does |
 |-------|-------|-------------|
-| [search-first](https://github.com/shimo4228/claude-skill-search-first) | Research | Search for existing solutions before building new ones |
+| [search-first](https://github.com/shimo4228/claude-skill-search-first) | Research | Search broadly, filter by signal — intake only what would change the next action |
 | [learn-eval](https://github.com/shimo4228/claude-skill-learn-eval) | Extract | Extract reusable patterns from sessions with quality gates |
 | [skill-stocktake](https://github.com/shimo4228/claude-skill-stocktake) | Curate | Audit installed skills for staleness, conflicts, and redundancy |
 | [rules-distill](https://github.com/shimo4228/claude-skill-rules-distill) | Promote | Distill cross-cutting principles from skills into rules |
@@ -110,7 +114,7 @@ That's it. The cycle will run through conversation — no skills, no plugins, no
 
 | Phase | Rule summary |
 |-------|-------------|
-| Research | Search for existing solutions before building new ones |
+| Research | Search broadly, filter by signal — intake only what would change the next action |
 | Extract | Capture reusable patterns from sessions with quality evaluation |
 | Curate | Periodically audit for redundancy, staleness, and silence |
 | Promote | Elevate patterns that recur 3+ times to the rule layer |
@@ -140,6 +144,10 @@ AKC treats agent knowledge as a living system that requires continuous maintenan
 
 The cycle also changes the human. Through repeated Curate and Promote decisions, users sharpen their judgment about what knowledge is worth keeping. Through Research, they develop better intuition for when to adopt existing solutions versus building new ones. Through Measure, they learn what makes a good rule versus a vague aspiration. AKC is not a one-directional optimization loop where the agent improves in isolation — it is a bidirectional growth loop where human and agent co-develop through sustained interaction.
 
+### Whose cognitive budget is the cycle protecting?
+
+The human's. As agent capability grows, the scarce resource is no longer compute or context but human attention and judgment. AKC's phases are shaped around that scarcity: Research is signal-first so intake does not exceed digestion; Promote converts recurring decisions into rules so the same judgment is not re-made every session; Measure replaces manual re-auditing with observable compliance checks; and pre-implementation dialogue is front-loaded because intent misalignment discovered at review time is more expensive than the conversation that would have prevented it. Running the cycle is not free — but it is how the cycle protects the one resource that does not scale with the model. See [ADR-0010](docs/adr/0010-human-cognitive-resource-as-central-constraint.md).
+
 ## Design Principles
 
 1. **Composable** — Each skill works independently. Use one or all six.
@@ -150,6 +158,7 @@ The cycle also changes the human. Through repeated Curate and Promote decisions,
 6. **Scaffold dissolution** — Skills are scaffolding. As the user and agent internalize the cycle, skills become unnecessary and rules alone sustain the loop. See [docs/scaffold-dissolution.md](docs/scaffold-dissolution.md).
 7. **Security by Absence** — Dangerous capabilities are not restricted, they are never implemented. See [ADR-0001](docs/adr/0001-security-by-absence.md).
 8. **Code-LLM Layering** — Code owns determinism, auditability, and control flow. LLMs own meaning. Layer them explicitly; never let the LLM own durable state or termination. See [ADR-0008](docs/adr/0008-code-and-llm-collaboration.md).
+9. **Human cognitive resource is the bottleneck** — As agent capability grows, the scarce resource is no longer compute or context but human attention and judgment. Every phase is shaped to protect that budget: signal-first intake in Research, rule promotion so the same decision is not re-made, compliance measurement so the human does not re-audit manually, and front-loaded dialogue because misaligned implementation costs more than the conversation that would have prevented it. See [ADR-0010](docs/adr/0010-human-cognitive-resource-as-central-constraint.md).
 
 ## Relationship to Harness Engineering
 

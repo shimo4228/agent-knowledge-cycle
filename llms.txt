@@ -7,9 +7,15 @@
 > optimization loop: as the human curates and promotes knowledge, their
 > judgment about what makes good agent behavior also sharpens.
 >
+> AKC treats human cognitive resources — attention and judgment — as
+> the central constraint that does not scale with the model. Research
+> is signal-first, recurring decisions are promoted to rules, and
+> dialogue is front-loaded because misaligned implementation costs
+> more than the conversation that would have prevented it. See ADR-0010.
+>
 > AKC is not a harness. It runs on top of harnesses (like Everything
 > Claude Code) to keep the harness alive as understanding evolves.
-> Security by Absence is one of eight design principles, not a
+> Security by Absence is one of nine design principles, not a
 > co-equal pillar — see ADR-0009 for the repositioning rationale.
 >
 > AKC ships as specifications, JSON schemas, architecture decision
@@ -34,6 +40,7 @@
 - [ADR-0007 Untrusted Content Boundary](docs/adr/0007-untrusted-content-boundary.md): accumulated memory is treated as untrusted input
 - [ADR-0008 Code and LLM Collaboration](docs/adr/0008-code-and-llm-collaboration.md): code owns control flow and durable state, LLMs own meaning; four layering patterns
 - [ADR-0009 AKC is a Cycle, Not a Harness](docs/adr/0009-akc-is-a-cycle-not-a-harness.md): repositioning AKC as a knowledge cycle rather than a self-improving harness; demoting Security by Absence from co-equal pillar to design principle
+- [ADR-0010 Human Cognitive Resource as Central Constraint](docs/adr/0010-human-cognitive-resource-as-central-constraint.md): names the implicit philosophy driving every phase — human attention and judgment as the scarce resource; redefines Research as signal-first; adds cognitive economy as Design Principle #9
 
 ## Design-pattern skills
 

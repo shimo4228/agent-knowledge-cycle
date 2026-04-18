@@ -4,6 +4,64 @@ All notable changes to AKC are recorded here. AKC follows semantic
 versioning; breaking changes to positioning or public interfaces bump the
 major version.
 
+## v1.8.0 — 2026-04-18
+
+Architectural depth release. AKC surfaces the implicit design philosophy
+that has shaped every phase since inception: **human cognitive resources
+are the central constraint**. The Research phase is redefined as
+signal-first, a new design principle is added, and "Why a cycle?" is
+extended with the cognitive-economy paragraph. No code changes; this is
+a documentation release.
+
+See [ADR-0010](docs/adr/0010-human-cognitive-resource-as-central-constraint.md)
+for the full rationale.
+
+### Added
+
+- **ADR-0010 Human Cognitive Resource as Central Constraint** —
+  articulates the implicit philosophy driving every AKC phase: as agent
+  capability grows, the scarce resource shifts from compute to human
+  attention and judgment. Names three concrete mechanisms: signal-first
+  Research, cognitive economy as Design Principle #9, and pre-implementation
+  dialogue as investment.
+- **Design Principle #9 "Human cognitive resource is the bottleneck"**
+  added to the README. Nine principles total now.
+- **"Whose cognitive budget is the cycle protecting?" subsection** in
+  the README "Why a cycle?" section — explicit statement that the
+  cycle's target resource is human attention, with one line per phase
+  tying the design back to that target.
+- **v1.8.0 geo-writer snapshot** — baseline and post-change scores on
+  README are recorded in ADR-0010 as a self-application of the Measure
+  phase to AKC's own documentation.
+
+### Changed
+
+- **docs/akc-cycle.md Research phase** — retitled from "Search before
+  building" to "Search broadly, filter by signal". A new step 0 asks
+  the agent to define the signal (what information would change the
+  next action) before searching. An intake paragraph clarifies that
+  signal-first is the default stance; exploration phases are legitimate
+  exceptions when named explicitly.
+- **README Research summary rows** — both the cycle table and the rules
+  table restate Research as "Search broadly, filter by signal".
+- **CITATION.cff** — bumped to v1.8.0. Abstract extended with the
+  cognitive-economy framing. Added keywords: `signal-first`,
+  `cognitive-economy`.
+- **llms.txt** — opening summary extended with the cognitive-resource
+  axis. ADR-0010 added to the index.
+- **docs/adr/README.md** — ADR-0010 added to the index table.
+
+### Not changed
+
+- The six phases. Research → Extract → Curate → Promote → Measure →
+  Maintain remain unchanged in number, order, and composition.
+- ADR-0001 through ADR-0009. All prior decisions remain in effect.
+- Reference implementation (`examples/minimal_harness/`). No code
+  changes.
+- Tagline. "A knowledge cycle for AI agents — one that grows with the
+  people who shape it" is retained. ADR-0010 adds depth beneath the
+  ADR-0009 framing rather than replacing it.
+
 ## v1.7.0 — 2026-04-11
 
 Conceptual repositioning. AKC is no longer described as a "self-improving

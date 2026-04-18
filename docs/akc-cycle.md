@@ -4,13 +4,16 @@ Behavioral principles for AI agents implementing the Agent Knowledge Cycle. Thes
 
 Copy this file to your agent's rules directory (e.g., `~/.claude/rules/`) and the cycle will run through natural conversation.
 
-## Research — Search before building
+## Research — Search broadly, filter by signal
 
 Before creating a new module, utility, or abstraction:
 
-1. Search for existing libraries, tools, and patterns that solve the same problem
+0. **Define the signal first** — what information would actually change your next action? Anything outside that is out of scope for this research pass.
+1. Search generously for existing libraries, tools, and patterns that solve the same problem
 2. Evaluate candidates for fitness (security, maintenance, relevance)
 3. Adopt or extend an existing solution when one fits; build only when none do
+
+Signal-first is the default. Search widely, intake narrowly. Information that does not change an action does not deserve to be held — intake is where human attention is spent, and unspent attention is the cycle's scarce resource. Exploration and learning phases are legitimate exceptions; name them explicitly when you take them.
 
 **Trigger**: Any task that introduces a new dependency or creates a utility that might already exist.
 
