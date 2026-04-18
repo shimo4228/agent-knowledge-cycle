@@ -50,6 +50,7 @@ concrete patterns, code sketches, and audit checklists.
 - [when-code-when-llm](docs/skills/when-code-when-llm.md): per-task decision — is this property structural or semantic?
 - [code-and-llm-collaboration](docs/skills/code-and-llm-collaboration.md): per-pipeline decision — four layering patterns (guard, filter, judge, orchestrator)
 - [llm-agent-security-principles](docs/skills/llm-agent-security-principles.md): concrete defense patterns for the three security ADRs, including the grep-based audit test
+- [signal-first-research](docs/skills/signal-first-research.md): design a research intake filter that admits only information likely to change the next action; paired with ADR-0010
 
 ## Specifications
 

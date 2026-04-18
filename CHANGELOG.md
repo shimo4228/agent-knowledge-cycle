@@ -4,6 +4,43 @@ All notable changes to AKC are recorded here. AKC follows semantic
 versioning; breaking changes to positioning or public interfaces bump the
 major version.
 
+## v1.8.1 — 2026-04-18
+
+Patch release. Completes the three-layer structure introduced by v1.8.0
+(principle → pattern → implementation) by adding the design-pattern skill
+paired with ADR-0010, records the self-referential origin loop in
+ADR-0010's Notes, and extends `inspiration.md` with the daily-research
+upstream that preceded Contemplative Agent.
+
+### Added
+
+- **`docs/skills/signal-first-research.md`** — design-pattern skill
+  paired 1:1 with ADR-0010. Covers the define-signal-before-search rule,
+  the search-wide / intake-narrow asymmetry, three abstract worked
+  examples (daily digest, session-scoped filter, exploration mode), and
+  a diagnostic checklist. Written as a generic pattern guide — personal
+  project references live in `docs/inspiration.md`, not in the skill
+  body.
+- **`docs/inspiration.md` new "Upstream: a daily signal filter"
+  section** — documents that AKC's origin chain extends one hop further
+  back than Contemplative Agent, to the daily-research pipeline that
+  surfaced Laukkonen et al. (2025) in the first place and later
+  generated the report that triggered ADR-0010.
+
+### Changed
+
+- **`docs/adr/0010-...md` Notes** — extended with an "Origin loop"
+  observation: the pipeline that named the signal-first principle had
+  been practicing it for months. The principle was lived before it was
+  stated.
+- **`README.md` / `README.ja.md`** — design-pattern skill count 3 → 4
+  in the repo tree and opening summary.
+- **`docs/skills/README.md`** — index table extended with
+  signal-first-research ↔ ADR-0010 pairing.
+- **`CITATION.cff`** bumped to v1.8.1.
+- **`llms.txt`** — ADR-0010 entry cross-references the new pattern
+  skill; design-pattern skills list extended.
+
 ## v1.8.0 — 2026-04-18
 
 Architectural depth release. AKC surfaces the implicit design philosophy

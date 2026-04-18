@@ -45,7 +45,8 @@ agent-knowledge-cycle/
 │   └── skills/                   # Design-pattern skills paired 1:1 with ADRs
 │       ├── when-code-when-llm.md                 # Per-task: structural vs semantic
 │       ├── code-and-llm-collaboration.md         # Per-pipeline: four layering patterns
-│       └── llm-agent-security-principles.md     # Concrete defense patterns for ADR-0001/0006/0007
+│       ├── llm-agent-security-principles.md     # Concrete defense patterns for ADR-0001/0006/0007
+│       └── signal-first-research.md              # Intake-filter design for ADR-0010
 ├── schemas/
 │   ├── episode-log.schema.json   # Layer 1 record shape
 │   └── knowledge.schema.json     # Layer 2 pattern shape
@@ -57,7 +58,7 @@ agent-knowledge-cycle/
         └── demo.py               # python3 -m examples.minimal_harness.demo
 ```
 
-Ten ADRs, nine design principles, three design-pattern skills, two
+Ten ADRs, nine design principles, four design-pattern skills, two
 JSON schemas, one ~300-line runnable reference implementation, and the
 rules file that installs the whole cycle in a single `cp`. AKC defines
 three memory layers, four code-LLM layering patterns, and six

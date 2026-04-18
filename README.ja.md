@@ -38,7 +38,8 @@ agent-knowledge-cycle/
 │   └── skills/                   # ADR と 1:1 対応する設計パターンスキル
 │       ├── when-code-when-llm.md                 # タスク単位: 構造 vs 意味
 │       ├── code-and-llm-collaboration.md         # パイプライン単位: 4 つのレイヤリングパターン
-│       └── llm-agent-security-principles.md     # ADR-0001/0006/0007 の具体的防衛パターン
+│       ├── llm-agent-security-principles.md     # ADR-0001/0006/0007 の具体的防衛パターン
+│       └── signal-first-research.md              # ADR-0010 の intake フィルタ設計
 ├── schemas/
 │   ├── episode-log.schema.json   # Layer 1 レコード形
 │   └── knowledge.schema.json     # Layer 2 パターン形
@@ -50,7 +51,7 @@ agent-knowledge-cycle/
         └── demo.py               # python3 -m examples.minimal_harness.demo
 ```
 
-10 の ADR、9 の設計原則、3 の設計パターンスキル、2 の JSON スキーマ、1 つの約 300 行の実行可能リファレンス実装、そしてサイクル全体を `cp` 一行でインストールできるルールファイル。AKC は 3 つのメモリ層・4 つのコード–LLM レイヤリングパターン・リファレンス実装が意図的に実装しない 6 つの機能を定義している。以下に挙げる 6 つのサイクルスキルは、各フェーズの「フルスペック版」実装として引き続き提供される。
+10 の ADR、9 の設計原則、4 の設計パターンスキル、2 の JSON スキーマ、1 つの約 300 行の実行可能リファレンス実装、そしてサイクル全体を `cp` 一行でインストールできるルールファイル。AKC は 3 つのメモリ層・4 つのコード–LLM レイヤリングパターン・リファレンス実装が意図的に実装しない 6 つの機能を定義している。以下に挙げる 6 つのサイクルスキルは、各フェーズの「フルスペック版」実装として引き続き提供される。
 
 AKC は **2 種類のスキル** を出荷する:
 

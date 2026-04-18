@@ -3,6 +3,33 @@
 AKC did not emerge in a vacuum. Several of its core design decisions are
 adapted from an earlier, more opinionated research repository:
 
+## Upstream: a daily signal filter
+
+[github.com/shimo4228/claude-skill-daily-research](https://github.com/shimo4228/claude-skill-daily-research)
+
+Before Contemplative Agent existed, the author was running a daily research
+pipeline — a `claude -p`-driven cron job that selected two trending topics
+per day, conducted multi-stage web research, and wrote signal-filtered
+reports to an Obsidian vault. Two things about this upstream matter for AKC:
+
+1. **It is how Contemplative Agent got started.** One of the daily reports
+   surfaced Laukkonen et al. (2025)'s *Contemplative Inference* paper. That
+   report is what motivated the author to begin the Contemplative Agent
+   project, whose engineering substrate in turn became the prior art for
+   several of the ADRs listed below.
+2. **It is how ADR-0010 got written.** The LLM-Wiki-pattern report that
+   triggered ADR-0010's conversation was itself a daily-research output.
+   The pipeline that surfaced the question also implemented the answer —
+   a fact noted in ADR-0010's "Origin loop" Notes.
+
+The pipeline is therefore both the earliest implementation of AKC's
+Research phase (it predates the ADR by about a year) and the signal filter
+that made every downstream AKC decision possible. It was skillified in
+April 2026 under the `claude-skill-daily-research` name so it installs as
+a standard Claude Code skill. The pattern the pipeline embodies is
+documented, in abstract form and without personal references, in
+[`docs/skills/signal-first-research.md`](skills/signal-first-research.md).
+
 ## Contemplative Agent
 
 [github.com/shimo4228/contemplative-agent](https://github.com/shimo4228/contemplative-agent)
