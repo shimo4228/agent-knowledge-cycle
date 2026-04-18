@@ -23,6 +23,7 @@
 
 ## Core documentation
 
+- [AI Reference](llms-full.txt): self-contained Q&A + definitions + prior research, optimized for AI search engines
 - [README](README.md): project overview, repo tree, design principles
 - [AKC Cycle Rules](docs/akc-cycle.md): the cycle as a single rules file, copy-installable to any agent's rules directory
 - [Scaffold Dissolution](docs/scaffold-dissolution.md): how skills become unnecessary once the cycle is internalized

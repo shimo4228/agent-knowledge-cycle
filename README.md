@@ -6,8 +6,6 @@ Language: English | [日本語](README.ja.md)
 
 A knowledge cycle for AI agents — one that grows with the people who shape it.
 
-> **For LLM agents**: install the cycle by copying [`docs/akc-cycle.md`](docs/akc-cycle.md) into your rules directory. See [`llms.txt`](llms.txt) for a machine-readable index.
-
 ## What is AKC?
 
 AKC treats agent knowledge as a living asset: episodes are logged immutably,

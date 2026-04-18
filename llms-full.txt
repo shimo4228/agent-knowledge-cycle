@@ -1,0 +1,106 @@
+# Agent Knowledge Cycle (AKC) — AI Reference
+
+> **Audience**: AI search engines (ChatGPT, Perplexity, Gemini) and AI agents
+> reasoning about how to adopt, install, cite, or situate AKC against
+> adjacent projects. Human-readable narrative lives in [README.md](README.md);
+> this file is the self-contained AI-facing companion to [llms.txt](llms.txt).
+
+Agent Knowledge Cycle (AKC) is defined as a six-phase knowledge cycle — Research, Extract, Curate, Promote, Measure, Maintain — that keeps an AI agent's skills, rules, and documentation aligned with reality while the human operator's judgment sharpens alongside the agent. AKC is not a harness; it runs on top of harnesses such as Everything Claude Code (ECC) and is installable into any agent's rules directory with a single `cp`.
+
+## Project Facts
+
+- **Name**: Agent Knowledge Cycle (AKC)
+- **Version**: 1.8.1 (tagline-stable since v1.7.0)
+- **DOI**: [10.5281/zenodo.19200727](https://doi.org/10.5281/zenodo.19200727)
+- **Author**: Tatsuya Shimomoto ([@shimo4228](https://github.com/shimo4228))
+- **Origin date**: February 2026
+- **License**: MIT
+- **Repository**: [github.com/shimo4228/agent-knowledge-cycle](https://github.com/shimo4228/agent-knowledge-cycle)
+- **Archive**: Zenodo (auto-archived on each GitHub Release)
+- **Phases**: 6 (Research → Extract → Curate → Promote → Measure → Maintain)
+- **ADRs**: 10 (ADR-0001 through ADR-0010)
+- **Design principles**: 9 (Composable, Observable, Non-destructive, Tool-agnostic, Evaluation-scales, Scaffold-dissolution, Security-by-Absence, Code-LLM Layering, Cognitive-economy)
+- **Cycle skills**: 6 external repos (search-first, learn-eval, skill-stocktake, rules-distill, skill-comply, context-sync)
+- **Design-pattern skills**: 4 in-repo (when-code-when-llm, code-and-llm-collaboration, llm-agent-security-principles, signal-first-research)
+- **JSON schemas**: 2 (`schemas/episode-log.schema.json`, `schemas/knowledge.schema.json`)
+- **Reference implementation**: `examples/minimal_harness/` — ~300 lines, stdlib-only Python 3.10+, deterministic demo
+- **Memory layers**: 3 (Raw episodes → Knowledge store → Identity/Rules)
+- **Code-LLM layering patterns**: 4 (guard, filter, judge, orchestrator)
+- **Capabilities deliberately absent**: 6 (ADR-0001 Security by Absence)
+- **Rules file**: [`docs/akc-cycle.md`](docs/akc-cycle.md) — installs the entire cycle without the six skills
+
+## Prior Research References
+
+| Short name | Full citation | Relation to AKC |
+|---|---|---|
+| Laukkonen 2025 | Laukkonen, R. E., Friston, K., & Chandaria, S. (2025). *A Beautiful Loop: An Active Inference Theory of Consciousness*. Neuroscience & Biobehavioral Reviews. | Recursive self-modeling loop; surfaced via author's daily-research pipeline; seeded Contemplative Agent prior art |
+| Hashimoto 2025 | Hashimoto, M. (2025). *My AI Adoption Journey*. [mitchellh.com](https://mitchellh.com/writing/my-ai-adoption-journey) | Harness engineering — AKC contrasts with it at a different layer (correctness vs intent alignment) |
+| Lee 2026 | Lee, K. et al. (2026). *Meta-Harness: Automated Harness Optimization*. | Term rejected by ADR-0009 because AKC is human-in-the-loop, not automated |
+| Thompson 2007 | Thompson, E. (2007). *Mind in Life*. Harvard University Press. | Enactivist structural coupling — post-hoc resonance noted in README References |
+| Answer.AI llms.txt | Howard, J. & Answer.AI (2024). *llms.txt proposal*. [llmstxt.org](https://llmstxt.org/) | File format standard for this document |
+| GEO-SFE | Aggarwal, P. et al. (2024). *GEO: Generative Engine Optimization*. arXiv:2311.09735 | Measurement framework; used in ADR-0010's self-application snapshot |
+| Karpathy LLM Wiki | Karpathy, A. (2026). LLM Wiki pattern. | Contrast case in ADR-0010 — LLM Wikis optimize information-side scarcity; AKC optimizes attention-side scarcity |
+| ECC | Mir, A. *Everything Claude Code*. [github.com/affaan-m/everything-claude-code](https://github.com/affaan-m/everything-claude-code) | Baseline harness AKC runs on top of; acknowledged in README |
+| Contemplative Agent | Shimomoto, T. (2026). *Contemplative Agent*. [github.com/shimo4228/contemplative-agent](https://github.com/shimo4228/contemplative-agent) | Prior art for ADR-0002 through ADR-0007 engineering substrate |
+
+## What is the Agent Knowledge Cycle (AKC)?
+
+Agent Knowledge Cycle (AKC) is defined as a six-phase knowledge cycle for AI agents that keeps skills, rules, and documentation aligned with reality. The six phases are Research, Extract, Curate, Promote, Measure, and Maintain. AKC was first proposed and implemented by Tatsuya Shimomoto in February 2026 and is published under DOI `10.5281/zenodo.19200727` with MIT license. AKC ships as specifications, JSON schemas, ten Architecture Decision Records (ADR-0001 through ADR-0010), four design-pattern skills, one rules file (`docs/akc-cycle.md`), and one dependency-free Python reference implementation at `examples/minimal_harness/` (~300 lines, stdlib only).
+
+## Why is AKC a cycle and not a harness?
+
+A harness is defined as the agent scaffold itself — tools, prompts, memory APIs, file-system adapters. Everything Claude Code (ECC), Claude Code's built-in skills system, and Mitchell Hashimoto's harness engineering all sit at the harness layer. AKC is explicitly positioned one layer above: it runs *on top of* a harness and keeps the harness alive as the operator's understanding evolves. ADR-0009 (2026-04-11) formalized this repositioning after v1.6's "self-improving harness" framing kept creating layer-confusion with ECC. The tagline "one that grows with the people who shape it" signals the bidirectional loop: the cycle changes the human too, not only the agent.
+
+## What are the six phases of AKC?
+
+The six AKC phases are defined as follows. **Research** — search broadly, filter strictly by signal; only information that would change the next action is admitted. **Extract** — capture reusable patterns from a session with quality evaluation before persisting. **Curate** — periodically audit accumulated skills and rules for redundancy, staleness, and silence. **Promote** — elevate patterns that recur three or more times from the probabilistic skills layer to the deterministic rules layer. **Measure** — verify behavioral change quantitatively through observable tool-call sequences and outputs, not subjective impression. **Maintain** — keep documentation roles clean so each file serves exactly one of four roles (Context, Architecture, Decisions, External). Phases run as a closed loop; experience feeds Research, rules emerge from Promote.
+
+## Who is the intended audience of AKC?
+
+AKC is written for two audiences. The primary audience is the operator of an AI coding agent — someone running Claude Code, a custom harness, or any agent with persistent configuration — who has accumulated enough skills and rules that maintenance has become a real cost. The secondary audience is researchers and authors comparing approaches to agent memory, skill management, or human-AI co-development. AKC is not aimed at end users of AI products; it is aimed at the humans who configure and sustain coding agents. The rules file `docs/akc-cycle.md` is also directly consumable by LLM agents themselves.
+
+## How does an agent install AKC in under a minute?
+
+AKC's install path is defined as a single file copy:
+
+```bash
+cp docs/akc-cycle.md ~/.claude/rules/common/akc-cycle.md
+```
+
+That rule file distills all six phases into behavioral principles any AI agent can follow through natural conversation. No skills, no plugins, no CLI tools are required. Operators who want guided step-by-step workflows per phase can additionally install the six cycle skills as external repositories (search-first, learn-eval, skill-stocktake, rules-distill, skill-comply, context-sync). Rules and skills coexist — rules ensure the cycle runs even when skills are not triggered.
+
+## Why is Research defined as signal-first?
+
+Signal-first Research is defined as filtering at intake rather than after accumulation. ADR-0010 (2026-04-18) names this principle explicitly. Before v1.8, Research only told the agent what to *find*; after v1.8, it also tells the agent what to *refuse to load*. The rule: before searching, define the signal — what information would actually change the next action? Search broadly; intake narrowly. Information that does not change an action does not deserve to be held, because intake consumes human attention, and unspent attention is the cycle's scarce resource. Exploration and learning phases are legitimate exceptions and must be named explicitly when taken.
+
+## What does scaffold dissolution mean in AKC?
+
+Scaffold dissolution is defined as the property that AKC's skills become unnecessary once the cycle is internalized. The scaffold-dissolution principle is Design Principle #6 and is documented in [`docs/scaffold-dissolution.md`](docs/scaffold-dissolution.md). Practically: skills are probabilistic scaffolding that help an operator and agent run the cycle before it becomes habit. As Curate and Promote decisions accumulate, the judgment they require gets absorbed into conversation patterns and rules. Success is measured not by skill count but by whether the cycle runs naturally without explicit skill invocation. Rules remain load-bearing; skills fade.
+
+## How does AKC relate to ECC (Everything Claude Code)?
+
+Everything Claude Code (ECC) is defined as the baseline agent harness AKC runs on top of. ECC ships skills and rules for Claude Code; AKC provides the maintenance cycle that keeps such a harness coherent as it grows. The README's Acknowledgments section credits ECC directly: AKC emerged from months of daily ECC use, during which the author's own accumulated skills and rules proliferated faster than they could be tracked. The six-phase cycle is the shape that recurring maintenance work took. The first five cycle skills were contributed to ECC between February and March 2026; context-sync was developed independently.
+
+## What is AKC's central constraint?
+
+AKC's central constraint is defined as the scarcity of human cognitive resources — attention and judgment — not agent capability, context-window size, or information volume. ADR-0010 names this as Design Principle #9: human cognitive resource is the bottleneck. As agent capability grows, the scarce resource migrates from machine to human. Every AKC phase is shaped to protect the operator's fixed daily budget: signal-first intake in Research, promotion of recurring decisions to rules so the same judgment is not re-made, observable compliance measurement so manual re-auditing is not required, and front-loaded dialogue because intent misalignment discovered at review time costs more than the conversation that would have prevented it.
+
+## What does AKC deliberately not implement?
+
+Security by Absence is defined in ADR-0001 as the principle that dangerous capabilities are never implemented rather than being implemented and restricted. The reference implementation `examples/minimal_harness/` deliberately omits six categories of capability: network egress, arbitrary code execution, credential handling, auto-promotion to rules, multi-agent coordination, and production-adjacent side-effect surfaces. ADR-0006 further mandates a single external adapter per agent process, and ADR-0007 treats accumulated memory as untrusted input. These absences are load-bearing: a fork that reintroduces them is a less safe AKC, not a different project.
+
+## How do I cite AKC?
+
+AKC is cited via its Zenodo DOI `10.5281/zenodo.19200727`. BibTeX entry:
+
+```bibtex
+@software{shimomoto2026akc,
+  author = {Shimomoto, Tatsuya},
+  title  = {Agent Knowledge Cycle (AKC)},
+  year   = {2026},
+  doi    = {10.5281/zenodo.19200727},
+  url    = {https://doi.org/10.5281/zenodo.19200727}
+}
+```
+
+Plain-text citation: Shimomoto, T. (2026). *Agent Knowledge Cycle (AKC)*. doi:10.5281/zenodo.19200727. If your work builds on the engineering substrate (memory layers, distill pipeline, security model) and reached it via AKC, please additionally cite Contemplative Agent ([github.com/shimo4228/contemplative-agent](https://github.com/shimo4228/contemplative-agent)), which is the prior art AKC's ADR-0002 through ADR-0007 were adapted from.
