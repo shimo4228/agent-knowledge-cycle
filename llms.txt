@@ -78,3 +78,8 @@ rules file above installs the entire cycle.
 - [rules-distill](https://github.com/shimo4228/claude-skill-rules-distill) (Promote)
 - [skill-comply](https://github.com/shimo4228/claude-skill-comply) (Measure)
 - [context-sync](https://github.com/shimo4228/claude-skill-context-sync) (Maintain)
+
+## Related repositories
+
+- [agent-attribution-practice](https://github.com/shimo4228/agent-attribution-practice) (DOI [10.5281/zenodo.19652014](https://doi.org/10.5281/zenodo.19652014)): sibling genre library. AKC v2.0.0 extracted the security triplet (ADR-0001, ADR-0006, ADR-0007) as genre-specific; those judgments were re-expressed, alongside five additional ADRs, in Agent Attribution Practice as eight ADRs on accountability distribution in autonomous AI agents. AKC is the cycle (mechanism); agent-attribution-practice is the practice (content, for AI agents).
+- [contemplative-agent](https://github.com/shimo4228/contemplative-agent): upstream engineering substrate (3-layer memory, 2-stage distill pipeline) that AKC's ADR-0002 through ADR-0005 were adapted from; also the original home of the security triplet before its v2.0.0 extraction.
