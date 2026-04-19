@@ -4,6 +4,111 @@ All notable changes to AKC are recorded here. AKC follows semantic
 versioning; breaking changes to positioning or public interfaces bump the
 major version.
 
+## v2.0.0 — 2026-04-19
+
+Major positioning release. AKC declares the cycle **genre-neutral** about
+the knowledge body that flows through it — behavioral patterns, domain
+expertise, or constitutional values all run through the same six phases.
+The security triplet that had sat in AKC through v1.x (Security by Absence,
+Single External Adapter, Untrusted Content Boundary) is extracted as
+genre-specific contemplative-agent content and no longer ships with AKC.
+
+### Why v2.0.0 and not v1.9.0
+
+AKC's identity contract changes. Prior: "a knowledge cycle for AI agents,
+with Security by Absence as a first-class design principle." Current: "a
+knowledge cycle for AI agents, mechanism-only, genre-neutral about what
+flows through it." Academic citations resolving to v1.x will see a
+different Design Principles list and a different ADR set. ADR-0009 already
+established the precedent for positioning-breaking changes warranting a
+version bump; the security triplet extraction completes what ADR-0009
+started, and the identity-contract shift is the direct reason this is a
+major bump rather than a minor one.
+
+### Removed
+
+- **`docs/adr/0001-security-by-absence.md`** — genre-specific to the
+  contemplative-agent lineage. Extracted to local archive at
+  `_archive/akc-security-triplet-2026-04/` for future re-expression.
+- **`docs/adr/0006-single-external-adapter.md`** — genre-specific.
+  Extracted to the same archive.
+- **`docs/adr/0007-untrusted-content-boundary.md`** — genre-specific.
+  Extracted to the same archive.
+- **`docs/skills/llm-agent-security-principles.md`** — design-pattern
+  skill that bundled the three security ADRs' concrete defense patterns.
+  Extracted to the same archive.
+- **Design Principle #7 (Security by Absence)** from the README —
+  removed from the design principles list. Former #8 (Code-LLM Layering)
+  renumbers to #7; former #9 (Human cognitive resource) renumbers to #8.
+
+### Added
+
+- **`docs/adr/0011-cycle-applies-to-any-knowledge-body.md`** — new ADR
+  declaring genre neutrality as a first-class positioning statement, with
+  three falsifiable commitments: no future AKC ADR encodes domain-specific
+  content, `docs/skills/` hosts only cycle-mechanic skills, and external
+  projects may cite AKC as their cycle substrate without AKC making
+  claims about their content.
+- **`docs/adr/0009-akc-is-a-cycle-not-a-harness.md` 2026-04-19
+  addendum** — records the concrete security-triplet extraction that
+  completes ADR-0009's demotion. Documents the consequences: ADR
+  numbering gaps at 0001, 0006, 0007; design principles 9 → 8;
+  supersession of the original "ADRs 0001–0008 unchanged" claim.
+- **`examples/constitution_amend/`** — new examples entry that points
+  at contemplative-agent's Constitution-amend workflow as a concrete
+  instance of the AKC cycle applied to constitutional values.
+  Descriptive only; the directory ships no implementation. Paired with
+  ADR-0011's "Concrete instance in the wild" section, this makes
+  genre neutrality observable: `minimal_harness/` shows the mechanism
+  on behavioral patterns, `constitution_amend/` shows the same
+  mechanism on values.
+
+### Changed
+
+- **ADR numbering**: gaps at 0001, 0006, 0007 are intentional and
+  permanent. ADR numbers are identifiers, not positions in a sequence.
+- **README.md / README.ja.md** — repo tree, counts (8 ADRs, 8 design
+  principles, 3 design-pattern skills), "Related Work" section (no
+  longer mentions security-by-absence as prior-art inheritance).
+- **`docs/adr/README.md`** — index updated; note explaining the
+  numbering gaps added.
+- **`docs/skills/README.md`** — design-pattern skill table shrunk from
+  4 to 3 entries.
+- **`docs/inspiration.md`** — "What AKC does not carry over" extended
+  with the security triplet; prior-art table narrowed to ADR-0002
+  through ADR-0005 and the minimal_harness reference.
+- **`examples/minimal_harness/README.md`** — "What is not implemented"
+  section collapsed around the one remaining stance (Layer 3 gated on
+  human review). Footnote explains that the forbidden-substring
+  validation pattern in `knowledge_store.py` is inherited from upstream
+  genre work even though the ADR pointers no longer live in this repo.
+- **`examples/minimal_harness/knowledge_store.py`** — comment and
+  docstring references to ADR-0007 replaced with a neutral description
+  of the defensive pattern. Behavior is unchanged.
+- **`llms.txt` / `llms-full.txt`** — all counts, ADR lists, and
+  skill lists updated to the v2.0.0 state. A new Q&A section in
+  `llms-full.txt` ("What knowledge bodies can run through the AKC
+  cycle?") replaces the former "What does AKC deliberately not
+  implement?" section, reflecting the genre-neutrality shift.
+- **`CITATION.cff`** — version 2.0.0; abstract rewritten; the
+  `security-by-absence` keyword removed and `genre-neutrality` added.
+
+### Migration notes for v1.x citations and downstream repositories
+
+- External links pointing at `docs/adr/0001-security-by-absence.md`,
+  `docs/adr/0006-single-external-adapter.md`, or
+  `docs/adr/0007-untrusted-content-boundary.md` at `main` HEAD will
+  404. Commit-pinned links (via GitHub permalinks) continue to resolve.
+  The content is preserved locally at
+  `_archive/akc-security-triplet-2026-04/` on the author's machine;
+  future re-expression is expected in the contemplative-agent lineage.
+- Academic citations pinned to v1.x continue to describe the state at
+  that version. No action is required for prior citations.
+- Downstream projects that adopted AKC's security-by-absence design
+  principle may continue to do so — the principle itself is sound —
+  but should no longer cite AKC as its source. Contemplative-agent is
+  the upstream.
+
 ## v1.8.1 — 2026-04-18
 
 Patch release. Completes the three-layer structure introduced by v1.8.0

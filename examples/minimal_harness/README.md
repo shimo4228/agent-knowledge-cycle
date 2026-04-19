@@ -9,16 +9,20 @@ only. No network. No API keys. Around 300 lines of code total.
 | File | Layer / concept | ADR |
 |------|-----------------|-----|
 | `episode_log.py` | Layer 1 — append-only JSONL, `umask(0o177)`, daily partitioning | [ADR-0002](../../docs/adr/0002-immutable-episode-log.md) |
-| `knowledge_store.py` | Layer 2 — distilled patterns, time decay, forbidden-substring validation | [ADR-0003](../../docs/adr/0003-three-layer-distillation.md), [ADR-0007](../../docs/adr/0007-untrusted-content-boundary.md) |
+| `knowledge_store.py` | Layer 2 — distilled patterns, time decay, forbidden-substring validation | [ADR-0003](../../docs/adr/0003-three-layer-distillation.md) |
 | `distill.py` | Two-stage distill pipeline (free-form → format), LLM-agnostic | [ADR-0004](../../docs/adr/0004-two-stage-distill-pipeline.md) |
 | `demo.py` | End-to-end run with a deterministic fake LLM | — |
 
 What this reference intentionally does **not** implement:
 
 - Layer 3 (identity / rules). That requires human review. See [ADR-0005](../../docs/adr/0005-human-approval-gate.md).
-- Any external adapter. See [ADR-0006](../../docs/adr/0006-single-external-adapter.md).
-- Shell execution, arbitrary HTTP, filesystem writes outside the log
-  directory. See [ADR-0001](../../docs/adr/0001-security-by-absence.md).
+
+The forbidden-substring validation in `knowledge_store.py` is a
+defensive pattern inherited from upstream genre work (the security
+triplet formerly tracked as ADR-0001/0006/0007, extracted in v2.0.0).
+The behavior remains because removing it would require rewriting the
+distill pipeline; the ADR pointers that motivated it no longer live
+in this repository.
 
 ## Run the demo
 

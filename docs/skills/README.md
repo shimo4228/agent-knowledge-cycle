@@ -21,7 +21,6 @@ stay in sync. When an ADR changes, the matching skill gets reviewed.
 |-------|----------------------|------------------|
 | [when-code-when-llm](when-code-when-llm.md) | [ADR-0008](../adr/0008-code-and-llm-collaboration.md) | Per-task decision: is this property structural or semantic? |
 | [code-and-llm-collaboration](code-and-llm-collaboration.md) | [ADR-0008](../adr/0008-code-and-llm-collaboration.md) | Per-pipeline decision: four layering patterns for mixing deterministic code and LLM calls |
-| [llm-agent-security-principles](llm-agent-security-principles.md) | [ADR-0001](../adr/0001-security-by-absence.md), [ADR-0006](../adr/0006-single-external-adapter.md), [ADR-0007](../adr/0007-untrusted-content-boundary.md) | Concrete defense patterns (HTTP, credentials, LLM hosts) for the three structural security ADRs |
 | [signal-first-research](signal-first-research.md) | [ADR-0010](../adr/0010-human-cognitive-resource-as-central-constraint.md) | Design a research intake filter that admits only information likely to change your next action |
 
 ## Installing as Claude Code skills

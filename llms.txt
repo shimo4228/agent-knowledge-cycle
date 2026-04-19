@@ -15,8 +15,11 @@
 >
 > AKC is not a harness. It runs on top of harnesses (like Everything
 > Claude Code) to keep the harness alive as understanding evolves.
-> Security by Absence is one of nine design principles, not a
-> co-equal pillar — see ADR-0009 for the repositioning rationale.
+> The cycle is the sole defining characteristic — see ADR-0009 for the
+> repositioning rationale and ADR-0011 for the genre-neutrality position
+> that the cycle operates on any knowledge body (behavioral patterns,
+> domain expertise, or constitutional values) without taking a position
+> on the content itself.
 >
 > AKC ships as specifications, JSON schemas, architecture decision
 > records, and a dependency-free Python reference implementation.
@@ -32,16 +35,16 @@
 
 ## Architecture Decision Records
 
-- [ADR-0001 Security by Absence](docs/adr/0001-security-by-absence.md): threat model and the list of capabilities that are never implemented
 - [ADR-0002 Immutable Episode Log](docs/adr/0002-immutable-episode-log.md): append-only JSONL, daily partitioning, owner-only permissions
 - [ADR-0003 Three-Layer Distillation](docs/adr/0003-three-layer-distillation.md): Raw episodes → Knowledge → Identity/Rules
 - [ADR-0004 Two-Stage Distill Pipeline](docs/adr/0004-two-stage-distill-pipeline.md): free-form reasoning followed by structured formatting
 - [ADR-0005 Human Approval Gate](docs/adr/0005-human-approval-gate.md): no auto-promotion to rules, skills, or identity
-- [ADR-0006 Single External Adapter](docs/adr/0006-single-external-adapter.md): one side-effect surface per agent process
-- [ADR-0007 Untrusted Content Boundary](docs/adr/0007-untrusted-content-boundary.md): accumulated memory is treated as untrusted input
 - [ADR-0008 Code and LLM Collaboration](docs/adr/0008-code-and-llm-collaboration.md): code owns control flow and durable state, LLMs own meaning; four layering patterns
-- [ADR-0009 AKC is a Cycle, Not a Harness](docs/adr/0009-akc-is-a-cycle-not-a-harness.md): repositioning AKC as a knowledge cycle rather than a self-improving harness; demoting Security by Absence from co-equal pillar to design principle
-- [ADR-0010 Human Cognitive Resource as Central Constraint](docs/adr/0010-human-cognitive-resource-as-central-constraint.md): names the implicit philosophy driving every phase — human attention and judgment as the scarce resource; redefines Research as signal-first; adds cognitive economy as Design Principle #9
+- [ADR-0009 AKC is a Cycle, Not a Harness](docs/adr/0009-akc-is-a-cycle-not-a-harness.md): repositioning AKC as a knowledge cycle rather than a self-improving harness. See the 2026-04-19 addendum for the v2.0.0 extraction of the security triplet (ADR-0001, ADR-0006, ADR-0007)
+- [ADR-0010 Human Cognitive Resource as Central Constraint](docs/adr/0010-human-cognitive-resource-as-central-constraint.md): names the implicit philosophy driving every phase — human attention and judgment as the scarce resource; redefines Research as signal-first; adds cognitive economy as a design principle
+- [ADR-0011 Cycle Applies to Any Knowledge Body](docs/adr/0011-cycle-applies-to-any-knowledge-body.md): declares the cycle genre-neutral about what flows through it — behavioral patterns, domain expertise, or constitutional values all run through the same mechanism
+
+ADR numbers are permanent identifiers; gaps (0001, 0006, 0007) reflect ADRs extracted in v2.0.0 as genre-specific content.
 
 ## Design-pattern skills
 
@@ -50,7 +53,6 @@ concrete patterns, code sketches, and audit checklists.
 
 - [when-code-when-llm](docs/skills/when-code-when-llm.md): per-task decision — is this property structural or semantic?
 - [code-and-llm-collaboration](docs/skills/code-and-llm-collaboration.md): per-pipeline decision — four layering patterns (guard, filter, judge, orchestrator)
-- [llm-agent-security-principles](docs/skills/llm-agent-security-principles.md): concrete defense patterns for the three security ADRs, including the grep-based audit test
 - [signal-first-research](docs/skills/signal-first-research.md): design a research intake filter that admits only information likely to change the next action; paired with ADR-0010
 
 ## Specifications
@@ -58,10 +60,11 @@ concrete patterns, code sketches, and audit checklists.
 - [Episode log schema](schemas/episode-log.schema.json): Layer 1 record shape
 - [Knowledge store schema](schemas/knowledge.schema.json): Layer 2 pattern shape
 
-## Reference implementation
+## Reference implementation and examples
 
-- [examples/minimal_harness/](examples/minimal_harness/): ~300-line dependency-free Python reference demonstrating the three memory layers and the two-stage distill pipeline
+- [examples/minimal_harness/](examples/minimal_harness/): ~300-line dependency-free Python reference demonstrating the three memory layers and the two-stage distill pipeline (cycle on behavioral patterns)
 - [examples/minimal_harness/demo.py](examples/minimal_harness/demo.py): deterministic end-to-end demo, runnable with `python3 -m examples.minimal_harness.demo`
+- [examples/constitution_amend/](examples/constitution_amend/): reference to contemplative-agent's Constitution-amend workflow — a concrete instance of the AKC cycle applied to constitutional values rather than behavioral patterns. Descriptive only; the implementation lives upstream
 
 ## Optional: the six skills
 

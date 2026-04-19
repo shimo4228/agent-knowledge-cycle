@@ -30,37 +30,35 @@ agent-knowledge-cycle/
 │   ├── scaffold-dissolution.md   # Skills are scaffolding; here is how they dissolve
 │   ├── inspiration.md            # Prior art
 │   ├── adr/
-│   │   ├── 0001-security-by-absence.md           # Threat model + "what is never implemented"
 │   │   ├── 0002-immutable-episode-log.md         # JSONL, append-only, umask 0600
 │   │   ├── 0003-three-layer-distillation.md      # Raw → Knowledge → Identity/Rules
 │   │   ├── 0004-two-stage-distill-pipeline.md    # Free-form → structured format
 │   │   ├── 0005-human-approval-gate.md           # No auto-promotion to rules
-│   │   ├── 0006-single-external-adapter.md       # One side-effect surface per process
-│   │   ├── 0007-untrusted-content-boundary.md    # Accumulated memory is untrusted input
 │   │   ├── 0008-code-and-llm-collaboration.md    # Code owns control flow, LLMs own meaning
 │   │   ├── 0009-akc-is-a-cycle-not-a-harness.md  # Cycle as sole defining characteristic
-│   │   └── 0010-human-cognitive-resource-as-central-constraint.md  # Signal-first Research; cognitive economy
+│   │   ├── 0010-human-cognitive-resource-as-central-constraint.md  # Signal-first Research; cognitive economy
+│   │   └── 0011-cycle-applies-to-any-knowledge-body.md  # Cycle is genre-neutral about what flows through it
 │   └── skills/                   # Design-pattern skills paired 1:1 with ADRs
 │       ├── when-code-when-llm.md                 # Per-task: structural vs semantic
 │       ├── code-and-llm-collaboration.md         # Per-pipeline: four layering patterns
-│       ├── llm-agent-security-principles.md     # Concrete defense patterns for ADR-0001/0006/0007
 │       └── signal-first-research.md              # Intake-filter design for ADR-0010
 ├── schemas/
 │   ├── episode-log.schema.json   # Layer 1 record shape
 │   └── knowledge.schema.json     # Layer 2 pattern shape
 └── examples/
-    └── minimal_harness/          # ~300 lines, stdlib only, deterministic demo
-        ├── episode_log.py        # Layer 1
-        ├── knowledge_store.py    # Layer 2 + time decay + forbidden-substring validation
-        ├── distill.py            # Two-stage pipeline, LLM-agnostic
-        └── demo.py               # python3 -m examples.minimal_harness.demo
+    ├── minimal_harness/          # Mechanism demo — cycle on behavioral patterns
+    │   ├── episode_log.py        # Layer 1
+    │   ├── knowledge_store.py    # Layer 2 + time decay + forbidden-substring validation
+    │   ├── distill.py            # Two-stage pipeline, LLM-agnostic
+    │   └── demo.py               # python3 -m examples.minimal_harness.demo
+    └── constitution_amend/       # Reference to downstream — cycle on constitutional values
+        └── README.md             # Maps the AKC phases onto contemplative-agent's amend workflow
 ```
 
-Ten ADRs, nine design principles, four design-pattern skills, two
+Eight ADRs, eight design principles, three design-pattern skills, two
 JSON schemas, one ~300-line runnable reference implementation, and the
 rules file that installs the whole cycle in a single `cp`. AKC defines
-three memory layers, four code-LLM layering patterns, and six
-capabilities the reference implementation deliberately never implements.
+three memory layers and four code-LLM layering patterns.
 The six cycle skills listed below remain the opinionated, full-fat
 implementation of each phase.
 
@@ -155,9 +153,8 @@ The human's. As agent capability grows, the scarce resource is no longer compute
 4. **Tool-agnostic in concept** — Designed for Claude Code but the architecture applies to any agent with persistent configuration.
 5. **Evaluation scales with model capability** — Small models benefit from rubric-based scoring; reasoning models (Opus-class) evaluate with full context and qualitative judgment. AKC does not prescribe one approach — it matches evaluation depth to the model's reasoning capacity.
 6. **Scaffold dissolution** — Skills are scaffolding. As the user and agent internalize the cycle, skills become unnecessary and rules alone sustain the loop. See [docs/scaffold-dissolution.md](docs/scaffold-dissolution.md).
-7. **Security by Absence** — Dangerous capabilities are not restricted, they are never implemented. See [ADR-0001](docs/adr/0001-security-by-absence.md).
-8. **Code-LLM Layering** — Code owns determinism, auditability, and control flow. LLMs own meaning. Layer them explicitly; never let the LLM own durable state or termination. See [ADR-0008](docs/adr/0008-code-and-llm-collaboration.md).
-9. **Human cognitive resource is the bottleneck** — As agent capability grows, the scarce resource is no longer compute or context but human attention and judgment. Every phase is shaped to protect that budget: signal-first intake in Research, rule promotion so the same decision is not re-made, compliance measurement so the human does not re-audit manually, and front-loaded dialogue because misaligned implementation costs more than the conversation that would have prevented it. See [ADR-0010](docs/adr/0010-human-cognitive-resource-as-central-constraint.md).
+7. **Code-LLM Layering** — Code owns determinism, auditability, and control flow. LLMs own meaning. Layer them explicitly; never let the LLM own durable state or termination. See [ADR-0008](docs/adr/0008-code-and-llm-collaboration.md).
+8. **Human cognitive resource is the bottleneck** — As agent capability grows, the scarce resource is no longer compute or context but human attention and judgment. Every phase is shaped to protect that budget: signal-first intake in Research, rule promotion so the same decision is not re-made, compliance measurement so the human does not re-audit manually, and front-loaded dialogue because misaligned implementation costs more than the conversation that would have prevented it. See [ADR-0010](docs/adr/0010-human-cognitive-resource-as-central-constraint.md).
 
 ## Relationship to Harness Engineering
 
@@ -206,9 +203,8 @@ Or in text:
 - [Contemplative Agent](https://github.com/shimo4228/contemplative-agent) — An
   independent research repository exploring Contemplative Constitutional AI
   on a local 9B model. Its engineering substrate (three-layer memory,
-  two-stage distillation, security-by-absence design) was the prior art that
-  seeded AKC's ADRs. See [`docs/inspiration.md`](docs/inspiration.md) for
-  details.
+  two-stage distillation) was the prior art that seeded AKC's ADRs.
+  See [`docs/inspiration.md`](docs/inspiration.md) for details.
 - [Articles on Zenn](https://zenn.dev/shimo4228) — Development journal (Japanese)
 - [Articles on Dev.to](https://dev.to/shimo4228) — English translations
 

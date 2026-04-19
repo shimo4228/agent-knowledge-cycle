@@ -52,8 +52,7 @@ The episode log is:
 - Running the same distillation twice on the same log and template must
   produce equivalent output. Non-determinism is the LLM's job, not the log's.
 - Privacy is local: the log never leaves the host by default. Adapters that
-  want to publish derived state do so explicitly through a separate channel
-  governed by ADR-0006.
+  want to publish derived state do so explicitly through a separate channel.
 
 ## Alternatives Considered
 

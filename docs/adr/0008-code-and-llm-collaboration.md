@@ -31,9 +31,8 @@ and failures concentrate.
 The ADRs already in place pin down pieces of the answer implicitly:
 ADR-0004 (two-stage distill) is really a code-orchestrator-plus-LLM-worker
 pattern; ADR-0005 (human approval gate) is really a judge-plus-enforce
-pattern; ADR-0007 (untrusted content boundary) is really a guard on LLM
-output before it reaches persistent state. But nothing in the repo
-states the underlying principle, so each new pipeline re-derives it.
+pattern. But nothing in the repo states the underlying principle, so each
+new pipeline re-derives it.
 
 ## Decision
 
@@ -93,11 +92,8 @@ use code — and expect 100% accuracy.
   (orchestrator) combined with Pattern 1 (guard on the Stage 2 output).
 - **ADR-0005 Human Approval Gate** — an instance of Pattern 3, with the
   human as the final enforcer of high-stakes changes.
-- **ADR-0007 Untrusted Content Boundary** — the guard in Pattern 1 is
-  where the boundary is enforced at the "LLM output meets persistent
-  state" seam.
 
-ADR-0008 names the principle these three ADRs already rely on.
+ADR-0008 names the principle these ADRs already rely on.
 
 ## Alternatives Considered
 

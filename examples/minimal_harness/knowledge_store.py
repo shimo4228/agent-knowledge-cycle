@@ -1,8 +1,7 @@
 # Adapted from contemplative-agent
 # (https://github.com/shimo4228/contemplative-agent) at commit 2dbde9d.
 # Stripped of project-specific content. This file is an independent,
-# harness-neutral reference for AKC. See docs/adr/0003-three-layer-distillation.md
-# and docs/adr/0007-untrusted-content-boundary.md.
+# harness-neutral reference for AKC. See docs/adr/0003-three-layer-distillation.md.
 """Layer 2: KnowledgeStore — distilled patterns with time decay.
 
 Each pattern: {"pattern": str, "distilled": iso8601, "importance": float,
@@ -11,9 +10,9 @@ Each pattern: {"pattern": str, "distilled": iso8601, "importance": float,
 Importance decays on read as base * 0.95 ** days_elapsed so recent evidence
 dominates stale signals without destroying them.
 
-Load-time validation against a forbidden-substring list demonstrates the
-untrusted-content boundary (ADR-0007). Operators should define their own
-list; the default is empty.
+Load-time validation against a forbidden-substring list treats accumulated
+knowledge as untrusted input — a defensive pattern inherited from upstream
+genre work. Operators should define their own list; the default is empty.
 """
 
 from __future__ import annotations
@@ -129,7 +128,7 @@ class KnowledgeStore:
             if pat and pat.lower() in text_lower:
                 logger.warning(
                     "Knowledge file %s contains forbidden substring %r; "
-                    "refusing to load (see ADR-0007).",
+                    "refusing to load.",
                     self._path,
                     pat,
                 )

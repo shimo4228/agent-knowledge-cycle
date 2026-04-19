@@ -10,7 +10,7 @@ Agent Knowledge Cycle (AKC) is defined as a six-phase knowledge cycle — Resear
 ## Project Facts
 
 - **Name**: Agent Knowledge Cycle (AKC)
-- **Version**: 1.8.1 (tagline-stable since v1.7.0)
+- **Version**: 2.0.0 (genre-neutrality declared; security triplet extracted)
 - **DOI**: [10.5281/zenodo.19200727](https://doi.org/10.5281/zenodo.19200727)
 - **Author**: Tatsuya Shimomoto ([@shimo4228](https://github.com/shimo4228))
 - **Origin date**: February 2026
@@ -18,15 +18,14 @@ Agent Knowledge Cycle (AKC) is defined as a six-phase knowledge cycle — Resear
 - **Repository**: [github.com/shimo4228/agent-knowledge-cycle](https://github.com/shimo4228/agent-knowledge-cycle)
 - **Archive**: Zenodo (auto-archived on each GitHub Release)
 - **Phases**: 6 (Research → Extract → Curate → Promote → Measure → Maintain)
-- **ADRs**: 10 (ADR-0001 through ADR-0010)
-- **Design principles**: 9 (Composable, Observable, Non-destructive, Tool-agnostic, Evaluation-scales, Scaffold-dissolution, Security-by-Absence, Code-LLM Layering, Cognitive-economy)
+- **ADRs**: 8 (ADR-0002, ADR-0003, ADR-0004, ADR-0005, ADR-0008, ADR-0009, ADR-0010, ADR-0011; numbering has permanent gaps at 0001, 0006, 0007 from the v2.0.0 extraction)
+- **Design principles**: 8 (Composable, Observable, Non-destructive, Tool-agnostic, Evaluation-scales, Scaffold-dissolution, Code-LLM Layering, Cognitive-economy)
 - **Cycle skills**: 6 external repos (search-first, learn-eval, skill-stocktake, rules-distill, skill-comply, context-sync)
-- **Design-pattern skills**: 4 in-repo (when-code-when-llm, code-and-llm-collaboration, llm-agent-security-principles, signal-first-research)
+- **Design-pattern skills**: 3 in-repo (when-code-when-llm, code-and-llm-collaboration, signal-first-research)
 - **JSON schemas**: 2 (`schemas/episode-log.schema.json`, `schemas/knowledge.schema.json`)
 - **Reference implementation**: `examples/minimal_harness/` — ~300 lines, stdlib-only Python 3.10+, deterministic demo
 - **Memory layers**: 3 (Raw episodes → Knowledge store → Identity/Rules)
 - **Code-LLM layering patterns**: 4 (guard, filter, judge, orchestrator)
-- **Capabilities deliberately absent**: 6 (ADR-0001 Security by Absence)
 - **Rules file**: [`docs/akc-cycle.md`](docs/akc-cycle.md) — installs the entire cycle without the six skills
 
 ## Prior Research References
@@ -41,11 +40,11 @@ Agent Knowledge Cycle (AKC) is defined as a six-phase knowledge cycle — Resear
 | GEO-SFE | Aggarwal, P. et al. (2024). *GEO: Generative Engine Optimization*. arXiv:2311.09735 | Measurement framework; used in ADR-0010's self-application snapshot |
 | Karpathy LLM Wiki | Karpathy, A. (2026). LLM Wiki pattern. | Contrast case in ADR-0010 — LLM Wikis optimize information-side scarcity; AKC optimizes attention-side scarcity |
 | ECC | Mir, A. *Everything Claude Code*. [github.com/affaan-m/everything-claude-code](https://github.com/affaan-m/everything-claude-code) | Baseline harness AKC runs on top of; acknowledged in README |
-| Contemplative Agent | Shimomoto, T. (2026). *Contemplative Agent*. [github.com/shimo4228/contemplative-agent](https://github.com/shimo4228/contemplative-agent) | Prior art for ADR-0002 through ADR-0007 engineering substrate |
+| Contemplative Agent | Shimomoto, T. (2026). *Contemplative Agent*. [github.com/shimo4228/contemplative-agent](https://github.com/shimo4228/contemplative-agent) | Prior art for the remaining engineering substrate (ADR-0002 through ADR-0005); also the upstream home of the security triplet extracted from AKC in v2.0.0 |
 
 ## What is the Agent Knowledge Cycle (AKC)?
 
-Agent Knowledge Cycle (AKC) is defined as a six-phase knowledge cycle for AI agents that keeps skills, rules, and documentation aligned with reality. The six phases are Research, Extract, Curate, Promote, Measure, and Maintain. AKC was first proposed and implemented by Tatsuya Shimomoto in February 2026 and is published under DOI `10.5281/zenodo.19200727` with MIT license. AKC ships as specifications, JSON schemas, ten Architecture Decision Records (ADR-0001 through ADR-0010), four design-pattern skills, one rules file (`docs/akc-cycle.md`), and one dependency-free Python reference implementation at `examples/minimal_harness/` (~300 lines, stdlib only).
+Agent Knowledge Cycle (AKC) is defined as a six-phase knowledge cycle for AI agents that keeps skills, rules, and documentation aligned with reality. The six phases are Research, Extract, Curate, Promote, Measure, and Maintain. AKC was first proposed and implemented by Tatsuya Shimomoto in February 2026 and is published under DOI `10.5281/zenodo.19200727` with MIT license. AKC ships as specifications, JSON schemas, eight Architecture Decision Records (ADR-0002 through ADR-0005, ADR-0008 through ADR-0011; the numbering has permanent gaps at 0001, 0006, and 0007 from the v2.0.0 extraction of the security triplet), three design-pattern skills, one rules file (`docs/akc-cycle.md`), and one dependency-free Python reference implementation at `examples/minimal_harness/` (~300 lines, stdlib only).
 
 ## Why is AKC a cycle and not a harness?
 
@@ -83,11 +82,11 @@ Everything Claude Code (ECC) is defined as the baseline agent harness AKC runs o
 
 ## What is AKC's central constraint?
 
-AKC's central constraint is defined as the scarcity of human cognitive resources — attention and judgment — not agent capability, context-window size, or information volume. ADR-0010 names this as Design Principle #9: human cognitive resource is the bottleneck. As agent capability grows, the scarce resource migrates from machine to human. Every AKC phase is shaped to protect the operator's fixed daily budget: signal-first intake in Research, promotion of recurring decisions to rules so the same judgment is not re-made, observable compliance measurement so manual re-auditing is not required, and front-loaded dialogue because intent misalignment discovered at review time costs more than the conversation that would have prevented it.
+AKC's central constraint is defined as the scarcity of human cognitive resources — attention and judgment — not agent capability, context-window size, or information volume. ADR-0010 names this as a design principle: human cognitive resource is the bottleneck. As agent capability grows, the scarce resource migrates from machine to human. Every AKC phase is shaped to protect the operator's fixed daily budget: signal-first intake in Research, promotion of recurring decisions to rules so the same judgment is not re-made, observable compliance measurement so manual re-auditing is not required, and front-loaded dialogue because intent misalignment discovered at review time costs more than the conversation that would have prevented it.
 
-## What does AKC deliberately not implement?
+## What knowledge bodies can run through the AKC cycle?
 
-Security by Absence is defined in ADR-0001 as the principle that dangerous capabilities are never implemented rather than being implemented and restricted. The reference implementation `examples/minimal_harness/` deliberately omits six categories of capability: network egress, arbitrary code execution, credential handling, auto-promotion to rules, multi-agent coordination, and production-adjacent side-effect surfaces. ADR-0006 further mandates a single external adapter per agent process, and ADR-0007 treats accumulated memory as untrusted input. These absences are load-bearing: a fork that reintroduces them is a less safe AKC, not a different project.
+Any coherent body of agent knowledge can run through the cycle: behavioral patterns (e.g., a recurring two-stage distill pattern), domain expertise (e.g., a compliance catalogue), or constitutional values (e.g., an agent's axioms and identity statements). ADR-0011 (2026-04-19) declares this explicitly as genre neutrality — the cycle is a mechanism, and content is the downstream project's concern. AKC takes no position on what flows through the cycle and ships no skill tied to any specific knowledge domain. Three falsifiable commitments back the position: (1) no future AKC ADR encodes domain-specific content beyond what the six phases require; (2) `docs/skills/` hosts only cycle-mechanic skills; (3) external projects may cite AKC as their cycle substrate while retaining their own content. Two concrete examples ship in the repository to make this tangible: `examples/minimal_harness/` runs the cycle on behavioral patterns (mechanism demo), and `examples/constitution_amend/` points at contemplative-agent's Constitution-amend workflow as an instance of the same cycle running on constitutional values (descriptive only; implementation lives upstream). The security triplet (ADR-0001, ADR-0006, ADR-0007) was extracted in v2.0.0 precisely because it violated these commitments — it encoded a genre-specific threat model that belonged with contemplative-agent, not with AKC. See the ADR-0009 addendum (2026-04-19) for the extraction record.
 
 ## How do I cite AKC?
 
@@ -103,4 +102,4 @@ AKC is cited via its Zenodo DOI `10.5281/zenodo.19200727`. BibTeX entry:
 }
 ```
 
-Plain-text citation: Shimomoto, T. (2026). *Agent Knowledge Cycle (AKC)*. doi:10.5281/zenodo.19200727. If your work builds on the engineering substrate (memory layers, distill pipeline, security model) and reached it via AKC, please additionally cite Contemplative Agent ([github.com/shimo4228/contemplative-agent](https://github.com/shimo4228/contemplative-agent)), which is the prior art AKC's ADR-0002 through ADR-0007 were adapted from.
+Plain-text citation: Shimomoto, T. (2026). *Agent Knowledge Cycle (AKC)*. doi:10.5281/zenodo.19200727. If your work builds on the engineering substrate (memory layers, distill pipeline) and reached it via AKC, please additionally cite Contemplative Agent ([github.com/shimo4228/contemplative-agent](https://github.com/shimo4228/contemplative-agent)), which is the prior art AKC's ADR-0002 through ADR-0005 were adapted from and is also the upstream home of the security triplet extracted from AKC in v2.0.0.

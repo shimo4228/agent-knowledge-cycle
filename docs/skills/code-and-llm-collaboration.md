@@ -202,5 +202,5 @@ If any answer is "no" or "unclear," there is a seam in the design where the laye
 [ADR-0008 Code and LLM Collaboration](../adr/0008-code-and-llm-collaboration.md).
 Pattern 4 underlies [ADR-0004 Two-Stage Distill Pipeline](../adr/0004-two-stage-distill-pipeline.md).
 Pattern 3 underlies [ADR-0005 Human Approval Gate](../adr/0005-human-approval-gate.md).
-Pattern 1 applies the [ADR-0007 Untrusted Content Boundary](../adr/0007-untrusted-content-boundary.md)
-at the seam where LLM output becomes persistent state.
+Pattern 1 (guard) is the structural place to enforce load-time validation on
+untrusted content before it reaches persistent state.

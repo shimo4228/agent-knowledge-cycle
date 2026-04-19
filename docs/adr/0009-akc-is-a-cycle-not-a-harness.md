@@ -80,4 +80,26 @@ The README now states that AKC is not a one-directional optimization loop. The c
 
 ---
 
+### Addendum — 2026-04-19: security triplet extracted
+
+ADR-0009's demotion of Security by Absence was a necessary step but not a sufficient one. Through v1.8.x the security triplet (ADR-0001 Security by Absence, ADR-0006 Single External Adapter, ADR-0007 Untrusted Content Boundary), together with the `docs/skills/llm-agent-security-principles.md` skill, remained inside AKC as demoted-but-still-present concerns. Continued use revealed that the triplet is **genre-specific**: it encodes a stance appropriate to autonomous agents making side effects in the world (the contemplative-agent lineage), not a universal requirement of any knowledge cycle. An AKC user building, say, a pure documentation-distillation agent does not need Security by Absence as an AKC-level principle. The triplet belongs upstream with the genre that requires it.
+
+In v2.0.0 the security-triplet files were removed from this repository:
+
+- `docs/adr/0001-security-by-absence.md`
+- `docs/adr/0006-single-external-adapter.md`
+- `docs/adr/0007-untrusted-content-boundary.md`
+- `docs/skills/llm-agent-security-principles.md`
+
+Consequences of the extraction:
+
+- The original "What does not change" list in this ADR stated that ADRs 0001–0008 were unchanged and that Security by Absence would remain in the repository as Design Principle #7. Both claims are now superseded by the v2.0.0 extraction; they accurately describe ADR-0009 at the time it was written (2026-04-11) but no longer describe current state.
+- AKC's Design Principles shrink from nine to eight; numbers #8 (Code-LLM Layering) and #9 (Human cognitive resource) renumber to #7 and #8.
+- The ADR numbering gaps at 0001, 0006, 0007 are intentional. ADR numbers are permanent identifiers; reusing a gap would mask the historical record.
+- The cycle itself — the sole defining characteristic established by this ADR — is unchanged.
+
+ADR-0011 (2026-04-19) generalizes this extraction into a positioning statement about genre neutrality. Read ADR-0011 together with this addendum: ADR-0009 established "cycle is the center," the addendum records the concrete act, and ADR-0011 records the principle that makes the act coherent.
+
+---
+
 **Notes.** This ADR was prompted by a single question from the project author: *"Calling AKC a harness is awkward — that puts it in competition with ECC, doesn't it?"* The answer turned out to require unwinding the two-pillar framing that had quietly accumulated since v1.5, and replacing it with a single sentence: AKC is a cycle that grows with the people who shape it.
