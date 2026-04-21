@@ -189,6 +189,12 @@ O en el texto:
   sobre un modelo local de 9B. Su sustrato de ingeniería (memoria de tres
   capas, destilación en dos etapas) fue el trabajo previo que sembró
   los ADRs de AKC. Véase [`docs/inspiration.md`](docs/inspiration.md) para más detalles.
+- [Agent Attribution Practice (AAP)](https://github.com/shimo4228/agent-attribution-practice) —
+  Biblioteca hermana de género (DOI [10.5281/zenodo.19652014](https://doi.org/10.5281/zenodo.19652014)).
+  El trío de seguridad extraído en AKC v2.0.0 (ADR-0001, ADR-0006, ADR-0007)
+  fue reexpresado allí, junto con cinco ADRs adicionales, como ocho ADRs
+  harness-neutral sobre la distribución de la accountability en agentes de
+  IA autónomos. AKC es el ciclo (mecanismo); AAP es la práctica (contenido).
 - [Artículos en Zenn](https://zenn.dev/shimo4228) — Diario de desarrollo (en japonés)
 - [Artículos en Dev.to](https://dev.to/shimo4228) — Traducciones al inglés
 

@@ -188,6 +188,12 @@ AKC 與 [harness engineering](https://mitchellh.com/writing/my-ai-adoption-journ
   一個獨立的研究儲存庫，在本地 9B 模型上探索 Contemplative Constitutional AI。
   其工程底層（三層記憶、兩階段蒸餾）正是為 AKC 的 ADR 播下
   種子的先行研究。詳情請見 [`docs/inspiration.md`](docs/inspiration.md)。
+- [Agent Attribution Practice (AAP)](https://github.com/shimo4228/agent-attribution-practice) ——
+  姊妹類型庫 (DOI [10.5281/zenodo.19652014](https://doi.org/10.5281/zenodo.19652014))。
+  AKC v2.0.0 抽出的安全三件套（ADR-0001、ADR-0006、ADR-0007）
+  在那裡與另外五條 ADR 一起被重新表述為八條 harness-neutral 的 ADR ——
+  關於自主 AI 代理中問責分配的判斷。
+  AKC 是循環（機制），AAP 是實踐（內容）。
 - [Zenn 上的文章](https://zenn.dev/shimo4228) —— 開發日誌（日文）
 - [Dev.to 上的文章](https://dev.to/shimo4228) —— 英文版
 
