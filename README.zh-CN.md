@@ -2,7 +2,7 @@ Language: [English](README.md) | [日本語](README.ja.md) | 简体中文 | [繁
 
 # Agent Knowledge Cycle (AKC)
 
-[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.19200727.svg)](https://doi.org/10.5281/zenodo.19200727)
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.19200726.svg)](https://doi.org/10.5281/zenodo.19200726)
 
 为 AI 代理构建的知识周期 —— 与塑造它的人共同成长。
 

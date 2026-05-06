@@ -2,7 +2,7 @@ Language: English | [日本語](README.ja.md) | [简体中文](README.zh-CN.md) 
 
 # Agent Knowledge Cycle (AKC)
 
-[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.19200727.svg)](https://doi.org/10.5281/zenodo.19200727)
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.19200726.svg)](https://doi.org/10.5281/zenodo.19200726)
 
 A knowledge cycle for AI agents — one that grows with the people who shape it.
 
