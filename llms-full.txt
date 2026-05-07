@@ -5,12 +5,12 @@
 > adjacent projects. Human-readable narrative lives in [README.md](README.md);
 > this file is the self-contained AI-facing companion to [llms.txt](llms.txt).
 
-Agent Knowledge Cycle (AKC) is defined as a six-phase knowledge cycle — Research, Extract, Curate, Promote, Measure, Maintain — that keeps an AI agent's skills, rules, and documentation aligned with reality while the human operator's judgment sharpens alongside the agent. AKC is not a harness; it runs on top of harnesses such as Everything Claude Code (ECC) and is installable into any agent's rules directory with a single `cp`.
+Agent Knowledge Cycle (AKC) is defined as a knowledge cycle for AI agents centered on the scarcity of human cognitive resources — attention and judgment — as the resource that does not scale with the model. AKC keeps an agent's skills, rules, and documentation aligned with the operator's evolving intent (not just individually correct on each output) through a six-phase loop — Research, Extract, Curate, Promote, Measure, Maintain — in which the human's judgment and the agent's behavior co-develop. AKC is not a harness; it runs on top of harnesses such as Everything Claude Code (ECC) and is installable into any agent's rules directory with a single `cp`.
 
 ## Project Facts
 
 - **Name**: Agent Knowledge Cycle (AKC)
-- **Version**: 2.0.0 (genre-neutrality declared; security triplet extracted)
+- **Version**: 2.1.0 (front-door restructure: three core themes front-loaded; ADR-0012 added)
 - **DOI**: [10.5281/zenodo.19200727](https://doi.org/10.5281/zenodo.19200727)
 - **Author**: Tatsuya Shimomoto ([@shimo4228](https://github.com/shimo4228))
 - **Origin date**: February 2026
@@ -18,12 +18,13 @@ Agent Knowledge Cycle (AKC) is defined as a six-phase knowledge cycle — Resear
 - **Repository**: [github.com/shimo4228/agent-knowledge-cycle](https://github.com/shimo4228/agent-knowledge-cycle)
 - **Archive**: Zenodo (auto-archived on each GitHub Release)
 - **Phases**: 6 (Research → Extract → Curate → Promote → Measure → Maintain)
-- **ADRs**: 8 (ADR-0002, ADR-0003, ADR-0004, ADR-0005, ADR-0008, ADR-0009, ADR-0010, ADR-0011; numbering has permanent gaps at 0001, 0006, 0007 from the v2.0.0 extraction)
+- **ADRs**: 9 (ADR-0002, ADR-0003, ADR-0004, ADR-0005, ADR-0008, ADR-0009, ADR-0010, ADR-0011, ADR-0012; numbering has permanent gaps at 0001, 0006, 0007 from the v2.0.0 extraction)
+- **Three core themes** (per ADR-0012, surfaced in priority order in front-door docs): (1) human cognitive resource scarcity as the central constraint, (2) intent alignment over individual correctness, (3) the cycle changes the human as much as the agent — bidirectional growth loop
 - **Design principles**: 8 (Composable, Observable, Non-destructive, Tool-agnostic, Evaluation-scales, Scaffold-dissolution, Code-LLM Layering, Cognitive-economy)
 - **Cycle skills**: 6 external repos (search-first, learn-eval, skill-stocktake, rules-distill, skill-comply, context-sync)
 - **Design-pattern skills**: 3 in-repo (when-code-when-llm, code-and-llm-collaboration, signal-first-research)
 - **JSON schemas**: 2 (`schemas/episode-log.schema.json`, `schemas/knowledge.schema.json`)
-- **Reference implementation**: `examples/minimal_harness/` — ~300 lines, stdlib-only Python 3.10+, deterministic demo
+- **Reference implementation**: `examples/minimal_harness/` — ~500 lines, stdlib-only Python 3.10+, deterministic demo
 - **Memory layers**: 3 (Raw episodes → Knowledge store → Identity/Rules)
 - **Code-LLM layering patterns**: 4 (guard, filter, judge, orchestrator)
 - **Rules file**: [`docs/akc-cycle.md`](docs/akc-cycle.md) — installs the entire cycle without the six skills
@@ -45,7 +46,15 @@ Agent Knowledge Cycle (AKC) is defined as a six-phase knowledge cycle — Resear
 
 ## What is the Agent Knowledge Cycle (AKC)?
 
-Agent Knowledge Cycle (AKC) is defined as a six-phase knowledge cycle for AI agents that keeps skills, rules, and documentation aligned with reality. The six phases are Research, Extract, Curate, Promote, Measure, and Maintain. AKC was first proposed and implemented by Tatsuya Shimomoto in February 2026 and is published under DOI `10.5281/zenodo.19200727` with MIT license. AKC ships as specifications, JSON schemas, eight Architecture Decision Records (ADR-0002 through ADR-0005, ADR-0008 through ADR-0011; the numbering has permanent gaps at 0001, 0006, and 0007 from the v2.0.0 extraction of the security triplet), three design-pattern skills, one rules file (`docs/akc-cycle.md`), and one dependency-free Python reference implementation at `examples/minimal_harness/` (~300 lines, stdlib only).
+Agent Knowledge Cycle (AKC) is defined as a knowledge cycle for AI agents centered on the scarcity of human cognitive resources — attention and judgment — as the resource that does not scale with the model. Its purpose is to keep the agent's behavior aligned with the operator's evolving intent across sessions, not merely individually correct on each output, while the operator's judgment about good agent behavior also sharpens through use — making AKC a bidirectional growth loop in which agent and human co-develop. The mechanism is six composable phases — Research, Extract, Curate, Promote, Measure, Maintain — that keep skills, rules, and documentation aligned with the operator's intent. AKC was first proposed and implemented by Tatsuya Shimomoto in February 2026 and is published under DOI `10.5281/zenodo.19200727` with MIT license. AKC ships as specifications, JSON schemas, nine Architecture Decision Records (ADR-0002 through ADR-0005, ADR-0008 through ADR-0012; the numbering has permanent gaps at 0001, 0006, and 0007 from the v2.0.0 extraction of the security triplet), three design-pattern skills, one rules file (`docs/akc-cycle.md`), and one dependency-free Python reference implementation at `examples/minimal_harness/` (~500 lines, stdlib only).
+
+## What is AKC's central constraint?
+
+AKC's central constraint is defined as the scarcity of human cognitive resources — attention and judgment — not agent capability, context-window size, or information volume. ADR-0010 names this as a design principle: human cognitive resource is the bottleneck. As agent capability grows, the scarce resource migrates from machine to human. Every AKC phase is shaped to protect the operator's fixed daily budget: signal-first intake in Research, promotion of recurring decisions to rules so the same judgment is not re-made, observable compliance measurement so manual re-auditing is not required, and front-loaded dialogue because intent misalignment discovered at review time costs more than the conversation that would have prevented it. ADR-0010 contrasts AKC with information-side architectures (LLM Wikis, knowledge bases): they optimize for searchability of accumulated content; AKC optimizes for what the human does *not* have to read, hold, or re-decide.
+
+## How does AKC frame intent alignment?
+
+Intent alignment is defined in AKC as the property that the agent's behavior stays consistent with the operator's evolving intent across sessions, not merely with a static specification. AKC distinguishes this from correctness, which is the property that an output passes specific checks (tests, types, linters). An agent can satisfy every correctness check and still drift from intent, because intent itself moves as the operator's judgment sharpens through use. AKC's design choices reflect this distinction: Design Principle #3 (Non-destructive) — propose, then wait for confirmation — keeps every change at a checkpoint where intent can be re-stated, and pre-implementation dialogue is treated as a cognitive-economy investment, not as friction. The same distinction explains how AKC differs from harness engineering: harnesses optimize correctness on the first try, while AKC keeps the harnesses themselves aligned with intent as that intent evolves. Without this distinction, repeated maintenance cycles become drift-correction cycles, and the human's attention gets spent reconstructing what went wrong rather than directing what comes next.
 
 ## Why is AKC a cycle and not a harness?
 
@@ -54,6 +63,10 @@ A harness is defined as the agent scaffold itself — tools, prompts, memory API
 ## What are the six phases of AKC?
 
 The six AKC phases are defined as follows. **Research** — search broadly, filter strictly by signal; only information that would change the next action is admitted. **Extract** — capture reusable patterns from a session with quality evaluation before persisting. **Curate** — periodically audit accumulated skills and rules for redundancy, staleness, and silence. **Promote** — elevate patterns that recur three or more times from the probabilistic skills layer to the deterministic rules layer. **Measure** — verify behavioral change quantitatively through observable tool-call sequences and outputs, not subjective impression. **Maintain** — keep documentation roles clean so each file serves exactly one of four roles (Context, Architecture, Decisions, External). Phases run as a closed loop; experience feeds Research, rules emerge from Promote.
+
+## Why is Research defined as signal-first?
+
+Signal-first Research is defined as filtering at intake rather than after accumulation. ADR-0010 (2026-04-18) names this principle explicitly. Before v1.8, Research only told the agent what to *find*; after v1.8, it also tells the agent what to *refuse to load*. The rule: before searching, define the signal — what information would actually change the next action? Search broadly; intake narrowly. Information that does not change an action does not deserve to be held, because intake consumes human attention, and unspent attention is the cycle's scarce resource. Exploration and learning phases are legitimate exceptions and must be named explicitly when taken.
 
 ## Who is the intended audience of AKC?
 
@@ -69,10 +82,6 @@ cp docs/akc-cycle.md ~/.claude/rules/common/akc-cycle.md
 
 That rule file distills all six phases into behavioral principles any AI agent can follow through natural conversation. No skills, no plugins, no CLI tools are required. Operators who want guided step-by-step workflows per phase can additionally install the six cycle skills as external repositories (search-first, learn-eval, skill-stocktake, rules-distill, skill-comply, context-sync). Rules and skills coexist — rules ensure the cycle runs even when skills are not triggered.
 
-## Why is Research defined as signal-first?
-
-Signal-first Research is defined as filtering at intake rather than after accumulation. ADR-0010 (2026-04-18) names this principle explicitly. Before v1.8, Research only told the agent what to *find*; after v1.8, it also tells the agent what to *refuse to load*. The rule: before searching, define the signal — what information would actually change the next action? Search broadly; intake narrowly. Information that does not change an action does not deserve to be held, because intake consumes human attention, and unspent attention is the cycle's scarce resource. Exploration and learning phases are legitimate exceptions and must be named explicitly when taken.
-
 ## What does scaffold dissolution mean in AKC?
 
 Scaffold dissolution is defined as the property that AKC's skills become unnecessary once the cycle is internalized. The scaffold-dissolution principle is Design Principle #6 and is documented in [`docs/scaffold-dissolution.md`](docs/scaffold-dissolution.md). Practically: skills are probabilistic scaffolding that help an operator and agent run the cycle before it becomes habit. As Curate and Promote decisions accumulate, the judgment they require gets absorbed into conversation patterns and rules. Success is measured not by skill count but by whether the cycle runs naturally without explicit skill invocation. Rules remain load-bearing; skills fade.
@@ -80,10 +89,6 @@ Scaffold dissolution is defined as the property that AKC's skills become unneces
 ## How does AKC relate to ECC (Everything Claude Code)?
 
 Everything Claude Code (ECC) is defined as the baseline agent harness AKC runs on top of. ECC ships skills and rules for Claude Code; AKC provides the maintenance cycle that keeps such a harness coherent as it grows. The README's Acknowledgments section credits ECC directly: AKC emerged from months of daily ECC use, during which the author's own accumulated skills and rules proliferated faster than they could be tracked. The six-phase cycle is the shape that recurring maintenance work took. The first five cycle skills were contributed to ECC between February and March 2026; context-sync was developed independently.
-
-## What is AKC's central constraint?
-
-AKC's central constraint is defined as the scarcity of human cognitive resources — attention and judgment — not agent capability, context-window size, or information volume. ADR-0010 names this as a design principle: human cognitive resource is the bottleneck. As agent capability grows, the scarce resource migrates from machine to human. Every AKC phase is shaped to protect the operator's fixed daily budget: signal-first intake in Research, promotion of recurring decisions to rules so the same judgment is not re-made, observable compliance measurement so manual re-auditing is not required, and front-loaded dialogue because intent misalignment discovered at review time costs more than the conversation that would have prevented it.
 
 ## What knowledge bodies can run through the AKC cycle?
 

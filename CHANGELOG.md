@@ -4,6 +4,99 @@ All notable changes to AKC are recorded here. AKC follows semantic
 versioning; breaking changes to positioning or public interfaces bump the
 major version.
 
+## v2.1.0 — 2026-05-08
+
+Front-door restructure. README, llms.txt, and llms-full.txt are reorganized
+so the three core themes — (1) human cognitive-resource scarcity as the
+central constraint, (2) intent alignment over individual correctness, and
+(3) the cycle changing the human as much as the agent — appear in priority
+order before the six-phase mechanism. Tagline preserved per ADR-0010. See
+[ADR-0012](docs/adr/0012-front-load-three-core-themes.md) for the
+positioning rationale.
+
+### Why v2.1.0 and not v2.0.1
+
+The reading order of the front-door documents changes meaningfully — what
+appears first determines what AI search engines and human readers learn
+about AKC. v2.0.x readers encountered mechanism-first prose; v2.1.0 readers
+encounter the constraint and the alignment goal first. This is additive
+(no ADRs amended, no design principles changed, no schemas or reference
+implementation touched), so no major bump is warranted, but the front
+door's signature changes enough that it deserves a minor bump.
+
+### Changed
+
+- **README.md "What is AKC?"** is rewritten in four paragraphs that lead
+  with cognitive-resource scarcity, then intent alignment, then the cycle
+  changing the human, then the six phases as the means.
+- **README.md section order** — old "Why a cycle?" and "Whose cognitive
+  budget?" sections are merged into a single new H2 "Why AKC" placed
+  between "What is AKC?" and "What's in this repo". Three H3 subsections
+  appear in theme order: *The bottleneck has moved*, *Aligned with intent,
+  not just correct*, *The cycle changes the human too*.
+- **README.md "Relationship to Harness Engineering"** — the
+  intent-alignment paragraph is shortened to a positioning contrast and
+  links back to "Why AKC → Aligned with intent".
+- **llms.txt** blockquote is reordered so cognitive-resource scarcity
+  leads, then intent alignment (newly written paragraph), then the cycle
+  changing the human, then the six-phase mechanism.
+- **llms-full.txt** opening definition is rewritten so its grammatical
+  subject is the scarcity constraint, with the six-phase loop appearing
+  in the same sentence as the means rather than the headline. Q&A is
+  reordered: "What is AKC's central constraint?" promoted from Q9 to Q2;
+  new Q3 added — "How does AKC frame intent alignment?".
+- **Five language versions of README.md** (ja, es, pt-BR, zh-CN, zh-TW)
+  synced to the new English structure.
+- **README "What's in this repo" section trimmed.** The 50-line
+  repository tree is moved to a dedicated `docs/CODEMAPS/` directory
+  (matching the AAP convention: `INDEX.md` + `architecture.md`) and
+  replaced in the README with a brief summary paragraph and a link.
+  The Why AKC → cycle → install reading flow is no longer interrupted
+  by the file-structure block.
+
+### Added
+
+- **`docs/adr/0012-front-load-three-core-themes.md`** — new ADR
+  recording the front-door reorder decision and the verifiable
+  commitments for the three themes appearing in priority order in
+  README.md, llms.txt, and llms-full.txt.
+- **`docs/CODEMAPS/`** — codemaps directory matching the AAP
+  convention. `INDEX.md` is the navigator; `architecture.md` carries
+  the full tree, document-role routing table, structural diagrams
+  (three themes / six phases / three memory layers / four code-LLM
+  layering patterns), invariants, citation-dependency graph,
+  six-language translation convention, sibling-repo map, and
+  file-count snapshot. Linked from every language version of the
+  README and from llms.txt.
+- **Glossary entries** in `docs/glossary.md`: *intent alignment*,
+  *bottleneck*, *cognitive economy*, *cognitive resource*, *scarce
+  resource*, *co-develop*, *attention and judgment* — all with five
+  language renderings to keep translations in sync.
+- **GitHub repo About** — description rewritten to surface theme #1
+  and theme #2 alongside the preserved tagline; topics pruned of v1.x /
+  v2.0.0-extraction residue (`self-improvement`, `self-improving-agent`,
+  `prompt-injection`, `security-by-absence`) and extended with five
+  theme-aligned topics (`agent-alignment`, `human-in-the-loop`,
+  `cognitive-economy`, `human-ai-collaboration`, `signal-first`).
+
+### Unchanged
+
+- **Tagline.** *"A knowledge cycle for AI agents — one that grows with
+  the people who shape it"* remains, per ADR-0010's preservation
+  decision and ADR-0012's reaffirmation.
+- **Six phases.** Research → Extract → Curate → Promote → Measure →
+  Maintain are unchanged in number, name, and order.
+- **Design principles.** All eight remain in effect with the same
+  numbering. DP #3 (Non-destructive) and DP #8 (Cognitive economy) are
+  referenced inline from "Why AKC" but not amended.
+- **ADRs in effect.** ADR-0002 through ADR-0011 remain in effect as
+  written. ADR-0012 is additive.
+- **Reference implementation.** No code changes to
+  `examples/minimal_harness/` or to `schemas/`.
+- **Cycle skills.** The six external skill repositories
+  (search-first, learn-eval, skill-stocktake, rules-distill,
+  skill-comply, context-sync) are unchanged.
+
 ## v2.0.0 — 2026-04-19
 
 Major positioning release. AKC declares the cycle **genre-neutral** about

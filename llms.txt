@@ -1,17 +1,32 @@
 # Agent Knowledge Cycle (AKC)
 
 > A knowledge cycle for AI agents — one that grows with the people who
-> shape it. AKC is a six-phase self-improvement loop (Research → Extract
-> → Curate → Promote → Measure → Maintain) that keeps skills, rules,
-> and documentation aligned with reality. It is not a one-directional
-> optimization loop: as the human curates and promotes knowledge, their
-> judgment about what makes good agent behavior also sharpens.
+> shape it. AKC treats human cognitive resources — attention and
+> judgment — as the central constraint that does not scale with the
+> model. Every competing framework optimizes the agent side; AKC asks
+> the inverse question, given that the human in the loop has a fixed
+> daily budget of attention and judgment. See ADR-0010.
 >
-> AKC treats human cognitive resources — attention and judgment — as
-> the central constraint that does not scale with the model. Research
-> is signal-first, recurring decisions are promoted to rules, and
-> dialogue is front-loaded because misaligned implementation costs
-> more than the conversation that would have prevented it. See ADR-0010.
+> The cycle's purpose is to keep the agent's behavior aligned with the
+> operator's evolving intent across sessions, not merely individually
+> correct on each output. Correctness can be checked by tests;
+> alignment cannot, because intent itself moves as the operator's
+> judgment sharpens through use. Pre-implementation dialogue is
+> front-loaded because misaligned implementation costs more than the
+> conversation that would have prevented it.
+>
+> The cycle changes the human too. As the human curates and promotes
+> knowledge, their judgment about what makes good agent behavior also
+> sharpens. AKC is therefore a bidirectional growth loop where agent
+> behavior and human judgment co-develop, not a one-directional
+> optimization loop where the agent improves in isolation.
+>
+> Six composable phases — Research → Extract → Curate → Promote →
+> Measure → Maintain — operationalize this. Research is signal-first,
+> recurring decisions are promoted to rules, and observable compliance
+> measurement replaces manual re-auditing. ADR-0012 records the
+> decision to front-load these three themes in the project's reading
+> surface.
 >
 > AKC is not a harness. It runs on top of harnesses (like Everything
 > Claude Code) to keep the harness alive as understanding evolves.
@@ -27,9 +42,11 @@
 ## Core documentation
 
 - [AI Reference](llms-full.txt): self-contained Q&A + definitions + prior research, optimized for AI search engines
-- [README](README.md): project overview, repo tree, design principles
+- [README](README.md): project overview, the three core themes, design principles
+- [Codemap — Document Architecture](docs/CODEMAPS/architecture.md): document-role index, three-themes / six-phases / three-memory-layers structure, citation-dependency graph, invariants — read first when routing a citation to the canonical AKC document
 - [AKC Cycle Rules](docs/akc-cycle.md): the cycle as a single rules file, copy-installable to any agent's rules directory
 - [Scaffold Dissolution](docs/scaffold-dissolution.md): how skills become unnecessary once the cycle is internalized
+- [Glossary](docs/glossary.md): translation glossary across the six README languages
 - [Inspiration](docs/inspiration.md): prior art and acknowledgements
 - [Changelog](CHANGELOG.md): release history
 
@@ -43,6 +60,7 @@
 - [ADR-0009 AKC is a Cycle, Not a Harness](docs/adr/0009-akc-is-a-cycle-not-a-harness.md): repositioning AKC as a knowledge cycle rather than a self-improving harness. See the 2026-04-19 addendum for the v2.0.0 extraction of the security triplet (ADR-0001, ADR-0006, ADR-0007)
 - [ADR-0010 Human Cognitive Resource as Central Constraint](docs/adr/0010-human-cognitive-resource-as-central-constraint.md): names the implicit philosophy driving every phase — human attention and judgment as the scarce resource; redefines Research as signal-first; adds cognitive economy as a design principle
 - [ADR-0011 Cycle Applies to Any Knowledge Body](docs/adr/0011-cycle-applies-to-any-knowledge-body.md): declares the cycle genre-neutral about what flows through it — behavioral patterns, domain expertise, or constitutional values all run through the same mechanism
+- [ADR-0012 Front-load the Three Core Themes](docs/adr/0012-front-load-three-core-themes.md): reorders README, llms.txt, and llms-full.txt so cognitive resource, intent alignment, and the cycle changing the human appear in priority order before the six-phase mechanism; tagline preserved per ADR-0010
 
 ADR numbers are permanent identifiers; gaps (0001, 0006, 0007) reflect ADRs extracted in v2.0.0 as genre-specific content.
 
@@ -62,7 +80,7 @@ concrete patterns, code sketches, and audit checklists.
 
 ## Reference implementation and examples
 
-- [examples/minimal_harness/](examples/minimal_harness/): ~300-line dependency-free Python reference demonstrating the three memory layers and the two-stage distill pipeline (cycle on behavioral patterns)
+- [examples/minimal_harness/](examples/minimal_harness/): ~500-line dependency-free Python reference demonstrating the three memory layers and the two-stage distill pipeline (cycle on behavioral patterns)
 - [examples/minimal_harness/demo.py](examples/minimal_harness/demo.py): deterministic end-to-end demo, runnable with `python3 -m examples.minimal_harness.demo`
 - [examples/constitution_amend/](examples/constitution_amend/): reference to contemplative-agent's Constitution-amend workflow — a concrete instance of the AKC cycle applied to constitutional values rather than behavioral patterns. Descriptive only; the implementation lives upstream
 

@@ -8,52 +8,55 @@ Language: [English](README.md) | [日本語](README.ja.md) | [简体中文](READ
 
 ## 什麼是 AKC
 
-AKC 將代理的知識視為 **活資產**：片段以不可變日誌形式記錄、蒸餾為模式、提升為規則，並被持續審計。Research → Extract → Curate → Promote → Measure → Maintain 這六個可組合的階段，讓技能、規則與文件持續與現實對齊。若沒有維護循環，代理的知識就會退化 —— 技能陳舊、規則互相矛盾、文件與程式碼漸行漸遠。
+AKC 起於一個觀察：隨著代理能力的提升，稀缺資源已經不再是運算或上下文 —— 而是讓循環得以持續運作的 **人的注意力與判斷**。AKC 正是圍繞這份稀缺而打造的。請參閱 [ADR-0010](docs/adr/0010-human-cognitive-resource-as-central-constraint.md)。
 
-這不是單向的最佳化循環 —— 週期同樣會改變人。請參閱下方的 [為什麼是週期？](#為什麼是週期)。
+守護這份預算，會重新定義週期的目的。目標並不是「代理產出單次正確的輸出」 —— 而是「代理的行為在不同會話之間，持續與運營者的意圖保持對齊」。正確性可以由測試檢查；對齊則無法，因為意圖本身會隨著運營者在使用中磨練出的判斷而移動。
+
+因此，對齊是在時間中維持，而不是一次性完成設定。**週期同樣會改變人**：在一次次 Curate / Promote / Measure 的決策之後，運營者關於「什麼算是好的代理行為」的判斷，會一場會話比一場會話更鋒利 —— 這正是標語所說的「與塑造它的人 *一同* (而非 *為* 它) 成長」。用技術語言說，這是一個代理行為與人類判斷共同成長的雙向循環 (bidirectional growth loop)。
+
+把這一切落地的，是六個可組合的階段 —— Research → Extract → Curate → Promote → Measure → Maintain。signal-first 的吸收，讓注意力不被花在不會改變下一步行動的資訊上；將反覆出現的判斷提升為規則，讓同一份判斷不必反覆重做；可觀測的遵循檢查，讓人不必在每次會話中再做手動審計。沒有這樣的循環，代理的知識就會退化 —— 技能陳舊、規則互相矛盾、文件與程式碼漸行漸遠。
 
 AKC 以規範、schema、ADR 與最小參考實作的形式發布。LLM 與 adapter 請自行準備。
 
+## 為什麼是 AKC
+
+### 瓶頸已經移動
+
+隨著代理能力提升，稀缺資源已經不再是運算或上下文，而是人的注意力與判斷。每一個與之競爭的框架都在最佳化代理一側 —— 更多的工具、更多的記憶、更多的上下文、更多的自動化。AKC 反過來問：既然處於循環中的人，每天可投入的注意力與判斷是固定預算，那麼週期應該如何塑造，才不會讓這份預算被白白浪費？
+
+AKC 的各階段都圍繞這份稀缺打造。Research 採用 signal-first，讓吸收量不超過消化量。Promote 把重複出現的判斷轉化為規則，避免每次會話重做同樣的決定。Measure 用可觀測的遵循檢查取代手動重新審計。實作前的對話之所以被提前，是因為在審查時才發現意圖錯位，其代價會高於本可預防它的那場對話。運轉週期並非免費 —— 但這正是週期守護那個唯一不會隨模型規模擴展的資源的方法。請參閱 [ADR-0010](docs/adr/0010-human-cognitive-resource-as-central-constraint.md)。
+
+| 維護問題 | AKC 的回應 |
+|------|------------|
+| 技能陳舊 | skill-stocktake 定期審計品質 |
+| 規則與實際脫節 | skill-comply 測量真實的行為遵循率 |
+| 知識散落各處 | rules-distill 將重複出現的模式提升為原則 |
+| 文件漂移 | context-sync 偵測角色重疊與陳舊內容 |
+| 重複造輪子 | search-first 先確認是否已有現成方案 |
+| 經驗流失 | learn-eval 以品質關卡擷取模式 |
+
+每一行都是週期接管了原本應由人手動承擔的維護工作。運轉週期並非免費，但比起每次都重做同一份審計，仍要便宜得多。
+
+### 與意圖對齊，不只是正確
+
+正確性可以自動化 —— 測試、型別、lint、評審工具都能檢查輸出是否滿足特定條件。對齊則無法以同樣的程度自動化，因為意圖本身會隨著運營者在使用中磨練出的判斷而移動。一個代理可以滿足所有正確性檢查，卻仍然偏離意圖。
+
+AKC 的設計選擇反映了這份區別。設計原則 #3（Non-destructive）—— 先提議、再等待確認 —— 把每一次變更都置於一個可以重新陳述意圖的檢查點。實作前的對話被視為 **認知經濟的投資**，而非摩擦。這份區別也說明了 AKC 與 harness engineering 的差異：harness 最佳化的是首次的正確性，而 AKC 讓 harness 自身隨著意圖的變化而保持與意圖對齊。分層比較請參閱 [與 Harness Engineering 的關係](#與-harness-engineering-的關係)。
+
+### 週期同樣會改變人
+
+在反覆進行 Curate 與 Promote 的決策過程中，使用者會磨練出「什麼知識值得保留」的判斷力。透過 Research，使用者會培養出「該採用現成方案還是自行打造」的直覺。透過 Measure，使用者能學到好規則與模糊願望之間的差異。AKC 並不是一個讓代理獨自改進的單向最佳化循環 —— 代理的行為與人類的判斷在持續互動中共同成長。標語 —— *與塑造它的人一同成長* —— 命名的正是這項性質。
+
 ## 儲存庫內容
 
-```
-agent-knowledge-cycle/
-├── docs/
-│   ├── akc-cycle.md              # 行為規則 —— 將整個週期收斂為單一規則檔
-│   ├── scaffold-dissolution.md   # 技能即鷹架；以及它如何溶解
-│   ├── inspiration.md            # 先行研究
-│   ├── adr/
-│   │   ├── 0002-immutable-episode-log.md         # JSONL，僅可追加，umask 0600
-│   │   ├── 0003-three-layer-distillation.md      # Raw → Knowledge → Identity/Rules
-│   │   ├── 0004-two-stage-distill-pipeline.md    # 自由格式 → 結構化格式
-│   │   ├── 0005-human-approval-gate.md           # 不自動提升為規則
-│   │   ├── 0008-code-and-llm-collaboration.md    # 程式碼掌握控制流，LLM 掌握語意
-│   │   ├── 0009-akc-is-a-cycle-not-a-harness.md  # 週期是唯一的定義性特徵
-│   │   ├── 0010-human-cognitive-resource-as-central-constraint.md  # signal-first Research 與認知經濟
-│   │   └── 0011-cycle-applies-to-any-knowledge-body.md  # 週期對流經其中的知識體裁保持中立
-│   └── skills/                   # 與 ADR 一一對應的設計模式技能
-│       ├── when-code-when-llm.md                 # 任務層級：結構 vs 語意
-│       ├── code-and-llm-collaboration.md         # 管線層級：四種分層模式
-│       └── signal-first-research.md              # ADR-0010 的 intake 過濾設計
-├── schemas/
-│   ├── episode-log.schema.json   # Layer 1 記錄形態
-│   └── knowledge.schema.json     # Layer 2 模式形態
-└── examples/
-    ├── minimal_harness/          # 機制示範 —— 針對行為模式的週期
-    │   ├── episode_log.py        # Layer 1
-    │   ├── knowledge_store.py    # Layer 2 + 時間衰減 + 禁用字串驗證
-    │   ├── distill.py            # 兩階段管線，與具體 LLM 無關
-    │   └── demo.py               # python3 -m examples.minimal_harness.demo
-    └── constitution_amend/       # 下游參考 —— 針對憲法性價值的週期
-        └── README.md             # 將 AKC 的各階段對應到 contemplative-agent 的修訂流程
-```
-
-八個 ADR、八條設計原則、三個設計模式技能、兩個 JSON schema、一份約 300 行的可執行參考實作，以及只需一行 `cp` 就能裝入完整週期的規則檔。AKC 定義了三層記憶與四種程式碼–LLM 分層模式。下列的六個 cycle skills 仍然是各階段「完整版」且帶有立場的實作。
+九個 ADR、八條設計原則、三個設計模式技能、兩個 JSON schema、一份約 500 行的可執行參考實作，以及只需一行 `cp` 就能裝入完整週期的規則檔。AKC 定義了三層記憶與四種程式碼–LLM 分層模式。下列的六個 cycle skills 仍然是各階段「完整版」且帶有立場的實作。
 
 AKC 發布 **兩類技能**：
 
 - **Cycle skills**（外部儲存庫）—— 自我改進循環的每個階段對應一個：`search-first`、`learn-eval`、`skill-stocktake`、`rules-distill`、`skill-comply`、`context-sync`。
 - **Design-pattern skills**（[`docs/skills/`](docs/skills/)）—— 與 ADR 一一對應的長篇「how」指南，橫跨多個階段。
+
+完整的儲存庫樹與文件角色路由請參閱 [`docs/CODEMAPS/architecture.md`](docs/CODEMAPS/architecture.md)。
 
 ## 週期
 
@@ -108,27 +111,6 @@ cp docs/akc-cycle.md ~/.claude/rules/common/akc-cycle.md
 - **Rules** 提供原則與觸發條件。想讓週期從對話中自然浮現時安裝它們。
 - 兩者可以並存。即使技能未被觸發，Rules 也能確保週期持續運轉。
 
-## 為什麼是週期
-
-靜態設定必然漂移。技能不斷被加入卻從未被複審。規則不斷累積，但遵循度從未被測量。文件逐漸陳舊。
-
-AKC 將代理的知識視為一個需要持續維護的活系統 —— 而不是一次性的架設。
-
-| 問題 | AKC 的回應 |
-|------|------------|
-| 技能陳舊 | skill-stocktake 定期審計品質 |
-| 規則與實際脫節 | skill-comply 測量真實的行為遵循率 |
-| 知識散落各處 | rules-distill 將重複出現的模式提升為原則 |
-| 文件漂移 | context-sync 偵測角色重疊與陳舊內容 |
-| 重複造輪子 | search-first 先確認是否已有現成方案 |
-| 經驗流失 | learn-eval 以品質關卡擷取模式 |
-
-週期同樣會改變人。在反覆進行 Curate 與 Promote 的決策過程中，使用者會磨練出「什麼知識值得保留」的判斷力。透過 Research，使用者會培養出「該採用現成方案還是自行打造」的直覺。透過 Measure，使用者能學到好規則與模糊願望之間的差異。AKC 並不是一個讓代理獨自改進的單向最佳化循環 —— 而是人與代理在持續互動中共同成長的雙向循環。
-
-### 週期究竟在守護誰的認知預算
-
-人類的。隨著代理能力提升，稀缺資源已不再是運算或上下文，而是 **人類的注意力與判斷**。AKC 的各階段都圍繞這份稀缺打造：Research 採用 signal-first，讓吸收量不超過消化量；Promote 把重複出現的判斷轉化為規則，避免每次會話重做同樣的決定；Measure 用可觀測的遵循檢查取代手動重新審計；而實作前的對話之所以被提前，是因為在審查時才發現意圖錯位，其代價會高於本可預防它的那場對話。運轉週期並非免費 —— 但這正是週期守護那個唯一不會隨模型規模擴展的資源的方法。請參閱 [ADR-0010](docs/adr/0010-human-cognitive-resource-as-central-constraint.md)。
-
 ## 設計原則
 
 1. **Composable** —— 每個技能都能獨立運作。可以只用一個，也可以六個一起用。
@@ -150,7 +132,7 @@ AKC 與 [harness engineering](https://mitchellh.com/writing/my-ai-adoption-journ
 | Harness | 「這個輸出對嗎？」 | 單獨的 lint、測試、腳本 |
 | AKC | 「這些 harness 本身還有效嗎？」 | skill-comply、skill-stocktake、context-sync |
 
-**正確性 vs 意圖對齊。** harness engineering 關注「一次就得到正確結果」—— 以更好的指令與自動化檢查預防已知錯誤。AKC 關心的是另一個問題：「這是否與擁有者的意圖對齊？」 一個代理可以避開所有已知錯誤，卻仍偏離設計意圖。設計原則 #3（Non-destructive）正好反映這一點 —— 先提議、再等待確認，因為意圖對齊難以完全自動化。
+**正確性 vs 意圖對齊。** harness engineering 關注「一次就得到正確結果」—— 以更好的指令與自動化檢查預防已知錯誤。AKC 關心的是另一個問題：代理的行為是否與運營者不斷變化的意圖保持對齊？這項論點的獨立展開請參閱 [為什麼是 AKC → 與意圖對齊](#與意圖對齊不只是正確)。
 
 **反應式 vs 主動式。** harness engineering 本質上是反應式 —— 每出現一次錯誤就新增一個 harness。AKC 的 skill-comply 與 skill-stocktake 採取主動姿態，定期審計技能與規則是否仍被遵循、是否仍然適用。設計原則 #5 讓評估隨模型能力延伸 —— 小型模型用 rubric，前沿模型用整體性判斷。
 
@@ -173,6 +155,7 @@ AKC 與 [harness engineering](https://mitchellh.com/writing/my-ai-adoption-journ
   author       = {Shimomoto, Tatsuya},
   title        = {Agent Knowledge Cycle (AKC)},
   year         = {2026},
+  version      = {2.1.0},
   doi          = {10.5281/zenodo.19200727},
   url          = {https://doi.org/10.5281/zenodo.19200727},
   note         = {A knowledge cycle for AI agents — one that grows with the people who shape it}

@@ -8,59 +8,108 @@ A knowledge cycle for AI agents — one that grows with the people who shape it.
 
 ## What is AKC?
 
-AKC treats agent knowledge as a living asset: episodes are logged immutably,
-distilled into patterns, promoted to rules, and continuously audited.
-Six composable phases (Research → Extract → Curate → Promote → Measure →
-Maintain) keep skills, rules, and docs aligned with reality. Without a
-maintenance loop, agent knowledge degrades: skills go stale, rules
-contradict each other, documentation drifts from the code.
+AKC starts from a single observation: as agent capability grows, the
+scarce resource is no longer compute or context — it is the human
+attention and judgment running the loop. AKC is centered on that
+scarcity. See [ADR-0010](docs/adr/0010-human-cognitive-resource-as-central-constraint.md).
 
-This is not a one-directional optimization loop — the cycle changes
-the human too. See [Why a cycle?](#why-a-cycle) below.
+Protecting that budget reframes what the cycle is for. The goal is
+not "the agent produced individually correct output" — it is "the
+agent's behavior stays aligned with the operator's intent across
+sessions". Correctness can be checked by tests; alignment cannot,
+because intent itself moves as the operator's judgment sharpens.
+
+Alignment is therefore sustained over time, not configured once. The
+cycle changes the human too: through Curate, Promote, and Measure
+decisions, the operator's judgment about what makes good agent
+behavior sharpens session by session — which is why the tagline says
+the cycle grows *with* the people who shape it, not *for* them.
+Underneath, this is a bidirectional growth loop where agent behavior
+and human judgment co-develop.
+
+Six composable phases — Research → Extract → Curate → Promote →
+Measure → Maintain — operationalize this. Signal-first intake so
+attention is not spent on what cannot change action; recurring
+decisions promoted to rules so the same judgment is not re-made;
+observable compliance so the human does not re-audit each session
+manually. Without this loop, agent knowledge degrades — skills go
+stale, rules contradict each other, documentation drifts from code.
 
 AKC ships as specifications, schemas, ADRs, and a minimal reference
 example. Bring your own LLM and your own adapter.
 
+## Why AKC
+
+### The bottleneck has moved
+
+As agent capability grows, the scarce resource is no longer compute
+or context but human attention and judgment. Every competing framework
+optimizes the agent side — more tools, more memory, more context,
+more automation. AKC asks the inverse question: given that the human
+in the loop has a fixed daily budget of attention and judgment, how
+should the cycle be shaped so that budget is not squandered?
+
+AKC's phases are shaped around that scarcity. Research is signal-first
+so intake does not exceed digestion. Promote converts recurring
+decisions into rules so the same judgment is not re-made every
+session. Measure replaces manual re-auditing with observable
+compliance checks. Pre-implementation dialogue is front-loaded because
+intent misalignment discovered at review time is more expensive than
+the conversation that would have prevented it. Running the cycle is
+not free — but it is how the cycle protects the one resource that
+does not scale with the model. See [ADR-0010](docs/adr/0010-human-cognitive-resource-as-central-constraint.md).
+
+| Maintenance problem | AKC response |
+|---------|-------------|
+| Skills go stale | skill-stocktake audits quality periodically |
+| Rules don't match practice | skill-comply measures actual behavioral compliance |
+| Knowledge is scattered | rules-distill promotes recurring patterns to principles |
+| Documentation drifts | context-sync detects role overlaps and stale content |
+| Wheels get reinvented | search-first checks for existing solutions first |
+| Learnings are lost | learn-eval extracts patterns with quality gates |
+
+Each row replaces a maintenance task the human would otherwise carry
+manually. The cycle is not free, but it is cheaper than re-doing the
+same audit every time the question recurs.
+
+### Aligned with intent, not just correct
+
+Correctness can be automated: tests, types, linters, and review tools
+all check whether an output passes specific criteria. Alignment cannot
+be automated to the same degree, because intent itself moves as the
+operator's judgment sharpens through use. An agent can satisfy every
+correctness check and still drift from intent.
+
+AKC's design choices reflect this. Design Principle #3 (Non-destructive)
+— propose, then wait for confirmation — keeps every change at a
+checkpoint where intent can be re-stated. Pre-implementation dialogue
+is treated as a cognitive-economy investment, not as friction. The
+distinction also explains how AKC differs from harness engineering:
+harnesses optimize correctness on the first try, while AKC keeps the
+harnesses themselves aligned with intent as that intent evolves. See
+[Relationship to Harness Engineering](#relationship-to-harness-engineering)
+for the layered comparison.
+
+### The cycle changes the human too
+
+Through repeated Curate and Promote decisions, users sharpen their
+judgment about what knowledge is worth keeping. Through Research,
+they develop better intuition for when to adopt existing solutions
+versus building new ones. Through Measure, they learn what makes a
+good rule versus a vague aspiration. AKC is not a one-directional
+optimization loop where the agent improves in isolation — agent
+behavior and human judgment co-develop through sustained interaction.
+The tagline — *one that grows with the people who shape it* — names
+exactly this property.
+
 ## What's in this repo
 
-```
-agent-knowledge-cycle/
-├── docs/
-│   ├── akc-cycle.md              # Behavioral rules — the cycle as a single rules file
-│   ├── scaffold-dissolution.md   # Skills are scaffolding; here is how they dissolve
-│   ├── inspiration.md            # Prior art
-│   ├── adr/
-│   │   ├── 0002-immutable-episode-log.md         # JSONL, append-only, umask 0600
-│   │   ├── 0003-three-layer-distillation.md      # Raw → Knowledge → Identity/Rules
-│   │   ├── 0004-two-stage-distill-pipeline.md    # Free-form → structured format
-│   │   ├── 0005-human-approval-gate.md           # No auto-promotion to rules
-│   │   ├── 0008-code-and-llm-collaboration.md    # Code owns control flow, LLMs own meaning
-│   │   ├── 0009-akc-is-a-cycle-not-a-harness.md  # Cycle as sole defining characteristic
-│   │   ├── 0010-human-cognitive-resource-as-central-constraint.md  # Signal-first Research; cognitive economy
-│   │   └── 0011-cycle-applies-to-any-knowledge-body.md  # Cycle is genre-neutral about what flows through it
-│   └── skills/                   # Design-pattern skills paired 1:1 with ADRs
-│       ├── when-code-when-llm.md                 # Per-task: structural vs semantic
-│       ├── code-and-llm-collaboration.md         # Per-pipeline: four layering patterns
-│       └── signal-first-research.md              # Intake-filter design for ADR-0010
-├── schemas/
-│   ├── episode-log.schema.json   # Layer 1 record shape
-│   └── knowledge.schema.json     # Layer 2 pattern shape
-└── examples/
-    ├── minimal_harness/          # Mechanism demo — cycle on behavioral patterns
-    │   ├── episode_log.py        # Layer 1
-    │   ├── knowledge_store.py    # Layer 2 + time decay + forbidden-substring validation
-    │   ├── distill.py            # Two-stage pipeline, LLM-agnostic
-    │   └── demo.py               # python3 -m examples.minimal_harness.demo
-    └── constitution_amend/       # Reference to downstream — cycle on constitutional values
-        └── README.md             # Maps the AKC phases onto contemplative-agent's amend workflow
-```
-
-Eight ADRs, eight design principles, three design-pattern skills, two
-JSON schemas, one ~300-line runnable reference implementation, and the
+Nine ADRs, eight design principles, three design-pattern skills, two
+JSON schemas, one ~500-line runnable reference implementation, and the
 rules file that installs the whole cycle in a single `cp`. AKC defines
-three memory layers and four code-LLM layering patterns.
-The six cycle skills listed below remain the opinionated, full-fat
-implementation of each phase.
+three memory layers and four code-LLM layering patterns. The six cycle
+skills listed below remain the opinionated, full-fat implementation of
+each phase.
 
 AKC ships **two kinds of skills**:
 
@@ -70,6 +119,8 @@ AKC ships **two kinds of skills**:
 - **Design-pattern skills** ([`docs/skills/`](docs/skills/)) — long-form
   "how" guides paired 1:1 with ADRs. These are cross-cutting and apply
   in multiple phases.
+
+For the full repository tree and document-role routing, see [`docs/CODEMAPS/architecture.md`](docs/CODEMAPS/architecture.md).
 
 ## The cycle
 
@@ -124,27 +175,6 @@ That's it. The cycle will run through conversation — no skills, no plugins, no
 - **Rules** provide principles and trigger conditions. Install them when you want the cycle to emerge naturally from conversation.
 - Both can coexist. Rules ensure the cycle runs even when skills aren't triggered.
 
-## Why a cycle?
-
-Static configuration drifts. Skills get added but never reviewed. Rules accumulate but compliance is never measured. Documentation grows stale.
-
-AKC treats agent knowledge as a living system that requires continuous maintenance — not a one-time setup.
-
-| Problem | AKC response |
-|---------|-------------|
-| Skills go stale | skill-stocktake audits quality periodically |
-| Rules don't match practice | skill-comply measures actual behavioral compliance |
-| Knowledge is scattered | rules-distill promotes recurring patterns to principles |
-| Documentation drifts | context-sync detects role overlaps and stale content |
-| Wheels get reinvented | search-first checks for existing solutions first |
-| Learnings are lost | learn-eval extracts patterns with quality gates |
-
-The cycle also changes the human. Through repeated Curate and Promote decisions, users sharpen their judgment about what knowledge is worth keeping. Through Research, they develop better intuition for when to adopt existing solutions versus building new ones. Through Measure, they learn what makes a good rule versus a vague aspiration. AKC is not a one-directional optimization loop where the agent improves in isolation — it is a bidirectional growth loop where human and agent co-develop through sustained interaction.
-
-### Whose cognitive budget is the cycle protecting?
-
-The human's. As agent capability grows, the scarce resource is no longer compute or context but human attention and judgment. AKC's phases are shaped around that scarcity: Research is signal-first so intake does not exceed digestion; Promote converts recurring decisions into rules so the same judgment is not re-made every session; Measure replaces manual re-auditing with observable compliance checks; and pre-implementation dialogue is front-loaded because intent misalignment discovered at review time is more expensive than the conversation that would have prevented it. Running the cycle is not free — but it is how the cycle protects the one resource that does not scale with the model. See [ADR-0010](docs/adr/0010-human-cognitive-resource-as-central-constraint.md).
-
 ## Design Principles
 
 1. **Composable** — Each skill works independently. Use one or all six.
@@ -166,7 +196,7 @@ AKC shares common ground with [harness engineering](https://mitchellh.com/writin
 | Harness | "Is this output correct?" | Individual linters, tests, scripts |
 | AKC | "Are the harnesses themselves still valid?" | skill-comply, skill-stocktake, context-sync |
 
-**Correctness vs intent alignment.** Harness engineering focuses on getting the right result the first time — preventing known errors through better instructions and automated checks. AKC is more concerned with a different question: "is this aligned with the owner's intent?" An agent can avoid all known mistakes yet still diverge from design intent. Design Principle #3 (Non-destructive) reflects this — propose, then wait for confirmation, because intent alignment is difficult to fully automate.
+**Correctness vs intent alignment.** Harness engineering focuses on getting the right result the first time — preventing known errors through better instructions and automated checks. AKC is more concerned with a different question: is the agent's behavior aligned with the operator's evolving intent? See [Why AKC → Aligned with intent](#aligned-with-intent-not-just-correct) for the standalone treatment.
 
 **Reactive vs proactive.** Harness engineering is reactive by nature — each mistake triggers a new harness. AKC's skill-comply and skill-stocktake take a proactive approach, periodically auditing whether skills and rules are actually followed and whether they remain relevant. Design Principle #5 scales this evaluation to model capability — rubrics for small models, holistic judgment for frontier models.
 
@@ -189,6 +219,7 @@ If you use or reference the Agent Knowledge Cycle architecture, please cite:
   author       = {Shimomoto, Tatsuya},
   title        = {Agent Knowledge Cycle (AKC)},
   year         = {2026},
+  version      = {2.1.0},
   doi          = {10.5281/zenodo.19200727},
   url          = {https://doi.org/10.5281/zenodo.19200727},
   note         = {A knowledge cycle for AI agents — one that grows with the people who shape it}

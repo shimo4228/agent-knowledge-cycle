@@ -51,6 +51,13 @@ language version of `README.md`.
 | knowledge cycle | 知識サイクル | 知识周期 | 知識週期 | ciclo de conhecimento | ciclo de conocimiento | |
 | reference implementation | リファレンス実装 | 参考实现 | 參考實作 | implementação de referência | implementación de referencia | |
 | three memory layers | 3 つのメモリ層 | 三层内存 | 三層記憶 | três camadas de memória | tres capas de memoria | |
+| intent alignment | 意図のアライン | 意图对齐 | 意圖對齊 | alinhamento de intenção | alineación de intención | |
+| bottleneck | ボトルネック | 瓶颈 | 瓶頸 | gargalo | cuello de botella | |
+| cognitive economy | 認知経済 | 认知经济 | 認知經濟 | economia cognitiva | economía cognitiva | |
+| cognitive resource | 認知資源 | 认知资源 | 認知資源 | recurso cognitivo | recurso cognitivo | |
+| scarce resource | 希少資源 | 稀缺资源 | 稀缺資源 | recurso escasso | recurso escaso | |
+| co-develop | 共に育つ / 共進化する | 共同发展 | 共同發展 | co-desenvolver | co-desarrollar | |
+| attention and judgment | 注意と判断 | 注意力与判断 | 注意力與判斷 | atenção e julgamento | atención y juicio | |
 
 ## Skill names (always English)
 
