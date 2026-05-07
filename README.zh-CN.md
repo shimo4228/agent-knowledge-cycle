@@ -156,15 +156,15 @@ AKC 与 [harness engineering](https://mitchellh.com/writing/my-ai-adoption-journ
   title        = {Agent Knowledge Cycle (AKC)},
   year         = {2026},
   version      = {2.1.0},
-  doi          = {10.5281/zenodo.19200727},
-  url          = {https://doi.org/10.5281/zenodo.19200727},
+  doi          = {10.5281/zenodo.20076396},
+  url          = {https://doi.org/10.5281/zenodo.20076396},
   note         = {A knowledge cycle for AI agents — one that grows with the people who shape it}
 }
 ```
 
 或在文中：
 
-> Shimomoto, T. (2026). Agent Knowledge Cycle (AKC). doi:10.5281/zenodo.19200727
+> Shimomoto, T. (2026). Agent Knowledge Cycle (AKC). doi:10.5281/zenodo.20076396
 
 ## 相关项目
 

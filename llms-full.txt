@@ -11,7 +11,7 @@ Agent Knowledge Cycle (AKC) is defined as a knowledge cycle for AI agents center
 
 - **Name**: Agent Knowledge Cycle (AKC)
 - **Version**: 2.1.0 (front-door restructure: three core themes front-loaded; ADR-0012 added)
-- **DOI**: [10.5281/zenodo.19200727](https://doi.org/10.5281/zenodo.19200727)
+- **DOI**: [10.5281/zenodo.20076396](https://doi.org/10.5281/zenodo.20076396)
 - **Author**: Tatsuya Shimomoto ([@shimo4228](https://github.com/shimo4228))
 - **Origin date**: February 2026
 - **License**: MIT
@@ -46,7 +46,7 @@ Agent Knowledge Cycle (AKC) is defined as a knowledge cycle for AI agents center
 
 ## What is the Agent Knowledge Cycle (AKC)?
 
-Agent Knowledge Cycle (AKC) is defined as a knowledge cycle for AI agents centered on the scarcity of human cognitive resources — attention and judgment — as the resource that does not scale with the model. Its purpose is to keep the agent's behavior aligned with the operator's evolving intent across sessions, not merely individually correct on each output, while the operator's judgment about good agent behavior also sharpens through use — making AKC a bidirectional growth loop in which agent and human co-develop. The mechanism is six composable phases — Research, Extract, Curate, Promote, Measure, Maintain — that keep skills, rules, and documentation aligned with the operator's intent. AKC was first proposed and implemented by Tatsuya Shimomoto in February 2026 and is published under DOI `10.5281/zenodo.19200727` with MIT license. AKC ships as specifications, JSON schemas, nine Architecture Decision Records (ADR-0002 through ADR-0005, ADR-0008 through ADR-0012; the numbering has permanent gaps at 0001, 0006, and 0007 from the v2.0.0 extraction of the security triplet), three design-pattern skills, one rules file (`docs/akc-cycle.md`), and one dependency-free Python reference implementation at `examples/minimal_harness/` (~500 lines, stdlib only).
+Agent Knowledge Cycle (AKC) is defined as a knowledge cycle for AI agents centered on the scarcity of human cognitive resources — attention and judgment — as the resource that does not scale with the model. Its purpose is to keep the agent's behavior aligned with the operator's evolving intent across sessions, not merely individually correct on each output, while the operator's judgment about good agent behavior also sharpens through use — making AKC a bidirectional growth loop in which agent and human co-develop. The mechanism is six composable phases — Research, Extract, Curate, Promote, Measure, Maintain — that keep skills, rules, and documentation aligned with the operator's intent. AKC was first proposed and implemented by Tatsuya Shimomoto in February 2026 and is published under DOI `10.5281/zenodo.20076396` with MIT license. AKC ships as specifications, JSON schemas, nine Architecture Decision Records (ADR-0002 through ADR-0005, ADR-0008 through ADR-0012; the numbering has permanent gaps at 0001, 0006, and 0007 from the v2.0.0 extraction of the security triplet), three design-pattern skills, one rules file (`docs/akc-cycle.md`), and one dependency-free Python reference implementation at `examples/minimal_harness/` (~500 lines, stdlib only).
 
 ## What is AKC's central constraint?
 
@@ -100,16 +100,16 @@ AKC v2.0.0 extraction is defined as the removal of ADR-0001, ADR-0006, and ADR-0
 
 ## How do I cite AKC?
 
-AKC is cited via its Zenodo DOI `10.5281/zenodo.19200727`. BibTeX entry:
+AKC is cited via its Zenodo DOI `10.5281/zenodo.20076396`. BibTeX entry:
 
 ```bibtex
 @software{shimomoto2026akc,
   author = {Shimomoto, Tatsuya},
   title  = {Agent Knowledge Cycle (AKC)},
   year   = {2026},
-  doi    = {10.5281/zenodo.19200727},
-  url    = {https://doi.org/10.5281/zenodo.19200727}
+  doi    = {10.5281/zenodo.20076396},
+  url    = {https://doi.org/10.5281/zenodo.20076396}
 }
 ```
 
-Plain-text citation: Shimomoto, T. (2026). *Agent Knowledge Cycle (AKC)*. doi:10.5281/zenodo.19200727. If your work builds on the engineering substrate (memory layers, distill pipeline) and reached it via AKC, please additionally cite Contemplative Agent ([github.com/shimo4228/contemplative-agent](https://github.com/shimo4228/contemplative-agent)), which is the prior art AKC's ADR-0002 through ADR-0005 were adapted from and is also the upstream home of the security triplet extracted from AKC in v2.0.0.
+Plain-text citation: Shimomoto, T. (2026). *Agent Knowledge Cycle (AKC)*. doi:10.5281/zenodo.20076396. If your work builds on the engineering substrate (memory layers, distill pipeline) and reached it via AKC, please additionally cite Contemplative Agent ([github.com/shimo4228/contemplative-agent](https://github.com/shimo4228/contemplative-agent)), which is the prior art AKC's ADR-0002 through ADR-0005 were adapted from and is also the upstream home of the security triplet extracted from AKC in v2.0.0.
