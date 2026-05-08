@@ -114,7 +114,7 @@ each phase.
 AKC ships **two kinds of skills**:
 
 - **Cycle skills** (external repositories) — one per phase of the
-  self-improvement loop: `search-first`, `learn-eval`, `skill-stocktake`,
+  cycle: `search-first`, `learn-eval`, `skill-stocktake`,
   `rules-distill`, `skill-comply`, `context-sync`.
 - **Design-pattern skills** ([`docs/skills/`](docs/skills/)) — long-form
   "how" guides paired 1:1 with ADRs. These are cross-cutting and apply
@@ -124,7 +124,7 @@ For the full repository tree and document-role routing, see [`docs/CODEMAPS/arch
 
 ## The cycle
 
-AKC is a set of six composable skills that form a closed self-improvement loop:
+AKC is a set of six composable skills, one per phase of the cycle:
 
 ```
 Experience → learn-eval → skill-stocktake → rules-distill → Behavior change → ...

@@ -53,14 +53,14 @@ AKC 的设计选择反映了这一区别。设计原则 #3 (Non-destructive) —
 
 AKC 发布 **两类技能**：
 
-- **Cycle skills**（外部仓库）—— 自我改进循环的每个阶段对应一个：`search-first`、`learn-eval`、`skill-stocktake`、`rules-distill`、`skill-comply`、`context-sync`。
+- **Cycle skills**（外部仓库）—— 周期的每个阶段对应一个：`search-first`、`learn-eval`、`skill-stocktake`、`rules-distill`、`skill-comply`、`context-sync`。
 - **Design-pattern skills**（[`docs/skills/`](docs/skills/)）—— 与 ADR 一一对应的长篇「how」指南。横切多个阶段。
 
 完整的仓库树与文档角色路由请参阅 [`docs/CODEMAPS/architecture.md`](docs/CODEMAPS/architecture.md)。
 
 ## 周期
 
-AKC 由六个可组合的技能构成，形成一个闭合的自我改进循环：
+AKC 由六个可组合的技能构成，周期的每个阶段对应一个：
 
 ```
 Experience → learn-eval → skill-stocktake → rules-distill → Behavior change → ...

@@ -53,14 +53,14 @@ Nove ADRs, oito princípios de design, três habilidades de padrão de projeto, 
 
 O AKC entrega **dois tipos de habilidades**:
 
-- **Cycle skills** (repositórios externos) — uma para cada fase do laço de autoaprimoramento: `search-first`, `learn-eval`, `skill-stocktake`, `rules-distill`, `skill-comply`, `context-sync`.
+- **Cycle skills** (repositórios externos) — uma para cada fase do ciclo: `search-first`, `learn-eval`, `skill-stocktake`, `rules-distill`, `skill-comply`, `context-sync`.
 - **Design-pattern skills** ([`docs/skills/`](docs/skills/)) — guias longos de «how» pareados 1:1 com ADRs. São transversais e se aplicam a múltiplas fases.
 
 Para a árvore completa do repositório e o roteamento de papéis documentais, veja [`docs/CODEMAPS/architecture.md`](docs/CODEMAPS/architecture.md).
 
 ## O ciclo
 
-O AKC é um conjunto de seis habilidades compostáveis que formam um laço fechado de autoaprimoramento:
+O AKC é um conjunto de seis habilidades compostáveis, uma para cada fase do ciclo:
 
 ```
 Experience → learn-eval → skill-stocktake → rules-distill → Behavior change → ...
