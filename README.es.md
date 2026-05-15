@@ -4,6 +4,19 @@ Language: [English](README.md) | [日本語](README.ja.md) | [简体中文](READ
 
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.19200726.svg)](https://doi.org/10.5281/zenodo.19200726)
 
+<details>
+<summary>Orden de lectura para agentes de IA</summary>
+
+1. [`graph.jsonld`](graph.jsonld) — mapa canónico de relaciones legible por máquina (seis fases, vinculación fase-skill, tres capas de memoria, patrones code-LLM)
+2. [`llms.txt`](llms.txt) — índice de navegación compacto
+3. [`llms-full.txt`](llms-full.txt) — referencia factual consolidada
+4. README y documentos específicos del repositorio — narrativa y detalle
+
+Para el mapa canónico de relaciones del ecosistema de investigación de shimo4228, consulte:
+https://github.com/shimo4228/shimo4228/blob/main/graph.jsonld
+
+</details>
+
 Un ciclo de conocimiento para agentes de IA — uno que crece junto con las personas que lo dan forma.
 
 ## Qué es AKC

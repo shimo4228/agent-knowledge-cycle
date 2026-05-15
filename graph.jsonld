@@ -1,0 +1,363 @@
+{
+  "@context": {
+    "@vocab": "https://schema.org/",
+    "shimo": "https://shimo4228.github.io/shimo4228/vocab#",
+    "ResearchLine": "shimo:ResearchLine",
+    "EcosystemRepo": "shimo:EcosystemRepo",
+    "Concept": "shimo:Concept",
+    "ExternalReference": "shimo:ExternalReference",
+    "ADR": "shimo:ADR",
+    "Phase": "shimo:Phase",
+    "MemoryLayer": "shimo:MemoryLayer",
+    "siblingOf": {"@id": "shimo:siblingOf", "@type": "@id"},
+    "definesConcept": {"@id": "shimo:definesConcept", "@type": "@id"},
+    "extends": {"@id": "shimo:extends", "@type": "@id"},
+    "implements": {"@id": "shimo:implements", "@type": "@id"},
+    "groundedIn": {"@id": "shimo:groundedIn", "@type": "@id"},
+    "level": "shimo:level",
+    "ordinal": "shimo:ordinal"
+  },
+  "@graph": [
+    {
+      "@id": "https://github.com/shimo4228/agent-knowledge-cycle#knowledge-graph",
+      "@type": ["Dataset", "CreativeWork"],
+      "name": "Agent Knowledge Cycle (AKC) Knowledge Graph",
+      "description": "Canonical machine-readable relationship map for the Agent Knowledge Cycle line. Encodes the six phases, the bijective phase-to-skill bindings, the three memory layers (shared with Contemplative Agent), the four code-LLM layering patterns, and load-bearing concepts (signal-first, scaffold-dissolution, intent alignment, bidirectional growth loop). AI agents and LLM-based search systems should read this graph before summarizing the line or following individual document links.",
+      "isBasedOn": "https://github.com/shimo4228/agent-knowledge-cycle",
+      "mainEntity": "https://doi.org/10.5281/zenodo.19200726"
+    },
+
+    {
+      "@id": "https://doi.org/10.5281/zenodo.19200726",
+      "@type": ["ResearchLine", "ScholarlyArticle"],
+      "name": "Agent Knowledge Cycle (AKC)",
+      "alternateName": [
+        {"@value": "Agent Knowledge Cycle", "@language": "en"},
+        {"@value": "エージェント知識サイクル", "@language": "ja"}
+      ],
+      "description": "Six-phase bidirectional growth loop in which agent behavior and the operator's judgment co-develop over time, sustaining intent alignment that tests cannot check on their own. Three stacked layers — principles (ADRs), patterns (design-pattern skills), and implementation (composable skills) — decouple rate of change. Refers to a mechanism, not a disposition or a practice.",
+      "identifier": "10.5281/zenodo.19200726",
+      "url": "https://github.com/shimo4228/agent-knowledge-cycle",
+      "siblingOf": [
+        "https://doi.org/10.5281/zenodo.19212118",
+        "https://doi.org/10.5281/zenodo.19652013"
+      ],
+      "definesConcept": [
+        "https://shimo4228.github.io/shimo4228/vocab#concept/six-phase-loop",
+        "https://shimo4228.github.io/shimo4228/vocab#concept/three-layer-structure",
+        "https://shimo4228.github.io/shimo4228/vocab#concept/scaffold-dissolution",
+        "https://shimo4228.github.io/shimo4228/vocab#akc/concept/signal-first",
+        "https://shimo4228.github.io/shimo4228/vocab#akc/concept/intent-alignment",
+        "https://shimo4228.github.io/shimo4228/vocab#akc/concept/bidirectional-growth-loop",
+        "https://shimo4228.github.io/shimo4228/vocab#akc/concept/two-stage-distill",
+        "https://shimo4228.github.io/shimo4228/vocab#akc/concept/human-approval-gate",
+        "https://shimo4228.github.io/shimo4228/vocab#akc/concept/genre-neutral",
+        "https://shimo4228.github.io/shimo4228/vocab#akc/concept/cognitive-economy",
+        "https://shimo4228.github.io/shimo4228/vocab#akc/concept/code-llm-layering"
+      ]
+    },
+
+    {
+      "@id": "https://shimo4228.github.io/shimo4228/vocab#akc-phase/research",
+      "@type": ["Phase", "DefinedTerm"],
+      "name": "Research phase",
+      "alternateName": [
+        {"@value": "Research", "@language": "en"},
+        {"@value": "Research（探索）", "@language": "ja"}
+      ],
+      "description": "First of six AKC phases. Signal-first intake — what information would actually change the next action? Bound bijectively to the search-first skill.",
+      "ordinal": 1
+    },
+    {
+      "@id": "https://shimo4228.github.io/shimo4228/vocab#akc-phase/extract",
+      "@type": ["Phase", "DefinedTerm"],
+      "name": "Extract phase",
+      "alternateName": [
+        {"@value": "Extract", "@language": "en"},
+        {"@value": "Extract（抽出）", "@language": "ja"}
+      ],
+      "description": "Second of six AKC phases. Capture reusable patterns from sessions with quality gates before they are saved. Bound bijectively to the learn-eval skill.",
+      "ordinal": 2
+    },
+    {
+      "@id": "https://shimo4228.github.io/shimo4228/vocab#akc-phase/curate",
+      "@type": ["Phase", "DefinedTerm"],
+      "name": "Curate phase",
+      "alternateName": [
+        {"@value": "Curate", "@language": "en"},
+        {"@value": "Curate（選別）", "@language": "ja"}
+      ],
+      "description": "Third of six AKC phases. Audit accumulated skills and rules for staleness, conflicts, and redundancy. Bound bijectively to the skill-stocktake skill.",
+      "ordinal": 3
+    },
+    {
+      "@id": "https://shimo4228.github.io/shimo4228/vocab#akc-phase/promote",
+      "@type": ["Phase", "DefinedTerm"],
+      "name": "Promote phase",
+      "alternateName": [
+        {"@value": "Promote", "@language": "en"},
+        {"@value": "Promote（昇格）", "@language": "ja"}
+      ],
+      "description": "Fourth of six AKC phases. Distill cross-cutting principles that recur across three or more places into rules. Bound bijectively to the rules-distill skill.",
+      "ordinal": 4
+    },
+    {
+      "@id": "https://shimo4228.github.io/shimo4228/vocab#akc-phase/measure",
+      "@type": ["Phase", "DefinedTerm"],
+      "name": "Measure phase",
+      "alternateName": [
+        {"@value": "Measure", "@language": "en"},
+        {"@value": "Measure（測定）", "@language": "ja"}
+      ],
+      "description": "Fifth of six AKC phases. Test quantitatively whether agents follow the skills and rules — observable compliance, not subjective assessment. Bound bijectively to the skill-comply skill.",
+      "ordinal": 5
+    },
+    {
+      "@id": "https://shimo4228.github.io/shimo4228/vocab#akc-phase/maintain",
+      "@type": ["Phase", "DefinedTerm"],
+      "name": "Maintain phase",
+      "alternateName": [
+        {"@value": "Maintain", "@language": "en"},
+        {"@value": "Maintain（保守）", "@language": "ja"}
+      ],
+      "description": "Sixth of six AKC phases. Audit documentation roles for overlap and stale content; keep CLAUDE.md / CODEMAPS / ADR / README clean. Bound bijectively to the context-sync skill.",
+      "ordinal": 6
+    },
+
+    {
+      "@id": "https://shimo4228.github.io/shimo4228/vocab#memory-layer/episode-log",
+      "@type": ["MemoryLayer", "DefinedTerm"],
+      "name": "Episode Log (Layer 1)",
+      "alternateName": [
+        {"@value": "Episode Log", "@language": "en"},
+        {"@value": "エピソードログ", "@language": "ja"}
+      ],
+      "description": "Layer 1 of the three-layer memory architecture (ADR-0003): raw, immutable JSONL episode logs. The owner-only source-of-truth from which higher layers are distilled.",
+      "level": 1
+    },
+    {
+      "@id": "https://shimo4228.github.io/shimo4228/vocab#memory-layer/knowledge",
+      "@type": ["MemoryLayer", "DefinedTerm"],
+      "name": "Knowledge (Layer 2)",
+      "alternateName": [
+        {"@value": "Knowledge Layer", "@language": "en"},
+        {"@value": "知識層", "@language": "ja"}
+      ],
+      "description": "Layer 2 of the three-layer memory architecture (ADR-0003): distilled patterns, time-decayed and forbidden-substring validated. Promoted from Layer 1; gated when promoted further to Layer 3.",
+      "level": 2
+    },
+    {
+      "@id": "https://shimo4228.github.io/shimo4228/vocab#memory-layer/identity",
+      "@type": ["MemoryLayer", "DefinedTerm"],
+      "name": "Identity / Rules (Layer 3)",
+      "alternateName": [
+        {"@value": "Identity Layer", "@language": "en"},
+        {"@value": "アイデンティティ層", "@language": "ja"}
+      ],
+      "description": "Layer 3 of the three-layer memory architecture (ADR-0003): persona, ranked skills, cross-cutting rules. Deterministic. Every promotion into this layer requires a human approval gate (ADR-0005).",
+      "level": 3
+    },
+
+    {
+      "@id": "https://github.com/shimo4228/agent-knowledge-cycle/blob/main/docs/adr/0002-immutable-episode-log.md",
+      "@type": ["ADR", "TechArticle"],
+      "name": "ADR-0002: Immutable Episode Log as Source of Truth",
+      "description": "The raw episode log is append-only and immutable; every higher layer is a derivation. Treats accumulated state as the auditable trail rather than as authority."
+    },
+    {
+      "@id": "https://github.com/shimo4228/agent-knowledge-cycle/blob/main/docs/adr/0003-three-layer-distillation.md",
+      "@type": ["ADR", "TechArticle"],
+      "name": "ADR-0003: Three-Layer Distillation (Raw → Knowledge → Identity / Rules)",
+      "description": "The memory architecture: Layer 1 raw, Layer 2 knowledge, Layer 3 identity / rules. Decouples rate of change so principles stay stable while implementations evolve independently."
+    },
+    {
+      "@id": "https://github.com/shimo4228/agent-knowledge-cycle/blob/main/docs/adr/0004-two-stage-distill-pipeline.md",
+      "@type": ["ADR", "TechArticle"],
+      "name": "ADR-0004: Two-Stage Distill Pipeline (Free-form → Format)",
+      "description": "Free-form reasoning followed by structured formatting. Decouples thinking from formatting so the model is not asked to do both simultaneously."
+    },
+    {
+      "@id": "https://github.com/shimo4228/agent-knowledge-cycle/blob/main/docs/adr/0005-human-approval-gate.md",
+      "@type": ["ADR", "TechArticle"],
+      "name": "ADR-0005: Human Approval Gate for Behavior-Modifying Changes",
+      "description": "Promotions that produce behavior-modifying writes require named human sign-off. The cycle is not autonomous; the gate is structural."
+    },
+    {
+      "@id": "https://github.com/shimo4228/agent-knowledge-cycle/blob/main/docs/adr/0008-code-and-llm-collaboration.md",
+      "@type": ["ADR", "TechArticle"],
+      "name": "ADR-0008: Code and LLM Collaboration",
+      "description": "Four code-LLM layering patterns — guard, filter, judge, orchestrator — formalize when to use code, when to use the LLM, and how to layer them. The patterns recur across all six phases."
+    },
+    {
+      "@id": "https://github.com/shimo4228/agent-knowledge-cycle/blob/main/docs/adr/0009-akc-is-a-cycle-not-a-harness.md",
+      "@type": ["ADR", "TechArticle"],
+      "name": "ADR-0009: AKC is a Cycle, Not a Harness",
+      "description": "AKC is the cycle — the mechanism — not the substrate. Distinguishes AKC from harness frameworks; the cycle is portable across harnesses, the harness is not the cycle."
+    },
+    {
+      "@id": "https://github.com/shimo4228/agent-knowledge-cycle/blob/main/docs/adr/0010-human-cognitive-resource-as-central-constraint.md",
+      "@type": ["ADR", "TechArticle"],
+      "name": "ADR-0010: Human Cognitive Resource as Central Constraint",
+      "description": "Human attention and judgment, not compute or context, is the central constraint that does not scale with the model. Every other framework optimizes the agent side; AKC asks the inverse question."
+    },
+    {
+      "@id": "https://github.com/shimo4228/agent-knowledge-cycle/blob/main/docs/adr/0011-cycle-applies-to-any-knowledge-body.md",
+      "@type": ["ADR", "TechArticle"],
+      "name": "ADR-0011: Cycle Applies to Any Knowledge Body (Genre-Neutral)",
+      "description": "The cycle applies to behavioral patterns, domain expertise, and constitutional values alike — not specific to one genre of knowledge. Genre-neutrality is structural, not aspirational."
+    },
+    {
+      "@id": "https://github.com/shimo4228/agent-knowledge-cycle/blob/main/docs/adr/0012-front-load-three-core-themes.md",
+      "@type": ["ADR", "TechArticle"],
+      "name": "ADR-0012: Front-load the Three Core Themes in Front-door Documentation",
+      "description": "Three themes — human attention as constraint, intent alignment over correctness, bidirectional growth — must appear in the project's reading surface before deeper material. Reading-order discipline."
+    },
+
+    {
+      "@id": "https://shimo4228.github.io/shimo4228/vocab#concept/six-phase-loop",
+      "@type": ["Concept", "DefinedTerm"],
+      "name": "six-phase loop",
+      "description": "Bidirectional growth loop running Research, Extract, Curate, Promote, Measure, Maintain. Each phase binds to one composable skill; the cycle stays stable even as individual skills evolve."
+    },
+    {
+      "@id": "https://shimo4228.github.io/shimo4228/vocab#concept/three-layer-structure",
+      "@type": ["Concept", "DefinedTerm"],
+      "name": "three-layer structure",
+      "description": "AKC's stacked architecture: principles (ADRs), patterns (design-pattern skills), implementation (composable skills). Separating layers decouples rate of change."
+    },
+    {
+      "@id": "https://shimo4228.github.io/shimo4228/vocab#concept/scaffold-dissolution",
+      "@type": ["Concept", "DefinedTerm"],
+      "name": "scaffold dissolution",
+      "description": "Property that explicit AKC skills can be dropped once the cycle has been internalized. The skills are scaffolding, not the goal. Dissolution is the intended end state, not a fallback."
+    },
+    {
+      "@id": "https://shimo4228.github.io/shimo4228/vocab#akc/concept/signal-first",
+      "@type": ["Concept", "DefinedTerm"],
+      "name": "signal-first",
+      "description": "Research-phase intake principle: what information would actually change the next action? Anything outside that is out of scope. Search widely, intake narrowly. (ADR-0010 derivative.)"
+    },
+    {
+      "@id": "https://shimo4228.github.io/shimo4228/vocab#akc/concept/intent-alignment",
+      "@type": ["Concept", "DefinedTerm"],
+      "name": "intent alignment",
+      "description": "Sustaining alignment between agent behavior and the operator's evolving intent across sessions, distinguished from per-output correctness. Intent itself moves as judgment sharpens through use; correctness can be checked by tests, alignment cannot."
+    },
+    {
+      "@id": "https://shimo4228.github.io/shimo4228/vocab#akc/concept/bidirectional-growth-loop",
+      "@type": ["Concept", "DefinedTerm"],
+      "name": "bidirectional growth loop",
+      "description": "Agent behavior and human judgment co-develop. As the human curates and promotes knowledge, their judgment about what makes good agent behavior also sharpens. Not a one-directional optimization loop."
+    },
+    {
+      "@id": "https://shimo4228.github.io/shimo4228/vocab#akc/concept/two-stage-distill",
+      "@type": ["Concept", "DefinedTerm"],
+      "name": "two-stage distill pipeline",
+      "description": "Free-form reasoning followed by structured formatting. Decouples thinking from formatting so the model is not asked to do both simultaneously. Codified as ADR-0004."
+    },
+    {
+      "@id": "https://shimo4228.github.io/shimo4228/vocab#akc/concept/human-approval-gate",
+      "@type": ["Concept", "DefinedTerm"],
+      "name": "human approval gate",
+      "description": "Structural checkpoint for behavior-modifying writes. AKC is not autonomous; promotion across layers requires named human sign-off. Codified as ADR-0005."
+    },
+    {
+      "@id": "https://shimo4228.github.io/shimo4228/vocab#akc/concept/genre-neutral",
+      "@type": ["Concept", "DefinedTerm"],
+      "name": "genre-neutral",
+      "description": "The cycle applies to behavioral patterns, domain expertise, and constitutional values alike — not specific to one genre of knowledge. Codified as ADR-0011."
+    },
+    {
+      "@id": "https://shimo4228.github.io/shimo4228/vocab#akc/concept/cognitive-economy",
+      "@type": ["Concept", "DefinedTerm"],
+      "name": "cognitive economy",
+      "description": "Treats human attention and judgment as the scarce resource. Information that does not change an action does not deserve to be held; intake is where attention is spent."
+    },
+    {
+      "@id": "https://shimo4228.github.io/shimo4228/vocab#akc/concept/code-llm-layering",
+      "@type": ["Concept", "DefinedTerm"],
+      "name": "code-LLM layering",
+      "description": "Four patterns formalize when to use code, when to use the LLM, and how to layer them: guard (code excludes invalid input), filter (code reduces input volume before LLM), judge (LLM decides on bounded options), orchestrator (LLM selects among code-implemented actions). Codified as ADR-0008."
+    },
+
+    {
+      "@id": "https://shimo4228.github.io/shimo4228/vocab#akc/pattern/guard",
+      "@type": ["Concept", "DefinedTerm"],
+      "name": "code-LLM pattern: guard",
+      "description": "Code excludes invalid input before the LLM is invoked. The LLM never sees the rejected cases. Used when the rejection criterion is mechanical."
+    },
+    {
+      "@id": "https://shimo4228.github.io/shimo4228/vocab#akc/pattern/filter",
+      "@type": ["Concept", "DefinedTerm"],
+      "name": "code-LLM pattern: filter",
+      "description": "Code reduces input volume before the LLM is invoked. Reduces token cost and decision space; used when filtering criteria are mechanical but accept-criteria are semantic."
+    },
+    {
+      "@id": "https://shimo4228.github.io/shimo4228/vocab#akc/pattern/judge",
+      "@type": ["Concept", "DefinedTerm"],
+      "name": "code-LLM pattern: judge",
+      "description": "LLM decides among bounded, named options provided by code. Used when the decision is semantic but the option space is enumerable."
+    },
+    {
+      "@id": "https://shimo4228.github.io/shimo4228/vocab#akc/pattern/orchestrator",
+      "@type": ["Concept", "DefinedTerm"],
+      "name": "code-LLM pattern: orchestrator",
+      "description": "LLM selects among code-implemented actions and parameterizes them. Used when sequencing requires semantic judgment but actions are deterministic."
+    },
+
+    {
+      "@id": "https://github.com/shimo4228/claude-skill-search-first",
+      "@type": ["EcosystemRepo", "SoftwareSourceCode"],
+      "name": "search-first",
+      "description": "AKC Research-phase skill (1 of 6). Search existing solutions before building.",
+      "url": "https://github.com/shimo4228/claude-skill-search-first",
+      "extends": "https://doi.org/10.5281/zenodo.19200726",
+      "implements": "https://shimo4228.github.io/shimo4228/vocab#akc-phase/research"
+    },
+    {
+      "@id": "https://github.com/shimo4228/claude-skill-learn-eval",
+      "@type": ["EcosystemRepo", "SoftwareSourceCode"],
+      "name": "learn-eval",
+      "description": "AKC Extract-phase skill (2 of 6). Extract reusable patterns with quality gates.",
+      "url": "https://github.com/shimo4228/claude-skill-learn-eval",
+      "extends": "https://doi.org/10.5281/zenodo.19200726",
+      "implements": "https://shimo4228.github.io/shimo4228/vocab#akc-phase/extract"
+    },
+    {
+      "@id": "https://github.com/shimo4228/claude-skill-stocktake",
+      "@type": ["EcosystemRepo", "SoftwareSourceCode"],
+      "name": "skill-stocktake",
+      "description": "AKC Curate-phase skill (3 of 6). Audit skills for staleness, conflicts, redundancy.",
+      "url": "https://github.com/shimo4228/claude-skill-stocktake",
+      "extends": "https://doi.org/10.5281/zenodo.19200726",
+      "implements": "https://shimo4228.github.io/shimo4228/vocab#akc-phase/curate"
+    },
+    {
+      "@id": "https://github.com/shimo4228/claude-skill-rules-distill",
+      "@type": ["EcosystemRepo", "SoftwareSourceCode"],
+      "name": "rules-distill",
+      "description": "AKC Promote-phase skill (4 of 6). Distill cross-cutting principles into rules.",
+      "url": "https://github.com/shimo4228/claude-skill-rules-distill",
+      "extends": "https://doi.org/10.5281/zenodo.19200726",
+      "implements": "https://shimo4228.github.io/shimo4228/vocab#akc-phase/promote"
+    },
+    {
+      "@id": "https://github.com/shimo4228/claude-skill-comply",
+      "@type": ["EcosystemRepo", "SoftwareSourceCode"],
+      "name": "skill-comply",
+      "description": "AKC Measure-phase skill (5 of 6). Test whether agents follow their skills and rules.",
+      "url": "https://github.com/shimo4228/claude-skill-comply",
+      "extends": "https://doi.org/10.5281/zenodo.19200726",
+      "implements": "https://shimo4228.github.io/shimo4228/vocab#akc-phase/measure"
+    },
+    {
+      "@id": "https://github.com/shimo4228/claude-skill-context-sync",
+      "@type": ["EcosystemRepo", "SoftwareSourceCode"],
+      "name": "context-sync",
+      "description": "AKC Maintain-phase skill (6 of 6). Audit docs for role overlaps and stale content.",
+      "url": "https://github.com/shimo4228/claude-skill-context-sync",
+      "extends": "https://doi.org/10.5281/zenodo.19200726",
+      "implements": "https://shimo4228.github.io/shimo4228/vocab#akc-phase/maintain"
+    }
+  ]
+}

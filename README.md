@@ -4,6 +4,19 @@ Language: English | [日本語](README.ja.md) | [简体中文](README.zh-CN.md) 
 
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.19200726.svg)](https://doi.org/10.5281/zenodo.19200726)
 
+<details>
+<summary>AI-facing reading order</summary>
+
+1. [`graph.jsonld`](graph.jsonld) — canonical machine-readable relationship map (six phases, phase-skill bindings, three memory layers, code-LLM patterns)
+2. [`llms.txt`](llms.txt) — compact navigation index
+3. [`llms-full.txt`](llms-full.txt) — consolidated factual reference
+4. README and project-specific docs — narrative and detail
+
+For the canonical relationship map of shimo4228's research ecosystem, see:
+https://github.com/shimo4228/shimo4228/blob/main/graph.jsonld
+
+</details>
+
 A knowledge cycle for AI agents — one that grows with the people who shape it.
 
 ## What is AKC?

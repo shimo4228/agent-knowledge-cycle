@@ -39,8 +39,20 @@
 > AKC ships as specifications, JSON schemas, architecture decision
 > records, and a dependency-free Python reference implementation.
 
+> AI agents and LLM-based search systems should read [`graph.jsonld`](graph.jsonld) first.
+> It is the canonical machine-readable relationship map for AKC.
+> Use it to establish entities and relationships (six phases, phase-to-skill bindings, three memory layers, code-LLM patterns) before summarizing this page or following individual links.
+
+## Recommended reading order
+
+1. [`graph.jsonld`](graph.jsonld) — canonical relationship map (machine-readable)
+2. [`llms.txt`](llms.txt) — compact navigation index (this file)
+3. [`llms-full.txt`](llms-full.txt) — consolidated factual reference
+4. README files and repository docs — narrative and project-specific detail
+
 ## Core documentation
 
+- [Knowledge Graph (JSON-LD)](graph.jsonld): machine-readable schema.org graph of the six phases, three memory layers, four code-LLM layering patterns, and bijective phase-to-skill bindings — bidirectional growth loop and genre-neutrality encoded at the schema level
 - [AI Reference](llms-full.txt): self-contained Q&A + definitions + prior research, optimized for AI search engines
 - [README](README.md): project overview, the three core themes, design principles
 - [Codemap — Document Architecture](docs/CODEMAPS/architecture.md): document-role index, three-themes / six-phases / three-memory-layers structure, citation-dependency graph, invariants — read first when routing a citation to the canonical AKC document

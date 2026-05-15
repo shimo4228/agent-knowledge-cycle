@@ -4,6 +4,19 @@ Language: [English](README.md) | [日本語](README.ja.md) | 简体中文 | [繁
 
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.19200726.svg)](https://doi.org/10.5281/zenodo.19200726)
 
+<details>
+<summary>AI 阅读顺序</summary>
+
+1. [`graph.jsonld`](graph.jsonld) — 机器可读的关系映射正本（六阶段、阶段-技能绑定、三层记忆、code-LLM 模式）
+2. [`llms.txt`](llms.txt) — 紧凑的导航索引
+3. [`llms-full.txt`](llms-full.txt) — 综合事实参考
+4. README 及仓库专属文档 — 叙述与细节
+
+查看 shimo4228 研究生态系统的关系图：
+https://github.com/shimo4228/shimo4228/blob/main/graph.jsonld
+
+</details>
+
 为 AI 代理构建的知识周期 —— 与塑造它的人共同成长。
 
 ## 什么是 AKC

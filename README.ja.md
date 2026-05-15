@@ -4,6 +4,19 @@ Language: [English](README.md) | 日本語 | [简体中文](README.zh-CN.md) | [
 
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.19200726.svg)](https://doi.org/10.5281/zenodo.19200726)
 
+<details>
+<summary>AI 向け推奨読み順</summary>
+
+1. [`graph.jsonld`](graph.jsonld) — 機械可読な関係マップ正本（6 フェーズ、phase-skill bindings、3 メモリ層、code-LLM パターン）
+2. [`llms.txt`](llms.txt) — コンパクトなナビゲーション索引
+3. [`llms-full.txt`](llms-full.txt) — 統合された事実参照
+4. README およびリポジトリ固有 docs — narrative と詳細
+
+shimo4228 全体の研究エコシステムの関係マップは以下を参照:
+https://github.com/shimo4228/shimo4228/blob/main/graph.jsonld
+
+</details>
+
 AI エージェントのための知識サイクル — それを形作る人とともに成長する。
 
 ## AKC とは何か
