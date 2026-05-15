@@ -1,8 +1,14 @@
 # AKC Glossary
 
-Terminology mapping across the six languages supported by AKC's README.
-Use this as the canonical reference when translating or updating any
-language version of `README.md`.
+Terminology mapping for the two languages supported by AKC's README
+(English primary + Japanese mirror). Use this as the canonical reference
+when translating or updating either version of `README.md`.
+
+(The es / pt-BR / zh-CN / zh-TW mirrors were retired on 2026-05-15
+after traffic data showed statistically zero unique human viewers;
+LLM crawlers translate from the English source on demand. Glossary
+entries are preserved as historical reference for the original
+translation discipline and for any future re-introduction of mirrors.)
 
 ## Translation policy
 
@@ -83,5 +89,5 @@ language version of `README.md`.
 ## Maintenance
 
 When updating `README.md` (English source), keep this table in sync if
-you introduce a new AKC-coined term. Translators of language-specific
-README files should consult this table before choosing a rendering.
+you introduce a new AKC-coined term. The Japanese mirror translator
+(currently the author) consults this table before choosing a rendering.

@@ -7,7 +7,7 @@ Agent Knowledge Cycle (AKC) is a **knowledge-cycle specification + minimal refer
 
 ```
 agent-knowledge-cycle/
-├── README.md / .ja.md / .es.md / .pt-BR.md / .zh-CN.md / .zh-TW.md   human + LLM landing (English primary, 5 mirrors)
+├── README.md / .ja.md                       human + LLM landing (English primary, Japanese mirror)
 ├── CITATION.cff                            Zenodo DOI metadata
 ├── LICENSE                                 MIT
 ├── llms.txt                                AI navigator (Answer.AI llms.txt standard)
@@ -128,11 +128,11 @@ docs/akc-cycle.md is the install target; readers wanting to run the cycle skip t
 
 ADRs themselves do not link out to genre-specific content (per ADR-0011). Concrete instances are reachable only through `examples/` and the Related Work section of the README.
 
-## Six-Language README Convention
+## Two-Language README Convention
 
-- **English primary**: `README.md`. Every other language version mirrors its H2 / H3 structure.
+- **English primary**: `README.md`. The Japanese version mirrors its H2 / H3 structure.
 - **Japanese mirror**: `README.ja.md` (the author's L1 — translation discrepancies bias toward this one being authoritative for Japanese readers).
-- **Other mirrors**: `README.es.md` (Spanish), `README.pt-BR.md` (Portuguese — Brazil), `README.zh-CN.md` (Simplified Chinese), `README.zh-TW.md` (Traditional Chinese).
+- **Retired mirrors (2026-05-15)**: `README.es.md`, `README.pt-BR.md`, `README.zh-CN.md`, `README.zh-TW.md` were removed after traffic data showed statistically zero unique human viewers and LLM crawlers (ChatGPT / Qwen / Gemini) reliably translate from the English source on demand. Prior content is preserved in git history.
 - **English-only docs**: ADRs, design-pattern skills, glossary, inspiration, akc-cycle, scaffold-dissolution (with one Japanese mirror at `scaffold-dissolution.ja.md`), llms.txt, llms-full.txt, codemaps.
 - **Glossary discipline**: AKC-coined terms (`signal-first`, six phase names, six skill names, `harness`) stay in English across all languages. General-purpose technical terms are localized using `docs/glossary.md` as the canonical reference.
 

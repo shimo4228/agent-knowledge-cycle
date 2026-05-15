@@ -51,9 +51,11 @@ The five-paragraph blockquote is reordered: cognitive resource → intent alignm
 
 The opening definition (line 8) is rewritten so the grammatical subject is *cognitive resource scarcity*, with the six-phase loop appearing in the same sentence as the means rather than the headline. The Q&A list is reordered: *What is AKC's central constraint?* is promoted from Q9 to Q2; a new Q3 — *How does AKC frame intent alignment?* — is inserted. The remaining questions retain their original answers but renumber.
 
-### 5. Five translations sync
+### 5. Translations sync
 
-The five language versions of README.md (ja, es, pt-BR, zh-CN, zh-TW) are updated in parallel after the English source is approved. `docs/glossary.md` is extended with five new keyword rows (intent alignment, bottleneck, cognitive economy, scarce resource, co-develop) before translation begins, so all five translators reach the same target vocabulary.
+The Japanese mirror `README.ja.md` is updated after the English source is approved. `docs/glossary.md` is extended with five new keyword rows (intent alignment, bottleneck, cognitive economy, scarce resource, co-develop) before translation begins, so the translator reaches the target vocabulary.
+
+(Historical note: at the time of the original decision, this step covered five language versions — ja, es, pt-BR, zh-CN, zh-TW. The es / pt-BR / zh-CN / zh-TW mirrors were retired on 2026-05-15 after traffic data showed statistically zero unique human viewers and LLM crawlers reliably translate from the English source on demand. Step 5 now applies only to the Japanese mirror.)
 
 ### 6. GitHub repo About is updated
 

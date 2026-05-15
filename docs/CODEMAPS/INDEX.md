@@ -21,7 +21,7 @@ Architectural documentation for **agent-knowledge-cycle (AKC)** — a DOI-regist
 - Four code-LLM layering patterns (guard, filter, judge, orchestrator)
 - Citation-dependency graph (README → ADR-N → glossary → skills triangulation paths)
 - LLM-facing artifacts (llms.txt, llms-full.txt) and how they relate to source docs
-- Six-language README convention (English primary, ja / es / pt-BR / zh-CN / zh-TW mirrors)
+- Two-language README convention (English primary, ja mirror; zh-CN / zh-TW / pt-BR / es mirrors retired 2026-05-15 — git history preserves prior content)
 - Sibling-repo map (contemplative-agent / agent-attribution-practice)
 - File-count snapshot
 

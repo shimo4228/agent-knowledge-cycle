@@ -4,6 +4,12 @@ All notable changes to AKC are recorded here. AKC follows semantic
 versioning; breaking changes to positioning or public interfaces bump the
 major version.
 
+## Unreleased
+
+### Removed
+
+- **Multi-language README mirrors (es, pt-BR, zh-CN, zh-TW)** retired on 2026-05-15. Repository now ships English (`README.md`) + Japanese (`README.ja.md`) only. Decision driven by traffic data: 30-day GitHub traffic showed 11 unique human viewers across all README versions combined, while 106 unique cloners (and downstream LLM crawler fetches) drove the actual interaction. LLM crawlers (ChatGPT, Qwen, Gemini observed 2026-05) reliably translate the English source on demand, making the mirrors performative rather than functional. Glossary, CODEMAPS, and ADR-0012 updated to reflect the two-language convention. Prior content remains in git history for restoration if audience evidence changes.
+
 ## v2.1.0 — 2026-05-08
 
 Front-door restructure. README, llms.txt, and llms-full.txt are reorganized
