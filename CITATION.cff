@@ -28,3 +28,22 @@ keywords:
   - intent-alignment
   - human-in-the-loop
 date-released: "2026-05-08"
+references:
+  - type: software
+    title: "Contemplative Agent"
+    repository-code: "https://github.com/shimo4228/contemplative-agent"
+    doi: "10.5281/zenodo.19212118"
+    notes: "Reference implementation that runs AKC's six-phase cycle over its own logs. Sibling research line in the shimo4228 research program."
+    authors:
+      - family-names: Shimomoto
+        given-names: Tatsuya
+        orcid: "https://orcid.org/0009-0002-6168-4162"
+  - type: software
+    title: "Agent Attribution Practice (AAP)"
+    repository-code: "https://github.com/shimo4228/agent-attribution-practice"
+    doi: "10.5281/zenodo.19652013"
+    notes: "Content-side sibling. AKC v2.0.0 (2026-04-19) declared the cycle genre-neutral and extracted the security triplet (Security by Absence, Single External Adapter, Untrusted Content Boundary); those judgments were re-expressed in AAP alongside additional ADRs on accountability distribution in autonomous AI agents."
+    authors:
+      - family-names: Shimomoto
+        given-names: Tatsuya
+        orcid: "https://orcid.org/0009-0002-6168-4162"
