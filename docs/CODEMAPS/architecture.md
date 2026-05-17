@@ -139,13 +139,13 @@ ADRs themselves do not link out to genre-specific content (per ADR-0011). Concre
 ## Sibling Repositories (External Surfaces)
 
 ```
-agent-knowledge-cycle (this repo)        ← cycle = mechanism (DOI 10.5281/zenodo.19200727)
+agent-knowledge-cycle (this repo)        ← cycle = mechanism (DOI 10.5281/zenodo.19200726)
        ▲                                   v2.0.0 (2026-04-19) repositioned mechanism-only;
        │                                   v2.1.0 (2026-05-08) front-door restructure (ADR-0012).
        │ extracted security triplet to / co-evolves with
        │
 agent-attribution-practice (AAP)         ← practice = content for autonomous AI agents
-                                           (DOI 10.5281/zenodo.19652014). Hosts the security
+                                           (DOI 10.5281/zenodo.19652013). Hosts the security
                                            triplet (ADR-0001 / 0006 / 0007) extracted from AKC v2.0.0.
 
 contemplative-agent                      ← running implementation; the upstream from which AKC's

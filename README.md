@@ -251,7 +251,7 @@ Or in text:
   two-stage distillation) was the prior art that seeded AKC's ADRs.
   See [`docs/inspiration.md`](docs/inspiration.md) for details.
 - [Agent Attribution Practice (AAP)](https://github.com/shimo4228/agent-attribution-practice) —
-  Sibling genre library (DOI [10.5281/zenodo.19652014](https://doi.org/10.5281/zenodo.19652014)).
+  Sibling genre library (DOI [10.5281/zenodo.19652013](https://doi.org/10.5281/zenodo.19652013)).
   AKC v2.0.0's extracted security triplet (ADR-0001, ADR-0006, ADR-0007) was
   re-expressed there, alongside five additional ADRs, as eight harness-neutral
   ADRs on accountability distribution in autonomous AI agents. AKC is the
