@@ -1,0 +1,61 @@
+{
+  "upload_type": "software",
+  "title": "Agent Knowledge Cycle (AKC)",
+  "creators": [
+    {
+      "name": "Shimomoto, Tatsuya",
+      "orcid": "0009-0002-6168-4162"
+    }
+  ],
+  "description": "A knowledge cycle for AI agents — one that grows with the people who shape it. AKC is a six-phase self-improvement loop (Research → Extract → Curate → Promote → Measure → Maintain) that keeps skills, rules, and documentation aligned with reality over time. Unlike one-directional optimization frameworks, AKC is bidirectional: as the human curates and promotes knowledge, their judgment about what makes good agent behavior also sharpens. AKC treats human cognitive resources — attention and judgment — as the central constraint that does not scale with the model, and shapes every phase to protect that budget. AKC is not a harness — it runs on top of harnesses (like Everything Claude Code) to keep them coherent as understanding evolves. AKC ships as specifications, JSON schemas, architecture decision records, design-pattern skills, and a dependency-free Python reference implementation. The cycle is genre-neutral: it is a mechanism, and content (behavioral patterns, domain expertise, or constitutional values) is the downstream project's concern.",
+  "access_right": "open",
+  "license": "MIT",
+  "keywords": [
+    "ai-agent",
+    "self-improvement",
+    "knowledge-cycle",
+    "claude-code",
+    "agent-knowledge-cycle",
+    "memory-centric",
+    "bidirectional-growth",
+    "human-ai-collaboration",
+    "signal-first",
+    "cognitive-economy",
+    "genre-neutrality",
+    "intent-alignment",
+    "human-in-the-loop"
+  ],
+  "language": "eng",
+  "related_identifiers": [
+    {
+      "identifier": "10.5281/zenodo.19212118",
+      "relation": "isSourceOf",
+      "resource_type": "software",
+      "scheme": "doi"
+    },
+    {
+      "identifier": "10.5281/zenodo.19652013",
+      "relation": "isReferencedBy",
+      "resource_type": "publication-other",
+      "scheme": "doi"
+    },
+    {
+      "identifier": "https://github.com/shimo4228/shimo4228",
+      "relation": "isPartOf",
+      "resource_type": "other",
+      "scheme": "url"
+    },
+    {
+      "identifier": "https://huggingface.co/datasets/Shimo4228/agent-knowledge-cycle",
+      "relation": "isVariantFormOf",
+      "resource_type": "dataset",
+      "scheme": "url"
+    },
+    {
+      "identifier": "https://raw.githubusercontent.com/shimo4228/shimo4228/main/graph.jsonld",
+      "relation": "isDocumentedBy",
+      "resource_type": "dataset",
+      "scheme": "url"
+    }
+  ]
+}
