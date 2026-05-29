@@ -58,7 +58,7 @@
 - [Codemap — Document Architecture](docs/CODEMAPS/architecture.md): document-role index, three-themes / six-phases / three-memory-layers structure, citation-dependency graph, invariants — read first when routing a citation to the canonical AKC document
 - [AKC Cycle Rules](docs/akc-cycle.md): the cycle as a single rules file, copy-installable to any agent's rules directory
 - [Scaffold Dissolution](docs/scaffold-dissolution.md): how skills become unnecessary once the cycle is internalized
-- [Glossary](docs/glossary.md): translation glossary across the six README languages
+- [Glossary](docs/glossary.md): translation glossary for the English + Japanese READMEs
 - [Inspiration](docs/inspiration.md): prior art and acknowledgements
 - [Changelog](CHANGELOG.md): release history
 

@@ -1,7 +1,7 @@
 <!-- Generated: 2026-05-08 | Total codemaps: 1 | Token estimate: ~250 -->
 # Codemaps Index
 
-Architectural documentation for **agent-knowledge-cycle (AKC)** — a DOI-registered knowledge-cycle specification + reference implementation (9 ADRs + 8 design principles + 3 design-pattern skills + 1 ~500-line Python reference, six README languages).
+Architectural documentation for **agent-knowledge-cycle (AKC)** — a DOI-registered knowledge-cycle specification + reference implementation (9 ADRs + 9 design principles + 3 design-pattern skills + 1 ~500-line Python reference, English + Japanese READMEs).
 **Last Updated**: 2026-05-08 | **Repo**: 60+ markdown / Python / schema files; primary audience is LLM-mediated channels.
 
 ---
@@ -10,7 +10,7 @@ Architectural documentation for **agent-knowledge-cycle (AKC)** — a DOI-regist
 
 ### 1. [architecture.md](architecture.md) — Document Architecture
 
-**Read first.** Top-level layout, document-role index, three-themes / six-phases / three-memory-layers structure, citation-dependency graph, six-language translation convention, sibling-repo relationships.
+**Read first.** Top-level layout, document-role index, three-themes / six-phases / three-memory-layers structure, citation-dependency graph, two-language (English + Japanese) translation convention, sibling-repo relationships.
 
 **Topics**:
 - Top-level layout (`docs/`, `docs/adr/`, `docs/skills/`, `docs/CODEMAPS/`, `schemas/`, `examples/`)

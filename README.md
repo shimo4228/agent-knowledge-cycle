@@ -117,7 +117,7 @@ exactly this property.
 
 ## What's in this repo
 
-Nine ADRs, eight design principles, three design-pattern skills, two
+Nine ADRs, nine design principles, three design-pattern skills, two
 JSON schemas, one ~500-line runnable reference implementation, and the
 rules file that installs the whole cycle in a single `cp`. AKC defines
 three memory layers and four code-LLM layering patterns. The six cycle

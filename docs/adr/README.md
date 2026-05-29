@@ -16,6 +16,7 @@ considered, and the consequences.
 | [0009](0009-akc-is-a-cycle-not-a-harness.md) | AKC is a Cycle, Not a Harness |
 | [0010](0010-human-cognitive-resource-as-central-constraint.md) | Human Cognitive Resource as Central Constraint |
 | [0011](0011-cycle-applies-to-any-knowledge-body.md) | Cycle Applies to Any Knowledge Body |
+| [0012](0012-front-load-three-core-themes.md) | Front-load the Three Core Themes in Front-door Documentation |
 
 ADR numbers are permanent identifiers. Gaps (0001, 0006, 0007) reflect
 ADRs that were extracted from this repository in v2.0.0 as

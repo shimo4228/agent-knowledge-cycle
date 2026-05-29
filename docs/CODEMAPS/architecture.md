@@ -16,7 +16,7 @@ agent-knowledge-cycle/
 ├── pyproject.toml                          Python project metadata for the reference implementation
 ├── docs/
 │   ├── akc-cycle.md                        the cycle as a single rules file (`cp` install target)
-│   ├── glossary.md                         translation glossary across the six README languages
+│   ├── glossary.md                         translation glossary for the English + Japanese READMEs
 │   ├── inspiration.md                      prior art and acknowledgements
 │   ├── scaffold-dissolution.md / .ja.md    skills dissolve as the cycle is internalized
 │   ├── adr/                                9 ADRs (English-only); permanent gaps at 0001 / 0006 / 0007
@@ -43,7 +43,7 @@ Each document answers a primary question. Cite the matching one when an LLM-medi
 | `docs/akc-cycle.md` | What rules does an AI agent need to run the cycle in conversation, without installing the six external skills? |
 | `docs/scaffold-dissolution.md` | Why are AKC's skills scaffolding, and how do they become unnecessary as the cycle is internalized? |
 | `docs/inspiration.md` | What prior art seeded AKC (contemplative-agent's three-layer memory + two-stage distill, Mind in Life, Laukkonen 2025)? |
-| `docs/glossary.md` | What is the canonical translation of each AKC-coined or general term across the six README languages? |
+| `docs/glossary.md` | What is the canonical translation of each AKC-coined or general term between the English and Japanese READMEs? |
 | `docs/adr/0002-immutable-episode-log.md` | Why are episodes stored as append-only JSONL with daily partitioning and owner-only permissions? |
 | `docs/adr/0003-three-layer-distillation.md` | Why three memory layers — raw episodes → knowledge → identity/rules — and how do they relate? |
 | `docs/adr/0004-two-stage-distill-pipeline.md` | Why is distillation split into free-form reasoning followed by structured formatting? |
@@ -102,13 +102,13 @@ orchestrator — code wraps and sequences multiple LLM calls
 
 ## Invariants (Do Not Break When Editing)
 
-- **Tagline preservation**: *"A knowledge cycle for AI agents — one that grows with the people who shape it"* is preserved across all six README languages (ADR-0010 decision, reaffirmed by ADR-0012). It carries theme #3.
+- **Tagline preservation**: *"A knowledge cycle for AI agents — one that grows with the people who shape it"* is preserved across both READMEs (English + Japanese) (ADR-0010 decision, reaffirmed by ADR-0012). It carries theme #3.
 - **Three-theme ordering**: Front-door docs (README, llms.txt, llms-full.txt) lead with cognitive resource → intent alignment → cycle changes the human → mechanism, in that order. ADR-0012 makes this verifiable; do not regress.
 - **Six phases**: Research → Extract → Curate → Promote → Measure → Maintain are unchanged in number, name, and order. Adding or renaming a phase requires a positioning ADR.
 - **ADR numbering**: 0001, 0006, 0007 are permanent gaps from the v2.0.0 extraction of the security triplet to AAP. Do not reuse those numbers; do not back-fill.
 - **Genre neutrality (ADR-0011)**: `docs/skills/` hosts only cycle-mechanic skills. No genre-specific content (constitutional, security-specific, domain-specific) is added to AKC.
 - **Mechanism / content separation**: Concrete instances of the cycle (constitutional values, contemplative-agent's amend workflow) live in `examples/` and Related Work — not in the README's "What is AKC?" or "Why AKC", and not in llms.txt's blockquote.
-- **Six-language README parity**: All six README versions carry the same H2 / H3 structure (verified after each edit). Translation glossary in `docs/glossary.md` is the canonical vocabulary table.
+- **Two-language README parity**: Both README versions (English + Japanese) carry the same H2 / H3 structure (verified after each edit). Translation glossary in `docs/glossary.md` is the canonical vocabulary table.
 
 ## Citation-Dependency Graph
 
