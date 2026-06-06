@@ -117,26 +117,6 @@ behavior and human judgment co-develop through sustained interaction.
 The tagline — *one that grows with the people who shape it* — names
 exactly this property.
 
-## What's in this repo
-
-Fourteen ADRs, nine design principles, three design-pattern skills, two
-JSON schemas, one ~500-line runnable reference implementation, and the
-rules file that installs the whole cycle in a single `cp`. AKC defines
-three memory layers and four code-LLM layering patterns. The six cycle
-skills listed below remain the opinionated, full-fat implementation of
-each phase.
-
-AKC ships **two kinds of skills**:
-
-- **Cycle skills** (external repositories) — one per phase of the
-  cycle: `search-first`, `learn-eval`, `skill-stocktake`,
-  `rules-distill`, `skill-comply`, `context-sync`.
-- **Design-pattern skills** ([`docs/skills/`](docs/skills/)) — long-form
-  "how" guides paired 1:1 with ADRs. These are cross-cutting and apply
-  in multiple phases.
-
-For the full repository tree and document-role routing, see [`docs/CODEMAPS/architecture.md`](docs/CODEMAPS/architecture.md).
-
 ## The cycle
 
 AKC is a set of six composable skills, one per phase of the cycle:
@@ -190,6 +170,26 @@ That's it. The cycle will run through conversation — no skills, no plugins, no
 - **Rules** provide principles and trigger conditions. Install them when you want the cycle to emerge naturally from conversation.
 - Both can coexist. Rules ensure the cycle runs even when skills aren't triggered.
 
+## What's in this repo
+
+Fifteen ADRs, nine design principles, three design-pattern skills, two
+JSON schemas, one ~500-line runnable reference implementation, and the
+rules file that installs the whole cycle in a single `cp`. AKC defines
+three memory layers and four code-LLM layering patterns. The six cycle
+skills listed above remain the opinionated, full-fat implementation of
+each phase.
+
+AKC ships **two kinds of skills**:
+
+- **Cycle skills** (external repositories) — one per phase of the
+  cycle: `search-first`, `learn-eval`, `skill-stocktake`,
+  `rules-distill`, `skill-comply`, `context-sync`.
+- **Design-pattern skills** ([`docs/skills/`](docs/skills/)) — long-form
+  "how" guides paired 1:1 with ADRs. These are cross-cutting and apply
+  in multiple phases.
+
+For the full repository tree and document-role routing, see [`docs/CODEMAPS/architecture.md`](docs/CODEMAPS/architecture.md).
+
 ## Design Principles
 
 1. **Composable** — Each skill works independently. Use one or all six.
@@ -205,71 +205,55 @@ That's it. The cycle will run through conversation — no skills, no plugins, no
 ## Limitations
 
 The third theme — *the cycle changes the human too* — has an honest
-twin. A loop that can sharpen judgment can also erode it. Three
-mechanism-level failure modes run the bidirectional loop backward, and
-naming them keeps the theme falsifiable rather than aspirational. See
+twin: a loop that can sharpen judgment can also erode it. Three
+mechanism-level failure modes run the bidirectional loop backward:
+**gate complacency** (a stream of usually-correct proposals trains the
+operator to approve by reflex), **deskilling** (a human who only
+reviews the agent's output lets the faculty supervision requires
+atrophy), and **delegation-feedback divergence** (the agent keeps
+acting while the feedback that would correct it no longer reaches a
+human positioned to use it). AKC's defense is structural, not
+exhortation: the human approval gate
+([ADR-0005](docs/adr/0005-human-approval-gate.md)) is a
+circuit-breaker with no auto-approve path, and Curate and Promote are
+active judgment acts — the cycle's normal operation is itself the
+exercise that resists deskilling. The full analysis is in
 [ADR-0014](docs/adr/0014-failure-modes-of-the-bidirectional-loop.md).
-
-- **Gate complacency.** As the agent grows reliable, a stream of
-  usually-correct proposals trains the operator to approve by reflex.
-  The click still happens, but the judgment behind it thins. This is
-  worst exactly where attention is scarcest (Theme 1): default-approval
-  is the cheapest action, and a trustworthy agent makes that cheapness
-  feel safe.
-- **Deskilling.** The faculty that supervision requires — noticing that
-  a proposed rule is subtly wrong — is maintained by exercise. A human
-  who stops doing the underlying work and only reviews the agent's
-  output lets that faculty atrophy, until a good proposal can no longer
-  be told from a plausible one.
-- **Delegation-feedback divergence.** The growth loop assumes the
-  human's judgment and the agent's behavior stay coupled. Divergence is
-  what happens when delegation continues but that coupling breaks: the
-  agent keeps acting while the feedback that would correct it no longer
-  reaches a human positioned to use it. A diverged loop still produces
-  output — it just produces output no human is meaningfully steering.
-
-AKC does not claim to immunize the operator against these failures. Its
-defense is structural, not exhortation. The human approval gate
-([ADR-0005](docs/adr/0005-human-approval-gate.md)) is a **circuit-breaker**,
-not a delay: with no "auto-approve after N days" and no "approved by the
-LLM itself" path, the loop has a point at which divergence can always be
-arrested, and the gate's *existence* cannot be eroded by the loop itself
-— only by the human choosing to attend less. Curate and Promote are
-active judgment acts, so the cycle's normal operation is itself the
-exercise that resists deskilling. These limitations are the honest twin
-of the positive framing above, not a retraction of it.
 
 ## Relationship to Harness Engineering
 
-AKC shares common ground with [harness engineering](https://mitchellh.com/writing/my-ai-adoption-journey) (Mitchell Hashimoto, 2025) — the practice of engineering solutions so that an agent never repeats the same mistake, through a combination of improved prompts (e.g., AGENTS.md updates) and programmatic tools (scripts, verification commands). Both aim to make agents more reliable. They differ in what they focus on.
+AKC shares common ground with [harness engineering](https://mitchellh.com/writing/my-ai-adoption-journey) (Mitchell Hashimoto, 2025) — the practice of engineering solutions so that an agent never repeats the same mistake, through a combination of improved prompts and programmatic tools. Both aim to make agents more reliable. They differ in what they focus on.
 
 | Layer | Question | Addressed by |
 |-------|----------|-------------|
 | Harness | "Is this output correct?" | Individual linters, tests, scripts |
 | AKC | "Are the harnesses themselves still valid?" | skill-comply, skill-stocktake, context-sync |
 
-**Harness optimization vs harness alignment.** The harness layer now
-has its own automated improvement loop: [Meta-Harness](https://arxiv.org/abs/2603.28052)
-defines the harness as "the code that determines what information to
-store, retrieve, and present to the model" and searches over harness
-code to maximize benchmark scores — autonomous, score-driven
-**harness optimization** on the correctness axis. AKC's activity is
-the human-gated counterpart on the intent axis: **harness alignment**,
+Harness engineering optimizes correctness on the first try, and is
+reactive by nature — each mistake triggers a new harness; AKC audits
+proactively and asks the intent question instead (see
+[Why AKC → Aligned with intent](#aligned-with-intent-not-just-correct)).
+The harness layer now also has its own automated improvement loop:
+[Meta-Harness](https://arxiv.org/abs/2603.28052) searches over harness
+code to maximize benchmark scores — autonomous, score-driven **harness
+optimization** on the correctness axis. AKC's activity is the
+human-gated counterpart on the intent axis: **harness alignment**,
 keeping the harness aligned with the operator's evolving intent. Its
 failure mode is **harness drift** — skills go stale, rules stop
-matching practice, documentation diverges from code — named in lineage
-with architectural drift (Perry & Wolf, 1992), practical drift (Snook,
-2000), and agent drift ([arXiv:2601.04170](https://arxiv.org/abs/2601.04170)).
-The two activities are complementary, not competing: a harness can
-score better on a fixed benchmark while sliding away from what its
-operator now wants. See [ADR-0017](docs/adr/0017-harness-alignment-and-drift.md)
-for the full derivation.
+matching practice, documentation diverges from code. The two
+activities are complementary, not competing: a harness can score
+better on a fixed benchmark while sliding away from what its operator
+now wants. See [ADR-0017](docs/adr/0017-harness-alignment-and-drift.md)
+for the full derivation and the drift-vocabulary lineage.
 
-**Correctness vs intent alignment.** Harness engineering focuses on getting the right result the first time — preventing known errors through better instructions and automated checks. AKC is more concerned with a different question: is the agent's behavior aligned with the operator's evolving intent? See [Why AKC → Aligned with intent](#aligned-with-intent-not-just-correct) for the standalone treatment.
-
-**Reactive vs proactive.** Harness engineering is reactive by nature — each mistake triggers a new harness. AKC's skill-comply and skill-stocktake take a proactive approach, periodically auditing whether skills and rules are actually followed and whether they remain relevant. Design Principle #5 scales this evaluation to model capability — rubrics for small models, holistic judgment for frontier models.
-
-**Autonomous-promotion default vs human-owned promotion.** The dominant pattern in self-evolving-agent work, and in platform-side memory features that automatically consolidate prior sessions, is that the agent itself decides what to persist — a human in the loop is optional, a guardrail one may add. AKC inverts this: cross-layer promotion (moving a pattern from the probabilistic skills/memory layer to the deterministic rules layer) requires a *named human sign-off*. Platform memory features automate the Extract and Curate intake phases, but their output lands in a file-based memory layer; it does not reach rules, identity, or weights. AKC's gate is not a missing automation feature — it is the load-bearing contribution, the edge where the operator's evolving intent enters the loop. See the [ADR-0005 addendum](docs/adr/0005-human-approval-gate.md).
+Where the dominant pattern in self-evolving-agent work and
+platform-side memory features lets the agent itself decide what to
+persist, AKC inverts the default: cross-layer promotion (from the
+probabilistic skills/memory layer to the deterministic rules layer)
+requires a *named human sign-off*. The gate is not a missing
+automation feature — it is the load-bearing contribution, the edge
+where the operator's evolving intent enters the loop. See the
+[ADR-0005 addendum](docs/adr/0005-human-approval-gate.md).
 
 ## Customization
 
@@ -322,32 +306,14 @@ Or in text:
 - [Articles on Zenn](https://zenn.dev/shimo4228) — Development journal (Japanese)
 - [Articles on Dev.to](https://dev.to/shimo4228) — English translations
 
-### Crystallized out of the same operation
+Four more DOI-registered repositories crystallized out of the same daily
+operation the cycle runs in — recorded here as relationship facts and
+DOIs only ([ADR-0018](docs/adr/0018-record-downstream-applications-as-first-class-context.md)):
 
-The cycle's outputs did not stay inside the operator-agent pair. The daily
-operation the cycle ran in also crystallized standalone research lines and
-working repositories:
-
-- [Authorship Strategy](https://github.com/shimo4228/authorship-strategy)
-  (DOI [10.5281/zenodo.20263316](https://doi.org/10.5281/zenodo.20263316)) —
-  a normative framework, tactical catalog, and empirical baseline for
-  authorship under AI-mediated diffusion. Its own framing of the
-  relationship: AKC defines how knowledge cycles inside the operator-agent
-  pair; Authorship Strategy addresses how the cycle's outputs diffuse
-  outside it.
-- [Attention, Not Self](https://github.com/shimo4228/attention-not-self)
-  (DOI [10.5281/zenodo.20262112](https://doi.org/10.5281/zenodo.20262112)) —
-  Buddhist Abhidharma meets computational phenomenology; a sibling research
-  line federated with AKC at the research-program level.
-- [doctrine-corpus](https://github.com/shimo4228/doctrine-corpus)
-  (DOI [10.5281/zenodo.20337008](https://doi.org/10.5281/zenodo.20337008)) —
-  a bilingual judgment-eliciting Q&A corpus for LLM training; AKC is one of
-  its four source lines (ADRs and glossary harvested into the corpus).
-- [existence-proof](https://github.com/shimo4228/existence-proof)
-  (DOI [10.5281/zenodo.20558800](https://doi.org/10.5281/zenodo.20558800)) —
-  a pre-line working repository (by its own status discipline): an
-  empowerment doctrine for credential-less AI-enabled creators, complement
-  of Authorship Strategy.
+- [Authorship Strategy](https://github.com/shimo4228/authorship-strategy) (DOI [10.5281/zenodo.20263316](https://doi.org/10.5281/zenodo.20263316)) — AKC defines how knowledge cycles inside the operator-agent pair; Authorship Strategy addresses how the cycle's outputs diffuse outside it.
+- [Attention, Not Self](https://github.com/shimo4228/attention-not-self) (DOI [10.5281/zenodo.20262112](https://doi.org/10.5281/zenodo.20262112)) — sibling research line, federated at the research-program level.
+- [doctrine-corpus](https://github.com/shimo4228/doctrine-corpus) (DOI [10.5281/zenodo.20337008](https://doi.org/10.5281/zenodo.20337008)) — bilingual judgment-eliciting Q&A corpus; AKC is one of its four source lines.
+- [existence-proof](https://github.com/shimo4228/existence-proof) (DOI [10.5281/zenodo.20558800](https://doi.org/10.5281/zenodo.20558800)) — pre-line working repository complementing Authorship Strategy.
 
 The canonical relationship map of the whole research program lives in the
 [hub repository's graph.jsonld](https://github.com/shimo4228/shimo4228/blob/main/graph.jsonld).
@@ -372,57 +338,32 @@ thanks to affaan-m and every contributor to ECC.
 
 AKC was built from practice, not theory — the six-phase shape was
 noticed in the daily maintenance of a real harness, not derived from a
-literature. That epistemic stance is preserved here, but it does not
-exempt the project from naming the work it overlaps. This section does
-two things: it concedes the agent-memory precedents AKC's operations
-share, and it lists the philosophical resonances that were genuinely not
-consulted during construction. The full positioning is recorded in
+literature. That stance does not exempt the project from naming the
+work it overlaps. The full positioning is recorded in
 [ADR-0013](docs/adr/0013-positioning-within-agent-memory-literature.md).
 
 ### Agent-memory literature — conceded overlap, located delta
 
-AKC's individual operations are not novel as isolated mechanisms. Each
-has named precedent in the agent-memory and skill-learning literature,
-and pretending otherwise would be a false novelty claim. The honest move
-is to name the precedent for each operation and then state what is, and
-is not, new.
-
-| AKC operation | Named precedent | What the precedent does |
-|---|---|---|
-| Extract → Promote (skill induction) | Voyager (Wang et al., 2023); Agent Workflow Memory (Wang et al., 2024) | Induce reusable, executable skills/workflows from trajectories and feed them back |
-| Curate (prune / refine memory) | ReMe (Cao et al., 2025); LangMem (LangChain, 2025) | Continuously refine procedural memory; control what is stored; update behavior via prompts |
-| Extract (reflection / distillation) | Generative Agents (Park et al., 2023); MemGPT (Packer et al., 2023) | Reflect observations into higher-level inferences; page a memory hierarchy |
-| (framework vocabulary) | CoALA (Sumers et al., 2023); *Externalization in LLM Agents* (Zhou et al., 2026) | Formalize modular memory, action space, decision procedure; map the externalization field |
-
 Run as an isolated operation — "induce a skill from this session,"
-"prune stale memories," "reflect these episodes into a pattern" — an AKC
-phase is *not* a new mechanism; the literature got there first, often
-with more mature engineering. AKC's delta lives not in the operations
-but on the shared axis those systems define — *how an agent turns its own
-experience into durable, reusable knowledge* — and it is exactly the
-three core themes restated as a literature delta:
+"prune stale memories," "reflect these episodes into a pattern" — an
+AKC phase is *not* a new mechanism. The precedents are named: skill
+induction in Voyager (Wang et al., 2023) and Agent Workflow Memory
+(Wang et al., 2024); memory curation in ReMe (Cao et al., 2025) and
+LangMem (LangChain, 2025); reflection and memory hierarchies in
+Generative Agents (Park et al., 2023) and MemGPT (Packer et al., 2023);
+framework vocabulary in CoALA (Sumers et al., 2023) and
+*Externalization in LLM Agents* (Zhou et al., 2026). AKC's delta lives
+on the shared axis those systems define — *how an agent turns its own
+experience into durable, reusable knowledge* — and it is the three core
+themes restated as a literature delta:
 
-1. **A structural human approval gate, where the prior art runs
-   autonomously.** Voyager, AWM, ReMe, and LangMem close the loop without
-   a human in it. AKC's Promote phase ([ADR-0005](docs/adr/0005-human-approval-gate.md))
-   requires a named human sign-off on any change that rewrites future
-   behavior, with no auto-approve escape hatch. The prior art optimizes
-   an unattended loop; AKC optimizes a human-owned one.
-2. **A target of *bidirectional* human-judgment growth, where the prior
-   art optimizes the agent or its context.** Those systems measure
-   success on the agent side; AKC's target ([ADR-0009](docs/adr/0009-akc-is-a-cycle-not-a-harness.md))
-   is bidirectional — Curate and Promote sharpen the *human's* judgment
-   even as they sharpen the agent's. No memory system names the human's
-   developing judgment as an output to optimize.
-3. **A framing of the scarce resource as *human attention*, where the
-   prior art treats agent capability, context, or information volume as
-   binding.** MemGPT's constraint is the context window; ReMe's and
-   LangMem's is memory consistency; Voyager's is task capability. AKC
-   ([ADR-0010](docs/adr/0010-human-cognitive-resource-as-central-constraint.md))
-   names a different ceiling — human attention and judgment, which grow
-   *relatively* scarcer as agent capability grows. The literature solves
-   information-side scarcity; AKC solves attention-side scarcity. Both
-   are valid; they bind on different resources.
+1. **A structural human approval gate**, where the prior art closes the
+   loop autonomously ([ADR-0005](docs/adr/0005-human-approval-gate.md)).
+2. **Bidirectional human-judgment growth as the target**, where the
+   prior art optimizes the agent or its context ([ADR-0009](docs/adr/0009-akc-is-a-cycle-not-a-harness.md)).
+3. **Human attention as the scarce resource**, where the prior art
+   treats context, memory consistency, or task capability as binding
+   ([ADR-0010](docs/adr/0010-human-cognitive-resource-as-central-constraint.md)).
 
 These systems were identified as prior art *for positioning*, not
 consulted during AKC's construction; the distinction is preserved from
@@ -432,25 +373,20 @@ the practice-first stance above.
 
 AKC's vocabulary for its own activity — **harness alignment** and its
 failure mode **harness drift** — is derived from established terms
-rather than coined fresh. Each component carries a reference relation;
-AKC's delta is only what no single source covers: an alignment target
-that is operator intent and itself evolves, a human-gated loop, and a
-loop that changes the human too. The full derivation is recorded in
+rather than coined fresh: intent alignment from
+[Christiano (2018)](https://ai-alignment.com/clarifying-ai-alignment-cec47cd69dd6),
+software evolution as feedback from [Lehman (1980)](https://users.ece.utexas.edu/~perry/education/SE-Intro/lehman.pdf),
+architectural drift from [Perry & Wolf (1992)](https://users.ece.utexas.edu/~perry/work/papers/swa-sen.pdf),
+practical drift from Snook (2000, *Friendly Fire*; as characterized in
+secondary literature), harness and harness optimization from
+[Meta-Harness](https://arxiv.org/abs/2603.28052) (Lee et al.), and
+behavioral drift in LLM agents from [Agent Drift](https://arxiv.org/abs/2601.04170)
+(Rath). AKC's delta is only what no single source covers: an alignment
+target that is operator intent and itself evolves, a human-gated loop,
+and a loop that changes the human too. Unlike the agent-memory
+positioning above, these sources were consulted *for the vocabulary
+derivation itself* (2026-06-06). The full derivation is recorded in
 [ADR-0017](docs/adr/0017-harness-alignment-and-drift.md).
-
-| Borrowed component | Source | What the source establishes |
-|---|---|---|
-| Intent alignment (correctness ≠ alignment) | Christiano (2018), ["Clarifying 'AI alignment'"](https://ai-alignment.com/clarifying-ai-alignment-cec47cd69dd6) | An aligned agent "is trying to do what H wants it to do" — motivation, not competence |
-| Continuous adaptation; evolution as feedback | Lehman (1980), ["Programs, Life Cycles, and Laws of Software Evolution"](https://users.ece.utexas.edu/~perry/education/SE-Intro/lehman.pdf), *Proc. IEEE* 68(9) | An E-type program "undergoes continual change or becomes progressively less useful" (Law I); "evolution is an intrinsic, feedback driven, property of software" |
-| Drift as divergence-by-insensitivity | Perry & Wolf (1992), ["Foundations for the Study of Software Architecture"](https://users.ece.utexas.edu/~perry/work/papers/swa-sen.pdf), *ACM SIGSOFT SEN* 17(4) | "Architectural drift is due to insensitivity about the architecture" — inadaptability, not disaster |
-| Drift of practice from written rules | Snook (2000), *Friendly Fire*, Princeton UP | Practical drift: practice slowly uncoupling from written procedure (as characterized in secondary literature) |
-| Harness; harness optimization | Lee et al., [Meta-Harness](https://arxiv.org/abs/2603.28052) (arXiv:2603.28052) | The harness is "the code that determines what information to store, retrieve, and present to the model," improved autonomously against benchmark scores |
-| Behavioral drift in LLM agents | Rath, [Agent Drift](https://arxiv.org/abs/2601.04170) (arXiv:2601.04170) | Semantic drift as "progressive deviation from original intent" — re-derived in 2026 without citing the classical SE lineage |
-
-Unlike the agent-memory table above, these sources were consulted *for
-the vocabulary derivation itself* (2026-06-06); the quotations were
-verified against the primary texts, except Snook, which is cited as
-characterized in secondary literature.
 
 ### Philosophical resonances — not consulted during construction
 

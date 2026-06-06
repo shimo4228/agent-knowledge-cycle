@@ -179,7 +179,7 @@ contemplative-agent                      ← two-way relationship. Upstream: the
 | [claude-skill-daily-research](https://github.com/shimo4228/claude-skill-daily-research) | Pre-AKC ancestor of the Research phase (see `docs/inspiration.md`) | — |
 | [shimo4228 hub](https://github.com/shimo4228/shimo4228) | Canonical research-program relationship map (graph.jsonld) | — |
 
-Prose entries live in README "Related Work" → "Crystallized out of the same operation"; concept-level edges in `graph.jsonld`.
+Prose entries live in README "Related Work" (compact list at the end of the section); concept-level edges in `graph.jsonld`.
 
 ## File-Count Snapshot (2026-06-06)
 
