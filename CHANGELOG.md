@@ -6,6 +6,26 @@ major version.
 
 ## Unreleased
 
+### Added
+
+- **Four new ADRs (0013–0016)** closing the 2026-06-06 pre-paper gap analysis. ADR count 9 → 13 (gaps 0001/0006/0007 unchanged). A fifth candidate — demotion / rule retirement as Promote's structural inverse — was drafted and withdrawn the same day as premature: rules are already retired in practice through interactive curation (the gap analysis mistook a symmetry argument for observed pain), and the rule-layer-curation observation is deferred until it has a pain record:
+  - [ADR-0013](docs/adr/0013-positioning-within-agent-memory-literature.md) — positions AKC against the agent-memory / skill-learning literature (Voyager, AWM, ReMe, LangMem, Generative Agents, MemGPT, CoALA, the Externalization survey) via concede-then-locate: the operations are not novel in isolation; the human-owned loop, bidirectional growth target, and attention-side scarcity framing are the delta.
+  - [ADR-0014](docs/adr/0014-failure-modes-of-the-bidirectional-loop.md) (**experimental**) — names Theme 3's failure twin: gate complacency, deskilling, delegation-feedback divergence, with AKC's structural defenses.
+  - [ADR-0015](docs/adr/0015-loop-failure-modes-self-reingestion.md) (**experimental**) — the cycle feeds on its own output: agent-written rules and notes re-enter as distillation input, so the loop can degrade (echo, grounding loss) as well as correct. General principle distilled from a Contemplative Agent production observation; the observed record is the only ground, the self-generated share of promoted artifacts stays visible (Measure), the gate is the circuit-breaker.
+  - [ADR-0016](docs/adr/0016-measuring-thinking-centric-phases.md) — requires Measure instruments to promote agent text (reasoning, verdicts, plans) to observable events; tool-call-only instruments systematically under-report judgment-phase compliance.
+- **ADR-0005 addendum** — "Why the gate is the contribution, not a guardrail": contrasts AKC's named-human-sign-off promotion against the autonomous-promotion default of the self-evolving-agent corpus, and frames Promote as deliberately extrinsic metacognition.
+- **README `Limitations` section** and rewritten Related Work / References carrying the agent-memory prior art with full citations; mirrored in README.ja.md. Design Principle #2 sharpened with the text-observability requirement.
+- **akc-cycle.md** Measure step sharpened: compliance is checked in agent text (stated reasoning, verdicts) as well as tool calls — the install file's only change; explanatory material stays in the ADRs.
+- **graph.jsonld** gains nodes for the four new ADRs, loop failure modes, self-reingestion, and prior-art research lines with contrast edges. **glossary** gains the corresponding mechanism terms.
+
+### Fixed
+
+- Design-principle count unified at **nine** across all surfaces (ADR-0012 prose corrected; ADR-0011 carries the canonical "Genre neutrality is Design Principle #9" declaration; historical "eight" references in ADR-0009's v2.0.0 addendum annotated, not rewritten).
+- Four-pattern definitions (guard / filter / judge / orchestrator) re-synced to **ADR-0008 canonical** in graph.jsonld, CODEMAPS, and llms-full.txt — guard validates LLM output post-generation, orchestrator means code owns the loop. CODEMAPS Invariants now pins the canonical source.
+- AAP sibling references updated from "eight ADRs / five additional" to **"ten ADRs / seven additional"** (AAP v0.2.0 added ADR-0009/0010); concept DOI references unchanged.
+- ADR-0008's dangling reference to extracted ADR-0007 removed; structural-guard vs populated-threat-model demarcation added (CLAUDE.md mechanism-only rule clarified accordingly).
+- CODEMAPS file-count snapshot updated for the retired README mirrors (en + ja = 2, not 6); ADR routing extended to 0013–0016.
+
 ### Removed
 
 - **Multi-language README mirrors (es, pt-BR, zh-CN, zh-TW)** retired on 2026-05-15. Repository now ships English (`README.md`) + Japanese (`README.ja.md`) only. Decision driven by traffic data: 30-day GitHub traffic showed 11 unique human viewers across all README versions combined, while 106 unique cloners (and downstream LLM crawler fetches) drove the actual interaction. LLM crawlers (ChatGPT, Qwen, Gemini observed 2026-05) reliably translate the English source on demand, making the mirrors performative rather than functional. Glossary, CODEMAPS, and ADR-0012 updated to reflect the two-language convention. Prior content remains in git history for restoration if audience evidence changes.

@@ -17,6 +17,10 @@ considered, and the consequences.
 | [0010](0010-human-cognitive-resource-as-central-constraint.md) | Human Cognitive Resource as Central Constraint |
 | [0011](0011-cycle-applies-to-any-knowledge-body.md) | Cycle Applies to Any Knowledge Body |
 | [0012](0012-front-load-three-core-themes.md) | Front-load the Three Core Themes in Front-door Documentation |
+| [0013](0013-positioning-within-agent-memory-literature.md) | Positioning Within the Agent-Memory Literature |
+| [0014](0014-failure-modes-of-the-bidirectional-loop.md) | Failure Modes of the Bidirectional Loop *(experimental)* |
+| [0015](0015-loop-failure-modes-self-reingestion.md) | Self-Reingestion — When the Cycle Feeds on Its Own Output *(experimental)* |
+| [0016](0016-measuring-thinking-centric-phases.md) | Measuring Thinking-Centric Phases |
 
 ADR numbers are permanent identifiers. Gaps (0001, 0006, 0007) reflect
 ADRs that were extracted from this repository in v2.0.0 as

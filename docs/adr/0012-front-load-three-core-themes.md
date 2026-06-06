@@ -67,7 +67,7 @@ The repository description is rewritten from 181 to ~290 chars to surface theme 
 - **Six phases.** Research → Extract → Curate → Promote → Measure → Maintain remain unchanged in number, name, and order.
 - **ADRs in effect.** ADR-0002 through ADR-0011 remain in effect. ADR-0012 reorders how readers encounter them; it does not amend their content.
 - **Reference implementation.** No code changes to `examples/minimal_harness/` or to the JSON schemas.
-- **Design principles.** The eight design principles remain. DP #8 (Cognitive economy) and DP #3 (Non-destructive) are referenced inline from the new "Why AKC" section but are not rewritten.
+- **Design principles.** The nine design principles remain (Genre neutrality is #9 per ADR-0011, which predates this ADR). DP #8 (Cognitive economy) and DP #3 (Non-destructive) are referenced inline from the new "Why AKC" section but are not rewritten.
 
 ## Alternatives Considered
 
@@ -98,7 +98,7 @@ The repository description is rewritten from 181 to ~290 chars to surface theme 
 
 ### Neutral
 
-- No code changes. No schema changes. The eight design principles, six phases, and reference implementation are unchanged. ADR-0012 is a documentation-architecture decision, not an architectural one.
+- No code changes. No schema changes. The nine design principles, six phases, and reference implementation are unchanged. ADR-0012 is a documentation-architecture decision, not an architectural one.
 
 ## Relationship to other ADRs
 

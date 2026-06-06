@@ -24,6 +24,8 @@ AKC adopts **Genre Neutrality** as a first-class positioning statement:
 
 > The cycle is a mechanism. The content that flows through the cycle is the downstream project's concern, not AKC's. AKC takes no position on whether a knowledge body is behavioral, domain-specific, or constitutional. The same six phases apply identically to all of them.
 
+Genre neutrality is Design Principle #9. It joins the eight principles ADR-0009's v2.0.0 addendum left in place (the security-triplet extraction renumbered the prior set), taking the next slot as the positioning claim that makes the extraction coherent.
+
 Three falsifiable commitments follow:
 
 1. **No future ADR in AKC will encode domain-specific content beyond what the six phases require.** If a future decision pressures the repository to adopt a specific threat model, a specific value set, a specific adapter philosophy, or any other opinion tied to one class of agent, that decision belongs in a downstream project — not here.

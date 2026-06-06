@@ -92,9 +92,42 @@ back. This gives us:
 
 - Layer 2 and Layer 3 are **disposable**. Deleting them and re-running
   distillation from Layer 1 is a supported recovery path.
+- Disposability and regenerability depend on Layer 1 being
+  observation-grounded: re-running distillation recovers clean knowledge only
+  because Layer 1 records what actually happened, never the cycle's own prior
+  output. The layers above it are the agent's own writing, and they re-enter
+  later sessions as input — so a regeneration that needs to re-establish
+  grounding must start from Layer 1, never from a higher layer treated as
+  observation. See
+  [ADR-0015](0015-loop-failure-modes-self-reingestion.md).
 - The operator has three distinct pruning knobs: log retention, knowledge
   importance threshold, rule approval rate.
 - Distillation cost is bounded by log size, not by cumulative knowledge size.
+
+---
+
+### Addendum — 2026-06-06: Mechanism commitment vs. reference encoding
+
+This ADR describes one concrete encoding of the three layers — JSONL episode
+files, a `knowledge.json` store, an `importance * 0.95 ** days_elapsed` decay,
+markdown identity and rules. Those specifics are the **reference encoding**,
+carried by `examples/minimal_harness/` and adapted from the Contemplative
+Agent substrate (see footer). They are replaceable.
+
+What the cycle commits to — the **mechanism level** — is smaller:
+
+- three separated layers: a record of what happened, distilled patterns, and
+  a deterministic human-approved layer;
+- layer purity: each layer derives from the layer below and never writes back;
+- disposability: the upper layers can be regenerated from the record;
+- the Human Approval Gate on entry to the deterministic layer (ADR-0005).
+
+A harness that keeps these properties may swap every encoding detail — file
+formats, decay constants, store layout — and still be running this
+architecture. A harness that drops one of them (for example, keeping no
+record layer at all) is running something else, and inherits the grounding
+and regeneration limits [ADR-0015](0015-loop-failure-modes-self-reingestion.md)
+describes.
 
 ---
 

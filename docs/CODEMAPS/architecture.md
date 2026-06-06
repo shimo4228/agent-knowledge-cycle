@@ -1,4 +1,4 @@
-<!-- Generated: 2026-05-08 | Files scanned: project root + docs/ tree + examples/ + schemas/ | Token estimate: ~1700 -->
+<!-- Generated: 2026-06-06 | Files scanned: project root + docs/ tree + examples/ + schemas/ | Token estimate: ~1800 -->
 # Document Architecture
 
 Agent Knowledge Cycle (AKC) is a **knowledge-cycle specification + minimal reference implementation**. Specifications, ADRs, JSON schemas, design-pattern skills, and a ~500-line stdlib-only Python demo together describe the cycle; users bring their own LLM and adapter. The primary audience is LLM-mediated channels (LLM agents directly, and humans reaching AKC through LLM-curated surfaces). This codemap exists so an LLM-mediated reader can route to the canonical document for a given question without scanning the whole tree.
@@ -12,14 +12,14 @@ agent-knowledge-cycle/
 ├── LICENSE                                 MIT
 ├── llms.txt                                AI navigator (Answer.AI llms.txt standard)
 ├── llms-full.txt                           AI self-contained Q&A reference
+├── graph.jsonld                            canonical concept-level map (schema.org triples, HF Datasets mirror)
 ├── CHANGELOG.md                            release history (semver, with positioning notes)
-├── pyproject.toml                          Python project metadata for the reference implementation
 ├── docs/
 │   ├── akc-cycle.md                        the cycle as a single rules file (`cp` install target)
 │   ├── glossary.md                         translation glossary for the English + Japanese READMEs
 │   ├── inspiration.md                      prior art and acknowledgements
 │   ├── scaffold-dissolution.md / .ja.md    skills dissolve as the cycle is internalized
-│   ├── adr/                                9 ADRs (English-only); permanent gaps at 0001 / 0006 / 0007
+│   ├── adr/                                13 ADRs (English-only); permanent gaps at 0001 / 0006 / 0007
 │   ├── skills/                             3 design-pattern skills paired 1:1 with ADRs
 │   ├── history/                            frozen snapshots of earlier major versions
 │   └── CODEMAPS/                           this directory
@@ -53,6 +53,10 @@ Each document answers a primary question. Cite the matching one when an LLM-medi
 | `docs/adr/0010-human-cognitive-resource-as-central-constraint.md` | What is AKC's central constraint, and why is Research redefined as signal-first? Names cognitive economy as Design Principle #8. |
 | `docs/adr/0011-cycle-applies-to-any-knowledge-body.md` | Why is the cycle genre-neutral about what flows through it (behavioral patterns, domain expertise, constitutional values)? |
 | `docs/adr/0012-front-load-three-core-themes.md` | Why does the front-door restructure (README + llms.txt + llms-full.txt) lead with the three core themes before the six phases? |
+| `docs/adr/0013-positioning-within-agent-memory-literature.md` | Where does AKC sit relative to the agent-memory / skill-learning literature (Voyager, AWM, ReMe, LangMem, MemGPT, Generative Agents, CoALA)? Concedes the operations as borrowed, locates the delta (human gate, bidirectional target, attention framing). |
+| `docs/adr/0014-failure-modes-of-the-bidirectional-loop.md` | What are the failure twins of Theme 3 (gate complacency, deskilling, delegation-feedback divergence), and which existing structures resist them? |
+| `docs/adr/0015-loop-failure-modes-self-reingestion.md` | Why can a cycle that feeds on its own output degrade (echo, grounding loss) rather than correct, and what guards (the observed record as the only ground, the self-generated share kept visible, the approval gate) bound it? |
+| `docs/adr/0016-measuring-thinking-centric-phases.md` | Why must a Measure instrument promote agent text (reasoning, verdicts, plans) to observable events, or it systematically under-reports Research and Curate compliance? |
 | `docs/skills/when-code-when-llm.md` | Per-task: is this property structural (code) or semantic (LLM)? |
 | `docs/skills/code-and-llm-collaboration.md` | Per-pipeline: how do guard / filter / judge / orchestrator patterns layer code and LLM? |
 | `docs/skills/signal-first-research.md` | How is an intake filter designed so only information that would change the next action is admitted? (Pairs with ADR-0010.) |
@@ -94,10 +98,10 @@ Layer 3: Identity / Rules  (promoted patterns; the deterministic layer that shap
 ### Four code-LLM layering patterns (ADR-0008)
 
 ```
-guard       — code precondition, rejects before LLM is called
-filter      — code post-condition, validates LLM output
-judge       — LLM scoring/evaluation between code-driven steps
-orchestrator — code wraps and sequences multiple LLM calls
+guard        — code validates LLM output (schema / forbidden-pattern / size) before it touches persistent state
+filter       — code narrows large, noisy input before the LLM does semantic work
+judge        — LLM decides among bounded options; code enforces (human gate for high-stakes, ADR-0005)
+orchestrator — code owns the deterministic loop; the LLM is the worker inside it
 ```
 
 ## Invariants (Do Not Break When Editing)
@@ -106,6 +110,7 @@ orchestrator — code wraps and sequences multiple LLM calls
 - **Three-theme ordering**: Front-door docs (README, llms.txt, llms-full.txt) lead with cognitive resource → intent alignment → cycle changes the human → mechanism, in that order. ADR-0012 makes this verifiable; do not regress.
 - **Six phases**: Research → Extract → Curate → Promote → Measure → Maintain are unchanged in number, name, and order. Adding or renaming a phase requires a positioning ADR.
 - **ADR numbering**: 0001, 0006, 0007 are permanent gaps from the v2.0.0 extraction of the security triplet to AAP. Do not reuse those numbers; do not back-fill.
+- **Four-pattern canonical (ADR-0008 is authoritative)**: `guard` = code validates LLM output *after* it is produced (post-LLM output validation); `filter` = code narrows input *before* the LLM runs (pre-LLM input narrowing); `judge` = the LLM decides among bounded options and code enforces the verdict (human gate for high-stakes, ADR-0005); `orchestrator` = code owns the deterministic loop and the LLM is the worker inside it. When this codemap, `graph.jsonld`, or `llms-full.txt` describe the four patterns differently, ADR-0008 wins and the others are the drift.
 - **Genre neutrality (ADR-0011)**: `docs/skills/` hosts only cycle-mechanic skills. No genre-specific content (constitutional, security-specific, domain-specific) is added to AKC.
 - **Mechanism / content separation**: Concrete instances of the cycle (constitutional values, contemplative-agent's amend workflow) live in `examples/` and Related Work — not in the README's "What is AKC?" or "Why AKC", and not in llms.txt's blockquote.
 - **Two-language README parity**: Both README versions (English + Japanese) carry the same H2 / H3 structure (verified after each edit). Translation glossary in `docs/glossary.md` is the canonical vocabulary table.
@@ -154,17 +159,17 @@ contemplative-agent                      ← running implementation; the upstrea
                                            constitutional values.
 ```
 
-## File-Count Snapshot (2026-05-08)
+## File-Count Snapshot (2026-06-06)
 
 | Category | Count |
 |---|---|
-| ADRs | 9 (ADR-0002–0005, 0008–0012) |
+| ADRs | 13 (ADR-0002–0005, 0008–0016) |
 | Design-pattern skills (`docs/skills/`) | 3 |
-| README files (en + 5 mirrors) | 6 |
+| README files (en + ja mirror) | 2 |
 | JSON schemas (`schemas/`) | 2 |
 | Python source (`examples/minimal_harness/`) | 5 files (~500 lines total, stdlib-only) |
 | Top-level docs (`docs/*.md`) | 5 (akc-cycle, glossary, inspiration, scaffold-dissolution + .ja.md) |
-| Repo-root files | CITATION.cff, LICENSE, llms.txt, llms-full.txt, CHANGELOG.md, pyproject.toml |
-| **Total markdown / Python / schema files** | **38** |
+| Repo-root files | CITATION.cff, LICENSE, llms.txt, llms-full.txt, CHANGELOG.md |
+| **Total markdown / Python / schema files** | **38** (the 5 new ADRs are offset by the 4 retired README mirrors and the now-removed `pyproject.toml`; index READMEs under `docs/adr/` and `docs/skills/` are counted, frozen `docs/history/` snapshots are not) |
 
 When this count drifts substantially, regenerate this codemap.

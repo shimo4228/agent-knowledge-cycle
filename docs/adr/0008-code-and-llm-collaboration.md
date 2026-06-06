@@ -78,6 +78,25 @@ Real pipelines compose these: an orchestrator wraps everything, each
 step filters then calls the LLM, each LLM output passes a guard, and
 any state mutation goes through a judge-enforce pair.
 
+### Guard: structural discipline is mechanism, the threat model is content
+
+Pattern 1 (LLM → Code guard) draws a boundary AKC must keep on the
+mechanism side of the mechanism/content split (ADR-0011). The *structure*
+of a guard is mechanism: validate LLM output against a schema, run a
+parameterized check (a forbidden-pattern list, a size bound) before the
+output touches persistent state, and ship with the list **empty** so the
+discipline is present but takes no position on what is dangerous. The
+*specific threat model* — which substrings are forbidden, which payloads
+are adversarial, what "tainted" means for a given agent — is genre-specific
+content that the downstream project owns (the sibling
+[agent-attribution-practice](https://github.com/shimo4228/agent-attribution-practice)
+carries this stance harness-neutrally). AKC ships the empty-default guard;
+the operator supplies the list. `examples/minimal_harness/knowledge_store.py`
+already operationalizes this line: `DEFAULT_FORBIDDEN_SUBSTRINGS` is `()`,
+the forbidden list is a constructor parameter, and `load()` fails closed
+when a match is found — structural discipline with no built-in opinion about
+which content to forbid.
+
 ### The single-task decision
 
 For a single task (not a pipeline), the question is "is this property
@@ -118,7 +137,7 @@ ADR-0008 names the principle these ADRs already rely on.
 - The two design-pattern skills (`when-code-when-llm`,
   `code-and-llm-collaboration`) are the canonical "how" reference and
   live in [`docs/skills/`](../skills/).
-- Existing ADRs-0004/0005/0007 gain a shared vocabulary. Future
+- Existing ADRs-0004/0005 gain a shared vocabulary. Future
   refactoring can point at "Pattern 1" or "Pattern 4" instead of
   re-explaining the shape each time.
 - The rule "LLM never owns durable state" becomes auditable: grep for

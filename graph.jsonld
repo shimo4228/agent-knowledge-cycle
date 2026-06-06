@@ -16,6 +16,9 @@
     "implements": {"@id": "shimo:implements", "@type": "@id"},
     "groundedIn": {"@id": "shimo:groundedIn", "@type": "@id"},
     "appliesTo": {"@id": "shimo:appliesTo", "@type": "@id"},
+    "hasFailureMode": {"@id": "shimo:hasFailureMode", "@type": "@id"},
+    "inverseOf": {"@id": "shimo:inverseOf", "@type": "@id"},
+    "contrastsWith": {"@id": "shimo:contrastsWith", "@type": "@id"},
     "level": "shimo:level",
     "ordinal": "shimo:ordinal"
   },
@@ -53,11 +56,22 @@
         "https://shimo4228.github.io/shimo4228/vocab#akc/concept/signal-first",
         "https://shimo4228.github.io/shimo4228/vocab#akc/concept/intent-alignment",
         "https://shimo4228.github.io/shimo4228/vocab#akc/concept/bidirectional-growth-loop",
+        "https://shimo4228.github.io/shimo4228/vocab#akc/concept/loop-failure-modes",
+        "https://shimo4228.github.io/shimo4228/vocab#akc/concept/self-reingestion",
+        "https://shimo4228.github.io/shimo4228/vocab#akc/concept/observed-vs-generated",
         "https://shimo4228.github.io/shimo4228/vocab#akc/concept/two-stage-distill",
         "https://shimo4228.github.io/shimo4228/vocab#akc/concept/human-approval-gate",
         "https://shimo4228.github.io/shimo4228/vocab#akc/concept/genre-neutral",
         "https://shimo4228.github.io/shimo4228/vocab#akc/concept/cognitive-economy",
         "https://shimo4228.github.io/shimo4228/vocab#akc/concept/code-llm-layering"
+      ],
+      "contrastsWith": [
+        "https://shimo4228.github.io/shimo4228/vocab#prior-art/coala",
+        "https://shimo4228.github.io/shimo4228/vocab#prior-art/voyager",
+        "https://shimo4228.github.io/shimo4228/vocab#prior-art/generative-agents",
+        "https://shimo4228.github.io/shimo4228/vocab#prior-art/memgpt",
+        "https://shimo4228.github.io/shimo4228/vocab#prior-art/reme",
+        "https://shimo4228.github.io/shimo4228/vocab#prior-art/agent-workflow-memory"
       ]
     },
 
@@ -113,7 +127,7 @@
         {"@value": "Measure", "@language": "en"},
         {"@value": "Measure（測定）", "@language": "ja"}
       ],
-      "description": "Fifth of six AKC phases. Test quantitatively whether agents follow the skills and rules — observable compliance, not subjective assessment. Bound bijectively to the skill-comply skill.",
+      "description": "Fifth of six AKC phases. Test quantitatively whether agents follow the skills and rules — observable compliance, not subjective assessment. The observable surface includes agent text, not only tool calls: thinking-centric phases (Research, Curate) carry their compliance in reasoning, verdicts, and plans, so a Measure instrument must promote agent text to observable events before scoring or it systematically under-reports those phases (ADR-0016). Bound bijectively to the skill-comply skill.",
       "ordinal": 5
     },
     {
@@ -216,6 +230,30 @@
       "name": "ADR-0012: Front-load the Three Core Themes in Front-door Documentation",
       "description": "Three themes — human attention as constraint, intent alignment over correctness, bidirectional growth — must appear in the project's reading surface before deeper material. Reading-order discipline."
     },
+    {
+      "@id": "https://github.com/shimo4228/agent-knowledge-cycle/blob/main/docs/adr/0013-positioning-within-agent-memory-literature.md",
+      "@type": ["ADR", "TechArticle"],
+      "name": "ADR-0013: Positioning Within the Agent-Memory Literature",
+      "description": "Explicit Related-Work positioning. Concedes that AKC's operations (skill induction, memory refinement, reflection) are not novel in isolation — Voyager, Agent Workflow Memory, ReMe, LangMem, Generative Agents, MemGPT, and CoALA name each one — then locates AKC's delta on the shared axis: a structural human approval gate where the prior art runs autonomously, a bidirectional human-judgment target where the prior art optimizes the agent, and human attention as the scarce resource where the prior art treats agent capability or context as binding. Orthogonal to ADR-0009's harness positioning."
+    },
+    {
+      "@id": "https://github.com/shimo4228/agent-knowledge-cycle/blob/main/docs/adr/0014-failure-modes-of-the-bidirectional-loop.md",
+      "@type": ["ADR", "TechArticle"],
+      "name": "ADR-0014: Failure Modes of the Bidirectional Loop",
+      "description": "Theme 3's failure twin. A loop that can grow human judgment can also erode it. Names three mechanism-level failure modes — gate complacency, deskilling, delegation-feedback divergence — and the structural defenses already in the cycle: the approval gate as circuit-breaker, Curate and Promote as active-judgment acts, and the gate's diff-and-commit operation as forced articulation. Experimental."
+    },
+    {
+      "@id": "https://github.com/shimo4228/agent-knowledge-cycle/blob/main/docs/adr/0015-loop-failure-modes-self-reingestion.md",
+      "@type": ["ADR", "TechArticle"],
+      "name": "ADR-0015: Self-Reingestion — When the Cycle Feeds on Its Own Output",
+      "description": "The cycle feeds on its own output: promoted rules load into every session and shape the records, and agent-written notes are read again by the next distillation. As the self-generated share of the input grows, the agent's phrasings echo back as if they were facts and each re-summarization weakens the link to the original events — a cycle designed to prevent knowledge decay can become the decay vector. Distilled from a production observation in the Contemplative Agent substrate. Guards: only the record of what happened is observed ground, the self-generated share of promoted artifacts is kept visible (Measure), and the Human Approval Gate is the circuit-breaker. Experimental."
+    },
+    {
+      "@id": "https://github.com/shimo4228/agent-knowledge-cycle/blob/main/docs/adr/0016-measuring-thinking-centric-phases.md",
+      "@type": ["ADR", "TechArticle"],
+      "name": "ADR-0016: Measuring Thinking-Centric Phases",
+      "description": "A Measure instrument that observes only tool calls systematically under-reports the thinking-centric phases (Research, Curate) whose load-bearing behavior lives in agent text — reasoning, verdicts, plans — not in side effects. Records the falsifiable claim and the corrective: a Measure instrument must promote agent text to observable events before scoring. Ties the Measure phase to Theme 2 (intent alignment lives in reasoning; correctness lives in tool calls)."
+    },
 
     {
       "@id": "https://shimo4228.github.io/shimo4228/vocab#concept/six-phase-loop",
@@ -260,7 +298,32 @@
       "@type": ["Concept", "DefinedTerm"],
       "name": "bidirectional growth loop",
       "description": "Agent behavior and human judgment co-develop. As the human curates and promotes knowledge, their judgment about what makes good agent behavior also sharpens. Not a one-directional optimization loop.",
-      "groundedIn": "https://github.com/shimo4228/agent-knowledge-cycle/blob/main/docs/adr/0012-front-load-three-core-themes.md"
+      "groundedIn": "https://github.com/shimo4228/agent-knowledge-cycle/blob/main/docs/adr/0012-front-load-three-core-themes.md",
+      "hasFailureMode": "https://shimo4228.github.io/shimo4228/vocab#akc/concept/loop-failure-modes"
+    },
+    {
+      "@id": "https://shimo4228.github.io/shimo4228/vocab#akc/concept/loop-failure-modes",
+      "@type": ["Concept", "DefinedTerm"],
+      "name": "loop failure modes",
+      "description": "The failure twin of the bidirectional growth loop. A loop that can grow human judgment can also erode it. Three mechanism-level failure modes: gate complacency (a reliable agent trains default-approval, thinning the judgment behind the Promote gate), deskilling (over-delegation starves the supervisory faculty that review depends on), and delegation-feedback divergence (delegation continues while the coupling that would correct the agent breaks, so the loop still produces output no human is steering). The cycle's existing structure resists, but does not immunize against, these modes.",
+      "groundedIn": "https://github.com/shimo4228/agent-knowledge-cycle/blob/main/docs/adr/0014-failure-modes-of-the-bidirectional-loop.md"
+    },
+    {
+      "@id": "https://shimo4228.github.io/shimo4228/vocab#akc/concept/self-reingestion",
+      "@type": ["Concept", "DefinedTerm"],
+      "name": "self-reingestion",
+      "description": "A failure mode of the cycle: the agent's own output re-enters as input — promoted rules load into every session and shape what the records contain, and agent-written notes and summaries are read again by the next distillation. As the self-generated share of the input grows, two degradations follow: echo (the agent's own phrasings, re-read across cycles, are eventually promoted as if they were observed facts) and grounding loss (each re-summarization weakens the link to the original events). The strength of the effect tracks the self-generated share of the input — installs with a human in every session dilute it, autonomous self-narrative-heavy installs concentrate it. Observed in production in the Contemplative Agent substrate; distilled to the mechanism level by ADR-0015. Guards: only the record of what happened is observed ground, the self-generated share is kept visible (Measure), and the Human Approval Gate breaks the loop before generated content reaches the always-loaded layer.",
+      "groundedIn": "https://github.com/shimo4228/agent-knowledge-cycle/blob/main/docs/adr/0015-loop-failure-modes-self-reingestion.md"
+    },
+    {
+      "@id": "https://shimo4228.github.io/shimo4228/vocab#akc/concept/observed-vs-generated",
+      "@type": ["Concept", "DefinedTerm"],
+      "name": "observed-vs-generated composition signal",
+      "description": "A Measure-phase observability metric introduced by ADR-0015: the share of a promoted artifact's input that is the agent's own earlier output versus observed record. It is an observability signal, not an intervention — it does not change retrieval, ranking, or promotion. Its purpose is to make self-reingestion visible so a rising self-generated share can be noticed before it compounds. The encoding (per-artifact counts, sampled audit) is left to the harness.",
+      "groundedIn": [
+        "https://github.com/shimo4228/agent-knowledge-cycle/blob/main/docs/adr/0015-loop-failure-modes-self-reingestion.md",
+        "https://github.com/shimo4228/agent-knowledge-cycle/blob/main/docs/adr/0002-immutable-episode-log.md"
+      ]
     },
     {
       "@id": "https://shimo4228.github.io/shimo4228/vocab#akc/concept/two-stage-distill",
@@ -294,7 +357,7 @@
       "@id": "https://shimo4228.github.io/shimo4228/vocab#akc/concept/code-llm-layering",
       "@type": ["Concept", "DefinedTerm"],
       "name": "code-LLM layering",
-      "description": "Four patterns formalize when to use code, when to use the LLM, and how to layer them: guard (code excludes invalid input), filter (code reduces input volume before LLM), judge (LLM decides on bounded options), orchestrator (LLM selects among code-implemented actions). Codified as ADR-0008.",
+      "description": "Four patterns formalize when to use code, when to use the LLM, and how to layer them: guard (code validates LLM output against schema, forbidden-pattern, and size checks after generation, before it touches persistent state), filter (code narrows a large, noisy input before the LLM is invoked), judge (LLM decides among bounded options provided by code, which enforces the deterministic action), orchestrator (code owns the loop — termination, retries, state — and the LLM is the worker doing one semantic task per step). Codified as ADR-0008.",
       "groundedIn": "https://github.com/shimo4228/agent-knowledge-cycle/blob/main/docs/adr/0008-code-and-llm-collaboration.md"
     },
 
@@ -302,28 +365,28 @@
       "@id": "https://shimo4228.github.io/shimo4228/vocab#akc/pattern/guard",
       "@type": ["Concept", "DefinedTerm"],
       "name": "code-LLM pattern: guard",
-      "description": "Code excludes invalid input before the LLM is invoked. The LLM never sees the rejected cases. Used when the rejection criterion is mechanical.",
+      "description": "Post-LLM output validation. Code validates LLM output against schema, forbidden-pattern, and size checks after generation, before it touches persistent state. The LLM produces structured output; code is the gate it must pass before any durable write.",
       "groundedIn": "https://github.com/shimo4228/agent-knowledge-cycle/blob/main/docs/adr/0008-code-and-llm-collaboration.md"
     },
     {
       "@id": "https://shimo4228.github.io/shimo4228/vocab#akc/pattern/filter",
       "@type": ["Concept", "DefinedTerm"],
       "name": "code-LLM pattern: filter",
-      "description": "Code reduces input volume before the LLM is invoked. Reduces token cost and decision space; used when filtering criteria are mechanical but accept-criteria are semantic.",
+      "description": "Pre-LLM input narrowing. Code narrows a large, noisy input first — by date, type, size, or structural relevance — before the LLM is invoked, and the LLM does semantic work on the curated subset. Used when the filtering criteria are mechanical but the accept-criteria are semantic.",
       "groundedIn": "https://github.com/shimo4228/agent-knowledge-cycle/blob/main/docs/adr/0008-code-and-llm-collaboration.md"
     },
     {
       "@id": "https://shimo4228.github.io/shimo4228/vocab#akc/pattern/judge",
       "@type": ["Concept", "DefinedTerm"],
       "name": "code-LLM pattern: judge",
-      "description": "LLM decides among bounded, named options provided by code. Used when the decision is semantic but the option space is enumerable.",
+      "description": "LLM judge + code enforce. The LLM decides among bounded, named options provided by code (accept / reject / score); code then takes the deterministic action, with a human gate for high-stakes changes (ADR-0005). Used when the decision is semantic but the option space is enumerable and the consequent action must stay code-owned.",
       "groundedIn": "https://github.com/shimo4228/agent-knowledge-cycle/blob/main/docs/adr/0008-code-and-llm-collaboration.md"
     },
     {
       "@id": "https://shimo4228.github.io/shimo4228/vocab#akc/pattern/orchestrator",
       "@type": ["Concept", "DefinedTerm"],
       "name": "code-LLM pattern: orchestrator",
-      "description": "LLM selects among code-implemented actions and parameterizes them. Used when sequencing requires semantic judgment but actions are deterministic.",
+      "description": "Code owns the loop; the LLM is the worker. A deterministic loop owns termination, retries, state, and error handling, and the LLM does one focused semantic task per step. The LLM never owns termination or durable state. Never invert this.",
       "groundedIn": "https://github.com/shimo4228/agent-knowledge-cycle/blob/main/docs/adr/0008-code-and-llm-collaboration.md"
     },
 
@@ -416,7 +479,7 @@
         {"@value": "Agent Attribution Practice", "@language": "en"},
         {"@value": "エージェント帰責実践", "@language": "ja"}
       ],
-      "description": "Sibling genre library. Harness-neutral ADRs on accountability distribution in autonomous AI agents. AKC v2.0.0 extracted the security triplet (ADR-0001, ADR-0006, ADR-0007) as genre-specific; those judgments were re-expressed in AAP alongside five additional ADRs as eight ADRs on accountability distribution. AKC = cycle (mechanism); AAP = practice (content, for AI agents).",
+      "description": "Sibling genre library. Harness-neutral ADRs on accountability distribution in autonomous AI agents. AKC v2.0.0 extracted the security triplet (ADR-0001, ADR-0006, ADR-0007) as genre-specific; those judgments were re-expressed in AAP alongside additional ADRs as 10 ADRs on accountability distribution. AKC = cycle (mechanism); AAP = practice (content, for AI agents).",
       "identifier": "10.5281/zenodo.19652013",
       "url": "https://github.com/shimo4228/agent-attribution-practice",
       "author": "https://orcid.org/0009-0002-6168-4162",
@@ -425,6 +488,61 @@
         "https://doi.org/10.5281/zenodo.19212118"
       ],
       "derivesFrom": "https://doi.org/10.5281/zenodo.19212118"
+    },
+
+    {
+      "@id": "https://shimo4228.github.io/shimo4228/vocab#prior-art/coala",
+      "@type": "ScholarlyArticle",
+      "name": "CoALA: Cognitive Architectures for Language Agents",
+      "author": "Sumers et al.",
+      "datePublished": "2023",
+      "description": "Prior art named in ADR-0013's Related-Work positioning. Provides the framework vocabulary (modular memory, structured action space, decision procedure) that makes the agent-memory literature commensurable. Cited as prior art for positioning, not consulted during AKC's construction; AKC contrasts on loop ownership (human gate), bidirectional human-judgment target, and human-attention scarcity.",
+      "groundedIn": "https://github.com/shimo4228/agent-knowledge-cycle/blob/main/docs/adr/0013-positioning-within-agent-memory-literature.md"
+    },
+    {
+      "@id": "https://shimo4228.github.io/shimo4228/vocab#prior-art/voyager",
+      "@type": "ScholarlyArticle",
+      "name": "Voyager: An Open-Ended Embodied Agent with Large Language Models",
+      "author": "Wang et al.",
+      "datePublished": "2023",
+      "description": "Prior art named in ADR-0013's Related-Work positioning. Maintains an ever-growing skill library of executable code induced from gameplay — in AKC vocabulary, Extract-then-Promote run end to end, autonomously. AKC concedes the operation is not novel and locates its delta: the prior art closes the loop without a human in it; AKC's Promote requires named human sign-off.",
+      "groundedIn": "https://github.com/shimo4228/agent-knowledge-cycle/blob/main/docs/adr/0013-positioning-within-agent-memory-literature.md"
+    },
+    {
+      "@id": "https://shimo4228.github.io/shimo4228/vocab#prior-art/generative-agents",
+      "@type": "ScholarlyArticle",
+      "name": "Generative Agents: Interactive Simulacra of Human Behavior",
+      "author": "Park et al.",
+      "datePublished": "2023",
+      "description": "Prior art named in ADR-0013's Related-Work positioning. Introduced a reflection step that synthesizes observations into higher-level inferences stored for later retrieval — the Extract / reflection operation AKC concedes as precedent. AKC contrasts on who owns the loop and on framing human attention, not agent capability, as the scarce resource.",
+      "groundedIn": "https://github.com/shimo4228/agent-knowledge-cycle/blob/main/docs/adr/0013-positioning-within-agent-memory-literature.md"
+    },
+    {
+      "@id": "https://shimo4228.github.io/shimo4228/vocab#prior-art/memgpt",
+      "@type": "ScholarlyArticle",
+      "name": "MemGPT: Towards LLMs as Operating Systems",
+      "author": "Packer et al.",
+      "datePublished": "2023",
+      "description": "Prior art named in ADR-0013's Related-Work positioning. Formalizes a memory hierarchy with paging between context and external store. Its binding constraint is the context window; AKC (ADR-0010) names a different ceiling — human attention and judgment — so the two solve scarcity on different resources and can coexist.",
+      "groundedIn": "https://github.com/shimo4228/agent-knowledge-cycle/blob/main/docs/adr/0013-positioning-within-agent-memory-literature.md"
+    },
+    {
+      "@id": "https://shimo4228.github.io/shimo4228/vocab#prior-art/reme",
+      "@type": "ScholarlyArticle",
+      "name": "ReMe: Remember Me, Refine Me",
+      "author": "Cao et al.",
+      "datePublished": "2025",
+      "description": "Prior art named in ADR-0013's Related-Work positioning. A dynamic procedural-memory framework that continuously refines what is stored — a Curate-and-Promote loop by another name, run autonomously. AKC concedes the refinement operation as precedent and locates its delta in the structural human approval gate where ReMe runs without a human in the write path.",
+      "groundedIn": "https://github.com/shimo4228/agent-knowledge-cycle/blob/main/docs/adr/0013-positioning-within-agent-memory-literature.md"
+    },
+    {
+      "@id": "https://shimo4228.github.io/shimo4228/vocab#prior-art/agent-workflow-memory",
+      "@type": "ScholarlyArticle",
+      "name": "Agent Workflow Memory",
+      "author": "Wang et al.",
+      "datePublished": "2024",
+      "description": "Prior art named in ADR-0013's Related-Work positioning. Induces commonly reused routines (workflows) from agent trajectories and feeds them back into subsequent generations — Extract-then-Promote without a human in the write path. AKC concedes the induction operation and contrasts on loop ownership and on optimizing the operator's judgment, not only the agent's task success.",
+      "groundedIn": "https://github.com/shimo4228/agent-knowledge-cycle/blob/main/docs/adr/0013-positioning-within-agent-memory-literature.md"
     },
 
     {

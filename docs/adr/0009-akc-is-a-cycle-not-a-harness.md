@@ -94,7 +94,7 @@ In v2.0.0 the security-triplet files were removed from this repository:
 Consequences of the extraction:
 
 - The original "What does not change" list in this ADR stated that ADRs 0001–0008 were unchanged and that Security by Absence would remain in the repository as Design Principle #7. Both claims are now superseded by the v2.0.0 extraction; they accurately describe ADR-0009 at the time it was written (2026-04-11) but no longer describe current state.
-- AKC's Design Principles shrink from nine to eight; numbers #8 (Code-LLM Layering) and #9 (Human cognitive resource) renumber to #7 and #8.
+- AKC's Design Principles shrink from nine to eight; numbers #8 (Code-LLM Layering) and #9 (Human cognitive resource) renumber to #7 and #8. (This counts the principles at the time of the v2.0.0 extraction; Genre neutrality later became #9 per ADR-0011, returning the total to nine.)
 - The ADR numbering gaps at 0001, 0006, 0007 are intentional. ADR numbers are permanent identifiers; reusing a gap would mask the historical record.
 - The cycle itself — the sole defining characteristic established by this ADR — is unchanged.
 

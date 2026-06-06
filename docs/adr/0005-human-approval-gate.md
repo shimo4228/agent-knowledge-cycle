@@ -74,4 +74,72 @@ future distillation, so an unchecked change there is self-reinforcing.
 
 ---
 
+### Addendum — 2026-06-06: Why the gate is the contribution, not a guardrail
+
+This ADR has been read as a safety guardrail bolted onto an otherwise
+autonomous loop — a reasonable reading, but the wrong one. The gate is not a
+restriction *on* the cycle; it is a load-bearing part of what the cycle *is*.
+Three threads make the case that the human sign-off is the contribution, and
+that its non-autonomy is a deliberate architectural stance rather than a
+missing feature.
+
+**1. AKC inverts the autonomous-promotion default.** The dominant pattern in
+self-evolving-agent work is that the agent itself decides what to persist.
+Voyager grows its own skill library from successful trajectories; Reflexion
+(Shinn et al., [arXiv:2303.11366](https://arxiv.org/abs/2303.11366)) and ExpeL
+(Zhao et al., [arXiv:2308.10144](https://arxiv.org/abs/2308.10144)) write their
+own reflections and lessons back into memory; Generative
+Agents synthesize and store reflections autonomously; A-MEM (Xu et al.,
+[arXiv:2502.12110](https://arxiv.org/abs/2502.12110)), Mem0 (Chhikara et al.,
+[arXiv:2504.19413](https://arxiv.org/abs/2504.19413)), and LangMem
+manage memory write-back as an agent-internal operation; Agent Workflow Memory
+(AWM) and ReMe induce reusable workflows from past runs without a human in the
+write path. In each, a human-in-the-loop is *optional* — a guardrail one may
+add. The Darwin Gödel Machine lineage pushes this further: Hyperagents (Zhang
+et al., [arXiv:2603.19461](https://arxiv.org/abs/2603.19461)) lets the agent
+edit its own improvement mechanism, folding task-solving and self-modification
+into one editable program. AKC inverts this. Cross-layer promotion — moving a
+pattern from the probabilistic skills/memory layer to the deterministic rules
+layer — requires a *named human sign-off*. The gate is not optional and not a
+convenience; it sits on the one edge of the cycle that rewrites future
+behavior, and it is structural.
+
+**2. The gate is load-bearing, not decorative.** Scalable-oversight work gives
+a concrete reason the promotion edge is the right place to spend human
+judgment. When the entity proposing a change and the entity checking it are
+the same system, the check inherits the proposer's blind spots — the
+generator–verifier gap that scalable-oversight research tries to widen rather
+than assume away. An LLM that distills a pattern and then approves its own
+promotion is a generator verifying itself, with the verifier's variance
+correlated to the generator's. Worse, because Layer 3 shapes future
+distillation (see "Why the distinction matters" above), an unchecked bad
+promotion is not a one-off error but a seed: the next cycle distills against
+corrupted rules, amplifying the error recursively. The human at the promotion
+edge is the one verifier whose failures are *not* correlated with the
+generator's. This is not offered as a formal proof; it is the reason the gate
+earns its cost.
+
+**3. AKC's Promote is extrinsic metacognition — and stays that way by
+design.** Liu and van der Schaar
+([arXiv:2506.05109](https://arxiv.org/abs/2506.05109)) distinguish *intrinsic*
+metacognition (an agent's own ability to evaluate and adapt its learning
+process) from *extrinsic* metacognition (fixed, human-designed loops), and
+argue that truly self-improving agents must internalize the former. By that
+taxonomy AKC's Promote phase is squarely extrinsic: a human-designed loop with
+a human evaluator at the decision point. AKC does not treat this as a
+limitation to be engineered away. Recent platform-side memory features —
+file-based memory tools the agent uses to persist, revise, and reorganize
+what it learns across sessions
+([Anthropic memory tool](https://platform.claude.com/docs/en/agents-and-tools/tool-use/memory-tool))
+— automate parts of the Extract and Curate phases. But their output lands in a
+file-based memory layer; it does not reach rules, identity, or weights. They
+make the *intake* phases more autonomous while leaving Promote untouched.
+AKC's stance is that this is correct, not incidental: the promotion edge is
+where the human's evolving intent enters the loop, and an extrinsic gate is
+how that intent stays in the loop rather than being optimized out of it. A
+fully intrinsic AKC would be a different, less human-aligned thing — the cycle
+is what it is *because* the gate stays extrinsic.
+
+---
+
 **Inspired by:** [contemplative-agent `docs/adr/0012-human-approval-gate-for-behavior-modifying-commands.md`](https://github.com/shimo4228/contemplative-agent).

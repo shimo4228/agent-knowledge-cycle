@@ -55,7 +55,7 @@ Rules are loaded every session and shape behavior reliably. Skills are triggered
 Subjective assessment ("I think it's following the rule") is insufficient:
 
 1. Define what compliance looks like in observable terms
-2. Check whether the behavior actually occurs (tool call sequences, outputs, test results)
+2. Check whether the behavior actually occurs — in tool calls, outputs, test results, *and* the agent's stated reasoning and verdicts (judgment-phase compliance lives in text, not tool calls)
 3. If compliance is low, investigate whether the rule is unclear, the trigger is wrong, or the rule conflicts with another
 
 **Trigger**: After adding or modifying a rule, or when the user questions whether a rule is being followed.

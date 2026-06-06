@@ -117,7 +117,7 @@ exactly this property.
 
 ## What's in this repo
 
-Nine ADRs, nine design principles, three design-pattern skills, two
+Fourteen ADRs, nine design principles, three design-pattern skills, two
 JSON schemas, one ~500-line runnable reference implementation, and the
 rules file that installs the whole cycle in a single `cp`. AKC defines
 three memory layers and four code-LLM layering patterns. The six cycle
@@ -191,7 +191,7 @@ That's it. The cycle will run through conversation — no skills, no plugins, no
 ## Design Principles
 
 1. **Composable** — Each skill works independently. Use one or all six.
-2. **Observable** — skill-comply produces quantitative compliance rates, not subjective assessments.
+2. **Observable** — skill-comply produces quantitative compliance rates, not subjective assessments. A compliance instrument must observe the agent's *reasoning* — verdicts and plans stated in text — not only its tool calls, or the thinking-centric phases (Research, Curate) are systematically under-reported. See [ADR-0016](docs/adr/0016-measuring-thinking-centric-phases.md).
 3. **Non-destructive** — Every skill proposes changes and waits for confirmation. Nothing is auto-applied.
 4. **Tool-agnostic in concept** — Designed for Claude Code but the architecture applies to any agent with persistent configuration.
 5. **Evaluation scales with model capability** — Small models benefit from rubric-based scoring; reasoning models (Opus-class) evaluate with full context and qualitative judgment. AKC does not prescribe one approach — it matches evaluation depth to the model's reasoning capacity.
@@ -199,6 +199,43 @@ That's it. The cycle will run through conversation — no skills, no plugins, no
 7. **Code-LLM Layering** — Code owns determinism, auditability, and control flow. LLMs own meaning. Layer them explicitly; never let the LLM own durable state or termination. See [ADR-0008](docs/adr/0008-code-and-llm-collaboration.md).
 8. **Human cognitive resource is the bottleneck** — As agent capability grows, the scarce resource is no longer compute or context but human attention and judgment. Every phase is shaped to protect that budget: signal-first intake in Research, rule promotion so the same decision is not re-made, compliance measurement so the human does not re-audit manually, and front-loaded dialogue because misaligned implementation costs more than the conversation that would have prevented it. See [ADR-0010](docs/adr/0010-human-cognitive-resource-as-central-constraint.md).
 9. **Genre neutrality** — The cycle is a mechanism, not content. The same six phases operate on any coherent body of agent knowledge — behavioral patterns, domain expertise, or constitutional values — and AKC takes no position on which a downstream project cares about. What changes per genre is the evaluation criteria, prompt templates, and audit queries; the phases stay identical. See [ADR-0011](docs/adr/0011-cycle-applies-to-any-knowledge-body.md).
+
+## Limitations
+
+The third theme — *the cycle changes the human too* — has an honest
+twin. A loop that can sharpen judgment can also erode it. Three
+mechanism-level failure modes run the bidirectional loop backward, and
+naming them keeps the theme falsifiable rather than aspirational. See
+[ADR-0014](docs/adr/0014-failure-modes-of-the-bidirectional-loop.md).
+
+- **Gate complacency.** As the agent grows reliable, a stream of
+  usually-correct proposals trains the operator to approve by reflex.
+  The click still happens, but the judgment behind it thins. This is
+  worst exactly where attention is scarcest (Theme 1): default-approval
+  is the cheapest action, and a trustworthy agent makes that cheapness
+  feel safe.
+- **Deskilling.** The faculty that supervision requires — noticing that
+  a proposed rule is subtly wrong — is maintained by exercise. A human
+  who stops doing the underlying work and only reviews the agent's
+  output lets that faculty atrophy, until a good proposal can no longer
+  be told from a plausible one.
+- **Delegation-feedback divergence.** The growth loop assumes the
+  human's judgment and the agent's behavior stay coupled. Divergence is
+  what happens when delegation continues but that coupling breaks: the
+  agent keeps acting while the feedback that would correct it no longer
+  reaches a human positioned to use it. A diverged loop still produces
+  output — it just produces output no human is meaningfully steering.
+
+AKC does not claim to immunize the operator against these failures. Its
+defense is structural, not exhortation. The human approval gate
+([ADR-0005](docs/adr/0005-human-approval-gate.md)) is a **circuit-breaker**,
+not a delay: with no "auto-approve after N days" and no "approved by the
+LLM itself" path, the loop has a point at which divergence can always be
+arrested, and the gate's *existence* cannot be eroded by the loop itself
+— only by the human choosing to attend less. Curate and Promote are
+active judgment acts, so the cycle's normal operation is itself the
+exercise that resists deskilling. These limitations are the honest twin
+of the positive framing above, not a retraction of it.
 
 ## Relationship to Harness Engineering
 
@@ -212,6 +249,8 @@ AKC shares common ground with [harness engineering](https://mitchellh.com/writin
 **Correctness vs intent alignment.** Harness engineering focuses on getting the right result the first time — preventing known errors through better instructions and automated checks. AKC is more concerned with a different question: is the agent's behavior aligned with the operator's evolving intent? See [Why AKC → Aligned with intent](#aligned-with-intent-not-just-correct) for the standalone treatment.
 
 **Reactive vs proactive.** Harness engineering is reactive by nature — each mistake triggers a new harness. AKC's skill-comply and skill-stocktake take a proactive approach, periodically auditing whether skills and rules are actually followed and whether they remain relevant. Design Principle #5 scales this evaluation to model capability — rubrics for small models, holistic judgment for frontier models.
+
+**Autonomous-promotion default vs human-owned promotion.** The dominant pattern in self-evolving-agent work, and in platform-side memory features that automatically consolidate prior sessions, is that the agent itself decides what to persist — a human in the loop is optional, a guardrail one may add. AKC inverts this: cross-layer promotion (moving a pattern from the probabilistic skills/memory layer to the deterministic rules layer) requires a *named human sign-off*. Platform memory features automate the Extract and Curate intake phases, but their output lands in a file-based memory layer; it does not reach rules, identity, or weights. AKC's gate is not a missing automation feature — it is the load-bearing contribution, the edge where the operator's evolving intent enters the loop. See the [ADR-0005 addendum](docs/adr/0005-human-approval-gate.md).
 
 ## Customization
 
@@ -253,7 +292,7 @@ Or in text:
 - [Agent Attribution Practice (AAP)](https://github.com/shimo4228/agent-attribution-practice) —
   Sibling genre library (DOI [10.5281/zenodo.19652013](https://doi.org/10.5281/zenodo.19652013)).
   AKC v2.0.0's extracted security triplet (ADR-0001, ADR-0006, ADR-0007) was
-  re-expressed there, alongside five additional ADRs, as eight harness-neutral
+  re-expressed there, alongside seven additional ADRs, as ten harness-neutral
   ADRs on accountability distribution in autonomous AI agents. AKC is the
   cycle (mechanism); AAP is the practice (content).
 - [Articles on Zenn](https://zenn.dev/shimo4228) — Development journal (Japanese)
@@ -277,10 +316,70 @@ thanks to affaan-m and every contributor to ECC.
 
 ## References
 
-AKC was built from practice, not theory. The following works were not
-consulted during the process described above, but the resulting cycle
-seems to share something with the ideas in them. They are listed here
-for readers who might find the resonance interesting.
+AKC was built from practice, not theory — the six-phase shape was
+noticed in the daily maintenance of a real harness, not derived from a
+literature. That epistemic stance is preserved here, but it does not
+exempt the project from naming the work it overlaps. This section does
+two things: it concedes the agent-memory precedents AKC's operations
+share, and it lists the philosophical resonances that were genuinely not
+consulted during construction. The full positioning is recorded in
+[ADR-0013](docs/adr/0013-positioning-within-agent-memory-literature.md).
+
+### Agent-memory literature — conceded overlap, located delta
+
+AKC's individual operations are not novel as isolated mechanisms. Each
+has named precedent in the agent-memory and skill-learning literature,
+and pretending otherwise would be a false novelty claim. The honest move
+is to name the precedent for each operation and then state what is, and
+is not, new.
+
+| AKC operation | Named precedent | What the precedent does |
+|---|---|---|
+| Extract → Promote (skill induction) | Voyager (Wang et al., 2023); Agent Workflow Memory (Wang et al., 2024) | Induce reusable, executable skills/workflows from trajectories and feed them back |
+| Curate (prune / refine memory) | ReMe (Cao et al., 2025); LangMem (LangChain, 2025) | Continuously refine procedural memory; control what is stored; update behavior via prompts |
+| Extract (reflection / distillation) | Generative Agents (Park et al., 2023); MemGPT (Packer et al., 2023) | Reflect observations into higher-level inferences; page a memory hierarchy |
+| (framework vocabulary) | CoALA (Sumers et al., 2023); *Externalization in LLM Agents* (Zhou et al., 2026) | Formalize modular memory, action space, decision procedure; map the externalization field |
+
+Run as an isolated operation — "induce a skill from this session,"
+"prune stale memories," "reflect these episodes into a pattern" — an AKC
+phase is *not* a new mechanism; the literature got there first, often
+with more mature engineering. AKC's delta lives not in the operations
+but on the shared axis those systems define — *how an agent turns its own
+experience into durable, reusable knowledge* — and it is exactly the
+three core themes restated as a literature delta:
+
+1. **A structural human approval gate, where the prior art runs
+   autonomously.** Voyager, AWM, ReMe, and LangMem close the loop without
+   a human in it. AKC's Promote phase ([ADR-0005](docs/adr/0005-human-approval-gate.md))
+   requires a named human sign-off on any change that rewrites future
+   behavior, with no auto-approve escape hatch. The prior art optimizes
+   an unattended loop; AKC optimizes a human-owned one.
+2. **A target of *bidirectional* human-judgment growth, where the prior
+   art optimizes the agent or its context.** Those systems measure
+   success on the agent side; AKC's target ([ADR-0009](docs/adr/0009-akc-is-a-cycle-not-a-harness.md))
+   is bidirectional — Curate and Promote sharpen the *human's* judgment
+   even as they sharpen the agent's. No memory system names the human's
+   developing judgment as an output to optimize.
+3. **A framing of the scarce resource as *human attention*, where the
+   prior art treats agent capability, context, or information volume as
+   binding.** MemGPT's constraint is the context window; ReMe's and
+   LangMem's is memory consistency; Voyager's is task capability. AKC
+   ([ADR-0010](docs/adr/0010-human-cognitive-resource-as-central-constraint.md))
+   names a different ceiling — human attention and judgment, which grow
+   *relatively* scarcer as agent capability grows. The literature solves
+   information-side scarcity; AKC solves attention-side scarcity. Both
+   are valid; they bind on different resources.
+
+These systems were identified as prior art *for positioning*, not
+consulted during AKC's construction; the distinction is preserved from
+the practice-first stance above.
+
+### Philosophical resonances — not consulted during construction
+
+The following works were genuinely *not* consulted during the process
+described above, but the resulting cycle seems to share something with
+the ideas in them. They are listed for readers who might find the
+resonance interesting.
 
 - [Mind in Life](https://www.hup.harvard.edu/books/9780674057517) (Evan Thompson, 2007) —
   The bidirectional loop between human and agent has something in common

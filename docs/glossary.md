@@ -64,6 +64,9 @@ translation discipline and for any future re-introduction of mirrors.)
 | scarce resource | 希少資源 | 稀缺资源 | 稀缺資源 | recurso escasso | recurso escaso | |
 | co-develop | 共に育つ / 共進化する | 共同发展 | 共同發展 | co-desenvolver | co-desarrollar | |
 | attention and judgment | 注意と判断 | 注意力与判断 | 注意力與判斷 | atenção e julgamento | atención y juicio | |
+| self-reingestion | 自己再取り込み | — | — | — | — | |
+| gate complacency | ゲートの形骸化 | — | — | — | — | |
+| deskilling | スキルの劣化 | — | — | — | — | |
 
 ## Skill names (always English)
 
@@ -85,6 +88,16 @@ translation discipline and for any future re-introduction of mirrors.)
   Research) are kept English even when the surrounding body text is
   localized, because they are also the names of the cycle skills and
   must be searchable across languages.
+- *Self-reingestion* (ADR-0015) names the cycle feeding on its own
+  output — agent-written rules and notes re-entering as distillation
+  input — so the loop can degrade (echo, grounding loss) as well as
+  correct. Rendered descriptively in Japanese; left `—` in the retired
+  mirrors.
+- *Gate complacency* and *deskilling* (ADR-0014) name two failure modes
+  of the bidirectional loop — the approval gate degrading to a reflexive
+  click, and the supervisory faculty atrophying under over-delegation.
+  Both are translated descriptively; the retired-mirror columns are left
+  `—`.
 
 ## Maintenance
 
