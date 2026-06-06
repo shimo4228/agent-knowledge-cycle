@@ -55,6 +55,8 @@
         "https://shimo4228.github.io/shimo4228/vocab#concept/scaffold-dissolution",
         "https://shimo4228.github.io/shimo4228/vocab#akc/concept/signal-first",
         "https://shimo4228.github.io/shimo4228/vocab#akc/concept/intent-alignment",
+        "https://shimo4228.github.io/shimo4228/vocab#akc/concept/harness-alignment",
+        "https://shimo4228.github.io/shimo4228/vocab#akc/concept/harness-drift",
         "https://shimo4228.github.io/shimo4228/vocab#akc/concept/bidirectional-growth-loop",
         "https://shimo4228.github.io/shimo4228/vocab#akc/concept/loop-failure-modes",
         "https://shimo4228.github.io/shimo4228/vocab#akc/concept/self-reingestion",
@@ -71,7 +73,9 @@
         "https://shimo4228.github.io/shimo4228/vocab#prior-art/generative-agents",
         "https://shimo4228.github.io/shimo4228/vocab#prior-art/memgpt",
         "https://shimo4228.github.io/shimo4228/vocab#prior-art/reme",
-        "https://shimo4228.github.io/shimo4228/vocab#prior-art/agent-workflow-memory"
+        "https://shimo4228.github.io/shimo4228/vocab#prior-art/agent-workflow-memory",
+        "https://shimo4228.github.io/shimo4228/vocab#prior-art/meta-harness",
+        "https://shimo4228.github.io/shimo4228/vocab#prior-art/agent-drift"
       ]
     },
 
@@ -254,6 +258,12 @@
       "name": "ADR-0016: Measuring Thinking-Centric Phases",
       "description": "A Measure instrument that observes only tool calls systematically under-reports the thinking-centric phases (Research, Curate) whose load-bearing behavior lives in agent text — reasoning, verdicts, plans — not in side effects. Records the falsifiable claim and the corrective: a Measure instrument must promote agent text to observable events before scoring. Ties the Measure phase to Theme 2 (intent alignment lives in reasoning; correctness lives in tool calls)."
     },
+    {
+      "@id": "https://github.com/shimo4228/agent-knowledge-cycle/blob/main/docs/adr/0017-harness-alignment-and-drift.md",
+      "@type": ["ADR", "TechArticle"],
+      "name": "ADR-0017: Harness Alignment and Harness Drift",
+      "description": "Establishes two terms by derivation from established literature rather than fresh coinage — the second positioning ADR after ADR-0013, applied to the software-evolution and alignment literatures. Harness alignment: the continuous, human-gated activity of keeping an agent's harness (skills, rules, prompts, documentation) aligned with the operator's evolving intent — extends intent alignment (Christiano 2018) to the configuration layer and across time (cf. Lehman's Law of Continuing Change, 1980). Harness drift: the failure mode, in lineage with architectural drift (Perry & Wolf 1992), practical drift (Snook 2000), and agent drift (arXiv:2601.04170). Contrast: autonomous, score-driven harness optimization (Meta-Harness, arXiv:2603.28052). Also records the verified vocabulary gap: the 2026 agent-drift literature does not cite the classical software-evolution lineage."
+    },
 
     {
       "@id": "https://shimo4228.github.io/shimo4228/vocab#concept/six-phase-loop",
@@ -291,6 +301,31 @@
       "groundedIn": [
         "https://github.com/shimo4228/agent-knowledge-cycle/blob/main/docs/adr/0010-human-cognitive-resource-as-central-constraint.md",
         "https://github.com/shimo4228/agent-knowledge-cycle/blob/main/docs/adr/0012-front-load-three-core-themes.md"
+      ]
+    },
+    {
+      "@id": "https://shimo4228.github.io/shimo4228/vocab#akc/concept/harness-alignment",
+      "@type": ["Concept", "DefinedTerm"],
+      "name": "harness alignment",
+      "description": "The continuous, human-gated activity of keeping an agent's harness — its configuration layer: skills, rules, prompts, documentation — aligned with the operator's evolving intent. Extends intent alignment (Christiano 2018) from agent behavior to the artifacts that shape behavior, and across time: alignment is sustained through a cycle, not configured once (cf. Lehman's Law of Continuing Change, 1980). The alignment target is operator intent, not model values. The contrast is harness optimization (Meta-Harness, arXiv:2603.28052): autonomous, score-driven improvement on the correctness axis. AKC's six phases operationalize harness alignment: Measure and Maintain detect harness drift; Curate and Promote correct it through the human approval gate.",
+      "groundedIn": [
+        "https://github.com/shimo4228/agent-knowledge-cycle/blob/main/docs/adr/0017-harness-alignment-and-drift.md",
+        "https://github.com/shimo4228/agent-knowledge-cycle/blob/main/docs/adr/0009-akc-is-a-cycle-not-a-harness.md"
+      ],
+      "extends": "https://shimo4228.github.io/shimo4228/vocab#akc/concept/intent-alignment",
+      "hasFailureMode": "https://shimo4228.github.io/shimo4228/vocab#akc/concept/harness-drift",
+      "contrastsWith": "https://shimo4228.github.io/shimo4228/vocab#prior-art/meta-harness"
+    },
+    {
+      "@id": "https://shimo4228.github.io/shimo4228/vocab#akc/concept/harness-drift",
+      "@type": ["Concept", "DefinedTerm"],
+      "name": "harness drift",
+      "description": "Harness alignment's failure mode: the gradual uncoupling of the harness from operator intent when the cycle does not run — skills go stale, rules stop matching practice, documentation diverges from code. Named in lineage with architectural drift (Perry & Wolf 1992: divergence by insensitivity), practical drift (Snook 2000: practice uncoupling from written procedure), and agent drift (arXiv:2601.04170: behavioral-level deviation from original intent). An artifact-side failure, distinct from the human-side loop failure modes of ADR-0014 (gate complacency, deskilling, delegation-feedback divergence); the two compound but are recorded separately.",
+      "groundedIn": "https://github.com/shimo4228/agent-knowledge-cycle/blob/main/docs/adr/0017-harness-alignment-and-drift.md",
+      "derivesFrom": [
+        "https://shimo4228.github.io/shimo4228/vocab#prior-art/architectural-drift-perry-wolf",
+        "https://shimo4228.github.io/shimo4228/vocab#prior-art/practical-drift-snook",
+        "https://shimo4228.github.io/shimo4228/vocab#prior-art/agent-drift"
       ]
     },
     {
@@ -543,6 +578,66 @@
       "datePublished": "2024",
       "description": "Prior art named in ADR-0013's Related-Work positioning. Induces commonly reused routines (workflows) from agent trajectories and feeds them back into subsequent generations — Extract-then-Promote without a human in the write path. AKC concedes the induction operation and contrasts on loop ownership and on optimizing the operator's judgment, not only the agent's task success.",
       "groundedIn": "https://github.com/shimo4228/agent-knowledge-cycle/blob/main/docs/adr/0013-positioning-within-agent-memory-literature.md"
+    },
+    {
+      "@id": "https://shimo4228.github.io/shimo4228/vocab#prior-art/intent-alignment-christiano",
+      "@type": "TechArticle",
+      "name": "Clarifying \"AI alignment\"",
+      "author": "Christiano, P.",
+      "datePublished": "2018",
+      "description": "Vocabulary lineage named in ADR-0017. Coined intent alignment: an aligned AI \"is trying to do what H wants it to do\" — motivation, not competence. Treats the operator's wants as static; AKC's harness alignment extends the term to the configuration layer and across time, where intent itself evolves.",
+      "url": "https://ai-alignment.com/clarifying-ai-alignment-cec47cd69dd6",
+      "groundedIn": "https://github.com/shimo4228/agent-knowledge-cycle/blob/main/docs/adr/0017-harness-alignment-and-drift.md"
+    },
+    {
+      "@id": "https://shimo4228.github.io/shimo4228/vocab#prior-art/lehman-laws",
+      "@type": "ScholarlyArticle",
+      "name": "Programs, Life Cycles, and Laws of Software Evolution",
+      "author": "Lehman, M. M.",
+      "datePublished": "1980",
+      "description": "Vocabulary lineage named in ADR-0017. Law I (Continuing Change): an E-type program \"undergoes continual change or becomes progressively less useful\"; \"evolution is an intrinsic, feedback driven, property of software\" (Proceedings of the IEEE 68(9)). Lehman's driver of change is the world the program is embedded in; harness alignment's driver is the operator's evolving intent.",
+      "groundedIn": "https://github.com/shimo4228/agent-knowledge-cycle/blob/main/docs/adr/0017-harness-alignment-and-drift.md"
+    },
+    {
+      "@id": "https://shimo4228.github.io/shimo4228/vocab#prior-art/architectural-drift-perry-wolf",
+      "@type": "ScholarlyArticle",
+      "name": "Foundations for the Study of Software Architecture",
+      "author": "Perry, D. E. & Wolf, A. L.",
+      "datePublished": "1992",
+      "description": "Vocabulary lineage named in ADR-0017. Defines architectural drift — \"due to insensitivity about the architecture\", leading \"more to inadaptability than to disasters\" (ACM SIGSOFT SEN 17(4)) — the canonical academic name for divergence-by-insensitivity. Assumes a fixed intended architecture; harness drift's reference point (operator intent) itself evolves.",
+      "groundedIn": "https://github.com/shimo4228/agent-knowledge-cycle/blob/main/docs/adr/0017-harness-alignment-and-drift.md"
+    },
+    {
+      "@id": "https://shimo4228.github.io/shimo4228/vocab#prior-art/practical-drift-snook",
+      "@type": "Book",
+      "name": "Friendly Fire: The Accidental Shootdown of U.S. Black Hawks over Northern Iraq",
+      "author": "Snook, S. A.",
+      "datePublished": "2000",
+      "description": "Vocabulary lineage named in ADR-0017. Names practical drift: practice slowly uncoupling from written procedure (cited as characterized in secondary literature; book text not directly verified). Names the failure process at the rules-vs-practice boundary; harness alignment names the counter-activity.",
+      "groundedIn": "https://github.com/shimo4228/agent-knowledge-cycle/blob/main/docs/adr/0017-harness-alignment-and-drift.md"
+    },
+    {
+      "@id": "https://shimo4228.github.io/shimo4228/vocab#prior-art/meta-harness",
+      "@type": "ScholarlyArticle",
+      "name": "Meta-Harness: End-to-End Optimization of Model Harnesses",
+      "author": "Lee, Y. et al.",
+      "datePublished": "2026",
+      "description": "Contrast named in ADR-0017, and the framing ADR-0009 rejected for AKC itself. Defines the harness as \"the code that determines what information to store, retrieve, and present to the model\" and improves it autonomously against benchmark scores — harness optimization, the correctness axis. Harness alignment is the human-gated counterpart on the intent axis; the two are complementary, not competing.",
+      "url": "https://arxiv.org/abs/2603.28052",
+      "groundedIn": [
+        "https://github.com/shimo4228/agent-knowledge-cycle/blob/main/docs/adr/0017-harness-alignment-and-drift.md",
+        "https://github.com/shimo4228/agent-knowledge-cycle/blob/main/docs/adr/0009-akc-is-a-cycle-not-a-harness.md"
+      ]
+    },
+    {
+      "@id": "https://shimo4228.github.io/shimo4228/vocab#prior-art/agent-drift",
+      "@type": "ScholarlyArticle",
+      "name": "Agent Drift: Quantifying Behavioral Degradation in Multi-Agent LLM Systems Over Extended Interactions",
+      "author": "Rath, A.",
+      "datePublished": "2026",
+      "description": "Vocabulary lineage named in ADR-0017. Defines agent drift as \"the progressive degradation of agent behavior, decision quality, and inter-agent coherence over extended interaction sequences\" and semantic drift as \"progressive deviation from original intent\". Its reference list contains no classical software-engineering literature (no Lehman, Perry & Wolf, Parnas, or Snook) — the vocabulary gap harness drift bridges by explicit lineage to both bodies.",
+      "url": "https://arxiv.org/abs/2601.04170",
+      "groundedIn": "https://github.com/shimo4228/agent-knowledge-cycle/blob/main/docs/adr/0017-harness-alignment-and-drift.md"
     },
 
     {

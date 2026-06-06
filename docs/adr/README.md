@@ -21,6 +21,7 @@ considered, and the consequences.
 | [0014](0014-failure-modes-of-the-bidirectional-loop.md) | Failure Modes of the Bidirectional Loop *(experimental)* |
 | [0015](0015-loop-failure-modes-self-reingestion.md) | Self-Reingestion — When the Cycle Feeds on Its Own Output *(experimental)* |
 | [0016](0016-measuring-thinking-centric-phases.md) | Measuring Thinking-Centric Phases |
+| [0017](0017-harness-alignment-and-drift.md) | Harness Alignment and Harness Drift |
 
 ADR numbers are permanent identifiers. Gaps (0001, 0006, 0007) reflect
 ADRs that were extracted from this repository in v2.0.0 as

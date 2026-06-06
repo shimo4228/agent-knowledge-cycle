@@ -12,8 +12,7 @@ Language: English | [日本語](README.ja.md)
 3. [`llms-full.txt`](llms-full.txt) — consolidated factual reference
 4. README and project-specific docs — narrative and detail
 
-For the canonical relationship map of shimo4228's research ecosystem, see:
-https://github.com/shimo4228/shimo4228/blob/main/graph.jsonld
+For the canonical relationship map of shimo4228's research ecosystem, see https://github.com/shimo4228/shimo4228/blob/main/graph.jsonld
 
 </details>
 
@@ -41,12 +40,10 @@ Underneath, this is a bidirectional growth loop where agent behavior
 and human judgment co-develop.
 
 Six composable phases — Research → Extract → Curate → Promote →
-Measure → Maintain — operationalize this. Signal-first intake so
-attention is not spent on what cannot change action; recurring
-decisions promoted to rules so the same judgment is not re-made;
-observable compliance so the human does not re-audit each session
-manually. Without this loop, agent knowledge degrades — skills go
-stale, rules contradict each other, documentation drifts from code.
+Measure → Maintain — operationalize this. Without this loop, agent
+knowledge degrades — skills go stale, rules contradict each other,
+documentation drifts from code. How each phase protects the attention
+budget is unpacked in [Why AKC](#why-akc) below.
 
 AKC ships as specifications, schemas, ADRs, and a minimal reference
 example. Bring your own LLM and your own adapter.
@@ -55,12 +52,11 @@ example. Bring your own LLM and your own adapter.
 
 ### The bottleneck has moved
 
-As agent capability grows, the scarce resource is no longer compute
-or context but human attention and judgment. Every competing framework
-optimizes the agent side — more tools, more memory, more context,
-more automation. AKC asks the inverse question: given that the human
-in the loop has a fixed daily budget of attention and judgment, how
-should the cycle be shaped so that budget is not squandered?
+Every competing framework optimizes the agent side — more tools, more
+memory, more context, more automation. AKC asks the inverse question:
+given that the human in the loop has a fixed daily budget of attention
+and judgment, how should the cycle be shaped so that budget is not
+squandered?
 
 AKC's phases are shaped around that scarcity. Research is signal-first
 so intake does not exceed digestion. Promote converts recurring
@@ -91,7 +87,11 @@ Correctness can be automated: tests, types, linters, and review tools
 all check whether an output passes specific criteria. Alignment cannot
 be automated to the same degree, because intent itself moves as the
 operator's judgment sharpens through use. An agent can satisfy every
-correctness check and still drift from intent.
+correctness check and still drift from intent. The behavior-level
+distinction is [intent alignment](https://ai-alignment.com/clarifying-ai-alignment-cec47cd69dd6)
+(Christiano, 2018) — an agent trying to do what its operator wants it
+to do — which AKC extends across time and down into the artifacts
+that shape behavior.
 
 AKC's design choices reflect this. Design Principle #3 (Non-destructive)
 — propose, then wait for confirmation — keeps every change at a
@@ -99,7 +99,9 @@ checkpoint where intent can be re-stated. Pre-implementation dialogue
 is treated as a cognitive-economy investment, not as friction. The
 distinction also explains how AKC differs from harness engineering:
 harnesses optimize correctness on the first try, while AKC keeps the
-harnesses themselves aligned with intent as that intent evolves. See
+harnesses themselves aligned with intent as that intent evolves — the
+activity AKC names **harness alignment**
+([ADR-0017](docs/adr/0017-harness-alignment-and-drift.md)). See
 [Relationship to Harness Engineering](#relationship-to-harness-engineering)
 for the layered comparison.
 
@@ -197,7 +199,7 @@ That's it. The cycle will run through conversation — no skills, no plugins, no
 5. **Evaluation scales with model capability** — Small models benefit from rubric-based scoring; reasoning models (Opus-class) evaluate with full context and qualitative judgment. AKC does not prescribe one approach — it matches evaluation depth to the model's reasoning capacity.
 6. **Scaffold dissolution** — Skills are scaffolding. As the user and agent internalize the cycle, skills become unnecessary and rules alone sustain the loop. See [docs/scaffold-dissolution.md](docs/scaffold-dissolution.md).
 7. **Code-LLM Layering** — Code owns determinism, auditability, and control flow. LLMs own meaning. Layer them explicitly; never let the LLM own durable state or termination. See [ADR-0008](docs/adr/0008-code-and-llm-collaboration.md).
-8. **Human cognitive resource is the bottleneck** — As agent capability grows, the scarce resource is no longer compute or context but human attention and judgment. Every phase is shaped to protect that budget: signal-first intake in Research, rule promotion so the same decision is not re-made, compliance measurement so the human does not re-audit manually, and front-loaded dialogue because misaligned implementation costs more than the conversation that would have prevented it. See [ADR-0010](docs/adr/0010-human-cognitive-resource-as-central-constraint.md).
+8. **Human cognitive resource is the bottleneck** — As agent capability grows, the scarce resource is no longer compute or context but human attention and judgment. Every phase is shaped to protect that budget — see [Why AKC → The bottleneck has moved](#the-bottleneck-has-moved) and [ADR-0010](docs/adr/0010-human-cognitive-resource-as-central-constraint.md).
 9. **Genre neutrality** — The cycle is a mechanism, not content. The same six phases operate on any coherent body of agent knowledge — behavioral patterns, domain expertise, or constitutional values — and AKC takes no position on which a downstream project cares about. What changes per genre is the evaluation criteria, prompt templates, and audit queries; the phases stay identical. See [ADR-0011](docs/adr/0011-cycle-applies-to-any-knowledge-body.md).
 
 ## Limitations
@@ -245,6 +247,23 @@ AKC shares common ground with [harness engineering](https://mitchellh.com/writin
 |-------|----------|-------------|
 | Harness | "Is this output correct?" | Individual linters, tests, scripts |
 | AKC | "Are the harnesses themselves still valid?" | skill-comply, skill-stocktake, context-sync |
+
+**Harness optimization vs harness alignment.** The harness layer now
+has its own automated improvement loop: [Meta-Harness](https://arxiv.org/abs/2603.28052)
+defines the harness as "the code that determines what information to
+store, retrieve, and present to the model" and searches over harness
+code to maximize benchmark scores — autonomous, score-driven
+**harness optimization** on the correctness axis. AKC's activity is
+the human-gated counterpart on the intent axis: **harness alignment**,
+keeping the harness aligned with the operator's evolving intent. Its
+failure mode is **harness drift** — skills go stale, rules stop
+matching practice, documentation diverges from code — named in lineage
+with architectural drift (Perry & Wolf, 1992), practical drift (Snook,
+2000), and agent drift ([arXiv:2601.04170](https://arxiv.org/abs/2601.04170)).
+The two activities are complementary, not competing: a harness can
+score better on a fixed benchmark while sliding away from what its
+operator now wants. See [ADR-0017](docs/adr/0017-harness-alignment-and-drift.md)
+for the full derivation.
 
 **Correctness vs intent alignment.** Harness engineering focuses on getting the right result the first time — preventing known errors through better instructions and automated checks. AKC is more concerned with a different question: is the agent's behavior aligned with the operator's evolving intent? See [Why AKC → Aligned with intent](#aligned-with-intent-not-just-correct) for the standalone treatment.
 
@@ -373,6 +392,30 @@ three core themes restated as a literature delta:
 These systems were identified as prior art *for positioning*, not
 consulted during AKC's construction; the distinction is preserved from
 the practice-first stance above.
+
+### Software-evolution and alignment literature — vocabulary lineage
+
+AKC's vocabulary for its own activity — **harness alignment** and its
+failure mode **harness drift** — is derived from established terms
+rather than coined fresh. Each component carries a reference relation;
+AKC's delta is only what no single source covers: an alignment target
+that is operator intent and itself evolves, a human-gated loop, and a
+loop that changes the human too. The full derivation is recorded in
+[ADR-0017](docs/adr/0017-harness-alignment-and-drift.md).
+
+| Borrowed component | Source | What the source establishes |
+|---|---|---|
+| Intent alignment (correctness ≠ alignment) | Christiano (2018), ["Clarifying 'AI alignment'"](https://ai-alignment.com/clarifying-ai-alignment-cec47cd69dd6) | An aligned agent "is trying to do what H wants it to do" — motivation, not competence |
+| Continuous adaptation; evolution as feedback | Lehman (1980), ["Programs, Life Cycles, and Laws of Software Evolution"](https://users.ece.utexas.edu/~perry/education/SE-Intro/lehman.pdf), *Proc. IEEE* 68(9) | An E-type program "undergoes continual change or becomes progressively less useful" (Law I); "evolution is an intrinsic, feedback driven, property of software" |
+| Drift as divergence-by-insensitivity | Perry & Wolf (1992), ["Foundations for the Study of Software Architecture"](https://users.ece.utexas.edu/~perry/work/papers/swa-sen.pdf), *ACM SIGSOFT SEN* 17(4) | "Architectural drift is due to insensitivity about the architecture" — inadaptability, not disaster |
+| Drift of practice from written rules | Snook (2000), *Friendly Fire*, Princeton UP | Practical drift: practice slowly uncoupling from written procedure (as characterized in secondary literature) |
+| Harness; harness optimization | Lee et al., [Meta-Harness](https://arxiv.org/abs/2603.28052) (arXiv:2603.28052) | The harness is "the code that determines what information to store, retrieve, and present to the model," improved autonomously against benchmark scores |
+| Behavioral drift in LLM agents | Rath, [Agent Drift](https://arxiv.org/abs/2601.04170) (arXiv:2601.04170) | Semantic drift as "progressive deviation from original intent" — re-derived in 2026 without citing the classical SE lineage |
+
+Unlike the agent-memory table above, these sources were consulted *for
+the vocabulary derivation itself* (2026-06-06); the quotations were
+verified against the primary texts, except Snook, which is cited as
+characterized in secondary literature.
 
 ### Philosophical resonances — not consulted during construction
 

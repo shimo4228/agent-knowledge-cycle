@@ -67,6 +67,8 @@ translation discipline and for any future re-introduction of mirrors.)
 | self-reingestion | 自己再取り込み | — | — | — | — | |
 | gate complacency | ゲートの形骸化 | — | — | — | — | |
 | deskilling | スキルの劣化 | — | — | — | — | |
+| harness alignment | harness alignment | — | — | — | — | ✓ |
+| harness drift | harness drift | — | — | — | — | ✓ |
 
 ## Skill names (always English)
 

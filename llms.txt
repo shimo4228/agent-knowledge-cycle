@@ -30,7 +30,9 @@
 >
 > AKC is not a harness. It runs on top of harnesses (like Everything
 > Claude Code) to keep the harness alive as understanding evolves.
-> The cycle is the sole defining characteristic — see ADR-0009 for the
+> That activity is harness alignment — keeping the harness aligned
+> with the operator's evolving intent; its failure mode is harness
+> drift (ADR-0017). The cycle is the sole defining characteristic — see ADR-0009 for the
 > repositioning rationale and ADR-0011 for the genre-neutrality position
 > that the cycle operates on any knowledge body (behavioral patterns,
 > domain expertise, or constitutional values) without taking a position
@@ -77,6 +79,7 @@
 - [ADR-0014 Failure Modes of the Bidirectional Loop](docs/adr/0014-failure-modes-of-the-bidirectional-loop.md) (**experimental**): names Theme 3's failure twin — gate complacency, deskilling, delegation-feedback divergence — and the structural defenses already present (gate as circuit-breaker, active-judgment Curate/Promote, articulation over a yes/no click)
 - [ADR-0015 Self-Reingestion — When the Cycle Feeds on Its Own Output](docs/adr/0015-loop-failure-modes-self-reingestion.md) (**experimental**): the cycle feeds on its own output — promoted rules and agent-written notes re-enter as distillation input, so the agent's phrasings can echo back as fact and re-summarization loses grounding; distilled from a Contemplative Agent production observation. Guards: the observed record as the only ground, the self-generated share kept visible (Measure), the approval gate as circuit-breaker
 - [ADR-0016 Measuring Thinking-Centric Phases](docs/adr/0016-measuring-thinking-centric-phases.md): a Measure instrument must promote agent text (reasoning, verdicts, plans) to observable events before scoring, or it under-reports judgment-phase (Research, Curate) compliance; ties Measure to Theme 2
+- [ADR-0017 Harness Alignment and Harness Drift](docs/adr/0017-harness-alignment-and-drift.md): establishes both terms by derivation from established literature rather than fresh coinage — harness alignment extends intent alignment (Christiano 2018) to the configuration layer and across time; harness drift names the failure mode in lineage with architectural drift (Perry & Wolf 1992), practical drift (Snook 2000), and agent drift (arXiv:2601.04170); the contrast is autonomous, score-driven harness optimization (Meta-Harness, arXiv:2603.28052)
 
 ADR numbers are permanent identifiers; gaps (0001, 0006, 0007) reflect ADRs extracted in v2.0.0 as genre-specific content.
 

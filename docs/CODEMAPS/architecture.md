@@ -19,7 +19,7 @@ agent-knowledge-cycle/
 │   ├── glossary.md                         translation glossary for the English + Japanese READMEs
 │   ├── inspiration.md                      prior art and acknowledgements
 │   ├── scaffold-dissolution.md / .ja.md    skills dissolve as the cycle is internalized
-│   ├── adr/                                13 ADRs (English-only); permanent gaps at 0001 / 0006 / 0007
+│   ├── adr/                                14 ADRs (English-only); permanent gaps at 0001 / 0006 / 0007
 │   ├── skills/                             3 design-pattern skills paired 1:1 with ADRs
 │   ├── history/                            frozen snapshots of earlier major versions
 │   └── CODEMAPS/                           this directory
@@ -57,6 +57,7 @@ Each document answers a primary question. Cite the matching one when an LLM-medi
 | `docs/adr/0014-failure-modes-of-the-bidirectional-loop.md` | What are the failure twins of Theme 3 (gate complacency, deskilling, delegation-feedback divergence), and which existing structures resist them? |
 | `docs/adr/0015-loop-failure-modes-self-reingestion.md` | Why can a cycle that feeds on its own output degrade (echo, grounding loss) rather than correct, and what guards (the observed record as the only ground, the self-generated share kept visible, the approval gate) bound it? |
 | `docs/adr/0016-measuring-thinking-centric-phases.md` | Why must a Measure instrument promote agent text (reasoning, verdicts, plans) to observable events, or it systematically under-reports Research and Curate compliance? |
+| `docs/adr/0017-harness-alignment-and-drift.md` | What do harness alignment and harness drift mean, and how are both terms derived from the software-evolution and alignment literatures (Christiano, Lehman, Perry & Wolf, Snook, Meta-Harness, Agent Drift) rather than coined fresh? |
 | `docs/skills/when-code-when-llm.md` | Per-task: is this property structural (code) or semantic (LLM)? |
 | `docs/skills/code-and-llm-collaboration.md` | Per-pipeline: how do guard / filter / judge / orchestrator patterns layer code and LLM? |
 | `docs/skills/signal-first-research.md` | How is an intake filter designed so only information that would change the next action is admitted? (Pairs with ADR-0010.) |
