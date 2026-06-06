@@ -4,7 +4,15 @@ All notable changes to AKC are recorded here. AKC follows semantic
 versioning; breaking changes to positioning or public interfaces bump the
 major version.
 
-## Unreleased
+## v2.2.0 — 2026-06-06
+
+Pre-paper gap closure. Five new ADRs (0013–0017) carry the related-work
+positioning against the agent-memory literature, the failure-mode theory
+of the bidirectional loop, the self-reingestion guards, the
+text-observability requirement for Measure, and the harness alignment /
+harness drift vocabulary. README gains a Limitations section and a
+rewritten Related Work with full citations; the multi-language README
+mirrors are retired in favor of English + Japanese.
 
 ### Added
 

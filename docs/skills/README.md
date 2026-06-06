@@ -5,7 +5,7 @@ complements AKC's architecture decision records with concrete "how"
 material. They are distinct from the six [**cycle skills**](../../README.md#the-cycle)
 (`search-first`, `learn-eval`, `skill-stocktake`, `rules-distill`,
 `skill-comply`, `context-sync`), which live in external repositories
-and implement the phases of the self-improvement loop.
+and implement the phases of the cycle.
 
 | Layer | Purpose | Where it lives |
 |-------|---------|----------------|

@@ -10,7 +10,7 @@ Agent Knowledge Cycle (AKC) is defined as a knowledge cycle for AI agents center
 ## Project Facts
 
 - **Name**: Agent Knowledge Cycle (AKC)
-- **Version**: 2.1.0 (front-door restructure: three core themes front-loaded; ADR-0012 added)
+- **Version**: 2.2.0 (pre-paper gap closure: ADR-0013 through ADR-0017 added; harness alignment / harness drift vocabulary established; multi-language README mirrors retired)
 - **DOI**: [10.5281/zenodo.20076396](https://doi.org/10.5281/zenodo.20076396)
 - **Author**: Tatsuya Shimomoto ([@shimo4228](https://github.com/shimo4228))
 - **Origin date**: February 2026
@@ -18,7 +18,7 @@ Agent Knowledge Cycle (AKC) is defined as a knowledge cycle for AI agents center
 - **Repository**: [github.com/shimo4228/agent-knowledge-cycle](https://github.com/shimo4228/agent-knowledge-cycle)
 - **Archive**: Zenodo (auto-archived on each GitHub Release)
 - **Phases**: 6 (Research → Extract → Curate → Promote → Measure → Maintain)
-- **ADRs**: 13 (ADR-0002, ADR-0003, ADR-0004, ADR-0005, ADR-0008 through ADR-0016; numbering has permanent gaps at 0001, 0006, 0007 from the v2.0.0 extraction)
+- **ADRs**: 14 (ADR-0002, ADR-0003, ADR-0004, ADR-0005, ADR-0008 through ADR-0017; numbering has permanent gaps at 0001, 0006, 0007 from the v2.0.0 extraction)
 - **Three core themes** (per ADR-0012, surfaced in priority order in front-door docs): (1) human cognitive resource scarcity as the central constraint, (2) intent alignment over individual correctness, (3) the cycle changes the human as much as the agent — bidirectional growth loop
 - **Design principles**: 9 (Composable, Observable, Non-destructive, Tool-agnostic, Evaluation-scales, Scaffold-dissolution, Code-LLM Layering, Cognitive-economy, Genre-neutrality)
 - **Cycle skills**: 6 external repos (search-first, learn-eval, skill-stocktake, rules-distill, skill-comply, context-sync)

@@ -164,13 +164,13 @@ contemplative-agent                      ← running implementation; the upstrea
 
 | Category | Count |
 |---|---|
-| ADRs | 13 (ADR-0002–0005, 0008–0016) |
+| ADRs | 14 (ADR-0002–0005, 0008–0017) |
 | Design-pattern skills (`docs/skills/`) | 3 |
 | README files (en + ja mirror) | 2 |
 | JSON schemas (`schemas/`) | 2 |
 | Python source (`examples/minimal_harness/`) | 5 files (~500 lines total, stdlib-only) |
 | Top-level docs (`docs/*.md`) | 5 (akc-cycle, glossary, inspiration, scaffold-dissolution + .ja.md) |
 | Repo-root files | CITATION.cff, LICENSE, llms.txt, llms-full.txt, CHANGELOG.md |
-| **Total markdown / Python / schema files** | **38** (the 5 new ADRs are offset by the 4 retired README mirrors and the now-removed `pyproject.toml`; index READMEs under `docs/adr/` and `docs/skills/` are counted, frozen `docs/history/` snapshots are not) |
+| **Total markdown / Python / schema files** | **39** (the 6 new ADRs are offset by the 4 retired README mirrors and the now-removed `pyproject.toml`; index READMEs under `docs/adr/` and `docs/skills/` are counted, frozen `docs/history/` snapshots are not) |
 
 When this count drifts substantially, regenerate this codemap.
