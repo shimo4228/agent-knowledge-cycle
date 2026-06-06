@@ -1,108 +1,237 @@
-# AKC Glossary
+# Glossary
 
-Terminology mapping for the two languages supported by AKC's README
-(English primary + Japanese mirror). Use this as the canonical reference
-when translating or updating either version of `README.md`.
+Key terms used across the ADRs, the cycle documentation, and the
+companion paper. Definitions here are navigation summaries; **the ADRs
+are canonical** — when a definition and an ADR diverge, the ADR wins.
+For the English ↔ Japanese rendering table, see
+[translation-glossary.md](translation-glossary.md).
 
-(The es / pt-BR / zh-CN / zh-TW mirrors were retired on 2026-05-15
-after traffic data showed statistically zero unique human viewers;
-LLM crawlers translate from the English source on demand. Glossary
-entries are preserved as historical reference for the original
-translation discipline and for any future re-introduction of mirrors.)
+Several terms are shared with the sibling repository
+[agent-attribution-practice](https://github.com/shimo4228/agent-attribution-practice)
+(AAP), whose [glossary](https://github.com/shimo4228/agent-attribution-practice/blob/main/docs/glossary.md)
+treats the accountability side of the same vocabulary. Cross-references
+are marked inline; the two glossaries are written to be consistent.
 
-## Translation policy
+## Agent Knowledge Cycle (AKC)
 
-- **Skill names and AKC-coined terms stay in English.** Names like
-  `search-first`, `learn-eval`, `skill-stocktake`, `rules-distill`,
-  `skill-comply`, `context-sync`, `signal-first`, `harness`, and the six
-  phase names (Research / Extract / Curate / Promote / Measure /
-  Maintain) remain in their original English form across all languages.
-  Translating them would break searchability and create divergent
-  vocabularies across the ecosystem.
-- **General-purpose technical terms are localized.** Words like
-  *cycle*, *skill*, *rule*, *audit*, *layer*, *pattern* are translated
-  using the natural local equivalent — never transliterated or
-  romanized.
-- **Phase names appear bilingually in body text** when first introduced
-  (e.g., 「Research（研究）」), then English alone afterwards.
+Six composable phases — Research, Extract, Curate, Promote, Measure,
+Maintain — by which an agent's experience becomes durable,
+behavior-shaping knowledge, with human approval required on every change
+to the agent's future behavior. A cycle, not a harness: it is what you
+do *to* a harness over time, portable across harnesses (ADR-0009).
+Genre-neutral: the same six phases run on behavioral patterns, domain
+expertise, or constitutional values (ADR-0011). The one-page installable
+form is [akc-cycle.md](akc-cycle.md).
 
-## Terminology table
+## Signal-first
 
-| English | 日本語 | 简体中文 | 繁體中文 | Português (Brasil) | Español | Keep original |
-|---------|--------|----------|----------|---------------------|---------|:-------------:|
-| cycle | サイクル | 周期 | 週期 | ciclo | ciclo | |
-| phase | フェーズ | 阶段 | 階段 | fase | fase | |
-| Research | Research | Research | Research | Research | Research | ✓ |
-| Extract | Extract | Extract | Extract | Extract | Extract | ✓ |
-| Curate | Curate | Curate | Curate | Curate | Curate | ✓ |
-| Promote | Promote | Promote | Promote | Promote | Promote | ✓ |
-| Measure | Measure | Measure | Measure | Measure | Measure | ✓ |
-| Maintain | Maintain | Maintain | Maintain | Maintain | Maintain | ✓ |
-| signal-first | signal-first | signal-first | signal-first | signal-first | signal-first | ✓ |
-| skill | スキル | 技能 | 技能 | habilidade | habilidad | |
-| rule | ルール | 规则 | 規則 | regra | regla | |
-| pattern | パターン | 模式 | 模式 | padrão | patrón | |
-| episode | エピソード | 片段 | 片段 | episódio | episodio | |
-| layer | 層 | 层 | 層 | camada | capa | |
-| distill / distillation | 蒸留 | 蒸馏 | 蒸餾 | destilar / destilação | destilar / destilación | |
-| audit | 監査 | 审计 | 審計 | auditar / auditoria | auditar / auditoría | |
-| compliance | 遵守 | 遵循 | 遵循 | conformidade | cumplimiento | |
-| immutable | 不変 | 不可变 | 不可變 | imutável | inmutable | |
-| intake | 取り込み | 吸收 | 吸收 | ingestão | ingesta | |
-| drift | ドリフト | 漂移 | 漂移 | desvio | desviación | |
-| scaffold / scaffolding | 足場 | 脚手架 | 腳手架 | andaime | andamio | |
-| dissolution | 溶解 | 溶解 | 溶解 | dissolução | disolución | |
-| harness | ハーネス | harness | harness | harness | harness | ✓ |
-| knowledge body | 知識体 | 知识体 | 知識體 | corpo de conhecimento | cuerpo de conocimiento | |
-| knowledge cycle | 知識サイクル | 知识周期 | 知識週期 | ciclo de conhecimento | ciclo de conocimiento | |
-| reference implementation | リファレンス実装 | 参考实现 | 參考實作 | implementação de referência | implementación de referencia | |
-| three memory layers | 3 つのメモリ層 | 三层内存 | 三層記憶 | três camadas de memória | tres capas de memoria | |
-| intent alignment | 意図のアライン | 意图对齐 | 意圖對齊 | alinhamento de intenção | alineación de intención | |
-| bottleneck | ボトルネック | 瓶颈 | 瓶頸 | gargalo | cuello de botella | |
-| cognitive economy | 認知経済 | 认知经济 | 認知經濟 | economia cognitiva | economía cognitiva | |
-| cognitive resource | 認知資源 | 认知资源 | 認知資源 | recurso cognitivo | recurso cognitivo | |
-| scarce resource | 希少資源 | 稀缺资源 | 稀缺資源 | recurso escasso | recurso escaso | |
-| co-develop | 共に育つ / 共進化する | 共同发展 | 共同發展 | co-desenvolver | co-desarrollar | |
-| attention and judgment | 注意と判断 | 注意力与判断 | 注意力與判斷 | atenção e julgamento | atención y juicio | |
-| self-reingestion | 自己再取り込み | — | — | — | — | |
-| gate complacency | ゲートの形骸化 | — | — | — | — | |
-| deskilling | スキルの劣化 | — | — | — | — | |
-| harness alignment | harness alignment | — | — | — | — | ✓ |
-| harness drift | harness drift | — | — | — | — | ✓ |
+The Research-phase intake discipline: search broadly, admit only what
+would change the next action. Information that does not change an action
+does not deserve to be held — intake is where human attention is spent.
+See ADR-0010.
 
-## Skill names (always English)
+## Attention ceiling
 
-- `search-first` — Research
-- `learn-eval` — Extract
-- `skill-stocktake` — Curate
-- `rules-distill` — Promote
-- `skill-comply` — Measure
-- `context-sync` — Maintain
+The limit the operator's attention and judgment place on a human-agent
+loop — a budget that does not grow with the model, and that grows
+*relatively* scarcer as agent capability does. AKC's organizing design
+axis: every phase is shaped to spend the budget only where judgment is
+irreplaceable. The repository hedges the constraint as "a contemporary
+claim about 2026-era human-agent work, not an eternal law" (ADR-0010).
 
-## Notes
+## Line of approval
 
-- *Harness* is left in English because it carries a specific meaning in
-  the Mitchell Hashimoto / harness-engineering literature that local
-  translations do not yet stably encode.
-- *Signal-first* stays in English to preserve its connection to the
-  AKC vocabulary and to ADR-0010.
-- The phase verbs (Extract, Curate, Promote, Measure, Maintain,
-  Research) are kept English even when the surrounding body text is
-  localized, because they are also the names of the cycle skills and
-  must be searchable across languages.
-- *Self-reingestion* (ADR-0015) names the cycle feeding on its own
-  output — agent-written rules and notes re-entering as distillation
-  input — so the loop can degrade (echo, grounding loss) as well as
-  correct. Rendered descriptively in Japanese; left `—` in the retired
-  mirrors.
-- *Gate complacency* and *deskilling* (ADR-0014) name two failure modes
-  of the bidirectional loop — the approval gate degrading to a reflexive
-  click, and the supervisory faculty atrophying under over-delegation.
-  Both are translated descriptively; the retired-mirror columns are left
-  `—`.
+The boundary separating what an agent may write freely from what
+requires human approval. It runs not between skills and rules but
+between **records** (transcripts, distilled notes — disposable,
+regenerable, free to write) and **the artifacts that shape future
+behavior** (skills, rules, identity prose — approval required). See
+ADR-0005's decision table.
 
-## Maintenance
+## Rules (layer)
 
-When updating `README.md` (English source), keep this table in sync if
-you introduce a new AKC-coined term. The Japanese mirror translator
-(currently the author) consults this table before choosing a rendering.
+The layer of persistent instructions a coding agent loads
+unconditionally at the start of every session — a rules directory in
+Claude Code or Cursor, whatever the implementation calls it. Skills and
+memory load probabilistically; rules load every session, which makes a
+misjudged rule the extreme of binding strength: it shapes every session
+that follows (ADR-0003). AKC's Promote writes to this layer.
+
+## The gate (human approval gate)
+
+The structure that enforces the line of approval: before any change to
+future behavior, the harness stops and does not proceed until a named
+human passes it. **Approval is the act; the gate is the structure that
+enforces it.** The approval is *continuing* (every change, for the life
+of the install), *human* (a named operator, not an automated validator),
+and *structural* (no path routes around it) — no "auto-approve after N
+days" escape hatch, no self-approval path. The commit history of gated
+artifacts becomes an audit trail of every intentional behavioral change.
+See ADR-0005. AAP's glossary carries the sibling entry *approval gate*
+for its genre; both descend from the same Contemplative Agent decision.
+
+## Promote
+
+The cycle phase that elevates a recurring pattern to the rules layer,
+through the gate — the highest-stakes instance of the line of approval,
+not its only one. See ADR-0005.
+
+## Harness
+
+The configuration layer an agent runs on: skills, rules, prompts,
+scripts, documentation. AKC is not a competitor to harnesses but an
+activity performed on them over time (ADR-0009). The term follows the
+harness-engineering discourse (Hashimoto 2026; the externalization
+survey, Zhou et al. 2026, maps the field).
+
+**The same non-weights layer is called *scaffolding* in the AI-safety
+and accountability discourse** (Davidson et al. 2023). AAP's glossary
+treats the two terms' connotations at length — *scaffolding* emphasizes
+the inspectable-artifact axis and carries a dissolution trajectory;
+*harness* emphasizes the operational-capability axis and implies
+durability — and chooses scaffolding as its primary term because
+inspectability is load-bearing for accountability distribution. AKC
+chooses **harness** as its primary term because its positioning runs
+against harness engineering and harness optimization (ADR-0017), and the
+shared noun is what makes that contrast statable in one sentence.
+
+For retrieval: readers arriving under either term are in the right
+place. The layer is the same whichever name is used.
+
+## Scaffolding
+
+AAP's primary term for the non-weights layer this repository calls the
+harness — see [Harness](#harness) and AAP's glossary for the full
+treatment of the connotation split. In AKC's own documents, *scaffold*
+usually appears in a second, narrower sense: the cycle's install skills
+as transient support (see [Scaffold dissolution](#scaffold-dissolution)).
+The senses share the Vygotskian root — structure meant to fade — but
+apply at different levels: scaffolding-as-layer names where agent
+behavior lives; scaffold-as-install names AKC's own packaging.
+
+## Scaffold dissolution
+
+AKC's skills are scaffolding in the Vygotskian sense: as operator and
+agent internalize the cycle through practice, the explicit skill files
+become unnecessary and the rules alone sustain the loop. Dissolution is
+the **intended end state, not a fallback**; what is built to persist is
+the judgment lineage in the decision records. See
+[scaffold-dissolution.md](scaffold-dissolution.md) and ADR-0003 (the
+distilled layers are disposable by construction).
+
+AAP's glossary distinguishes **two senses of dissolution that must not
+be conflated**: *healthy dissolution into human cognitive patterns*
+(this one — which AAP attributes to AKC) and *unhealthy internalization
+into model weights* (rules absorbed by training: the rule still "runs,"
+but probabilistically — it cannot be read, diffed, or reverted without
+retraining). AAP also carries a provisional five-criterion checklist for
+telling the two apart (external inspectability, locus of agency, failure
+visibility, causal recoverability, reversibility). AKC's dissolution is
+the healthy sense, and the gate plus the decision records are what keep
+it inspectable while it proceeds.
+
+## Harness alignment
+
+The continuous activity of keeping an agent's harness (skills, rules,
+prompts, documentation) aligned with the operator's evolving intent.
+Three properties hold simultaneously, and no single prior term covers
+all three: the target is operator intent, *itself evolving*; the loop is
+*human-gated*; the alignment is *sustained continuously*, not configured
+once. Extends intent alignment (Christiano 2018) from behavior to the
+artifacts that shape behavior, and across time (Lehman 1980's law of
+continuing change). Contrast: autonomous, score-driven *harness
+optimization* (Meta-Harness). See ADR-0017.
+
+## Harness drift
+
+Harness alignment's failure mode: the gradual uncoupling of the harness
+from operator intent when the cycle does not run. Named in lineage with
+architectural drift (Perry & Wolf 1992), practical drift (Snook 2000,
+secondary-verified), and agent drift (Rath 2026). See ADR-0017.
+
+## Intent alignment
+
+Christiano's (2018) sense: an agent that "is trying to do what H wants
+it to do." Correctness can be automated — tests, types, linters check
+stated criteria; intent alignment cannot be automated to the same
+degree, because intent moves as the operator's judgment sharpens through
+use. An agent can pass every correctness check and still drift from what
+its operator now wants. See ADR-0017 for AKC's two-direction extension.
+
+## Bidirectional growth loop
+
+The loop's stated target: agent behavior and operator judgment
+co-develop. Through repeated Curate, Promote, Research, and Measure
+decisions, the operator's judgment is named as an output the loop is
+shaped to produce — not an acknowledged side effect. "The cycle grows
+*with* the people who shape it, not *for* them." See ADR-0009 and
+ADR-0012; kept falsifiable by the failure twin (ADR-0014).
+
+## Failure twin (experimental)
+
+The named failure modes that keep the bidirectional claim falsifiable —
+recorded as structural inferences, not measured phenomena (ADR-0014,
+experimental):
+
+- **Gate complacency** — a stream of reliable proposals trains the
+  operator to approve by default; the click remains, the judgment behind
+  it thins to a reflex. The agent-knowledge instance of automation
+  complacency (Parasuraman & Manzey 2010).
+- **Deskilling** — the supervisory faculty is maintained by exercise; an
+  operator who only reviews agent output loses the ability to tell a
+  good proposal from a plausible one (Bainbridge 1983's irony of
+  automation, as characterized in secondary literature).
+- **Delegation-feedback divergence** — delegation continues while the
+  judgment-behavior coupling breaks; the loop still produces output, but
+  output no human is meaningfully steering.
+
+The defenses are structural, not exhortative: the gate is a
+circuit-breaker, Curate and Promote are active judgment acts, and the
+gate forces articulation rather than a one-bit click. AKC does not claim
+immunity — "a human determined to stop attending will diverge from the
+loop regardless of structure" (ADR-0014).
+
+## Self-reingestion (experimental)
+
+The cycle feeds on its own output: distillation reads both records of
+what happened and the agent's own earlier writing. Two degradations
+follow when the self-written share grows unchecked — **echo** (a framing
+the agent invented becomes a rule and teaches itself as observed fact)
+and **grounding loss** (summaries of summaries drift abstraction hops
+away from events). The decisions: only the observed record is ground;
+the self-generated share of approved artifacts stays visible (Measure);
+the gate is the circuit-breaker before the always-loaded layer.
+Generalized from one production observation (the Contemplative Agent
+substrate) — experimental; "an expectation, not yet a measured
+dose-response." See ADR-0015 and ADR-0002.
+
+AAP's glossary records the same underlying judgment from the security
+side as *untrusted content*: self-authored distillation inherits the
+taint of the external input it summarized — there a trust boundary, here
+a knowledge-quality boundary.
+
+## Text-observability (Measure)
+
+ADR-0016's requirement on Measure instruments: an instrument that
+ignores agent text (stated reasoning, verdicts, plans) systematically
+under-reports compliance for judgment-phase work, which lives in text
+rather than tool calls. Instruments must treat agent text as first-class
+evidence.
+
+## Mechanism vs content
+
+AKC carries the **mechanism** only — the cycle, phases, layers, decision
+records, and patterns. Concrete use cases, domain knowledge, and
+populated threat models are **content**, owned by downstream projects
+and confined to `examples/`. The boundary case: an empty-default
+parameterized check (a structural guard / validation seam) is mechanism;
+the populated list that fills it is content. See ADR-0011 and the
+inclusion rule in `CLAUDE.md`.
+
+## Judgment lineage
+
+What AKC is built to persist: the chain of recorded decisions (the ADRs)
+explaining why the mechanism is shaped as it is. Model evolution is
+expected to dissolve implementations; the lineage of judgments is the
+durable artifact. **Implementation dissolves; judgment persists.** See
+ADR-0009 and [scaffold-dissolution.md](scaffold-dissolution.md).
