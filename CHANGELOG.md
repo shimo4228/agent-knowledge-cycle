@@ -4,6 +4,17 @@ All notable changes to AKC are recorded here. AKC follows semantic
 versioning; breaking changes to positioning or public interfaces bump the
 major version.
 
+## Unreleased
+
+### Added
+
+- **Concept glossary** at `docs/glossary.md`: load-bearing terms (the gate, attention ceiling, line of approval, harness, scaffold dissolution, harness alignment/drift, failure twin, self-reingestion, mechanism vs content, judgment lineage) defined with ADR pointers, cross-checked entry-by-entry against the AAP sibling glossary — the harness/scaffolding synonymy and the two senses of dissolution are now stated from AKC's side, mirroring AAP's treatment. The previous `docs/glossary.md` (a translation table) is renamed to `docs/translation-glossary.md`; llms.txt and CODEMAPS references updated.
+- **Downstream context mapping** — the reverse references the start-of-program repo was missing. Contemplative Agent's role is now recorded as two-way: upstream substrate for ADR-0002–0005 *and* the operational re-implementation of AKC in the autonomous-agent context (six phases mapped onto code, cycle run over its own episode logs with no fine-tuning, every promotion human-gated; demonstration ongoing) — synced across README en/ja, CLAUDE.md, llms.txt, llms-full.txt, CODEMAPS, and graph.jsonld (new `implements` edge from Contemplative Agent to the six-phase loop, new `workExample` edges from the AKC line). Research lines and repos that crystallized out of the same operation are recorded for the first time: authorship-strategy (10.5281/zenodo.20263316), attention-not-self (10.5281/zenodo.20262112), doctrine-corpus (10.5281/zenodo.20337008), existence-proof (10.5281/zenodo.20558800) in README en/ja + llms.txt + graph.jsonld; claude-harness, akc-mcp, daily-research, and the research-program hub in graph.jsonld + llms-full.txt only. Mapping discipline: relationship facts + DOIs only (mechanism-only rule). Recorded as **[ADR-0018](docs/adr/0018-record-downstream-applications-as-first-class-context.md)** (ADR count 14 → 15) — itself the record of a Maintain-phase execution on the repo's own self-description.
+
+### Fixed
+
+- **ADR-0005** — the recursive-amplification argument in the addendum (and the "Why the distinction matters" body prose) was scoped to the rules layer only, contradicting the Decision table in which skills and identity are equally gated. Generalized to all behavior-shaping artifacts, with the rules layer named as the extreme case.
+
 ## v2.2.0 — 2026-06-06
 
 Pre-paper gap closure. Five new ADRs (0013–0017) carry the related-work

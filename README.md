@@ -305,9 +305,14 @@ Or in text:
 
 - [Contemplative Agent](https://github.com/shimo4228/contemplative-agent) — An
   independent research repository exploring Contemplative Constitutional AI
-  on a local 9B model. Its engineering substrate (three-layer memory,
-  two-stage distillation) was the prior art that seeded AKC's ADRs.
-  See [`docs/inspiration.md`](docs/inspiration.md) for details.
+  on a local 9B model. The relationship runs in both directions. Upstream,
+  its engineering substrate (three-layer memory, two-stage distillation) was
+  the prior art that seeded AKC's ADRs — see
+  [`docs/inspiration.md`](docs/inspiration.md). Downstream, it is the
+  operational re-implementation of AKC in the autonomous-agent context: its
+  pipeline maps the six phases onto code, the agent runs the cycle over its
+  own episode logs with no fine-tuning, and every promotion passes through
+  a human approval gate. The demonstration is ongoing.
 - [Agent Attribution Practice (AAP)](https://github.com/shimo4228/agent-attribution-practice) —
   Sibling genre library (DOI [10.5281/zenodo.19652013](https://doi.org/10.5281/zenodo.19652013)).
   AKC v2.0.0's extracted security triplet (ADR-0001, ADR-0006, ADR-0007) was
@@ -316,6 +321,36 @@ Or in text:
   cycle (mechanism); AAP is the practice (content).
 - [Articles on Zenn](https://zenn.dev/shimo4228) — Development journal (Japanese)
 - [Articles on Dev.to](https://dev.to/shimo4228) — English translations
+
+### Crystallized out of the same operation
+
+The cycle's outputs did not stay inside the operator-agent pair. The daily
+operation the cycle ran in also crystallized standalone research lines and
+working repositories:
+
+- [Authorship Strategy](https://github.com/shimo4228/authorship-strategy)
+  (DOI [10.5281/zenodo.20263316](https://doi.org/10.5281/zenodo.20263316)) —
+  a normative framework, tactical catalog, and empirical baseline for
+  authorship under AI-mediated diffusion. Its own framing of the
+  relationship: AKC defines how knowledge cycles inside the operator-agent
+  pair; Authorship Strategy addresses how the cycle's outputs diffuse
+  outside it.
+- [Attention, Not Self](https://github.com/shimo4228/attention-not-self)
+  (DOI [10.5281/zenodo.20262112](https://doi.org/10.5281/zenodo.20262112)) —
+  Buddhist Abhidharma meets computational phenomenology; a sibling research
+  line federated with AKC at the research-program level.
+- [doctrine-corpus](https://github.com/shimo4228/doctrine-corpus)
+  (DOI [10.5281/zenodo.20337008](https://doi.org/10.5281/zenodo.20337008)) —
+  a bilingual judgment-eliciting Q&A corpus for LLM training; AKC is one of
+  its four source lines (ADRs and glossary harvested into the corpus).
+- [existence-proof](https://github.com/shimo4228/existence-proof)
+  (DOI [10.5281/zenodo.20558800](https://doi.org/10.5281/zenodo.20558800)) —
+  a pre-line working repository (by its own status discipline): an
+  empowerment doctrine for credential-less AI-enabled creators, complement
+  of Authorship Strategy.
+
+The canonical relationship map of the whole research program lives in the
+[hub repository's graph.jsonld](https://github.com/shimo4228/shimo4228/blob/main/graph.jsonld).
 
 ## Acknowledgments
 

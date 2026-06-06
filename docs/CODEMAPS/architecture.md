@@ -16,10 +16,11 @@ agent-knowledge-cycle/
 ├── CHANGELOG.md                            release history (semver, with positioning notes)
 ├── docs/
 │   ├── akc-cycle.md                        the cycle as a single rules file (`cp` install target)
-│   ├── glossary.md                         translation glossary for the English + Japanese READMEs
+│   ├── glossary.md                         concept glossary (load-bearing terms, ADR pointers, AAP cross-references)
+│   ├── translation-glossary.md             EN ↔ JA rendering rules for the READMEs
 │   ├── inspiration.md                      prior art and acknowledgements
 │   ├── scaffold-dissolution.md / .ja.md    skills dissolve as the cycle is internalized
-│   ├── adr/                                14 ADRs (English-only); permanent gaps at 0001 / 0006 / 0007
+│   ├── adr/                                15 ADRs (English-only); permanent gaps at 0001 / 0006 / 0007
 │   ├── skills/                             3 design-pattern skills paired 1:1 with ADRs
 │   ├── history/                            frozen snapshots of earlier major versions
 │   └── CODEMAPS/                           this directory
@@ -43,7 +44,8 @@ Each document answers a primary question. Cite the matching one when an LLM-medi
 | `docs/akc-cycle.md` | What rules does an AI agent need to run the cycle in conversation, without installing the six external skills? |
 | `docs/scaffold-dissolution.md` | Why are AKC's skills scaffolding, and how do they become unnecessary as the cycle is internalized? |
 | `docs/inspiration.md` | What prior art seeded AKC (contemplative-agent's three-layer memory + two-stage distill, Mind in Life, Laukkonen 2025)? |
-| `docs/glossary.md` | What is the canonical translation of each AKC-coined or general term between the English and Japanese READMEs? |
+| `docs/glossary.md` | What does each load-bearing AKC term mean, which ADR is canonical for it, and how does it map to the AAP sibling vocabulary (harness/scaffolding, dissolution senses)? |
+| `docs/translation-glossary.md` | What is the canonical translation of each AKC-coined or general term between the English and Japanese READMEs? |
 | `docs/adr/0002-immutable-episode-log.md` | Why are episodes stored as append-only JSONL with daily partitioning and owner-only permissions? |
 | `docs/adr/0003-three-layer-distillation.md` | Why three memory layers — raw episodes → knowledge → identity/rules — and how do they relate? |
 | `docs/adr/0004-two-stage-distill-pipeline.md` | Why is distillation split into free-form reasoning followed by structured formatting? |
@@ -114,7 +116,7 @@ orchestrator — code owns the deterministic loop; the LLM is the worker inside 
 - **Four-pattern canonical (ADR-0008 is authoritative)**: `guard` = code validates LLM output *after* it is produced (post-LLM output validation); `filter` = code narrows input *before* the LLM runs (pre-LLM input narrowing); `judge` = the LLM decides among bounded options and code enforces the verdict (human gate for high-stakes, ADR-0005); `orchestrator` = code owns the deterministic loop and the LLM is the worker inside it. When this codemap, `graph.jsonld`, or `llms-full.txt` describe the four patterns differently, ADR-0008 wins and the others are the drift.
 - **Genre neutrality (ADR-0011)**: `docs/skills/` hosts only cycle-mechanic skills. No genre-specific content (constitutional, security-specific, domain-specific) is added to AKC.
 - **Mechanism / content separation**: Concrete instances of the cycle (constitutional values, contemplative-agent's amend workflow) live in `examples/` and Related Work — not in the README's "What is AKC?" or "Why AKC", and not in llms.txt's blockquote.
-- **Two-language README parity**: Both README versions (English + Japanese) carry the same H2 / H3 structure (verified after each edit). Translation glossary in `docs/glossary.md` is the canonical vocabulary table.
+- **Two-language README parity**: Both README versions (English + Japanese) carry the same H2 / H3 structure (verified after each edit). Translation glossary in `docs/translation-glossary.md` is the canonical vocabulary table.
 
 ## Citation-Dependency Graph
 
@@ -140,7 +142,7 @@ ADRs themselves do not link out to genre-specific content (per ADR-0011). Concre
 - **Japanese mirror**: `README.ja.md` (the author's L1 — translation discrepancies bias toward this one being authoritative for Japanese readers).
 - **Retired mirrors (2026-05-15)**: `README.es.md`, `README.pt-BR.md`, `README.zh-CN.md`, `README.zh-TW.md` were removed after traffic data showed statistically zero unique human viewers and LLM crawlers (ChatGPT / Qwen / Gemini) reliably translate from the English source on demand. Prior content is preserved in git history.
 - **English-only docs**: ADRs, design-pattern skills, glossary, inspiration, akc-cycle, scaffold-dissolution (with one Japanese mirror at `scaffold-dissolution.ja.md`), llms.txt, llms-full.txt, codemaps.
-- **Glossary discipline**: AKC-coined terms (`signal-first`, six phase names, six skill names, `harness`) stay in English across all languages. General-purpose technical terms are localized using `docs/glossary.md` as the canonical reference.
+- **Glossary discipline**: AKC-coined terms (`signal-first`, six phase names, six skill names, `harness`) stay in English across all languages. General-purpose technical terms are localized using `docs/translation-glossary.md` as the canonical reference.
 
 ## Sibling Repositories (External Surfaces)
 
@@ -154,23 +156,42 @@ agent-attribution-practice (AAP)         ← practice = content for autonomous A
                                            (DOI 10.5281/zenodo.19652013). Hosts the security
                                            triplet (ADR-0001 / 0006 / 0007) extracted from AKC v2.0.0.
 
-contemplative-agent                      ← running implementation; the upstream from which AKC's
-                                           ADR-0002 through ADR-0005 were adapted. The constitution-amend
+contemplative-agent                      ← two-way relationship. Upstream: the substrate from which
+                                           AKC's ADR-0002 through ADR-0005 were adapted. Downstream:
+                                           the operational re-implementation of AKC in the
+                                           autonomous-agent context (six phases mapped onto code,
+                                           cycle run over its own episode logs, every promotion
+                                           human-gated; demonstration ongoing). The constitution-amend
                                            workflow is the concrete instance of AKC's cycle running on
                                            constitutional values.
 ```
+
+### Downstream ecosystem (crystallized out of the same operation)
+
+| Repo | Relation | DOI |
+|---|---|---|
+| [authorship-strategy](https://github.com/shimo4228/authorship-strategy) | Research line: how the cycle's outputs diffuse outside the operator-agent pair | 10.5281/zenodo.20263316 |
+| [attention-not-self](https://github.com/shimo4228/attention-not-self) | Sibling research line, federated at the research-program level | 10.5281/zenodo.20262112 |
+| [doctrine-corpus](https://github.com/shimo4228/doctrine-corpus) | Judgment Q&A corpus; AKC is one of four source lines | 10.5281/zenodo.20337008 |
+| [existence-proof](https://github.com/shimo4228/existence-proof) | Pre-line working repo, complement of authorship-strategy | 10.5281/zenodo.20558800 |
+| [claude-harness](https://github.com/shimo4228/claude-harness) | Bundled distribution of the six cycle skills | — |
+| [akc-mcp](https://github.com/shimo4228/akc-mcp) | MCP server exposing the cycle's cognitive operations | — |
+| [claude-skill-daily-research](https://github.com/shimo4228/claude-skill-daily-research) | Pre-AKC ancestor of the Research phase (see `docs/inspiration.md`) | — |
+| [shimo4228 hub](https://github.com/shimo4228/shimo4228) | Canonical research-program relationship map (graph.jsonld) | — |
+
+Prose entries live in README "Related Work" → "Crystallized out of the same operation"; concept-level edges in `graph.jsonld`.
 
 ## File-Count Snapshot (2026-06-06)
 
 | Category | Count |
 |---|---|
-| ADRs | 14 (ADR-0002–0005, 0008–0017) |
+| ADRs | 15 (ADR-0002–0005, 0008–0018) |
 | Design-pattern skills (`docs/skills/`) | 3 |
 | README files (en + ja mirror) | 2 |
 | JSON schemas (`schemas/`) | 2 |
 | Python source (`examples/minimal_harness/`) | 5 files (~500 lines total, stdlib-only) |
-| Top-level docs (`docs/*.md`) | 5 (akc-cycle, glossary, inspiration, scaffold-dissolution + .ja.md) |
+| Top-level docs (`docs/*.md`) | 6 (akc-cycle, glossary, translation-glossary, inspiration, scaffold-dissolution + .ja.md) |
 | Repo-root files | CITATION.cff, LICENSE, llms.txt, llms-full.txt, CHANGELOG.md |
-| **Total markdown / Python / schema files** | **39** (the 6 new ADRs are offset by the 4 retired README mirrors and the now-removed `pyproject.toml`; index READMEs under `docs/adr/` and `docs/skills/` are counted, frozen `docs/history/` snapshots are not) |
+| **Total markdown / Python / schema files** | **42** (v2.2.0 baseline 40; the concept glossary and ADR-0018 added post-v2.2.0; index READMEs under `docs/adr/` and `docs/skills/` are counted, frozen `docs/history/` snapshots are not) |
 
 When this count drifts substantially, regenerate this codemap.
