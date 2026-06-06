@@ -248,11 +248,13 @@ for the full derivation and the drift-vocabulary lineage.
 
 Where the dominant pattern in self-evolving-agent work and
 platform-side memory features lets the agent itself decide what to
-persist, AKC inverts the default: cross-layer promotion (from the
-probabilistic skills/memory layer to the deterministic rules layer)
-requires a *named human sign-off*. The gate is not a missing
-automation feature — it is the load-bearing contribution, the edge
-where the operator's evolving intent enters the loop. See the
+persist, AKC inverts the default: every write to the artifacts that
+shape future behavior — skills, rules, identity — requires a *named
+human sign-off*. The line of approval runs not between skills and
+rules but between disposable records and behavior-shaping artifacts.
+The gate is not a missing automation feature — it is the load-bearing
+contribution, the edge where the operator's evolving intent enters
+the loop. See the
 [ADR-0005 addendum](docs/adr/0005-human-approval-gate.md).
 
 ## Customization

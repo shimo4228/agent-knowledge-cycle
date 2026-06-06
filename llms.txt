@@ -70,7 +70,7 @@
 - [ADR-0002 Immutable Episode Log](docs/adr/0002-immutable-episode-log.md): append-only JSONL, daily partitioning, owner-only permissions
 - [ADR-0003 Three-Layer Distillation](docs/adr/0003-three-layer-distillation.md): Raw episodes → Knowledge → Identity/Rules
 - [ADR-0004 Two-Stage Distill Pipeline](docs/adr/0004-two-stage-distill-pipeline.md): free-form reasoning followed by structured formatting
-- [ADR-0005 Human Approval Gate](docs/adr/0005-human-approval-gate.md): no auto-promotion to rules, skills, or identity
+- [ADR-0005 Human Approval Gate](docs/adr/0005-human-approval-gate.md): no agent-autonomous writes to rules, skills, or identity — every behavior-modifying change requires named human sign-off
 - [ADR-0008 Code and LLM Collaboration](docs/adr/0008-code-and-llm-collaboration.md): code owns control flow and durable state, LLMs own meaning; four layering patterns
 - [ADR-0009 AKC is a Cycle, Not a Harness](docs/adr/0009-akc-is-a-cycle-not-a-harness.md): repositioning AKC as a knowledge cycle rather than a self-improving harness. See the 2026-04-19 addendum for the v2.0.0 extraction of the security triplet (ADR-0001, ADR-0006, ADR-0007)
 - [ADR-0010 Human Cognitive Resource as Central Constraint](docs/adr/0010-human-cognitive-resource-as-central-constraint.md): names the implicit philosophy driving every phase — human attention and judgment as the scarce resource; redefines Research as signal-first; adds cognitive economy as a design principle

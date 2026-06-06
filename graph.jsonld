@@ -180,7 +180,7 @@
         {"@value": "Identity Layer", "@language": "en"},
         {"@value": "アイデンティティ層", "@language": "ja"}
       ],
-      "description": "Layer 3 of the three-layer memory architecture (ADR-0003): persona, ranked skills, cross-cutting rules. Deterministic. Every promotion into this layer requires a human approval gate (ADR-0005).",
+      "description": "Layer 3 of the three-layer memory architecture (ADR-0003): persona, ranked skills, cross-cutting rules. Deterministic. Every write into this layer — skills, rules, and persona alike — passes the human approval gate (ADR-0005).",
       "level": 3
     },
 
@@ -206,7 +206,7 @@
       "@id": "https://github.com/shimo4228/agent-knowledge-cycle/blob/main/docs/adr/0005-human-approval-gate.md",
       "@type": ["ADR", "TechArticle"],
       "name": "ADR-0005: Human Approval Gate for Behavior-Modifying Changes",
-      "description": "Promotions that produce behavior-modifying writes require named human sign-off. The cycle is not autonomous; the gate is structural."
+      "description": "Every change that modifies future agent behavior — skills, rules, identity — requires named human sign-off. The cycle is not autonomous; the gate is structural."
     },
     {
       "@id": "https://github.com/shimo4228/agent-knowledge-cycle/blob/main/docs/adr/0008-code-and-llm-collaboration.md",
@@ -381,7 +381,7 @@
       "@id": "https://shimo4228.github.io/shimo4228/vocab#akc/concept/human-approval-gate",
       "@type": ["Concept", "DefinedTerm"],
       "name": "human approval gate",
-      "description": "Structural checkpoint for behavior-modifying writes. AKC is not autonomous; promotion across layers requires named human sign-off. Codified as ADR-0005.",
+      "description": "Structural checkpoint for behavior-modifying writes. AKC is not autonomous; every change to the artifacts that shape future behavior — skills, rules, identity — requires named human sign-off. Codified as ADR-0005.",
       "groundedIn": "https://github.com/shimo4228/agent-knowledge-cycle/blob/main/docs/adr/0005-human-approval-gate.md"
     },
     {

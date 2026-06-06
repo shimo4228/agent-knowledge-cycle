@@ -150,7 +150,7 @@ AKC は [harness engineering](https://mitchellh.com/writing/my-ai-adoption-journ
 
 ハーネスエンジニアリングは初回の正しさを最適化し、本質的にリアクティブだ — ミスが起こるたびに新しいハーネスを作る。AKC はプロアクティブに監査し、代わりに意図の問いを立てる ([なぜ AKC か → 正しさではなく、意図とのアラインを目指す](#正しさではなく意図とのアラインを目指す) を参照)。ハーネス層には今や独自の自動改善ループもある: [Meta-Harness](https://arxiv.org/abs/2603.28052) はベンチマークスコアを最大化するようハーネスのコードを探索する — 自律的・スコア駆動の **harness optimization** (正しさの軸)。AKC の活動はその human-gated な対応物 (意図の軸) だ: **harness alignment** — ハーネスを運用者の進化する意図にアラインし続けること。その failure mode が **harness drift** — スキルが陳腐化し、ルールが実践と一致しなくなり、ドキュメントがコードから乖離する。2 つの活動は競合ではなく相補的だ: ハーネスは固定ベンチマークでスコアを上げながら、運用者がいま望むものから滑り落ちていくことがありうる。完全な導出と drift 語彙の系譜は [ADR-0017](docs/adr/0017-harness-alignment-and-drift.md) を参照。
 
-self-evolving-agent 系の研究やプラットフォーム側のメモリ機能では、エージェント自身が何を残すかを決めるのが支配的なパターンだが、AKC はこのデフォルトを反転させる: クロスレイヤーの昇格 (確率的な skills/memory 層から決定的な rules 層へ) には *名前付きの人間 sign-off* を要求する。このゲートは欠けている自動化機能ではない — それは load-bearing な貢献であり、運用者の変化していく意図がループに入る edge そのものだ。[ADR-0005 addendum](docs/adr/0005-human-approval-gate.md) を参照。
+self-evolving-agent 系の研究やプラットフォーム側のメモリ機能では、エージェント自身が何を残すかを決めるのが支配的なパターンだが、AKC はこのデフォルトを反転させる: 将来の挙動を形づくる artifact への書き込み — skills、rules、identity — はすべて *名前付きの人間 sign-off* を要求する。承認の境界線は skills と rules のあいだではなく、使い捨て可能な records と挙動形成 artifact のあいだに走る。このゲートは欠けている自動化機能ではない — それは load-bearing な貢献であり、運用者の変化していく意図がループに入る edge そのものだ。[ADR-0005 addendum](docs/adr/0005-human-approval-gate.md) を参照。
 
 ## カスタマイズ
 
