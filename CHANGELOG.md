@@ -21,6 +21,7 @@ major version.
 
 ### Fixed
 
+- **Promote trigger restored to holistic judgment.** The "three or more places" numeric threshold in the Promote phase was a transcription error from the original rules-ization (the first draft of `docs/rules.md`, 2026-03-29): the bound skills (rules-distill; learn-eval on the harness side) have always used holistic quality gates with no numeric threshold, and the section's own **Trigger** line was already holistic. The number also demonstrated its cost in this very repository — quoted as "recur 3+ times" in both README phase tables, silently mutating "places" into "times". Corrected across akc-cycle.md, README en/ja, graph.jsonld, and llms-full.txt: the trigger is that the repetition itself has become the signal; the Human Approval Gate (ADR-0005) remains the actual filter.
 - Design-principle count unified at **nine** across all surfaces (ADR-0012 prose corrected; ADR-0011 carries the canonical "Genre neutrality is Design Principle #9" declaration; historical "eight" references in ADR-0009's v2.0.0 addendum annotated, not rewritten).
 - Four-pattern definitions (guard / filter / judge / orchestrator) re-synced to **ADR-0008 canonical** in graph.jsonld, CODEMAPS, and llms-full.txt — guard validates LLM output post-generation, orchestrator means code owns the loop. CODEMAPS Invariants now pins the canonical source.
 - AAP sibling references updated from "eight ADRs / five additional" to **"ten ADRs / seven additional"** (AAP v0.2.0 added ADR-0009/0010); concept DOI references unchanged.

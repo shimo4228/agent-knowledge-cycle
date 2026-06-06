@@ -40,7 +40,7 @@ Skills, rules, and learned patterns accumulate over time. Periodically:
 
 ## Promote — Elevate recurring patterns to rules
 
-When the same guidance appears in three or more places (skills, memory, conversation):
+When the same guidance keeps resurfacing across skills, memory, and conversation — when the repetition itself has become the signal:
 
 1. Extract the cross-cutting principle
 2. Write it as a rule (concise, actionable, with a trigger condition)

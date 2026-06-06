@@ -113,7 +113,7 @@ cp docs/akc-cycle.md ~/.claude/rules/common/akc-cycle.md
 | Research | 広く探索し、信号で絞り込む — 次の行動を変える情報のみを取り込む |
 | Extract | セッションから再利用可能なパターンを品質評価付きで捕捉 |
 | Curate | 冗長性・陳腐化・沈黙を定期監査 |
-| Promote | 3 回以上繰り返されるパターンをルール層へ昇格 |
+| Promote | 繰り返し現れるパターンをルール層へ昇格 |
 | Measure | 主観ではなく定量的に行動変化を検証 |
 | Maintain | ドキュメントの役割を清潔に、内容を新鮮に保つ |
 

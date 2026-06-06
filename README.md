@@ -180,7 +180,7 @@ That's it. The cycle will run through conversation — no skills, no plugins, no
 | Research | Search broadly, filter by signal — intake only what would change the next action |
 | Extract | Capture reusable patterns from sessions with quality evaluation |
 | Curate | Periodically audit for redundancy, staleness, and silence |
-| Promote | Elevate patterns that recur 3+ times to the rule layer |
+| Promote | Elevate recurring patterns to the rule layer |
 | Measure | Verify behavioral change quantitatively, not subjectively |
 | Maintain | Keep documentation roles clean and content fresh |
 
