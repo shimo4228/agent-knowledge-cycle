@@ -287,6 +287,14 @@ Or in text:
 
 > Shimomoto, T. (2026). Agent Knowledge Cycle (AKC). doi:10.5281/zenodo.20565806
 
+## Related Publication
+
+The position paper that defines **harness alignment** and **harness drift**
+against the software-evolution and alignment literatures was deposited from
+this line:
+
+> Shimomoto, T. (2026). *Harness Alignment and Harness Drift: Why Intent, Unlike Correctness, Resists Automation.* Zenodo working paper. doi:[10.5281/zenodo.20578272](https://doi.org/10.5281/zenodo.20578272)
+
 ## Related Work
 
 - [Contemplative Agent](https://github.com/shimo4228/contemplative-agent) — An

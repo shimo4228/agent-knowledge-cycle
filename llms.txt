@@ -64,6 +64,7 @@
 - [Translation glossary](docs/translation-glossary.md): EN ↔ JA rendering rules for the READMEs
 - [Inspiration](docs/inspiration.md): prior art and acknowledgements
 - [Changelog](CHANGELOG.md): release history
+- [Position paper: Harness Alignment and Harness Drift (https://doi.org/10.5281/zenodo.20578272)](https://doi.org/10.5281/zenodo.20578272): companion working paper defining harness alignment and harness drift against the literature — lean body for human readers, 29 verified-verbatim footnotes as a density layer for LLM consumption
 
 ## Architecture Decision Records
 

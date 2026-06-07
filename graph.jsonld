@@ -53,6 +53,7 @@
         "https://doi.org/10.5281/zenodo.19212118",
         "https://github.com/shimo4228/agent-knowledge-cycle/tree/main/examples/minimal_harness"
       ],
+      "subjectOf": "https://doi.org/10.5281/zenodo.20578272",
       "definesConcept": [
         "https://shimo4228.github.io/shimo4228/vocab#concept/six-phase-loop",
         "https://shimo4228.github.io/shimo4228/vocab#concept/three-layer-structure",
@@ -608,6 +609,18 @@
       "name": "research-program hub",
       "description": "Hub repository of the shimo4228 research program; its graph.jsonld is the canonical relationship map of the research ecosystem, federating AKC with its sibling and downstream lines.",
       "url": "https://github.com/shimo4228/shimo4228"
+    },
+
+    {
+      "@id": "https://doi.org/10.5281/zenodo.20578272",
+      "@type": "ScholarlyArticle",
+      "name": "Harness Alignment and Harness Drift: Why Intent, Unlike Correctness, Resists Automation",
+      "author": "https://orcid.org/0009-0002-6168-4162",
+      "datePublished": "2026-06-07",
+      "identifier": "10.5281/zenodo.20578272",
+      "about": "https://doi.org/10.5281/zenodo.19200726",
+      "isBasedOn": "https://github.com/shimo4228/agent-knowledge-cycle",
+      "description": "Position paper (Zenodo working paper, v1) deposited from the AKC line. Defines harness alignment — the continuous, human-gated activity of keeping an agent's harness aligned with the operator's evolving intent — and harness drift, its failure mode, against the software-evolution and alignment literatures; argues the three defining properties (continuous, human-gated, bidirectional) follow from a single root: intent, unlike correctness, cannot be automated the same way. Records a bibliographic bridge: audited 2026 drift coinages are severed from the classical software-evolution lineage, which harness drift reconnects by reference. Two-layer design: lean body for human readers, verified-verbatim footnotes as a density layer for LLM consumption. Scoped as provisional judgments from a months-old practice, offered as a position, not an empirical study."
     },
 
     {
