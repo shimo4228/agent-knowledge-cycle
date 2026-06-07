@@ -4,6 +4,8 @@ Language: [English](README.md) | 日本語
 
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.19200726.svg)](https://doi.org/10.5281/zenodo.19200726)
 
+📄 **Position paper**: *Harness Alignment and Harness Drift: Why Intent, Unlike Correctness, Resists Automation* — [doi:10.5281/zenodo.20578272](https://doi.org/10.5281/zenodo.20578272)
+
 <details>
 <summary>AI 向け推奨読み順</summary>
 
@@ -53,7 +55,7 @@ AKC の各フェーズはその希少性のまわりに形作られている。R
 
 正しさは自動化できる — テスト、型、リンタ、レビューツールが、出力が特定の基準を満たすかを確認する。アラインメントは同じ程度には自動化できない。意図そのものが、運用者の判断が使い込みのなかで研ぎ澄まされていくにつれ動くからだ。エージェントはあらゆる正しさチェックを満たしながら、意図からは外れ続けることがある。この行動レベルの区別が [intent alignment](https://ai-alignment.com/clarifying-ai-alignment-cec47cd69dd6) (Christiano, 2018) — エージェントが運用者の望むことをしようとすること — であり、AKC はこれを時間軸の上へ、そして行動を形作る artifact の中へと拡張する。
 
-AKC の設計選択はこの区別を反映している。設計原則 #3 (Non-destructive) — 提案して、確認を待つ — は、各変更を意図の言い直しが効くチェックポイントに置く。実装前の対話は、摩擦ではなく **認知経済への投資** として扱われる。この区別はまた、AKC がハーネスエンジニアリングと何が違うのかを説明する: ハーネスは初回の正しさを最適化するが、AKC はその意図が変化していくのに合わせて、ハーネス自体を意図とアラインし続けさせる — この活動を AKC は **harness alignment** と名づける ([ADR-0017](docs/adr/0017-harness-alignment-and-drift.md))。階層比較は [ハーネスエンジニアリングとの関係](#ハーネスエンジニアリングとの関係) を参照。
+AKC の設計選択はこの区別を反映している。設計原則 #3 (Non-destructive) — 提案して、確認を待つ — は、各変更を意図の言い直しが効くチェックポイントに置く。実装前の対話は、摩擦ではなく **認知経済への投資** として扱われる。この区別はまた、AKC がハーネスエンジニアリングと何が違うのかを説明する: ハーネスは初回の正しさを最適化するが、AKC はその意図が変化していくのに合わせて、ハーネス自体を意図とアラインし続けさせる — この活動を AKC は **harness alignment** と名づける ([ADR-0017](docs/adr/0017-harness-alignment-and-drift.md)。ソフトウェア進化・アラインメント両文献に対する定義は [position paper](https://doi.org/10.5281/zenodo.20578272))。階層比較は [ハーネスエンジニアリングとの関係](#ハーネスエンジニアリングとの関係) を参照。
 
 ### サイクルは人間も変える
 

@@ -4,6 +4,8 @@ Language: English | [日本語](README.ja.md)
 
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.19200726.svg)](https://doi.org/10.5281/zenodo.19200726)
 
+📄 **Position paper**: *Harness Alignment and Harness Drift: Why Intent, Unlike Correctness, Resists Automation* — [doi:10.5281/zenodo.20578272](https://doi.org/10.5281/zenodo.20578272)
+
 <details>
 <summary>AI-facing reading order</summary>
 
@@ -101,7 +103,9 @@ distinction also explains how AKC differs from harness engineering:
 harnesses optimize correctness on the first try, while AKC keeps the
 harnesses themselves aligned with intent as that intent evolves — the
 activity AKC names **harness alignment**
-([ADR-0017](docs/adr/0017-harness-alignment-and-drift.md)). See
+([ADR-0017](docs/adr/0017-harness-alignment-and-drift.md); defined
+against the software-evolution and alignment literatures in the
+[position paper](https://doi.org/10.5281/zenodo.20578272)). See
 [Relationship to Harness Engineering](#relationship-to-harness-engineering)
 for the layered comparison.
 
