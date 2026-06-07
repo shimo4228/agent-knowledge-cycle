@@ -192,6 +192,6 @@ Prose entries live in README "Related Work" (compact list at the end of the sect
 | Python source (`examples/minimal_harness/`) | 5 files (~500 lines total, stdlib-only) |
 | Top-level docs (`docs/*.md`) | 6 (akc-cycle, glossary, translation-glossary, inspiration, scaffold-dissolution + .ja.md) |
 | Repo-root files | CITATION.cff, LICENSE, llms.txt, llms-full.txt, CHANGELOG.md |
-| **Total markdown / Python / schema files** | **42** (v2.2.0 baseline 40; the concept glossary and ADR-0018 added post-v2.2.0; index READMEs under `docs/adr/` and `docs/skills/` are counted, frozen `docs/history/` snapshots are not) |
+| **Total markdown / Python / schema files** | **42** (v2.2.0 baseline 40; the concept glossary and ADR-0018 added post-v2.2.0; index READMEs under `docs/adr/` and `docs/skills/` are counted; the formerly tracked `docs/history/` snapshots moved out of the repo post-v2.2.0 and were never counted) |
 
 When this count drifts substantially, regenerate this codemap.
