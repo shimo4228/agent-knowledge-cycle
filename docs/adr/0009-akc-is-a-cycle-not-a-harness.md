@@ -60,7 +60,7 @@ The README now states that AKC is not a one-directional optimization loop. The c
 
 - AKC's position relative to ECC, Claude Code, and similar systems is no longer ambiguous. AKC is what you run *on top of* a harness, to keep the harness alive as your understanding evolves.
 - The cycle is unobstructed. Readers encountering AKC for the first time meet the six phases as the central idea, not as one of two competing themes.
-- The contrast with harness engineering (Hashimoto, 2025) and Meta-Harness (Lee et al., 2026) becomes sharper. Both of those focus on the agent side. AKC focuses on the human-agent loop. The "Relationship to Harness Engineering" section now lands more clearly because the framings no longer collide.
+- The contrast with harness engineering (Hashimoto, 2026) and Meta-Harness (Lee et al., 2026) becomes sharper. Both of those focus on the agent side. AKC focuses on the human-agent loop. The "Relationship to Harness Engineering" section now lands more clearly because the framings no longer collide.
 - Bidirectional growth becomes citeable. Future work that wants to reference AKC as an example of human-AI co-development has explicit language to point to.
 
 ### Negative

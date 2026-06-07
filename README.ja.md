@@ -141,7 +141,7 @@ AKC は **2 種類のスキル** を出荷する:
 
 ## ハーネスエンジニアリングとの関係
 
-AKC は [harness engineering](https://mitchellh.com/writing/my-ai-adoption-journey) (Mitchell Hashimoto, 2025) — プロンプト改善とプログラム可能なツールの組み合わせで、エージェントが同じ誤りを繰り返さないよう仕組みを作る実践 — と共通の地平を持つ。両者ともエージェントをより信頼できるものにすることを目指すが、焦点が異なる。
+AKC は [harness engineering](https://mitchellh.com/writing/my-ai-adoption-journey) (Mitchell Hashimoto, 2026) — プロンプト改善とプログラム可能なツールの組み合わせで、エージェントが同じ誤りを繰り返さないよう仕組みを作る実践 — と共通の地平を持つ。両者ともエージェントをより信頼できるものにすることを目指すが、焦点が異なる。
 
 | 階層 | 問い | 対応者 |
 |------|------|-------|

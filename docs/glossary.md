@@ -132,8 +132,9 @@ it inspectable while it proceeds.
 
 ## Harness alignment
 
-The continuous activity of keeping an agent's harness (skills, rules,
-prompts, documentation) aligned with the operator's evolving intent.
+The continuous, human-gated activity of keeping an agent's harness
+(skills, rules, prompts, documentation) aligned with the operator's
+evolving intent.
 Three properties hold simultaneously, and no single prior term covers
 all three: the target is operator intent, *itself evolving*; the loop is
 *human-gated*; the alignment is *sustained continuously*, not configured
@@ -180,7 +181,7 @@ experimental):
 - **Deskilling** — the supervisory faculty is maintained by exercise; an
   operator who only reviews agent output loses the ability to tell a
   good proposal from a plausible one (Bainbridge 1983's irony of
-  automation, as characterized in secondary literature).
+  automation).
 - **Delegation-feedback divergence** — delegation continues while the
   judgment-behavior coupling breaks; the loop still produces output, but
   output no human is meaningfully steering.

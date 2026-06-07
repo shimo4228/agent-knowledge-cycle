@@ -222,7 +222,7 @@ exercise that resists deskilling. The full analysis is in
 
 ## Relationship to Harness Engineering
 
-AKC shares common ground with [harness engineering](https://mitchellh.com/writing/my-ai-adoption-journey) (Mitchell Hashimoto, 2025) — the practice of engineering solutions so that an agent never repeats the same mistake, through a combination of improved prompts and programmatic tools. Both aim to make agents more reliable. They differ in what they focus on.
+AKC shares common ground with [harness engineering](https://mitchellh.com/writing/my-ai-adoption-journey) (Mitchell Hashimoto, 2026) — the practice of engineering solutions so that an agent never repeats the same mistake, through a combination of improved prompts and programmatic tools. Both aim to make agents more reliable. They differ in what they focus on.
 
 | Layer | Question | Addressed by |
 |-------|----------|-------------|
