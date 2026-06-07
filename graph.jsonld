@@ -34,6 +34,7 @@
 
     {
       "@id": "https://doi.org/10.5281/zenodo.19200726",
+      "sameAs": "https://www.wikidata.org/wiki/Q140090186",
       "@type": ["ResearchLine", "ScholarlyArticle"],
       "name": "Agent Knowledge Cycle (AKC)",
       "alternateName": [
@@ -493,6 +494,7 @@
 
     {
       "@id": "https://orcid.org/0009-0002-6168-4162",
+      "sameAs": "https://www.wikidata.org/wiki/Q140090100",
       "@type": "Person",
       "name": "Tatsuya Shimomoto",
       "alternateName": "shimo4228",
@@ -502,6 +504,7 @@
 
     {
       "@id": "https://doi.org/10.5281/zenodo.19212118",
+      "sameAs": "https://www.wikidata.org/wiki/Q140090187",
       "@type": ["ResearchLine", "ScholarlyArticle"],
       "name": "Contemplative Agent",
       "alternateName": [
@@ -520,6 +523,7 @@
     },
     {
       "@id": "https://doi.org/10.5281/zenodo.19652013",
+      "sameAs": "https://www.wikidata.org/wiki/Q140090188",
       "@type": ["ResearchLine", "ScholarlyArticle"],
       "name": "Agent Attribution Practice (AAP)",
       "alternateName": [
@@ -539,6 +543,7 @@
 
     {
       "@id": "https://doi.org/10.5281/zenodo.20263316",
+      "sameAs": "https://www.wikidata.org/wiki/Q140090190",
       "@type": ["ResearchLine", "ScholarlyArticle"],
       "name": "Authorship Strategy",
       "description": "Downstream research line that crystallized out of the same daily operation the cycle runs in. A normative framework, tactical catalog, and empirical baseline for authorship under AI-mediated diffusion. Its own framing of the relationship: AKC defines how knowledge cycles inside the operator-agent pair; authorship-strategy addresses how the cycle's outputs diffuse outside it (mechanism sibling).",
@@ -550,6 +555,7 @@
     },
     {
       "@id": "https://doi.org/10.5281/zenodo.20262112",
+      "sameAs": "https://www.wikidata.org/wiki/Q140090189",
       "@type": ["ResearchLine", "ScholarlyArticle"],
       "name": "Attention, Not Self",
       "description": "Sibling research line in the same research program: Buddhist Abhidharma meets computational phenomenology. Its deposit metadata references AKC's concept DOI; the line federates with AKC, Contemplative Agent, and AAP at the research-program level.",
@@ -560,6 +566,7 @@
     },
     {
       "@id": "https://doi.org/10.5281/zenodo.20337008",
+      "sameAs": "https://www.wikidata.org/wiki/Q140090191",
       "@type": ["EcosystemRepo", "Dataset"],
       "name": "doctrine-corpus",
       "description": "Downstream judgment corpus: a bilingual (EN + JA) judgment-eliciting Q&A dataset encoding the documented judgment of the research program for LLM-mediated diffusion. AKC is one of its four source lines — ADRs and glossary harvested into the corpus. Operational form of Authorship Strategy Layer 4 tactic 7 (LLM-first ingest).",
@@ -570,6 +577,7 @@
     },
     {
       "@id": "https://doi.org/10.5281/zenodo.20558800",
+      "sameAs": "https://www.wikidata.org/wiki/Q140090192",
       "@type": ["EcosystemRepo", "ScholarlyArticle"],
       "name": "existence-proof",
       "description": "Pre-line working repository (by its own status discipline, not yet a research line): an empowerment doctrine for credential-less AI-enabled creators. Complement of Authorship Strategy — same infrastructure, different payload and beneficiary. Listed as program context; carries no direct AKC reference.",
@@ -613,6 +621,7 @@
 
     {
       "@id": "https://doi.org/10.5281/zenodo.20578272",
+      "sameAs": "https://www.wikidata.org/wiki/Q140090144",
       "@type": "ScholarlyArticle",
       "name": "Harness Alignment and Harness Drift: Why Intent, Unlike Correctness, Resists Automation",
       "author": "https://orcid.org/0009-0002-6168-4162",
