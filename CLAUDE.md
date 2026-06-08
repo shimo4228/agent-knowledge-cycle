@@ -54,7 +54,7 @@ Repo mapping:
 |---|---|
 | `shimo4228/agent-knowledge-cycle` ← **this repo** | [`Shimo4228/agent-knowledge-cycle`](https://huggingface.co/datasets/Shimo4228/agent-knowledge-cycle) |
 | `shimo4228/agent-attribution-practice` | [`Shimo4228/agent-attribution-practice`](https://huggingface.co/datasets/Shimo4228/agent-attribution-practice) |
-| `shimo4228/contemplative-agent` (local clone: `contemplative-moltbook/`) | [`Shimo4228/contemplative-agent`](https://huggingface.co/datasets/Shimo4228/contemplative-agent) |
+| `shimo4228/contemplative-agent` (local clone: `contemplative-agent/`) | [`Shimo4228/contemplative-agent`](https://huggingface.co/datasets/Shimo4228/contemplative-agent) |
 | `shimo4228/shimo4228` (hub repo) | [`Shimo4228/research-program-hub`](https://huggingface.co/datasets/Shimo4228/research-program-hub) |
 
 HF 側の `README.md` (dataset card) は HF 用に customize されている (sibling dataset への link、mirror notice 等)。Graph 更新では同期しない。Dataset card を edit したい場合は手動で `hf upload Shimo4228/agent-knowledge-cycle README.md --repo-type dataset`。
