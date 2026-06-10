@@ -44,7 +44,7 @@
       "description": "Six-phase bidirectional growth loop in which agent behavior and the operator's judgment co-develop over time, sustaining intent alignment that tests cannot check on their own. Three stacked layers — principles (ADRs), patterns (design-pattern skills), and implementation (composable skills) — decouple rate of change. Refers to a mechanism, not a disposition or a practice.",
       "identifier": "10.5281/zenodo.19200726",
       "url": "https://github.com/shimo4228/agent-knowledge-cycle",
-      "author": "https://orcid.org/0009-0002-6168-4162",
+      "author": {"@id": "https://orcid.org/0009-0002-6168-4162"},
       "siblingOf": [
         "https://doi.org/10.5281/zenodo.19212118",
         "https://doi.org/10.5281/zenodo.19652013"
@@ -497,7 +497,7 @@
       "sameAs": "https://www.wikidata.org/wiki/Q140090100",
       "@type": "Person",
       "name": "Tatsuya Shimomoto",
-      "alternateName": "shimo4228",
+      "alternateName": ["shimo4228", {"@value": "下本竜也", "@language": "ja"}],
       "identifier": "0009-0002-6168-4162",
       "url": "https://orcid.org/0009-0002-6168-4162"
     },
@@ -514,7 +514,7 @@
       "description": "Sibling research line with a two-way relationship to AKC. Upstream: AKC's ADR-0002 through ADR-0005 were adapted from its engineering substrate (three-layer memory, two-stage distill pipeline, immutable episode log, human approval gate), and it was the original home of the security triplet (ADR-0001, ADR-0006, ADR-0007) before the v2.0.0 extraction to Agent Attribution Practice. Downstream: it is the operational re-implementation of AKC in the autonomous-agent context — its pipeline maps the six phases onto code, the agent runs the six-phase cycle over its own episode logs with no fine-tuning and no labeled training data, and every promotion passes through a human approval gate. The demonstration is ongoing. AKC = cycle (mechanism); Contemplative Agent = implementation substrate and running re-implementation.",
       "identifier": "10.5281/zenodo.19212118",
       "url": "https://github.com/shimo4228/contemplative-agent",
-      "author": "https://orcid.org/0009-0002-6168-4162",
+      "author": {"@id": "https://orcid.org/0009-0002-6168-4162"},
       "implements": "https://shimo4228.github.io/shimo4228/vocab#concept/six-phase-loop",
       "siblingOf": [
         "https://doi.org/10.5281/zenodo.19200726",
@@ -533,7 +533,7 @@
       "description": "Sibling genre library. Harness-neutral ADRs on accountability distribution in autonomous AI agents. AKC v2.0.0 extracted the security triplet (ADR-0001, ADR-0006, ADR-0007) as genre-specific; those judgments were re-expressed in AAP alongside additional ADRs as 10 ADRs on accountability distribution. AKC = cycle (mechanism); AAP = practice (content, for AI agents).",
       "identifier": "10.5281/zenodo.19652013",
       "url": "https://github.com/shimo4228/agent-attribution-practice",
-      "author": "https://orcid.org/0009-0002-6168-4162",
+      "author": {"@id": "https://orcid.org/0009-0002-6168-4162"},
       "siblingOf": [
         "https://doi.org/10.5281/zenodo.19200726",
         "https://doi.org/10.5281/zenodo.19212118"
@@ -549,7 +549,7 @@
       "description": "Downstream research line that crystallized out of the same daily operation the cycle runs in. A normative framework, tactical catalog, and empirical baseline for authorship under AI-mediated diffusion. Its own framing of the relationship: AKC defines how knowledge cycles inside the operator-agent pair; authorship-strategy addresses how the cycle's outputs diffuse outside it (mechanism sibling).",
       "identifier": "10.5281/zenodo.20263316",
       "url": "https://github.com/shimo4228/authorship-strategy",
-      "author": "https://orcid.org/0009-0002-6168-4162",
+      "author": {"@id": "https://orcid.org/0009-0002-6168-4162"},
       "derivesFrom": "https://doi.org/10.5281/zenodo.19200726",
       "siblingOf": "https://doi.org/10.5281/zenodo.19200726"
     },
@@ -561,7 +561,7 @@
       "description": "Sibling research line in the same research program: Buddhist Abhidharma meets computational phenomenology. Its deposit metadata references AKC's concept DOI; the line federates with AKC, Contemplative Agent, and AAP at the research-program level.",
       "identifier": "10.5281/zenodo.20262112",
       "url": "https://github.com/shimo4228/attention-not-self",
-      "author": "https://orcid.org/0009-0002-6168-4162",
+      "author": {"@id": "https://orcid.org/0009-0002-6168-4162"},
       "siblingOf": "https://doi.org/10.5281/zenodo.19200726"
     },
     {
@@ -572,7 +572,7 @@
       "description": "Downstream judgment corpus: a bilingual (EN + JA) judgment-eliciting Q&A dataset encoding the documented judgment of the research program for LLM-mediated diffusion. AKC is one of its four source lines — ADRs and glossary harvested into the corpus. Operational form of Authorship Strategy Layer 4 tactic 7 (LLM-first ingest).",
       "identifier": "10.5281/zenodo.20337008",
       "url": "https://github.com/shimo4228/doctrine-corpus",
-      "author": "https://orcid.org/0009-0002-6168-4162",
+      "author": {"@id": "https://orcid.org/0009-0002-6168-4162"},
       "derivesFrom": "https://doi.org/10.5281/zenodo.19200726"
     },
     {
@@ -583,7 +583,7 @@
       "description": "Pre-line working repository (by its own status discipline, not yet a research line): an empowerment doctrine for credential-less AI-enabled creators. Complement of Authorship Strategy — same infrastructure, different payload and beneficiary. Listed as program context; carries no direct AKC reference.",
       "identifier": "10.5281/zenodo.20558800",
       "url": "https://github.com/shimo4228/existence-proof",
-      "author": "https://orcid.org/0009-0002-6168-4162",
+      "author": {"@id": "https://orcid.org/0009-0002-6168-4162"},
       "derivesFrom": "https://doi.org/10.5281/zenodo.20263316"
     },
     {
@@ -624,7 +624,7 @@
       "sameAs": "https://www.wikidata.org/wiki/Q140090144",
       "@type": "ScholarlyArticle",
       "name": "Harness Alignment and Harness Drift: Why Intent, Unlike Correctness, Resists Automation",
-      "author": "https://orcid.org/0009-0002-6168-4162",
+      "author": {"@id": "https://orcid.org/0009-0002-6168-4162"},
       "datePublished": "2026-06-07",
       "identifier": "10.5281/zenodo.20578272",
       "about": "https://doi.org/10.5281/zenodo.19200726",
