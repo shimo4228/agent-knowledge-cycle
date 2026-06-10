@@ -2,6 +2,13 @@
   "@context": {
     "@vocab": "https://schema.org/",
     "shimo": "https://shimo4228.github.io/shimo4228/vocab#",
+    "sameAs": {"@id": "https://schema.org/sameAs", "@type": "@id"},
+    "mainEntity": {"@id": "https://schema.org/mainEntity", "@type": "@id"},
+    "isBasedOn": {"@id": "https://schema.org/isBasedOn", "@type": "@id"},
+    "subjectOf": {"@id": "https://schema.org/subjectOf", "@type": "@id"},
+    "workExample": {"@id": "https://schema.org/workExample", "@type": "@id"},
+    "about": {"@id": "https://schema.org/about", "@type": "@id"},
+    "codeRepository": {"@id": "https://schema.org/codeRepository", "@type": "@id"},
     "ResearchLine": "shimo:ResearchLine",
     "EcosystemRepo": "shimo:EcosystemRepo",
     "Concept": "shimo:Concept",
