@@ -184,7 +184,7 @@
     {
       "@id": "https://shimo4228.github.io/shimo4228/vocab#memory-layer/identity",
       "@type": ["MemoryLayer", "DefinedTerm"],
-      "name": "Identity / Rules (Layer 3)",
+      "name": "Identity / Rules / Constitution (Layer 3)",
       "alternateName": [
         {"@value": "Identity Layer", "@language": "en"},
         {"@value": "アイデンティティ層", "@language": "ja"}
@@ -621,7 +621,7 @@
     {
       "@id": "https://github.com/shimo4228/shimo4228",
       "@type": "EcosystemRepo",
-      "name": "research-program hub",
+      "name": "Research Program Hub",
       "description": "Hub repository of the shimo4228 research program; its graph.jsonld is the canonical relationship map of the research ecosystem, federating AKC with its sibling and downstream lines.",
       "url": "https://github.com/shimo4228/shimo4228"
     },
