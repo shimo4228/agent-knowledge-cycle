@@ -641,55 +641,73 @@
 
     {
       "@id": "https://shimo4228.github.io/shimo4228/vocab#prior-art/coala",
+      "sameAs": "https://www.wikidata.org/wiki/Q140181234",
       "@type": "ScholarlyArticle",
       "name": "CoALA: Cognitive Architectures for Language Agents",
       "author": "Sumers et al.",
       "datePublished": "2023",
+      "identifier": "arXiv:2309.02427",
+      "url": "https://arxiv.org/abs/2309.02427",
       "description": "Prior art named in ADR-0013's Related-Work positioning. Provides the framework vocabulary (modular memory, structured action space, decision procedure) that makes the agent-memory literature commensurable. Cited as prior art for positioning, not consulted during AKC's construction; AKC contrasts on loop ownership (human gate), bidirectional human-judgment target, and human-attention scarcity.",
       "groundedIn": "https://github.com/shimo4228/agent-knowledge-cycle/blob/main/docs/adr/0013-positioning-within-agent-memory-literature.md"
     },
     {
       "@id": "https://shimo4228.github.io/shimo4228/vocab#prior-art/voyager",
+      "sameAs": "https://www.wikidata.org/wiki/Q140181233",
       "@type": "ScholarlyArticle",
       "name": "Voyager: An Open-Ended Embodied Agent with Large Language Models",
       "author": "Wang et al.",
       "datePublished": "2023",
+      "identifier": "arXiv:2305.16291",
+      "url": "https://arxiv.org/abs/2305.16291",
       "description": "Prior art named in ADR-0013's Related-Work positioning. Maintains an ever-growing skill library of executable code induced from gameplay — in AKC vocabulary, Extract-then-Promote run end to end, autonomously. AKC concedes the operation is not novel and locates its delta: the prior art closes the loop without a human in it; AKC's Promote requires named human sign-off.",
       "groundedIn": "https://github.com/shimo4228/agent-knowledge-cycle/blob/main/docs/adr/0013-positioning-within-agent-memory-literature.md"
     },
     {
       "@id": "https://shimo4228.github.io/shimo4228/vocab#prior-art/generative-agents",
+      "sameAs": "https://www.wikidata.org/wiki/Q130846143",
       "@type": "ScholarlyArticle",
       "name": "Generative Agents: Interactive Simulacra of Human Behavior",
       "author": "Park et al.",
       "datePublished": "2023",
+      "identifier": "arXiv:2304.03442",
+      "url": "https://arxiv.org/abs/2304.03442",
       "description": "Prior art named in ADR-0013's Related-Work positioning. Introduced a reflection step that synthesizes observations into higher-level inferences stored for later retrieval — the Extract / reflection operation AKC concedes as precedent. AKC contrasts on who owns the loop and on framing human attention, not agent capability, as the scarce resource.",
       "groundedIn": "https://github.com/shimo4228/agent-knowledge-cycle/blob/main/docs/adr/0013-positioning-within-agent-memory-literature.md"
     },
     {
       "@id": "https://shimo4228.github.io/shimo4228/vocab#prior-art/memgpt",
+      "sameAs": "https://www.wikidata.org/wiki/Q140181237",
       "@type": "ScholarlyArticle",
       "name": "MemGPT: Towards LLMs as Operating Systems",
       "author": "Packer et al.",
       "datePublished": "2023",
+      "identifier": "arXiv:2310.08560",
+      "url": "https://arxiv.org/abs/2310.08560",
       "description": "Prior art named in ADR-0013's Related-Work positioning. Formalizes a memory hierarchy with paging between context and external store. Its binding constraint is the context window; AKC (ADR-0010) names a different ceiling — human attention and judgment — so the two solve scarcity on different resources and can coexist.",
       "groundedIn": "https://github.com/shimo4228/agent-knowledge-cycle/blob/main/docs/adr/0013-positioning-within-agent-memory-literature.md"
     },
     {
       "@id": "https://shimo4228.github.io/shimo4228/vocab#prior-art/reme",
+      "sameAs": "https://www.wikidata.org/wiki/Q140181257",
       "@type": "ScholarlyArticle",
       "name": "ReMe: Remember Me, Refine Me",
       "author": "Cao et al.",
       "datePublished": "2025",
+      "identifier": "arXiv:2512.10696",
+      "url": "https://arxiv.org/abs/2512.10696",
       "description": "Prior art named in ADR-0013's Related-Work positioning. A dynamic procedural-memory framework that continuously refines what is stored — a Curate-and-Promote loop by another name, run autonomously. AKC concedes the refinement operation as precedent and locates its delta in the structural human approval gate where ReMe runs without a human in the write path.",
       "groundedIn": "https://github.com/shimo4228/agent-knowledge-cycle/blob/main/docs/adr/0013-positioning-within-agent-memory-literature.md"
     },
     {
       "@id": "https://shimo4228.github.io/shimo4228/vocab#prior-art/agent-workflow-memory",
+      "sameAs": "https://www.wikidata.org/wiki/Q140181241",
       "@type": "ScholarlyArticle",
       "name": "Agent Workflow Memory",
       "author": "Wang et al.",
       "datePublished": "2024",
+      "identifier": "arXiv:2409.07429",
+      "url": "https://arxiv.org/abs/2409.07429",
       "description": "Prior art named in ADR-0013's Related-Work positioning. Induces commonly reused routines (workflows) from agent trajectories and feeds them back into subsequent generations — Extract-then-Promote without a human in the write path. AKC concedes the induction operation and contrasts on loop ownership and on optimizing the operator's judgment, not only the agent's task success.",
       "groundedIn": "https://github.com/shimo4228/agent-knowledge-cycle/blob/main/docs/adr/0013-positioning-within-agent-memory-literature.md"
     },
@@ -705,19 +723,25 @@
     },
     {
       "@id": "https://shimo4228.github.io/shimo4228/vocab#prior-art/lehman-laws",
+      "sameAs": "https://www.wikidata.org/wiki/Q57311412",
       "@type": "ScholarlyArticle",
       "name": "Programs, Life Cycles, and Laws of Software Evolution",
       "author": "Lehman, M. M.",
       "datePublished": "1980",
+      "identifier": "doi:10.1109/PROC.1980.11805",
+      "url": "https://doi.org/10.1109/PROC.1980.11805",
       "description": "Vocabulary lineage named in ADR-0017. Law I (Continuing Change): an E-type program \"undergoes continual change or becomes progressively less useful\"; \"evolution is an intrinsic, feedback driven, property of software\" (Proceedings of the IEEE 68(9)). Lehman's driver of change is the world the program is embedded in; harness alignment's driver is the operator's evolving intent.",
       "groundedIn": "https://github.com/shimo4228/agent-knowledge-cycle/blob/main/docs/adr/0017-harness-alignment-and-drift.md"
     },
     {
       "@id": "https://shimo4228.github.io/shimo4228/vocab#prior-art/architectural-drift-perry-wolf",
+      "sameAs": "https://www.wikidata.org/wiki/Q55880382",
       "@type": "ScholarlyArticle",
       "name": "Foundations for the Study of Software Architecture",
       "author": "Perry, D. E. & Wolf, A. L.",
       "datePublished": "1992",
+      "identifier": "doi:10.1145/141874.141884",
+      "url": "https://doi.org/10.1145/141874.141884",
       "description": "Vocabulary lineage named in ADR-0017. Defines architectural drift — \"due to insensitivity about the architecture\", leading \"more to inadaptability than to disasters\" (ACM SIGSOFT SEN 17(4)) — the canonical academic name for divergence-by-insensitivity. Assumes a fixed intended architecture; harness drift's reference point (operator intent) itself evolves.",
       "groundedIn": "https://github.com/shimo4228/agent-knowledge-cycle/blob/main/docs/adr/0017-harness-alignment-and-drift.md"
     },
@@ -754,6 +778,42 @@
       "description": "Vocabulary lineage named in ADR-0017. Defines agent drift as \"the progressive degradation of agent behavior, decision quality, and inter-agent coherence over extended interaction sequences\" and semantic drift as \"progressive deviation from original intent\". Its reference list contains no classical software-engineering literature (no Lehman, Perry & Wolf, Parnas, or Snook) — the vocabulary gap harness drift bridges by explicit lineage to both bodies.",
       "url": "https://arxiv.org/abs/2601.04170",
       "groundedIn": "https://github.com/shimo4228/agent-knowledge-cycle/blob/main/docs/adr/0017-harness-alignment-and-drift.md"
+    },
+    {
+      "@id": "https://shimo4228.github.io/shimo4228/vocab#prior-art/geo",
+      "sameAs": "https://www.wikidata.org/wiki/Q131161430",
+      "@type": "ScholarlyArticle",
+      "name": "GEO: Generative Engine Optimization",
+      "author": "Aggarwal, P. et al.",
+      "datePublished": "2023",
+      "identifier": "arXiv:2311.09735",
+      "url": "https://arxiv.org/abs/2311.09735",
+      "description": "Measurement framework behind the geo-writer snapshot in ADR-0010 — the first Measure-phase self-application to AKC's own documentation. The README is scored before and after the cognitive-economy change on GEO-derived checks (entity density, question-heading prominence, chunk self-containment, definition density), with both snapshots retained in version control so successive ADRs can track the README's GEO trajectory over time.",
+      "groundedIn": "https://github.com/shimo4228/agent-knowledge-cycle/blob/main/docs/adr/0010-human-cognitive-resource-as-central-constraint.md"
+    },
+    {
+      "@id": "https://shimo4228.github.io/shimo4228/vocab#prior-art/intrinsic-metacognitive-learning",
+      "sameAs": "https://www.wikidata.org/wiki/Q140181243",
+      "@type": "ScholarlyArticle",
+      "name": "Truly Self-Improving Agents Require Intrinsic Metacognitive Learning",
+      "author": "Liu & van der Schaar",
+      "datePublished": "2025",
+      "identifier": "arXiv:2506.05109",
+      "url": "https://arxiv.org/abs/2506.05109",
+      "description": "Taxonomy named in ADR-0005's defense of the human approval gate. In its intrinsic/extrinsic distinction, AKC's gate is extrinsic metacognition — a human-designed loop with a human evaluator at the decision point — and stays so by design, not by immaturity: behavior-modifying writes remain gated because they are where the operator's evolving intent enters the loop.",
+      "groundedIn": "https://github.com/shimo4228/agent-knowledge-cycle/blob/main/docs/adr/0005-human-approval-gate.md"
+    },
+    {
+      "@id": "https://shimo4228.github.io/shimo4228/vocab#prior-art/externalization-review",
+      "sameAs": "https://www.wikidata.org/wiki/Q140181274",
+      "@type": "ScholarlyArticle",
+      "name": "Externalization in LLM Agents: A Unified Review of Memory, Skills, Protocols and Harness Engineering",
+      "author": "Zhou et al.",
+      "datePublished": "2026",
+      "identifier": "arXiv:2604.08224",
+      "url": "https://arxiv.org/abs/2604.08224",
+      "description": "Field map named in ADR-0013's Related-Work positioning. Frames the field as three coupled forms of externalization — memory, skills, protocols — coordinated by harness engineering as the unification layer; AKC accepts that it sits squarely inside this frame, overlapping the memory and skills quadrants, and locates its delta in loop ownership rather than in the externalization operations themselves.",
+      "groundedIn": "https://github.com/shimo4228/agent-knowledge-cycle/blob/main/docs/adr/0013-positioning-within-agent-memory-literature.md"
     },
 
     {
