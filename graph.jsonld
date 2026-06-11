@@ -732,6 +732,7 @@
     },
     {
       "@id": "https://shimo4228.github.io/shimo4228/vocab#prior-art/meta-harness",
+      "sameAs": "https://www.wikidata.org/wiki/Q140181272",
       "@type": "ScholarlyArticle",
       "name": "Meta-Harness: End-to-End Optimization of Model Harnesses",
       "author": "Lee, Y. et al.",
@@ -745,6 +746,7 @@
     },
     {
       "@id": "https://shimo4228.github.io/shimo4228/vocab#prior-art/agent-drift",
+      "sameAs": "https://www.wikidata.org/wiki/Q140181260",
       "@type": "ScholarlyArticle",
       "name": "Agent Drift: Quantifying Behavioral Degradation in Multi-Agent LLM Systems Over Extended Interactions",
       "author": "Rath, A.",
