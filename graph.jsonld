@@ -787,6 +787,7 @@
     },
     {
       "@id": "https://shimo4228.github.io/shimo4228/vocab#prior-art/automation-complacency-parasuraman-manzey",
+      "sameAs": "https://www.wikidata.org/wiki/Q37809526",
       "@type": ["ExternalReference", "ScholarlyArticle"],
       "name": "Complacency and Bias in Human Use of Automation: An Attentional Integration",
       "author": "Parasuraman, R. & Manzey, D. H.",
@@ -798,6 +799,7 @@
     },
     {
       "@id": "https://shimo4228.github.io/shimo4228/vocab#prior-art/ironies-of-automation-bainbridge",
+      "sameAs": "https://www.wikidata.org/wiki/Q62065802",
       "@type": "ScholarlyArticle",
       "name": "Ironies of Automation",
       "author": "Bainbridge, L.",
@@ -809,6 +811,7 @@
     },
     {
       "@id": "https://shimo4228.github.io/shimo4228/vocab#prior-art/benchmark-audit-moghadasi-ghaderi",
+      "sameAs": "https://www.wikidata.org/wiki/Q140181281",
       "@type": ["ExternalReference", "ScholarlyArticle"],
       "name": "What Twelve LLM Agent Benchmark Papers Disclose About Themselves: A Pilot Audit and an Open Scoring Schema",
       "author": "Moghadasi, M. N. & Ghaderi, F.",
@@ -820,6 +823,7 @@
     },
     {
       "@id": "https://shimo4228.github.io/shimo4228/vocab#prior-art/constraint-drift",
+      "sameAs": "https://www.wikidata.org/wiki/Q140181279",
       "@type": ["ExternalReference", "ScholarlyArticle"],
       "name": "Safe Multi-Agent Behavior Must Be Maintained, Not Merely Asserted: Constraint Drift in LLM-Based Multi-Agent Systems",
       "author": "Li, T. et al.",
@@ -831,6 +835,7 @@
     },
     {
       "@id": "https://shimo4228.github.io/shimo4228/vocab#prior-art/memory-drift",
+      "sameAs": "https://www.wikidata.org/wiki/Q140181270",
       "@type": ["ExternalReference", "ScholarlyArticle"],
       "name": "Governing Evolving Memory in LLM Agents: Risks, Mechanisms, and the Stability and Safety Governed Memory (SSGM) Framework",
       "author": "Lam, C. et al.",
@@ -842,6 +847,7 @@
     },
     {
       "@id": "https://shimo4228.github.io/shimo4228/vocab#prior-art/belief-deviation",
+      "sameAs": "https://www.wikidata.org/wiki/Q140181284",
       "@type": ["ExternalReference", "ScholarlyArticle"],
       "name": "Meta-Cognitive Memory Policy Optimization for Long-Horizon LLM Agents",
       "author": "Liu, Z. et al.",
