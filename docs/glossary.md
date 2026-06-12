@@ -46,7 +46,11 @@ requires human approval. It runs not between skills and rules but
 between **records** (transcripts, distilled notes — disposable,
 regenerable, free to write) and **the artifacts that shape future
 behavior** (skills, rules, identity prose — approval required). See
-ADR-0005's decision table.
+ADR-0005's decision table. The position paper presents this boundary as
+the cycle's load-bearing structural commitment — the place where the
+human-gated property becomes architecture: what can be verified without
+the operator runs unattended; every behavior-shaping change passes the
+gate ([position paper](https://doi.org/10.5281/zenodo.20578272), §5).
 
 ## Rules (layer)
 
@@ -136,9 +140,15 @@ The continuous, human-gated activity of keeping an agent's harness
 (skills, rules, prompts, documentation) aligned with the operator's
 evolving intent.
 Three properties hold simultaneously, and no single prior term covers
-all three: the target is operator intent, *itself evolving*; the loop is
-*human-gated*; the alignment is *sustained continuously*, not configured
-once. Extends intent alignment (Christiano 2018) from behavior to the
+all three: **(a)** the target is operator intent, *itself evolving* —
+labeled *bidirectional*, because the loop's own running is what moves
+the target; **(b)** the loop is *human-gated*; **(c)** the alignment is
+*continuous* — sustained through a recurring cycle, not configured once.
+The position paper derives all three from a single root: intent has no
+verifier outside the operator, and verifying intent sharpens the
+judgment doing the verifying, so the loop moves its own target
+([position paper](https://doi.org/10.5281/zenodo.20578272), §3).
+Extends intent alignment (Christiano 2018) from behavior to the
 artifacts that shape behavior, and across time (Lehman 1980's law of
 continuing change). Contrast: autonomous, score-driven *harness
 optimization* (Meta-Harness). See ADR-0017.
@@ -150,6 +160,19 @@ from operator intent when the cycle does not run. Named in lineage with
 architectural drift (Perry & Wolf 1992), practical drift (Snook 2000,
 secondary-verified), and agent drift (Rath 2026). See ADR-0017.
 
+The artifact-side layer of harness alignment's failure; its human-side
+twin is the [failure twin](#failure-twin-experimental) (ADR-0014). The
+two compound — a complacent gate accelerates harness drift — but are
+distinct failures, recorded separately. The position paper's pre-deposit
+audit extended the lineage check to three further 2026 drift coinages
+(constraint drift, memory drift, belief deviation) and found the same
+absence of the classical software-evolution lineage; it also found the
+term "harness drift" used once elsewhere in a different sense — a
+benchmark-comparability defect (Moghadasi & Ghaderi 2026), not a
+configuration layer's uncoupling from operator intent
+([position paper](https://doi.org/10.5281/zenodo.20578272), §6 and
+notes).
+
 ## Intent alignment
 
 Christiano's (2018) sense: an agent that "is trying to do what H wants
@@ -157,7 +180,15 @@ it to do." Correctness can be automated — tests, types, linters check
 stated criteria; intent alignment cannot be automated to the same
 degree, because intent moves as the operator's judgment sharpens through
 use. An agent can pass every correctness check and still drift from what
-its operator now wants. See ADR-0017 for AKC's two-direction extension.
+its operator now wants. The position paper carries the structural
+argument for why the asymmetry is not a tooling artifact: any automated
+intent-check must freeze intent into a stated criterion; a frozen
+criterion is a specification, and checking against a specification is
+correctness work — so the automatable part of intent alignment reduces,
+piece by piece, to correctness work, and the moving criterion is the
+residue that harness alignment works on
+([position paper](https://doi.org/10.5281/zenodo.20578272), §3). See
+ADR-0017 for AKC's two-direction extension.
 
 ## Bidirectional growth loop
 
@@ -191,6 +222,12 @@ circuit-breaker, Curate and Promote are active judgment acts, and the
 gate forces articulation rather than a one-bit click. AKC does not claim
 immunity — "a human determined to stop attending will diverge from the
 loop regardless of structure" (ADR-0014).
+
+These three modes are the human-side layer of harness alignment's
+two-layer failure; the artifact-side layer is
+[harness drift](#harness-drift). The two compound but are recorded
+separately ([position paper](https://doi.org/10.5281/zenodo.20578272),
+§6).
 
 ## Self-reingestion (experimental)
 

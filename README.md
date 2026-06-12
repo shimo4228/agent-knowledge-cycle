@@ -93,7 +93,12 @@ correctness check and still drift from intent. The behavior-level
 distinction is [intent alignment](https://ai-alignment.com/clarifying-ai-alignment-cec47cd69dd6)
 (Christiano, 2018) — an agent trying to do what its operator wants it
 to do — which AKC extends across time and down into the artifacts
-that shape behavior.
+that shape behavior. The
+[position paper](https://doi.org/10.5281/zenodo.20578272) develops the
+asymmetry into a structural argument: an automated intent-check would
+have to freeze intent into a stated criterion, a frozen criterion is a
+specification, and checking a specification is correctness work — what
+resists that reduction is the moving criterion itself.
 
 AKC's design choices reflect this. Design Principle #3 (Non-destructive)
 — propose, then wait for confirmation — keeps every change at a
@@ -230,6 +235,16 @@ circuit-breaker with no auto-approve path, and Curate and Promote are
 active judgment acts — the cycle's normal operation is itself the
 exercise that resists deskilling. The full analysis is in
 [ADR-0014](docs/adr/0014-failure-modes-of-the-bidirectional-loop.md).
+
+These three modes are the human-side layer of a two-layer failure; the
+artifact-side layer is **harness drift**
+([ADR-0017](docs/adr/0017-harness-alignment-and-drift.md)). The two
+compound — a complacent gate accelerates harness drift — but they are
+distinct failures, recorded separately. The
+[position paper](https://doi.org/10.5281/zenodo.20578272) (§6) anchors
+the human-side modes in the automation-complacency and
+ironies-of-automation literatures, held as structural inference, not
+measurement.
 
 ## Relationship to Harness Engineering
 

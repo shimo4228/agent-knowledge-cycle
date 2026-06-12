@@ -326,7 +326,8 @@
       "@id": "https://shimo4228.github.io/shimo4228/vocab#akc/concept/harness-alignment",
       "@type": ["Concept", "DefinedTerm"],
       "name": "harness alignment",
-      "description": "The continuous, human-gated activity of keeping an agent's harness — its configuration layer: skills, rules, prompts, documentation — aligned with the operator's evolving intent. Extends intent alignment (Christiano 2018) from agent behavior to the artifacts that shape behavior, and across time: alignment is sustained through a cycle, not configured once (cf. Lehman's Law of Continuing Change, 1980). The alignment target is operator intent, not model values. The contrast is harness optimization (Meta-Harness, arXiv:2603.28052): autonomous, score-driven improvement on the correctness axis. AKC's six phases operationalize harness alignment: Measure and Maintain detect harness drift; Curate and Promote correct it through the human approval gate.",
+      "description": "The continuous, human-gated activity of keeping an agent's harness — its configuration layer: skills, rules, prompts, documentation — aligned with the operator's evolving intent. Extends intent alignment (Christiano 2018) from agent behavior to the artifacts that shape behavior, and across time: alignment is sustained through a cycle, not configured once (cf. Lehman's Law of Continuing Change, 1980). The alignment target is operator intent, not model values. Three defining properties hold simultaneously — continuous, human-gated, bidirectional (the loop's own running moves its own target) — derived from a single root in the position paper (10.5281/zenodo.20578272, §3): intent has no verifier outside the operator, and verifying intent sharpens the judgment doing the verifying. The contrast is harness optimization (Meta-Harness, arXiv:2603.28052): autonomous, score-driven improvement on the correctness axis. AKC's six phases operationalize harness alignment: Measure and Maintain detect harness drift; Curate and Promote correct it through the human approval gate.",
+      "subjectOf": "https://doi.org/10.5281/zenodo.20578272",
       "groundedIn": [
         "https://github.com/shimo4228/agent-knowledge-cycle/blob/main/docs/adr/0017-harness-alignment-and-drift.md",
         "https://github.com/shimo4228/agent-knowledge-cycle/blob/main/docs/adr/0009-akc-is-a-cycle-not-a-harness.md"
@@ -339,7 +340,8 @@
       "@id": "https://shimo4228.github.io/shimo4228/vocab#akc/concept/harness-drift",
       "@type": ["Concept", "DefinedTerm"],
       "name": "harness drift",
-      "description": "Harness alignment's failure mode: the gradual uncoupling of the harness from operator intent when the cycle does not run — skills go stale, rules stop matching practice, documentation diverges from code. Named in lineage with architectural drift (Perry & Wolf 1992: divergence by insensitivity), practical drift (Snook 2000: practice uncoupling from written procedure), and agent drift (arXiv:2601.04170: behavioral-level deviation from original intent). An artifact-side failure, distinct from the human-side loop failure modes of ADR-0014 (gate complacency, deskilling, delegation-feedback divergence); the two compound but are recorded separately.",
+      "description": "Harness alignment's failure mode: the gradual uncoupling of the harness from operator intent when the cycle does not run — skills go stale, rules stop matching practice, documentation diverges from code. Named in lineage with architectural drift (Perry & Wolf 1992: divergence by insensitivity), practical drift (Snook 2000: practice uncoupling from written procedure), and agent drift (arXiv:2601.04170: behavioral-level deviation from original intent). An artifact-side failure, distinct from the human-side loop failure modes of ADR-0014 (gate complacency, deskilling, delegation-feedback divergence); the two compound but are recorded separately. The position paper's pre-deposit audit (10.5281/zenodo.20578272, §6) extended the lineage check to three further 2026 drift coinages — constraint drift, memory drift, belief deviation — finding the same absence of the classical lineage, and disambiguates the term from its one other use (benchmark-comparability, Moghadasi & Ghaderi 2026).",
+      "subjectOf": "https://doi.org/10.5281/zenodo.20578272",
       "groundedIn": "https://github.com/shimo4228/agent-knowledge-cycle/blob/main/docs/adr/0017-harness-alignment-and-drift.md",
       "derivesFrom": [
         "https://shimo4228.github.io/shimo4228/vocab#prior-art/architectural-drift-perry-wolf",
@@ -636,13 +638,17 @@
       "identifier": "10.5281/zenodo.20578272",
       "about": "https://doi.org/10.5281/zenodo.19200726",
       "isBasedOn": "https://github.com/shimo4228/agent-knowledge-cycle",
-      "description": "Position paper (Zenodo working paper, v1) deposited from the AKC line. Defines harness alignment — the continuous, human-gated activity of keeping an agent's harness aligned with the operator's evolving intent — and harness drift, its failure mode, against the software-evolution and alignment literatures; argues the three defining properties (continuous, human-gated, bidirectional) follow from a single root: intent, unlike correctness, cannot be automated the same way. Records a bibliographic bridge: audited 2026 drift coinages are severed from the classical software-evolution lineage, which harness drift reconnects by reference. Two-layer design: lean body for human readers, verified-verbatim footnotes as a density layer for LLM consumption. Scoped as provisional judgments from a months-old practice, offered as a position, not an empirical study."
+      "definesConcept": [
+        "https://shimo4228.github.io/shimo4228/vocab#akc/concept/harness-alignment",
+        "https://shimo4228.github.io/shimo4228/vocab#akc/concept/harness-drift"
+      ],
+      "description": "Position paper (Zenodo working paper, v1) deposited from the AKC line. Defines harness alignment — the continuous, human-gated activity of keeping an agent's harness aligned with the operator's evolving intent — and harness drift, its failure mode, against the software-evolution and alignment literatures; argues the three defining properties (continuous, human-gated, bidirectional) follow from a single root: intent, unlike correctness, cannot be automated the same way — an automated intent-check would freeze intent into a specification, reducing its automatable part to correctness work, and the moving criterion is the residue. Records a bibliographic bridge: audited 2026 drift coinages are severed from the classical software-evolution lineage, which harness drift reconnects by reference. Two-layer design: lean body for human readers, verified-verbatim footnotes as a density layer for LLM consumption. Scoped as provisional judgments from a months-old practice, offered as a position, not an empirical study."
     },
 
     {
       "@id": "https://shimo4228.github.io/shimo4228/vocab#prior-art/coala",
       "sameAs": "https://www.wikidata.org/wiki/Q140181234",
-      "@type": "ScholarlyArticle",
+      "@type": ["ExternalReference", "ScholarlyArticle"],
       "name": "CoALA: Cognitive Architectures for Language Agents",
       "author": "Sumers et al.",
       "datePublished": "2023",
@@ -654,7 +660,7 @@
     {
       "@id": "https://shimo4228.github.io/shimo4228/vocab#prior-art/voyager",
       "sameAs": "https://www.wikidata.org/wiki/Q140181233",
-      "@type": "ScholarlyArticle",
+      "@type": ["ExternalReference", "ScholarlyArticle"],
       "name": "Voyager: An Open-Ended Embodied Agent with Large Language Models",
       "author": "Wang et al.",
       "datePublished": "2023",
@@ -666,7 +672,7 @@
     {
       "@id": "https://shimo4228.github.io/shimo4228/vocab#prior-art/generative-agents",
       "sameAs": "https://www.wikidata.org/wiki/Q130846143",
-      "@type": "ScholarlyArticle",
+      "@type": ["ExternalReference", "ScholarlyArticle"],
       "name": "Generative Agents: Interactive Simulacra of Human Behavior",
       "author": "Park et al.",
       "datePublished": "2023",
@@ -678,7 +684,7 @@
     {
       "@id": "https://shimo4228.github.io/shimo4228/vocab#prior-art/memgpt",
       "sameAs": "https://www.wikidata.org/wiki/Q140181237",
-      "@type": "ScholarlyArticle",
+      "@type": ["ExternalReference", "ScholarlyArticle"],
       "name": "MemGPT: Towards LLMs as Operating Systems",
       "author": "Packer et al.",
       "datePublished": "2023",
@@ -690,7 +696,7 @@
     {
       "@id": "https://shimo4228.github.io/shimo4228/vocab#prior-art/reme",
       "sameAs": "https://www.wikidata.org/wiki/Q140181257",
-      "@type": "ScholarlyArticle",
+      "@type": ["ExternalReference", "ScholarlyArticle"],
       "name": "ReMe: Remember Me, Refine Me",
       "author": "Cao et al.",
       "datePublished": "2025",
@@ -702,7 +708,7 @@
     {
       "@id": "https://shimo4228.github.io/shimo4228/vocab#prior-art/agent-workflow-memory",
       "sameAs": "https://www.wikidata.org/wiki/Q140181241",
-      "@type": "ScholarlyArticle",
+      "@type": ["ExternalReference", "ScholarlyArticle"],
       "name": "Agent Workflow Memory",
       "author": "Wang et al.",
       "datePublished": "2024",
@@ -713,7 +719,7 @@
     },
     {
       "@id": "https://shimo4228.github.io/shimo4228/vocab#prior-art/intent-alignment-christiano",
-      "@type": "TechArticle",
+      "@type": ["ExternalReference", "TechArticle"],
       "name": "Clarifying \"AI alignment\"",
       "author": "Christiano, P.",
       "datePublished": "2018",
@@ -724,7 +730,7 @@
     {
       "@id": "https://shimo4228.github.io/shimo4228/vocab#prior-art/lehman-laws",
       "sameAs": "https://www.wikidata.org/wiki/Q57311412",
-      "@type": "ScholarlyArticle",
+      "@type": ["ExternalReference", "ScholarlyArticle"],
       "name": "Programs, Life Cycles, and Laws of Software Evolution",
       "author": "Lehman, M. M.",
       "datePublished": "1980",
@@ -736,7 +742,7 @@
     {
       "@id": "https://shimo4228.github.io/shimo4228/vocab#prior-art/architectural-drift-perry-wolf",
       "sameAs": "https://www.wikidata.org/wiki/Q55880382",
-      "@type": "ScholarlyArticle",
+      "@type": ["ExternalReference", "ScholarlyArticle"],
       "name": "Foundations for the Study of Software Architecture",
       "author": "Perry, D. E. & Wolf, A. L.",
       "datePublished": "1992",
@@ -747,7 +753,7 @@
     },
     {
       "@id": "https://shimo4228.github.io/shimo4228/vocab#prior-art/practical-drift-snook",
-      "@type": "Book",
+      "@type": ["ExternalReference", "Book"],
       "name": "Friendly Fire: The Accidental Shootdown of U.S. Black Hawks over Northern Iraq",
       "author": "Snook, S. A.",
       "datePublished": "2000",
@@ -757,7 +763,7 @@
     {
       "@id": "https://shimo4228.github.io/shimo4228/vocab#prior-art/meta-harness",
       "sameAs": "https://www.wikidata.org/wiki/Q140181272",
-      "@type": "ScholarlyArticle",
+      "@type": ["ExternalReference", "ScholarlyArticle"],
       "name": "Meta-Harness: End-to-End Optimization of Model Harnesses",
       "author": "Lee, Y. et al.",
       "datePublished": "2026",
@@ -771,7 +777,7 @@
     {
       "@id": "https://shimo4228.github.io/shimo4228/vocab#prior-art/agent-drift",
       "sameAs": "https://www.wikidata.org/wiki/Q140181260",
-      "@type": "ScholarlyArticle",
+      "@type": ["ExternalReference", "ScholarlyArticle"],
       "name": "Agent Drift: Quantifying Behavioral Degradation in Multi-Agent LLM Systems Over Extended Interactions",
       "author": "Rath, A.",
       "datePublished": "2026",
@@ -780,9 +786,75 @@
       "groundedIn": "https://github.com/shimo4228/agent-knowledge-cycle/blob/main/docs/adr/0017-harness-alignment-and-drift.md"
     },
     {
+      "@id": "https://shimo4228.github.io/shimo4228/vocab#prior-art/automation-complacency-parasuraman-manzey",
+      "@type": ["ExternalReference", "ScholarlyArticle"],
+      "name": "Complacency and Bias in Human Use of Automation: An Attentional Integration",
+      "author": "Parasuraman, R. & Manzey, D. H.",
+      "datePublished": "2010",
+      "identifier": "doi:10.1177/0018720810376055",
+      "url": "https://doi.org/10.1177/0018720810376055",
+      "description": "Empirical anchor for the failure twin's gate-complacency mode, located by the position paper (§6). Defines automation complacency operationally as poorer detection of system malfunctions under automation control compared with manual control, finds it reliability-dependent (33% failure detection under constant-reliability automation versus 82% under variable-reliability), and characterizes it as an active reallocation of attention under high workload, not passive laziness. The position paper holds the mapping as structural inference, not measurement on the cycle (ADR-0014 keeps the empirical layer out of the decision record by its own layer rule).",
+      "groundedIn": "https://doi.org/10.5281/zenodo.20578272"
+    },
+    {
+      "@id": "https://shimo4228.github.io/shimo4228/vocab#prior-art/ironies-of-automation-bainbridge",
+      "@type": "ScholarlyArticle",
+      "name": "Ironies of Automation",
+      "author": "Bainbridge, L.",
+      "datePublished": "1983",
+      "identifier": "doi:10.1016/0005-1098(83)90046-8",
+      "url": "https://doi.org/10.1016/0005-1098(83)90046-8",
+      "description": "Empirical anchor for the failure twin's deskilling mode, located by the position paper (§6): physical and cognitive skills deteriorate when not used, so a formerly experienced operator who has been monitoring an automated process may now be an inexperienced one — while the monitoring arrangement asks the operator to supervise a system installed precisely because it outperforms them. Held as structural inference, not measurement on the cycle.",
+      "groundedIn": "https://doi.org/10.5281/zenodo.20578272"
+    },
+    {
+      "@id": "https://shimo4228.github.io/shimo4228/vocab#prior-art/benchmark-audit-moghadasi-ghaderi",
+      "@type": ["ExternalReference", "ScholarlyArticle"],
+      "name": "What Twelve LLM Agent Benchmark Papers Disclose About Themselves: A Pilot Audit and an Open Scoring Schema",
+      "author": "Moghadasi, M. N. & Ghaderi, F.",
+      "datePublished": "2026",
+      "identifier": "arXiv:2605.21404",
+      "url": "https://arxiv.org/abs/2605.21404",
+      "description": "Term disambiguation recorded by the position paper's pre-deposit sweep: the only other use of \"harness drift\" found, meaning a benchmark-comparability defect — results produced on the same benchmark under different scaffolds circulating under the same name — not a configuration layer's uncoupling from operator intent (the AKC sense). Readers retrieving \"harness drift\" should disambiguate by this contrast.",
+      "groundedIn": "https://doi.org/10.5281/zenodo.20578272"
+    },
+    {
+      "@id": "https://shimo4228.github.io/shimo4228/vocab#prior-art/constraint-drift",
+      "@type": ["ExternalReference", "ScholarlyArticle"],
+      "name": "Safe Multi-Agent Behavior Must Be Maintained, Not Merely Asserted: Constraint Drift in LLM-Based Multi-Agent Systems",
+      "author": "Li, T. et al.",
+      "datePublished": "2026",
+      "identifier": "arXiv:2605.10481",
+      "url": "https://arxiv.org/abs/2605.10481",
+      "description": "One of three further 2026 drift coinages audited in the position paper's pre-deposit sweep (§6): constraint drift — the loss, distortion, weakening, or relaxation of constraints as they pass through memory, delegation, communication, tool use, audit, and optimization. Its reference list contains no classical software-evolution literature (no Lehman, Perry & Wolf, Parnas, or Snook) — part of the disconnection harness drift bridges by reference.",
+      "groundedIn": "https://doi.org/10.5281/zenodo.20578272"
+    },
+    {
+      "@id": "https://shimo4228.github.io/shimo4228/vocab#prior-art/memory-drift",
+      "@type": ["ExternalReference", "ScholarlyArticle"],
+      "name": "Governing Evolving Memory in LLM Agents: Risks, Mechanisms, and the Stability and Safety Governed Memory (SSGM) Framework",
+      "author": "Lam, C. et al.",
+      "datePublished": "2026",
+      "identifier": "arXiv:2603.11768",
+      "url": "https://arxiv.org/abs/2603.11768",
+      "description": "One of three further 2026 drift coinages audited in the position paper's pre-deposit sweep (§6): memory drift, with semantic, procedural, and goal sub-forms. Its reference list contains no classical software-evolution literature, while citing the agent-drift coining paper itself — evidence the drift vocabulary propagates within the 2026 agent literature while remaining severed from the classical lineage.",
+      "groundedIn": "https://doi.org/10.5281/zenodo.20578272"
+    },
+    {
+      "@id": "https://shimo4228.github.io/shimo4228/vocab#prior-art/belief-deviation",
+      "@type": ["ExternalReference", "ScholarlyArticle"],
+      "name": "Meta-Cognitive Memory Policy Optimization for Long-Horizon LLM Agents",
+      "author": "Liu, Z. et al.",
+      "datePublished": "2026",
+      "identifier": "arXiv:2605.30159",
+      "url": "https://arxiv.org/abs/2605.30159",
+      "description": "One of three further 2026 drift coinages audited in the position paper's pre-deposit sweep (§6): belief deviation over long horizons. Its reference list contains no classical software-evolution literature — part of the disconnection harness drift bridges by reference.",
+      "groundedIn": "https://doi.org/10.5281/zenodo.20578272"
+    },
+    {
       "@id": "https://shimo4228.github.io/shimo4228/vocab#prior-art/geo",
       "sameAs": "https://www.wikidata.org/wiki/Q131161430",
-      "@type": "ScholarlyArticle",
+      "@type": ["ExternalReference", "ScholarlyArticle"],
       "name": "GEO: Generative Engine Optimization",
       "author": "Aggarwal, P. et al.",
       "datePublished": "2023",
@@ -794,7 +866,7 @@
     {
       "@id": "https://shimo4228.github.io/shimo4228/vocab#prior-art/intrinsic-metacognitive-learning",
       "sameAs": "https://www.wikidata.org/wiki/Q140181243",
-      "@type": "ScholarlyArticle",
+      "@type": ["ExternalReference", "ScholarlyArticle"],
       "name": "Truly Self-Improving Agents Require Intrinsic Metacognitive Learning",
       "author": "Liu & van der Schaar",
       "datePublished": "2025",
@@ -806,7 +878,7 @@
     {
       "@id": "https://shimo4228.github.io/shimo4228/vocab#prior-art/externalization-review",
       "sameAs": "https://www.wikidata.org/wiki/Q140181274",
-      "@type": "ScholarlyArticle",
+      "@type": ["ExternalReference", "ScholarlyArticle"],
       "name": "Externalization in LLM Agents: A Unified Review of Memory, Skills, Protocols and Harness Engineering",
       "author": "Zhou et al.",
       "datePublished": "2026",
