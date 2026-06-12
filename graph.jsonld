@@ -859,21 +859,21 @@
     },
 
     {
-      "@id": "https://github.com/shimo4228/agent-knowledge-cycle/blob/main/docs/skills/when-code-when-llm.md",
+      "@id": "https://github.com/shimo4228/when-code-when-llm",
       "@type": "TechArticle",
       "name": "when-code-when-llm (design-pattern skill)",
       "description": "Per-task decision: is this property structural or semantic? Long-form 'how' guide paired 1:1 with ADR-0008. Provides concrete patterns, code sketches, and audit checklists to operationalize the code-vs-LLM choice.",
       "groundedIn": "https://github.com/shimo4228/agent-knowledge-cycle/blob/main/docs/adr/0008-code-and-llm-collaboration.md"
     },
     {
-      "@id": "https://github.com/shimo4228/agent-knowledge-cycle/blob/main/docs/skills/code-and-llm-collaboration.md",
+      "@id": "https://github.com/shimo4228/code-and-llm-collaboration",
       "@type": "TechArticle",
       "name": "code-and-llm-collaboration (design-pattern skill)",
       "description": "Per-pipeline decision: how to layer code and LLM. Long-form 'how' guide paired 1:1 with ADR-0008. Realizes the four code-LLM layering patterns (guard, filter, judge, orchestrator) with concrete pipeline sketches.",
       "groundedIn": "https://github.com/shimo4228/agent-knowledge-cycle/blob/main/docs/adr/0008-code-and-llm-collaboration.md"
     },
     {
-      "@id": "https://github.com/shimo4228/agent-knowledge-cycle/blob/main/docs/skills/signal-first-research.md",
+      "@id": "https://github.com/shimo4228/signal-first-research",
       "@type": "TechArticle",
       "name": "signal-first-research (design-pattern skill)",
       "description": "Designing a research intake filter that admits only information likely to change the next action. Long-form 'how' guide paired 1:1 with ADR-0010. Operationalizes the signal-first principle as a Research-phase filter.",

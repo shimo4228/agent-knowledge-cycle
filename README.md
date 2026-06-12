@@ -137,12 +137,12 @@ Each skill addresses one phase of the knowledge lifecycle:
 
 | Skill | Phase | What it does |
 |-------|-------|-------------|
-| [search-first](https://github.com/shimo4228/claude-skill-search-first) | Research | Search broadly, filter by signal — intake only what would change the next action |
-| [learn-eval](https://github.com/shimo4228/claude-skill-learn-eval) | Extract | Extract reusable patterns from sessions with quality gates |
-| [skill-stocktake](https://github.com/shimo4228/claude-skill-stocktake) | Curate | Audit installed skills for staleness, conflicts, and redundancy |
-| [rules-distill](https://github.com/shimo4228/claude-skill-rules-distill) | Promote | Distill cross-cutting principles from skills into rules |
-| [skill-comply](https://github.com/shimo4228/claude-skill-comply) | Measure | Test whether agents actually follow their skills and rules |
-| [context-sync](https://github.com/shimo4228/claude-skill-context-sync) | Maintain | Audit documentation for role overlaps, stale content, and missing decision records |
+| [search-first](https://github.com/shimo4228/search-first) | Research | Search broadly, filter by signal — intake only what would change the next action |
+| [learn-eval](https://github.com/shimo4228/learn-eval) | Extract | Extract reusable patterns from sessions with quality gates |
+| [skill-stocktake](https://github.com/shimo4228/skill-stocktake) | Curate | Audit installed skills for staleness, conflicts, and redundancy |
+| [rules-distill](https://github.com/shimo4228/rules-distill) | Promote | Distill cross-cutting principles from skills into rules |
+| [skill-comply](https://github.com/shimo4228/skill-comply) | Measure | Test whether agents actually follow their skills and rules |
+| [context-sync](https://github.com/shimo4228/context-sync) | Maintain | Audit documentation for role overlaps, stale content, and missing decision records |
 
 ## Rules — Install the cycle without the skills
 
@@ -176,21 +176,28 @@ That's it. The cycle will run through conversation — no skills, no plugins, no
 
 ## What's in this repo
 
-Fifteen ADRs, nine design principles, three design-pattern skills, two
-JSON schemas, one ~500-line runnable reference implementation, and the
-rules file that installs the whole cycle in a single `cp`. AKC defines
-three memory layers and four code-LLM layering patterns. The six cycle
-skills listed above remain the opinionated, full-fat implementation of
-each phase.
+Fifteen ADRs, nine design principles, two JSON schemas, one ~500-line
+runnable reference implementation, and the rules file that installs the
+whole cycle in a single `cp`. AKC defines three memory layers and four
+code-LLM layering patterns. The six cycle skills listed above remain
+the opinionated, full-fat implementation of each phase.
 
-AKC ships **two kinds of skills**:
+AKC ships **two kinds of skills**, both as external repositories:
 
-- **Cycle skills** (external repositories) — one per phase of the
-  cycle: `search-first`, `learn-eval`, `skill-stocktake`,
-  `rules-distill`, `skill-comply`, `context-sync`.
-- **Design-pattern skills** ([`docs/skills/`](docs/skills/)) — long-form
-  "how" guides paired 1:1 with ADRs. These are cross-cutting and apply
-  in multiple phases.
+- **Cycle skills** — one per phase of the cycle: `search-first`,
+  `learn-eval`, `skill-stocktake`, `rules-distill`, `skill-comply`,
+  `context-sync` (table above).
+- **Design-pattern skills** — long-form "how" guides paired 1:1 with
+  ADRs, cross-cutting across phases:
+
+| Skill | Paired ADR(s) | One-line summary |
+|-------|---------------|------------------|
+| [when-code-when-llm](https://github.com/shimo4228/when-code-when-llm) | [ADR-0008](docs/adr/0008-code-and-llm-collaboration.md) | Per-task decision: is this property structural or semantic? |
+| [code-and-llm-collaboration](https://github.com/shimo4228/code-and-llm-collaboration) | [ADR-0008](docs/adr/0008-code-and-llm-collaboration.md) | Per-pipeline decision: four layering patterns for mixing deterministic code and LLM calls |
+| [signal-first-research](https://github.com/shimo4228/signal-first-research) | [ADR-0010](docs/adr/0010-human-cognitive-resource-as-central-constraint.md) | Design a research intake filter that admits only information likely to change your next action |
+
+The ADRs stay here (the "why"); the skills are installable on their
+own (the "how"). They were formerly hosted in `docs/skills/`.
 
 For the full repository tree and document-role routing, see [`docs/CODEMAPS/architecture.md`](docs/CODEMAPS/architecture.md).
 

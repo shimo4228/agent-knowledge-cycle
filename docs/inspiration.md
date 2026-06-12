@@ -27,8 +27,9 @@ Research phase (it predates the ADR by about a year) and the signal filter
 that made every downstream AKC decision possible. It was skillified in
 April 2026 under the `claude-skill-daily-research` name so it installs as
 a standard Claude Code skill. The pattern the pipeline embodies is
-documented, in abstract form and without personal references, in
-[`docs/skills/signal-first-research.md`](skills/signal-first-research.md).
+documented, in abstract form and without personal references, in the
+[signal-first-research](https://github.com/shimo4228/signal-first-research)
+skill (formerly `docs/skills/signal-first-research.md` in this repository).
 
 ## Contemplative Agent
 

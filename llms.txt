@@ -88,11 +88,12 @@ ADR numbers are permanent identifiers; gaps (0001, 0006, 0007) reflect ADRs extr
 ## Design-pattern skills
 
 Long-form "how" guides paired 1:1 with ADRs. Complement the ADRs with
-concrete patterns, code sketches, and audit checklists.
+concrete patterns, code sketches, and audit checklists. Each lives in
+its own installable repository; the paired ADRs stay here.
 
-- [when-code-when-llm](docs/skills/when-code-when-llm.md): per-task decision — is this property structural or semantic?
-- [code-and-llm-collaboration](docs/skills/code-and-llm-collaboration.md): per-pipeline decision — four layering patterns (guard, filter, judge, orchestrator)
-- [signal-first-research](docs/skills/signal-first-research.md): design a research intake filter that admits only information likely to change the next action; paired with ADR-0010
+- [when-code-when-llm](https://github.com/shimo4228/when-code-when-llm): per-task decision — is this property structural or semantic? Paired with ADR-0008
+- [code-and-llm-collaboration](https://github.com/shimo4228/code-and-llm-collaboration): per-pipeline decision — four layering patterns (guard, filter, judge, orchestrator). Paired with ADR-0008
+- [signal-first-research](https://github.com/shimo4228/signal-first-research): design a research intake filter that admits only information likely to change the next action; paired with ADR-0010
 
 ## Specifications
 
@@ -111,12 +112,12 @@ AKC was originally a set of six composable skills, one per phase. They
 remain available as external repositories but are not required — the
 rules file above installs the entire cycle.
 
-- [search-first](https://github.com/shimo4228/claude-skill-search-first) (Research)
-- [learn-eval](https://github.com/shimo4228/claude-skill-learn-eval) (Extract)
-- [skill-stocktake](https://github.com/shimo4228/claude-skill-stocktake) (Curate)
-- [rules-distill](https://github.com/shimo4228/claude-skill-rules-distill) (Promote)
-- [skill-comply](https://github.com/shimo4228/claude-skill-comply) (Measure)
-- [context-sync](https://github.com/shimo4228/claude-skill-context-sync) (Maintain)
+- [search-first](https://github.com/shimo4228/search-first) (Research)
+- [learn-eval](https://github.com/shimo4228/learn-eval) (Extract)
+- [skill-stocktake](https://github.com/shimo4228/skill-stocktake) (Curate)
+- [rules-distill](https://github.com/shimo4228/rules-distill) (Promote)
+- [skill-comply](https://github.com/shimo4228/skill-comply) (Measure)
+- [context-sync](https://github.com/shimo4228/context-sync) (Maintain)
 
 ## Related repositories
 

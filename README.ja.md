@@ -77,12 +77,12 @@ Experience → learn-eval → skill-stocktake → rules-distill → Behavior cha
 
 | Skill | Phase | 役割 |
 |-------|-------|------|
-| [search-first](https://github.com/shimo4228/claude-skill-search-first) | Research | 広く探索し、信号で絞り込む — 次の行動を変える情報のみを取り込む |
-| [learn-eval](https://github.com/shimo4228/claude-skill-learn-eval) | Extract | セッションから再利用可能なパターンを品質ゲート付きで抽出 |
-| [skill-stocktake](https://github.com/shimo4228/claude-skill-stocktake) | Curate | インストール済みスキルの陳腐化・矛盾・冗長性を監査 |
-| [rules-distill](https://github.com/shimo4228/claude-skill-rules-distill) | Promote | スキルから横断原則を蒸留してルール化 |
-| [skill-comply](https://github.com/shimo4228/claude-skill-comply) | Measure | エージェントが実際にスキルとルールに従っているかをテスト |
-| [context-sync](https://github.com/shimo4228/claude-skill-context-sync) | Maintain | ドキュメントの役割重複・陳腐化・決定記録の欠落を監査 |
+| [search-first](https://github.com/shimo4228/search-first) | Research | 広く探索し、信号で絞り込む — 次の行動を変える情報のみを取り込む |
+| [learn-eval](https://github.com/shimo4228/learn-eval) | Extract | セッションから再利用可能なパターンを品質ゲート付きで抽出 |
+| [skill-stocktake](https://github.com/shimo4228/skill-stocktake) | Curate | インストール済みスキルの陳腐化・矛盾・冗長性を監査 |
+| [rules-distill](https://github.com/shimo4228/rules-distill) | Promote | スキルから横断原則を蒸留してルール化 |
+| [skill-comply](https://github.com/shimo4228/skill-comply) | Measure | エージェントが実際にスキルとルールに従っているかをテスト |
+| [context-sync](https://github.com/shimo4228/context-sync) | Maintain | ドキュメントの役割重複・陳腐化・決定記録の欠落を監査 |
 
 ## Rules — スキルなしでサイクルを導入する
 
@@ -116,12 +116,20 @@ cp docs/akc-cycle.md ~/.claude/rules/common/akc-cycle.md
 
 ## このリポジトリの中身
 
-15 の ADR、9 の設計原則、3 の設計パターンスキル、2 の JSON スキーマ、1 つの約 500 行の実行可能リファレンス実装、そしてサイクル全体を `cp` 一行でインストールできるルールファイル。AKC は 3 つのメモリ層と 4 つのコード–LLM レイヤリングパターンを定義している。上に挙げた 6 つのサイクルスキルは、各フェーズの「フルスペック版」実装として引き続き提供される。
+15 の ADR、9 の設計原則、2 の JSON スキーマ、1 つの約 500 行の実行可能リファレンス実装、そしてサイクル全体を `cp` 一行でインストールできるルールファイル。AKC は 3 つのメモリ層と 4 つのコード–LLM レイヤリングパターンを定義している。上に挙げた 6 つのサイクルスキルは、各フェーズの「フルスペック版」実装として引き続き提供される。
 
-AKC は **2 種類のスキル** を出荷する:
+AKC は **2 種類のスキル** を、いずれも外部リポジトリとして出荷する:
 
-- **Cycle skills** (外部リポジトリ) — サイクルの各フェーズに 1 つ: `search-first`, `learn-eval`, `skill-stocktake`, `rules-distill`, `skill-comply`, `context-sync`。
-- **Design-pattern skills** ([`docs/skills/`](docs/skills/)) — ADR と 1:1 対応する長文の「how」ガイド。横断的で、複数フェーズに適用される。
+- **Cycle skills** — サイクルの各フェーズに 1 つ: `search-first`, `learn-eval`, `skill-stocktake`, `rules-distill`, `skill-comply`, `context-sync`（上の表参照）。
+- **Design-pattern skills** — ADR と 1:1 対応する長文の「how」ガイド。横断的で、複数フェーズに適用される:
+
+| Skill | 対応 ADR | 一行要約 |
+|-------|----------|----------|
+| [when-code-when-llm](https://github.com/shimo4228/when-code-when-llm) | [ADR-0008](docs/adr/0008-code-and-llm-collaboration.md) | タスク単位の判断: この性質は構造的か意味的か？ |
+| [code-and-llm-collaboration](https://github.com/shimo4228/code-and-llm-collaboration) | [ADR-0008](docs/adr/0008-code-and-llm-collaboration.md) | パイプライン単位の判断: 決定論的コードと LLM 呼び出しを混在させる 4 つのレイヤリングパターン |
+| [signal-first-research](https://github.com/shimo4228/signal-first-research) | [ADR-0010](docs/adr/0010-human-cognitive-resource-as-central-constraint.md) | 次の行動を変えうる情報だけを取り込む research intake filter の設計 |
+
+ADR（why）はこのリポジトリに残り、スキル（how）は単体でインストール可能。以前は `docs/skills/` に同梱されていた。
 
 リポジトリ全体のツリーと document-role routing は [`docs/CODEMAPS/architecture.md`](docs/CODEMAPS/architecture.md) を参照。
 
