@@ -4,7 +4,15 @@ All notable changes to AKC are recorded here. AKC follows semantic
 versioning; breaking changes to positioning or public interfaces bump the
 major version.
 
-## Unreleased
+## v2.3.0 — 2026-06-12
+
+Position paper deposit and reduction. The companion working paper
+*Harness Alignment and Harness Drift: Why Intent, Unlike Correctness,
+Resists Automation* (concept DOI 10.5281/zenodo.20578272) is deposited
+from this line and its content reduced back into the docs surfaces;
+ADR-0018 records downstream applications as first-class context; the
+concept glossary and the scaffold-dissolution platform-absorption
+observation land.
 
 ### Added
 
