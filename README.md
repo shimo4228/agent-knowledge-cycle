@@ -303,15 +303,15 @@ If you use or reference the Agent Knowledge Cycle architecture, please cite:
   title        = {Agent Knowledge Cycle (AKC)},
   year         = {2026},
   version      = {2.3.0},
-  doi          = {10.5281/zenodo.20565806},
-  url          = {https://doi.org/10.5281/zenodo.20565806},
+  doi          = {10.5281/zenodo.20652261},
+  url          = {https://doi.org/10.5281/zenodo.20652261},
   note         = {A knowledge cycle for AI agents — one that grows with the people who shape it}
 }
 ```
 
 Or in text:
 
-> Shimomoto, T. (2026). Agent Knowledge Cycle (AKC). doi:10.5281/zenodo.20565806
+> Shimomoto, T. (2026). Agent Knowledge Cycle (AKC). doi:10.5281/zenodo.20652261
 
 ## Related Publication
 
