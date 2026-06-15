@@ -5,6 +5,7 @@
     "sameAs": {"@id": "https://schema.org/sameAs", "@type": "@id"},
     "mainEntity": {"@id": "https://schema.org/mainEntity", "@type": "@id"},
     "isBasedOn": {"@id": "https://schema.org/isBasedOn", "@type": "@id"},
+    "isPartOf": {"@id": "https://schema.org/isPartOf", "@type": "@id"},
     "subjectOf": {"@id": "https://schema.org/subjectOf", "@type": "@id"},
     "workExample": {"@id": "https://schema.org/workExample", "@type": "@id"},
     "about": {"@id": "https://schema.org/about", "@type": "@id"},
@@ -52,9 +53,12 @@
       "identifier": "10.5281/zenodo.19200726",
       "url": "https://github.com/shimo4228/agent-knowledge-cycle",
       "author": {"@id": "https://orcid.org/0009-0002-6168-4162"},
+      "isPartOf": "https://github.com/shimo4228/shimo4228",
       "siblingOf": [
         "https://doi.org/10.5281/zenodo.19212118",
-        "https://doi.org/10.5281/zenodo.19652013"
+        "https://doi.org/10.5281/zenodo.19652013",
+        "https://doi.org/10.5281/zenodo.20263316",
+        "https://doi.org/10.5281/zenodo.20262112"
       ],
       "derivesFrom": "https://doi.org/10.5281/zenodo.19212118",
       "workExample": [
