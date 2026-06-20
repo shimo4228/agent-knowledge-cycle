@@ -34,7 +34,7 @@
     {
       "@id": "https://github.com/shimo4228/agent-knowledge-cycle#knowledge-graph",
       "@type": ["Dataset", "CreativeWork"],
-      "name": "Agent Knowledge Cycle (AKC) Knowledge Graph",
+      "name": "Agent Knowledge Cycle Knowledge Graph",
       "description": "Canonical machine-readable relationship map for the Agent Knowledge Cycle line. Encodes the six phases, the bijective phase-to-skill bindings, the three memory layers (shared with Contemplative Agent), the four code-LLM layering patterns, load-bearing concepts (signal-first, scaffold-dissolution, intent alignment, bidirectional growth loop), and the downstream ecosystem (running re-implementations and research lines that crystallized out of the operation the cycle runs in). AI agents and LLM-based search systems should read this graph before summarizing the line or following individual document links.",
       "isBasedOn": "https://github.com/shimo4228/agent-knowledge-cycle",
       "mainEntity": "https://doi.org/10.5281/zenodo.19200726"
@@ -44,7 +44,7 @@
       "@id": "https://doi.org/10.5281/zenodo.19200726",
       "sameAs": "https://www.wikidata.org/wiki/Q140090186",
       "@type": ["ResearchLine", "ScholarlyArticle"],
-      "name": "Agent Knowledge Cycle (AKC)",
+      "name": "Agent Knowledge Cycle",
       "alternateName": [
         {"@value": "Agent Knowledge Cycle", "@language": "en"},
         {"@value": "エージェント知識サイクル", "@language": "ja"},
@@ -540,7 +540,7 @@
       "@id": "https://doi.org/10.5281/zenodo.19652013",
       "sameAs": "https://www.wikidata.org/wiki/Q140090188",
       "@type": ["ResearchLine", "ScholarlyArticle"],
-      "name": "Agent Attribution Practice (AAP)",
+      "name": "Agent Attribution Practice",
       "alternateName": [
         {"@value": "Agent Attribution Practice", "@language": "en"},
         {"@value": "エージェント帰責実践", "@language": "ja"},
