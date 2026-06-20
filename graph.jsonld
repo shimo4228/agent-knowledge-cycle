@@ -47,7 +47,8 @@
       "name": "Agent Knowledge Cycle (AKC)",
       "alternateName": [
         {"@value": "Agent Knowledge Cycle", "@language": "en"},
-        {"@value": "エージェント知識サイクル", "@language": "ja"}
+        {"@value": "エージェント知識サイクル", "@language": "ja"},
+        "AKC"
       ],
       "description": "Six-phase bidirectional growth loop in which agent behavior and the operator's judgment co-develop over time, sustaining intent alignment that tests cannot check on their own. Three stacked layers — principles (ADRs), patterns (design-pattern skills), and implementation (composable skills) — decouple rate of change. Refers to a mechanism, not a disposition or a practice.",
       "identifier": "10.5281/zenodo.19200726",
@@ -522,7 +523,8 @@
       "name": "Contemplative Agent",
       "alternateName": [
         {"@value": "Contemplative Agent", "@language": "en"},
-        {"@value": "コンテンプレイティブ・エージェント", "@language": "ja"}
+        {"@value": "コンテンプレイティブ・エージェント", "@language": "ja"},
+        "CA"
       ],
       "description": "Sibling research line with a two-way relationship to AKC. Upstream: AKC's ADR-0002 through ADR-0005 were adapted from its engineering substrate (three-layer memory, two-stage distill pipeline, immutable episode log, human approval gate), and it was the original home of the security triplet (ADR-0001, ADR-0006, ADR-0007) before the v2.0.0 extraction to Agent Attribution Practice. Downstream: it is the operational re-implementation of AKC in the autonomous-agent context — its pipeline maps the six phases onto code, the agent runs the six-phase cycle over its own episode logs with no fine-tuning and no labeled training data, and every promotion passes through a human approval gate. The demonstration is ongoing. AKC = cycle (mechanism); Contemplative Agent = implementation substrate and running re-implementation.",
       "identifier": "10.5281/zenodo.19212118",
@@ -541,7 +543,8 @@
       "name": "Agent Attribution Practice (AAP)",
       "alternateName": [
         {"@value": "Agent Attribution Practice", "@language": "en"},
-        {"@value": "エージェント帰責実践", "@language": "ja"}
+        {"@value": "エージェント帰責実践", "@language": "ja"},
+        "AAP"
       ],
       "description": "Sibling genre library. Harness-neutral ADRs on accountability distribution in autonomous AI agents. AKC v2.0.0 extracted the security triplet (ADR-0001, ADR-0006, ADR-0007) as genre-specific; those judgments were re-expressed in AAP alongside additional ADRs as 10 ADRs on accountability distribution. AKC = cycle (mechanism); AAP = practice (content, for AI agents).",
       "identifier": "10.5281/zenodo.19652013",
@@ -556,6 +559,7 @@
 
     {
       "@id": "https://doi.org/10.5281/zenodo.20263316",
+      "alternateName": "AS",
       "sameAs": "https://www.wikidata.org/wiki/Q140090190",
       "@type": ["ResearchLine", "ScholarlyArticle"],
       "name": "Authorship Strategy",
@@ -568,6 +572,7 @@
     },
     {
       "@id": "https://doi.org/10.5281/zenodo.20262112",
+      "alternateName": "ANS",
       "sameAs": "https://www.wikidata.org/wiki/Q140090189",
       "@type": ["ResearchLine", "ScholarlyArticle"],
       "name": "Attention, Not Self",
