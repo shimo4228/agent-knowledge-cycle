@@ -323,6 +323,8 @@ this line:
 
 ## Related Work
 
+The ecosystem hub — a human-readable index of all five research lines — is [`shimo4228/shimo4228`](https://github.com/shimo4228/shimo4228).
+
 - [Contemplative Agent](https://github.com/shimo4228/contemplative-agent) — An
   independent research repository exploring Contemplative Constitutional AI
   on a local 9B model. The relationship runs in both directions. Upstream,
