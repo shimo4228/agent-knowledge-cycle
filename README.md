@@ -353,7 +353,7 @@ DOIs only ([ADR-0018](docs/adr/0018-record-downstream-applications-as-first-clas
 - [doctrine-corpus](https://github.com/shimo4228/doctrine-corpus) (DOI [10.5281/zenodo.20337008](https://doi.org/10.5281/zenodo.20337008)) — bilingual judgment-eliciting Q&A corpus; AKC is one of its four source lines.
 - [existence-proof](https://github.com/shimo4228/existence-proof) (DOI [10.5281/zenodo.20558800](https://doi.org/10.5281/zenodo.20558800)) — pre-line working repository complementing Authorship Strategy.
 
-The canonical relationship map of the whole research program lives in the
+The canonical relationship map of the whole research ecosystem lives in the
 [hub repository's graph.jsonld](https://github.com/shimo4228/shimo4228/blob/main/graph.jsonld).
 
 ## Acknowledgments

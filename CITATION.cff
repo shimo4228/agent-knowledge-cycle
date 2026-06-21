@@ -33,7 +33,7 @@ references:
     title: "Contemplative Agent"
     repository-code: "https://github.com/shimo4228/contemplative-agent"
     doi: "10.5281/zenodo.19212118"
-    notes: "Reference implementation that runs AKC's six-phase cycle over its own logs. Sibling research line in the shimo4228 research program."
+    notes: "Reference implementation that runs AKC's six-phase cycle over its own logs. Sibling research line in the shimo4228 research ecosystem."
     authors:
       - family-names: Shimomoto
         given-names: Tatsuya

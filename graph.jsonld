@@ -576,7 +576,7 @@
       "sameAs": "https://www.wikidata.org/wiki/Q140090189",
       "@type": ["ResearchLine", "ScholarlyArticle"],
       "name": "Attention, Not Self",
-      "description": "Sibling research line in the same research program: Buddhist Abhidharma meets computational phenomenology. Its deposit metadata references AKC's concept DOI; the line federates with AKC, Contemplative Agent, and AAP at the research-program level.",
+      "description": "Sibling research line in the same research ecosystem: Buddhist Abhidharma meets computational phenomenology. Its deposit metadata references AKC's concept DOI; the line federates with AKC, Contemplative Agent, and AAP at the research-ecosystem level.",
       "identifier": "10.5281/zenodo.20262112",
       "url": "https://github.com/shimo4228/attention-not-self",
       "author": {"@id": "https://orcid.org/0009-0002-6168-4162"},
@@ -587,7 +587,7 @@
       "sameAs": "https://www.wikidata.org/wiki/Q140090191",
       "@type": ["EcosystemRepo", "Dataset"],
       "name": "doctrine-corpus",
-      "description": "Downstream judgment corpus: a bilingual (EN + JA) judgment-eliciting Q&A dataset encoding the documented judgment of the research program for LLM-mediated diffusion. AKC is one of its four source lines — ADRs and glossary harvested into the corpus. Operational form of Authorship Strategy Layer 4 tactic 7 (LLM-first ingest).",
+      "description": "Downstream judgment corpus: a bilingual (EN + JA) judgment-eliciting Q&A dataset encoding the documented judgment of the research ecosystem for LLM-mediated diffusion. AKC is one of its four source lines — ADRs and glossary harvested into the corpus. Operational form of Authorship Strategy Layer 4 tactic 7 (LLM-first ingest).",
       "identifier": "10.5281/zenodo.20337008",
       "url": "https://github.com/shimo4228/doctrine-corpus",
       "author": {"@id": "https://orcid.org/0009-0002-6168-4162"},
@@ -633,7 +633,7 @@
       "@id": "https://github.com/shimo4228/shimo4228",
       "@type": "EcosystemRepo",
       "name": "Research Program Hub",
-      "description": "Hub repository of the shimo4228 research program; its graph.jsonld is the canonical relationship map of the research ecosystem, federating AKC with its sibling and downstream lines.",
+      "description": "Hub repository of the shimo4228 research ecosystem; its graph.jsonld is the canonical relationship map of the research ecosystem, federating AKC with its sibling and downstream lines.",
       "url": "https://github.com/shimo4228/shimo4228"
     },
 
