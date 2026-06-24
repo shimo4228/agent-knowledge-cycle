@@ -902,6 +902,39 @@
       "description": "Field map named in ADR-0013's Related-Work positioning. Frames the field as three coupled forms of externalization — memory, skills, protocols — coordinated by harness engineering as the unification layer; AKC accepts that it sits squarely inside this frame, overlapping the memory and skills quadrants, and locates its delta in loop ownership rather than in the externalization operations themselves.",
       "groundedIn": "https://github.com/shimo4228/agent-knowledge-cycle/blob/main/docs/adr/0013-positioning-within-agent-memory-literature.md"
     },
+    {
+      "@id": "https://shimo4228.github.io/shimo4228/vocab#prior-art/skillops",
+      "@type": ["ExternalReference", "ScholarlyArticle"],
+      "name": "SkillOps: Managing LLM Agent Skill Libraries as Self-Maintaining Software Ecosystems",
+      "author": "Pu, Song & Zhao",
+      "datePublished": "2026",
+      "identifier": "arXiv:2605.13716",
+      "url": "https://arxiv.org/abs/2605.13716",
+      "description": "Prior art named in ADR-0013's 2026-06-25 addendum. Frames 'skill technical debt' and a four-dimension library-health diagnosis (utility, compatibility, risk, validation), and proposes a self-maintaining skill ecosystem that prunes, validates, and de-duplicates skills autonomously — the Curate and Maintain operations run without a human in the write path. AKC concedes the maintenance operations as precedent and locates its delta in the structural human approval gate (ADR-0005): SkillOps's defining adjective is self-maintaining, where AKC's Curate and Promote require named human sign-off.",
+      "groundedIn": "https://github.com/shimo4228/agent-knowledge-cycle/blob/main/docs/adr/0013-positioning-within-agent-memory-literature.md"
+    },
+    {
+      "@id": "https://shimo4228.github.io/shimo4228/vocab#prior-art/skill-lifecycle-sok",
+      "@type": ["ExternalReference", "ScholarlyArticle"],
+      "name": "SoK: Agentic Skills — Beyond Tool Use in LLM Agents",
+      "author": "Jiang et al.",
+      "datePublished": "2026",
+      "identifier": "arXiv:2602.20867",
+      "url": "https://arxiv.org/abs/2602.20867",
+      "description": "Field map named in ADR-0013's 2026-06-25 addendum. Maps a seven-stage skill lifecycle (discovery, practice, distillation, storage, retrieval, execution, evaluation/update) for the skill layer the way the Externalization survey maps the broader field. AKC's six-phase cycle overlaps this lifecycle; the delta is not the stages but loop ownership — the human approval gate — and the framing of human attention as the scarce resource.",
+      "groundedIn": "https://github.com/shimo4228/agent-knowledge-cycle/blob/main/docs/adr/0013-positioning-within-agent-memory-literature.md"
+    },
+    {
+      "@id": "https://shimo4228.github.io/shimo4228/vocab#prior-art/skillsbench",
+      "@type": ["ExternalReference", "ScholarlyArticle"],
+      "name": "How Well Do Agentic Skills Work in the Wild: Benchmarking LLM Skill Usage in Realistic Settings",
+      "author": "Liu et al.",
+      "datePublished": "2026",
+      "identifier": "arXiv:2604.04323",
+      "url": "https://arxiv.org/abs/2604.04323",
+      "description": "Empirical corroboration named in ADR-0013's 2026-06-25 addendum. Finds that skill benefits are fragile — degrading toward the no-skill baseline as the library grows large and uncurated and the agent must retrieve from many real-world skills rather than be handed a hand-crafted one. Independent support for ADR-0010's claim that curation is the load-bearing, attention-bound act: the scarce resource is the human judgment that decides what stays, not the storage that holds it. Corroboration rather than precedent.",
+      "groundedIn": "https://github.com/shimo4228/agent-knowledge-cycle/blob/main/docs/adr/0013-positioning-within-agent-memory-literature.md"
+    },
 
     {
       "@id": "https://github.com/shimo4228/agent-knowledge-cycle/blob/main/schemas/episode-log.schema.json",
