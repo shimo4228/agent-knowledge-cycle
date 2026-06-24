@@ -904,6 +904,7 @@
     },
     {
       "@id": "https://shimo4228.github.io/shimo4228/vocab#prior-art/skillops",
+      "sameAs": "https://www.wikidata.org/wiki/Q140352501",
       "@type": ["ExternalReference", "ScholarlyArticle"],
       "name": "SkillOps: Managing LLM Agent Skill Libraries as Self-Maintaining Software Ecosystems",
       "author": "Pu, Song & Zhao",
@@ -915,6 +916,7 @@
     },
     {
       "@id": "https://shimo4228.github.io/shimo4228/vocab#prior-art/skill-lifecycle-sok",
+      "sameAs": "https://www.wikidata.org/wiki/Q140352503",
       "@type": ["ExternalReference", "ScholarlyArticle"],
       "name": "SoK: Agentic Skills — Beyond Tool Use in LLM Agents",
       "author": "Jiang et al.",
@@ -926,6 +928,7 @@
     },
     {
       "@id": "https://shimo4228.github.io/shimo4228/vocab#prior-art/skillsbench",
+      "sameAs": "https://www.wikidata.org/wiki/Q140352504",
       "@type": ["ExternalReference", "ScholarlyArticle"],
       "name": "How Well Do Agentic Skills Work in the Wild: Benchmarking LLM Skill Usage in Realistic Settings",
       "author": "Liu et al.",
