@@ -2,7 +2,7 @@ Language: English | [日本語](README.ja.md)
 
 # Agent Knowledge Cycle (AKC)
 
-[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.19200726.svg)](https://doi.org/10.5281/zenodo.19200726) [![Ask DeepWiki](https://deepwiki.com/badge.svg)](https://deepwiki.com/shimo4228/agent-knowledge-cycle)
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.19200726.svg)](https://doi.org/10.5281/zenodo.19200726) [![Ask DeepWiki](https://deepwiki.com/badge.svg)](https://deepwiki.com/shimo4228/agent-knowledge-cycle) [![GitMCP](https://img.shields.io/endpoint?url=https://gitmcp.io/badge/shimo4228/agent-knowledge-cycle)](https://gitmcp.io/shimo4228/agent-knowledge-cycle)
 
 📄 **Position paper**: *Harness Alignment and Harness Drift: Why Intent, Unlike Correctness, Resists Automation* — [doi:10.5281/zenodo.20578272](https://doi.org/10.5281/zenodo.20578272)
 
