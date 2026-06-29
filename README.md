@@ -151,13 +151,14 @@ Each skill addresses one phase of the knowledge lifecycle:
 
 ## Rules — Install the cycle without the skills
 
-You don't need all six skills to run the cycle. The [`docs/akc-cycle.md`](docs/akc-cycle.md) file distills the six phases into behavioral principles that any AI agent can follow through natural conversation.
+You don't need all six skills to run the cycle. The standalone [**shimo4228/akc-cycle**](https://github.com/shimo4228/akc-cycle) repository distills the six phases into a single behavioral rules file that any AI agent can follow through natural conversation.
 
 ### Quick install
 
 ```bash
-# Copy to your agent's rules directory
-cp docs/akc-cycle.md ~/.claude/rules/common/akc-cycle.md
+# From a clone of github.com/shimo4228/akc-cycle, copy the rule
+# into your agent's rules directory
+cp rules/common/akc-cycle.md ~/.claude/rules/common/akc-cycle.md
 ```
 
 That's it. The cycle will run through conversation — no skills, no plugins, no CLI tools.

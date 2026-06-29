@@ -73,7 +73,7 @@ HF 側の `README.md` (dataset card) は HF 用に customize されている (si
 
 1. [`README.md`](README.md) → three themes と全体像
 2. [`graph.jsonld`](graph.jsonld) → entity と relationship (6 phases、3 memory layers、4 patterns、bijective phase-to-skill bindings)
-3. [`docs/akc-cycle.md`](docs/akc-cycle.md) → cycle 全体を **single rules file として install** できる (6 skill repos を導入しなくてよい)
+3. [`docs/akc-cycle.md`](docs/akc-cycle.md) → cycle 全体を **single rules file として install** できる単独リポ [`shimo4228/akc-cycle`](https://github.com/shimo4228/akc-cycle) への pointer (6 skill repos を導入しなくてよい。standalone repo 化済み 2026-06)
 4. [`docs/skills/README.md`](docs/skills/README.md) → ADR と 1:1 で対応する design-pattern skill (when-code-when-llm / code-and-llm-collaboration / signal-first-research) への pointer 表。skill 本体は standalone repo 化済み (2026-06)
 5. [`examples/minimal_harness/`](examples/minimal_harness/) → ~500 行の dependency-free Python reference。cycle が behavioral patterns に対して走る具体例
 

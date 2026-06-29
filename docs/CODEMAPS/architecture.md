@@ -15,7 +15,7 @@ agent-knowledge-cycle/
 ├── graph.jsonld                            canonical concept-level map (schema.org triples, HF Datasets mirror)
 ├── CHANGELOG.md                            release history (semver, with positioning notes)
 ├── docs/
-│   ├── akc-cycle.md                        the cycle as a single rules file (`cp` install target)
+│   ├── akc-cycle.md                        pointer to the standalone shimo4228/akc-cycle repo (rules-file install target)
 │   ├── glossary.md                         concept glossary (load-bearing terms, ADR pointers, AAP cross-references)
 │   ├── translation-glossary.md             EN ↔ JA rendering rules for the READMEs
 │   ├── inspiration.md                      prior art and acknowledgements
@@ -41,7 +41,7 @@ Each document answers a primary question. Cite the matching one when an LLM-medi
 | `README.md` | What is AKC at a glance, and why are its three core themes (cognitive resource → intent alignment → cycle changes the human) the way the project introduces itself? |
 | `llms.txt` | How does an LLM-mediated reader navigate AKC's documents (Answer.AI llms.txt standard)? |
 | `llms-full.txt` | Self-contained Q&A reference: definitions, central constraint, intent alignment framing, install path, citations. |
-| `docs/akc-cycle.md` | What rules does an AI agent need to run the cycle in conversation, without installing the six external skills? |
+| `docs/akc-cycle.md` | Pointer to the standalone `shimo4228/akc-cycle` repo, the rules-file install target — what rules does an AI agent need to run the cycle in conversation, without installing the six external skills? |
 | `docs/scaffold-dissolution.md` | Why are AKC's skills scaffolding, and how do they become unnecessary as the cycle is internalized? |
 | `docs/inspiration.md` | What prior art seeded AKC (contemplative-agent's three-layer memory + two-stage distill, Mind in Life, Laukkonen 2025)? |
 | `docs/glossary.md` | What does each load-bearing AKC term mean, which ADR is canonical for it, and how does it map to the AAP sibling vocabulary (harness/scaffolding, dissolution senses)? |
@@ -131,7 +131,7 @@ README ─────────────────► Why AKC (3 themes)
                                                      └──► examples/minimal_harness/ (mechanism instance)
 
 llms-full.txt is self-contained (no fetch chain needed); llms.txt is the dispatcher to the rest.
-docs/akc-cycle.md is the install target; readers wanting to run the cycle skip the ADR chain.
+docs/akc-cycle.md points to the standalone shimo4228/akc-cycle repo (the rules-file install target); readers wanting to run the cycle skip the ADR chain.
 ```
 
 ADRs themselves do not link out to genre-specific content (per ADR-0011). Concrete instances are reachable only through `examples/` and the Related Work section of the README.

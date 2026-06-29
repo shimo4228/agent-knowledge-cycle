@@ -21,7 +21,8 @@ to the agent's future behavior. A cycle, not a harness: it is what you
 do *to* a harness over time, portable across harnesses (ADR-0009).
 Genre-neutral: the same six phases run on behavioral patterns, domain
 expertise, or constitutional values (ADR-0011). The one-page installable
-form is [akc-cycle.md](akc-cycle.md).
+form is the standalone [akc-cycle](https://github.com/shimo4228/akc-cycle)
+repository ([pointer](akc-cycle.md)).
 
 ## Signal-first
 

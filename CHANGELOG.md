@@ -4,6 +4,12 @@ All notable changes to AKC are recorded here. AKC follows semantic
 versioning; breaking changes to positioning or public interfaces bump the
 major version.
 
+## [Unreleased]
+
+### Changed
+
+- **`docs/akc-cycle.md` externalized to a standalone repository** — the cycle-as-a-single-rules-file now lives in [`shimo4228/akc-cycle`](https://github.com/shimo4228/akc-cycle), the same distribution model as the six cycle skills and the design-pattern skills. The file in this repo (`docs/akc-cycle.md`) is replaced by a pointer. Motivation: the rule also exists as a live rule in the author's harness, and the two copies had drifted (the repo copy was a strict subset of the harness copy); publishing the rule as its own repository with a single canonical source (the harness copy, mirrored one-way) eliminates the drift structurally. References repointed in README en/ja (install section), CLAUDE.md (walk-order), CODEMAPS, glossary, and graph.jsonld (new EcosystemRepo node). ADR-0016 and ADR-0018, which cite the phase wording at `docs/akc-cycle.md`, are left unchanged: they are historical records, the path still resolves via the forwarding pointer, and both explicitly disclaim revising the phase definition.
+
 ## v2.3.0 — 2026-06-12
 
 Position paper deposit and reduction. The companion working paper

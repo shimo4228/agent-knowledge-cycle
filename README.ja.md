@@ -86,13 +86,14 @@ Experience → learn-eval → skill-stocktake → rules-distill → Behavior cha
 
 ## Rules — スキルなしでサイクルを導入する
 
-サイクルを回すのに 6 つのスキルすべては不要。[`docs/akc-cycle.md`](docs/akc-cycle.md) は 6 フェーズを、自然な対話を通じて任意の AI エージェントが従える行動原則に蒸留したものだ。
+サイクルを回すのに 6 つのスキルすべては不要。単独リポ [**shimo4228/akc-cycle**](https://github.com/shimo4228/akc-cycle) が 6 フェーズを、自然な対話を通じて任意の AI エージェントが従える単一の行動ルールファイルに蒸留している。
 
 ### クイックインストール
 
 ```bash
+# github.com/shimo4228/akc-cycle のクローンから、ルールを
 # エージェントのルールディレクトリにコピー
-cp docs/akc-cycle.md ~/.claude/rules/common/akc-cycle.md
+cp rules/common/akc-cycle.md ~/.claude/rules/common/akc-cycle.md
 ```
 
 これだけ。サイクルは対話を通じて回る — スキルもプラグインも CLI ツールも不要。
