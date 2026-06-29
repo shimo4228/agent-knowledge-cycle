@@ -314,7 +314,7 @@
       "@id": "https://shimo4228.github.io/shimo4228/vocab#akc/concept/signal-first",
       "@type": ["Concept", "DefinedTerm"],
       "name": "signal-first",
-      "description": "Research-phase intake principle: what information would actually change the next action? Anything outside that is out of scope. Search widely, intake narrowly. (ADR-0010 derivative.)",
+      "description": "Research-phase signal-first principle: what information would actually change the next action? Anything outside that is out of scope. Search widely, intake narrowly — and the same filter governs the output, not only the intake: a research report is the delta against the project's current knowledge frontier (this graph), not a digest of accumulated content. (ADR-0010 derivative — the 'what the human need not read' principle applied to reporting.)",
       "groundedIn": "https://github.com/shimo4228/agent-knowledge-cycle/blob/main/docs/adr/0010-human-cognitive-resource-as-central-constraint.md"
     },
     {
@@ -639,7 +639,7 @@
 
     {
       "@id": "https://doi.org/10.5281/zenodo.20578272",
-      "sameAs": "https://www.wikidata.org/wiki/Q140090144",
+      "sameAs": ["https://papers.ssrn.com/sol3/papers.cfm?abstract_id=6892740", "https://www.wikidata.org/wiki/Q140090144"],
       "@type": "ScholarlyArticle",
       "name": "Harness Alignment and Harness Drift: Why Intent, Unlike Correctness, Resists Automation",
       "author": {"@id": "https://orcid.org/0009-0002-6168-4162"},
