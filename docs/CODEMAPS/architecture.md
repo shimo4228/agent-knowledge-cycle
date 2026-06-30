@@ -1,4 +1,4 @@
-<!-- Generated: 2026-06-06 | Files scanned: project root + docs/ tree + examples/ + schemas/ | Token estimate: ~1800 -->
+<!-- Generated: 2026-06-30 | Files scanned: project root + docs/ tree + examples/ + schemas/ | Token estimate: ~1800 -->
 # Document Architecture
 
 Agent Knowledge Cycle (AKC) is a **knowledge-cycle specification + minimal reference implementation**. Specifications, ADRs, JSON schemas, design-pattern skills, and a ~500-line stdlib-only Python demo together describe the cycle; users bring their own LLM and adapter. The primary audience is LLM-mediated channels (LLM agents directly, and humans reaching AKC through LLM-curated surfaces). This codemap exists so an LLM-mediated reader can route to the canonical document for a given question without scanning the whole tree.
@@ -20,8 +20,8 @@ agent-knowledge-cycle/
 │   ├── translation-glossary.md             EN ↔ JA rendering rules for the READMEs
 │   ├── inspiration.md                      prior art and acknowledgements
 │   ├── scaffold-dissolution.md / .ja.md    skills dissolve as the cycle is internalized
-│   ├── adr/                                15 ADRs (English-only); permanent gaps at 0001 / 0006 / 0007
-│   ├── skills/                             3 design-pattern skills paired 1:1 with ADRs
+│   ├── adr/                                16 ADRs (English-only); permanent gaps at 0001 / 0006 / 0007
+│   ├── skills/                             pointer README (3 design-pattern skills externalized to standalone repos)
 │   ├── history/                            frozen snapshots of earlier major versions
 │   └── CODEMAPS/                           this directory
 ├── schemas/
@@ -60,9 +60,7 @@ Each document answers a primary question. Cite the matching one when an LLM-medi
 | `docs/adr/0015-loop-failure-modes-self-reingestion.md` | Why can a cycle that feeds on its own output degrade (echo, grounding loss) rather than correct, and what guards (the observed record as the only ground, the self-generated share kept visible, the approval gate) bound it? |
 | `docs/adr/0016-measuring-thinking-centric-phases.md` | Why must a Measure instrument promote agent text (reasoning, verdicts, plans) to observable events, or it systematically under-reports Research and Curate compliance? |
 | `docs/adr/0017-harness-alignment-and-drift.md` | What do harness alignment and harness drift mean, and how are both terms derived from the software-evolution and alignment literatures (Christiano, Lehman, Perry & Wolf, Snook, Meta-Harness, Agent Drift) rather than coined fresh? |
-| `docs/skills/when-code-when-llm.md` | Per-task: is this property structural (code) or semantic (LLM)? |
-| `docs/skills/code-and-llm-collaboration.md` | Per-pipeline: how do guard / filter / judge / orchestrator patterns layer code and LLM? |
-| `docs/skills/signal-first-research.md` | How is an intake filter designed so only information that would change the next action is admitted? (Pairs with ADR-0010.) |
+| `docs/skills/README.md` | Where do the three design-pattern skills (when-code-when-llm, code-and-llm-collaboration, signal-first-research) live now that they are externalized to standalone repositories, and which ADR does each pair with? |
 | `schemas/episode-log.schema.json` | What is the JSON shape of a Layer 1 episode record? |
 | `schemas/knowledge.schema.json` | What is the JSON shape of a Layer 2 knowledge pattern? |
 | `examples/minimal_harness/` | What does a minimal, dependency-free, deterministic implementation of the three memory layers + two-stage distill look like? |
@@ -111,7 +109,7 @@ orchestrator — code owns the deterministic loop; the LLM is the worker inside 
 
 - **Tagline preservation**: *"A knowledge cycle for AI agents — one that grows with the people who shape it"* is preserved across both READMEs (English + Japanese) (ADR-0010 decision, reaffirmed by ADR-0012). It carries theme #3.
 - **Three-theme ordering**: Front-door docs (README, llms.txt, llms-full.txt) lead with cognitive resource → intent alignment → cycle changes the human → mechanism, in that order. ADR-0012 makes this verifiable; do not regress.
-- **Six phases**: Research → Extract → Curate → Promote → Measure → Maintain are unchanged in number, name, and order. Adding or renaming a phase requires a positioning ADR.
+- **Six phases (held provisionally, ADR-0019)**: Research → Extract → Curate → Promote → Measure → Maintain are the current articulation, unchanged in number, name, and order — but the phase set, the phase-to-skill binding, and the skill set are a mutable snapshot, not a fixed essence (Emptiness axiom). The binding reads "currently scaffolded by X", not "bound bijectively"; Curate is layered (skill-health code layer runs before skill-stocktake semantic layer). Changing the phase set still requires a positioning ADR.
 - **ADR numbering**: 0001, 0006, 0007 are permanent gaps from the v2.0.0 extraction of the security triplet to AAP. Do not reuse those numbers; do not back-fill.
 - **Four-pattern canonical (ADR-0008 is authoritative)**: `guard` = code validates LLM output *after* it is produced (post-LLM output validation); `filter` = code narrows input *before* the LLM runs (pre-LLM input narrowing); `judge` = the LLM decides among bounded options and code enforces the verdict (human gate for high-stakes, ADR-0005); `orchestrator` = code owns the deterministic loop and the LLM is the worker inside it. When this codemap, `graph.jsonld`, or `llms-full.txt` describe the four patterns differently, ADR-0008 wins and the others are the drift.
 - **Genre neutrality (ADR-0011)**: `docs/skills/` hosts only cycle-mechanic skills. No genre-specific content (constitutional, security-specific, domain-specific) is added to AKC.
@@ -127,7 +125,7 @@ README ─────────────────► Why AKC (3 themes)
                                                      │
                                                      ├──► glossary.md (terminology)
                                                      ├──► inspiration.md (lineage)
-                                                     ├──► docs/skills/* (how-to companion to ADR-0008 / 0010)
+                                                     ├──► design-pattern skill repos (how-to companion to ADR-0008 / 0010; externalized)
                                                      └──► examples/minimal_harness/ (mechanism instance)
 
 llms-full.txt is self-contained (no fetch chain needed); llms.txt is the dispatcher to the rest.
@@ -171,27 +169,27 @@ contemplative-agent                      ← two-way relationship. Upstream: the
 | Repo | Relation | DOI |
 |---|---|---|
 | [authorship-strategy](https://github.com/shimo4228/authorship-strategy) | Research line: how the cycle's outputs diffuse outside the operator-agent pair | 10.5281/zenodo.20263316 |
-| [attention-not-self](https://github.com/shimo4228/attention-not-self) | Sibling research line, federated at the research-program level | 10.5281/zenodo.20262112 |
+| [attention-not-self](https://github.com/shimo4228/attention-not-self) | Sibling research line, federated at the research-ecosystem level | 10.5281/zenodo.20262112 |
 | [doctrine-corpus](https://github.com/shimo4228/doctrine-corpus) | Judgment Q&A corpus; AKC is one of four source lines | 10.5281/zenodo.20337008 |
 | [existence-proof](https://github.com/shimo4228/existence-proof) | Pre-line working repo, complement of authorship-strategy | 10.5281/zenodo.20558800 |
 | [claude-harness](https://github.com/shimo4228/claude-harness) | Bundled distribution of the six cycle skills | — |
 | [akc-mcp](https://github.com/shimo4228/akc-mcp) | MCP server exposing the cycle's cognitive operations | — |
 | [claude-skill-daily-research](https://github.com/shimo4228/claude-skill-daily-research) | Pre-AKC ancestor of the Research phase (see `docs/inspiration.md`) | — |
-| [shimo4228 hub](https://github.com/shimo4228/shimo4228) | Canonical research-program relationship map (graph.jsonld) | — |
+| [shimo4228 hub](https://github.com/shimo4228/shimo4228) | Canonical research-ecosystem relationship map (graph.jsonld) | — |
 
 Prose entries live in README "Related Work" (compact list at the end of the section); concept-level edges in `graph.jsonld`.
 
-## File-Count Snapshot (2026-06-06)
+## File-Count Snapshot (2026-06-30)
 
 | Category | Count |
 |---|---|
-| ADRs | 15 (ADR-0002–0005, 0008–0018) |
-| Design-pattern skills (`docs/skills/`) | 3 |
+| ADRs | 16 (ADR-0002–0005, 0008–0019) |
+| Design-pattern skills | 3 (externalized to standalone repos; `docs/skills/` holds only a pointer README) |
 | README files (en + ja mirror) | 2 |
 | JSON schemas (`schemas/`) | 2 |
 | Python source (`examples/minimal_harness/`) | 5 files (~500 lines total, stdlib-only) |
 | Top-level docs (`docs/*.md`) | 6 (akc-cycle, glossary, translation-glossary, inspiration, scaffold-dissolution + .ja.md) |
 | Repo-root files | CITATION.cff, LICENSE, llms.txt, llms-full.txt, CHANGELOG.md |
-| **Total markdown / Python / schema files** | **42** (v2.2.0 baseline 40; the concept glossary and ADR-0018 added post-v2.2.0; index READMEs under `docs/adr/` and `docs/skills/` are counted; the formerly tracked `docs/history/` snapshots moved out of the repo post-v2.2.0 and were never counted) |
+| **Total markdown / Python / schema files** | **40** (`git ls-files '*.md' '*.py' 'schemas/*.json' | wc -l`; the prior 42 snapshot net the 3 design-pattern skill files externalized to standalone repos and ADR-0019 added in v2.4.0 down to 40) |
 
 When this count drifts substantially, regenerate this codemap.

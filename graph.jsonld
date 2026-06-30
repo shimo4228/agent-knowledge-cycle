@@ -35,7 +35,7 @@
       "@id": "https://github.com/shimo4228/agent-knowledge-cycle#knowledge-graph",
       "@type": ["Dataset", "CreativeWork"],
       "name": "Agent Knowledge Cycle Knowledge Graph",
-      "description": "Canonical machine-readable relationship map for the Agent Knowledge Cycle line. Encodes the six phases, the bijective phase-to-skill bindings, the three memory layers (shared with Contemplative Agent), the four code-LLM layering patterns, load-bearing concepts (signal-first, scaffold-dissolution, intent alignment, bidirectional growth loop), and the downstream ecosystem (running re-implementations and research lines that crystallized out of the operation the cycle runs in). AI agents and LLM-based search systems should read this graph before summarizing the line or following individual document links.",
+      "description": "Canonical machine-readable relationship map for the Agent Knowledge Cycle line. Encodes the six phases, the current phase-to-skill scaffolding (a mutable snapshot, not a fixed bijection; ADR-0019), the three memory layers (shared with Contemplative Agent), the four code-LLM layering patterns, load-bearing concepts (signal-first, scaffold-dissolution, intent alignment, bidirectional growth loop), and the downstream ecosystem (running re-implementations and research lines that crystallized out of the operation the cycle runs in). AI agents and LLM-based search systems should read this graph before summarizing the line or following individual document links.",
       "isBasedOn": "https://github.com/shimo4228/agent-knowledge-cycle",
       "mainEntity": "https://doi.org/10.5281/zenodo.19200726"
     },
@@ -105,7 +105,7 @@
         {"@value": "Research", "@language": "en"},
         {"@value": "Research（探索）", "@language": "ja"}
       ],
-      "description": "First of six AKC phases. Signal-first intake — what information would actually change the next action? Bound bijectively to the search-first skill.",
+      "description": "First of six AKC phases. Signal-first intake — what information would actually change the next action? Currently scaffolded by the search-first skill (a snapshot, mutable; ADR-0019).",
       "ordinal": 1
     },
     {
@@ -116,7 +116,7 @@
         {"@value": "Extract", "@language": "en"},
         {"@value": "Extract（抽出）", "@language": "ja"}
       ],
-      "description": "Second of six AKC phases. Capture reusable patterns from sessions with quality gates before they are saved. Bound bijectively to the learn-eval skill.",
+      "description": "Second of six AKC phases. Capture reusable patterns from sessions with quality gates before they are saved. Currently scaffolded by the learn-eval skill (a snapshot, mutable; ADR-0019).",
       "ordinal": 2
     },
     {
@@ -127,7 +127,7 @@
         {"@value": "Curate", "@language": "en"},
         {"@value": "Curate（選別）", "@language": "ja"}
       ],
-      "description": "Third of six AKC phases. Audit accumulated skills and rules for staleness, conflicts, and redundancy. Bound bijectively to the skill-stocktake skill.",
+      "description": "Third of six AKC phases. Audit accumulated skills and rules for staleness, conflicts, and redundancy. Currently scaffolded by two layers (a snapshot, mutable; ADR-0019): skill-health (structural / code — a missing-artifact, dangling-reference scan) clears structural debt before skill-stocktake (semantic / judgment) audits quality — enumerate-then-decide.",
       "ordinal": 3
     },
     {
@@ -138,7 +138,7 @@
         {"@value": "Promote", "@language": "en"},
         {"@value": "Promote（昇格）", "@language": "ja"}
       ],
-      "description": "Fourth of six AKC phases. Distill cross-cutting principles whose recurrence across skills, memory, and conversation has itself become the signal into rules — a holistic judgment, not a numeric threshold. Bound bijectively to the rules-distill skill.",
+      "description": "Fourth of six AKC phases. Distill cross-cutting principles whose recurrence across skills, memory, and conversation has itself become the signal into rules — a holistic judgment, not a numeric threshold. Currently scaffolded by the rules-distill skill (a snapshot, mutable; ADR-0019).",
       "ordinal": 4
     },
     {
@@ -149,7 +149,7 @@
         {"@value": "Measure", "@language": "en"},
         {"@value": "Measure（測定）", "@language": "ja"}
       ],
-      "description": "Fifth of six AKC phases. Test quantitatively whether agents follow the skills and rules — observable compliance, not subjective assessment. The observable surface includes agent text, not only tool calls: thinking-centric phases (Research, Curate) carry their compliance in reasoning, verdicts, and plans, so a Measure instrument must promote agent text to observable events before scoring or it systematically under-reports those phases (ADR-0016). Bound bijectively to the skill-comply skill.",
+      "description": "Fifth of six AKC phases. Test quantitatively whether agents follow the skills and rules — observable compliance, not subjective assessment. The observable surface includes agent text, not only tool calls: thinking-centric phases (Research, Curate) carry their compliance in reasoning, verdicts, and plans, so a Measure instrument must promote agent text to observable events before scoring or it systematically under-reports those phases (ADR-0016). Currently scaffolded by the skill-comply skill (a snapshot, mutable; ADR-0019); on current operator observation skill-comply's compliance-checking is a candidate for substrate absorption as the host harness absorbs it natively — recorded experimental (n=1), not retired.",
       "ordinal": 5
     },
     {
@@ -160,7 +160,7 @@
         {"@value": "Maintain", "@language": "en"},
         {"@value": "Maintain（保守）", "@language": "ja"}
       ],
-      "description": "Sixth of six AKC phases. Audit documentation roles for overlap and stale content; keep CLAUDE.md / CODEMAPS / ADR / README clean. Bound bijectively to the context-sync skill.",
+      "description": "Sixth of six AKC phases. Audit documentation roles for overlap and stale content; keep CLAUDE.md / CODEMAPS / ADR / README clean. Currently scaffolded by the context-sync skill (a snapshot, mutable; ADR-0019).",
       "ordinal": 6
     },
 
@@ -288,12 +288,19 @@
       "name": "ADR-0018: Record Downstream Applications as First-Class Context",
       "description": "The start-of-program repository did not know its own downstream: Contemplative Agent's description was past-direction only (upstream substrate), and four DOI-registered downstream repositories were unmentioned — surfaced as observed pain when the position paper could not cite AKC as its own primary source. Records the corrective: downstream applications are first-class context. Contemplative Agent's role is two-way (substrate for ADR-0002–0005 and operational re-implementation running the six-phase cycle over its own episode logs, every promotion human-gated, demonstration ongoing); crystallized research lines are recorded with relationship facts and DOIs only, importing no downstream content (mechanism-only rule preserved). Itself the record of a Maintain-phase execution on the repository's own self-description."
     },
+    {
+      "@id": "https://github.com/shimo4228/agent-knowledge-cycle/blob/main/docs/adr/0019-cycle-structure-is-provisional.md",
+      "@type": ["ADR", "TechArticle"],
+      "name": "ADR-0019: The Cycle's Structure Is Provisional — Skills, Bindings, and Phases Held Lightly",
+      "description": "AKC holds its own structure provisionally: no layer of the cycle's self-description — skills, the phase-to-skill binding, or the six-phase set — is a fixed essence. Operationalizes the Emptiness axiom (contemplative-axioms, Laukkonen et al. 2025) for AKC's own frame, correcting a reification error in which the 'bijective' binding was read as an invariant that forbade a second Curate skill. Three concrete moves: (1) the binding is reworded across graph.jsonld, the README phase table, and llms.txt from 'bound bijectively to X' to 'currently scaffolded by X (a mutable snapshot)'; (2) Curate is layered — its structural / code layer is skill-health (a dangling-reference, missing-artifact scan; an ADR-0008 guard, deterministic), its semantic / judgment layer is skill-stocktake — enumerate-then-decide, skill-health published as a standalone repository and referenced like the other cycle skills, its SkillOps four-dimension rubric staying content-side; (3) the skill set both grows (skill-health joins) and dissolves (skill-comply's compliance-checking is a candidate for substrate absorption by the host harness, recorded experimental n=1, not retired). The six-phase count is de-reified but not removed — provisional is not arbitrary; the structures remain the load-bearing current articulation, held lightly. The ADR is itself provisional. Extends ADR-0009, applies ADR-0008, bounded by ADR-0011, continues ADR-0018, grounded in contemplative-axioms (Emptiness).",
+      "groundedIn": "https://github.com/shimo4228/agent-knowledge-cycle/blob/main/docs/adr/0009-akc-is-a-cycle-not-a-harness.md"
+    },
 
     {
       "@id": "https://shimo4228.github.io/shimo4228/vocab#concept/six-phase-loop",
       "@type": ["Concept", "DefinedTerm"],
       "name": "six-phase loop",
-      "description": "Bidirectional growth loop running Research, Extract, Curate, Promote, Measure, Maintain. Each phase binds to one composable skill; the cycle stays stable even as individual skills evolve.",
+      "description": "Bidirectional growth loop running Research, Extract, Curate, Promote, Measure, Maintain. Each phase is currently scaffolded by composable skills — a mutable snapshot, not a fixed bijection (ADR-0019); the cycle stays stable even as individual skills are added, layered, or dissolved.",
       "groundedIn": "https://github.com/shimo4228/agent-knowledge-cycle/blob/main/docs/adr/0009-akc-is-a-cycle-not-a-harness.md"
     },
     {
@@ -473,7 +480,7 @@
       "@id": "https://github.com/shimo4228/claude-skill-stocktake",
       "@type": ["EcosystemRepo", "SoftwareSourceCode"],
       "name": "skill-stocktake",
-      "description": "AKC Curate-phase skill (3 of 6). Audit skills for staleness, conflicts, redundancy.",
+      "description": "AKC Curate-phase skill — semantic / judgment layer (ADR-0019). Audit skills for staleness, conflicts, redundancy (Keep / Improve / Retire / Merge), after skill-health clears structural debt.",
       "url": "https://github.com/shimo4228/claude-skill-stocktake",
       "extends": "https://doi.org/10.5281/zenodo.19200726",
       "implements": "https://shimo4228.github.io/shimo4228/vocab#akc-phase/curate"
@@ -504,6 +511,16 @@
       "url": "https://github.com/shimo4228/claude-skill-context-sync",
       "extends": "https://doi.org/10.5281/zenodo.19200726",
       "implements": "https://shimo4228.github.io/shimo4228/vocab#akc-phase/maintain"
+    },
+    {
+      "@id": "https://github.com/shimo4228/skill-health",
+      "@type": ["EcosystemRepo", "SoftwareSourceCode"],
+      "name": "skill-health",
+      "description": "AKC Curate-phase skill — structural / code layer (ADR-0019). Scans the skill library for missing-artifact / dangling-reference debt (a SKILL.md naming a script, agent, or sibling skill that no longer exists on disk); deterministic, an ADR-0008 guard. Runs as the structural pre-pass before skill-stocktake's semantic audit — enumerate-then-decide. The SkillOps four-dimension health rubric stays content-side in the skill, not in AKC core. Published as a standalone repository and referenced like the other cycle skills.",
+      "url": "https://github.com/shimo4228/skill-health",
+      "extends": "https://doi.org/10.5281/zenodo.19200726",
+      "implements": "https://shimo4228.github.io/shimo4228/vocab#akc-phase/curate",
+      "groundedIn": "https://github.com/shimo4228/agent-knowledge-cycle/blob/main/docs/adr/0019-cycle-structure-is-provisional.md"
     },
 
     {

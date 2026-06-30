@@ -4,11 +4,38 @@ All notable changes to AKC are recorded here. AKC follows semantic
 versioning; breaking changes to positioning or public interfaces bump the
 major version.
 
-## [Unreleased]
+## v2.4.0 — Provisional structure, Curate's code layer, and ecosystem federation (2026-06-30)
+
+The cycle's structure is held provisionally. A positioning question — where
+does the harness skill `skill-health` sit in the cycle? — exposed a
+reification error: the "bijective phase-to-skill binding" had been read as a
+fixed invariant. ADR-0019 de-reifies it. The binding is now a mutable
+snapshot, Curate gains a code layer (the newly published `skill-health`
+library) before its semantic layer (`skill-stocktake`), and even the
+six-phase set is framed as the current articulation rather than a fixed
+essence (Emptiness axiom). This release also externalizes the single-file
+cycle rules, federates the program as a research *ecosystem*, and lands the
+skill-library-maintenance literature citations and a round of knowledge-graph
+federation edges.
+
+### Added
+
+- **`skill-health` published as Curate's code layer** — a standalone public repository ([`shimo4228/skill-health`](https://github.com/shimo4228/skill-health)) providing a deterministic structural lint for *missing-artifact* debt (a SKILL.md referencing a script, agent, or sibling skill that no longer exists on disk). Referenced like the other cycle skills across README en/ja (phase table + cycle-skills list), llms.txt, llms-full.txt, and graph.jsonld (new `EcosystemRepo` node, `implements` the Curate phase). Its SkillOps four-dimension rubric stays content-side in the skill, not in AKC core (mechanism-only rule).
+- **[ADR-0019](docs/adr/0019-cycle-structure-is-provisional.md) — The Cycle's Structure Is Provisional** (ADR count 15 → 16). Records the disposition to hold skills, bindings, and the phase set lightly, the Curate code-layer decision (enumerate-then-decide: skill-health structural / skill-stocktake semantic), and skill-comply's possible substrate absorption as an **experimental** observation (n=1, not a retirement). New `ADR` node in graph.jsonld; indexed in `docs/adr/README.md`.
+- **`Ask DeepWiki` and `GitMCP` badges** in README en/ja — LLM-queryable derivative-wiki and MCP doc surfaces.
+- **Skill-library-maintenance literature cited in [ADR-0013](docs/adr/0013-positioning-within-agent-memory-literature.md)** (2026-06-25 addendum): SkillOps (arXiv:2605.13716, the origin of the skill-health rubric), SoK: Agentic Skills (arXiv:2602.20867), and skill-usage-in-the-wild (Liu et al., arXiv:2604.04323). Added as `ExternalReference` nodes in graph.jsonld with Wikidata sameAs, into `.zenodo.json` references, and into the llms-full.txt Prior Research table.
+- **Knowledge-graph federation** — `isPartOf` hub link and a completed sibling mesh among the research lines; research-line abbreviations made referenceable via `alternateName`; output-side dual added to the signal-first concept (a research report is the delta against the project's knowledge frontier, not a digest); SSRN `sameAs` on the harness-alignment position paper; Wikidata QID `sameAs` on six newly cited-work nodes; a human-readable research-ecosystem hub link in README "Related Work".
 
 ### Changed
 
 - **`docs/akc-cycle.md` externalized to a standalone repository** — the cycle-as-a-single-rules-file now lives in [`shimo4228/akc-cycle`](https://github.com/shimo4228/akc-cycle), the same distribution model as the six cycle skills and the design-pattern skills. The file in this repo (`docs/akc-cycle.md`) is replaced by a pointer. Motivation: the rule also exists as a live rule in the author's harness, and the two copies had drifted (the repo copy was a strict subset of the harness copy); publishing the rule as its own repository with a single canonical source (the harness copy, mirrored one-way) eliminates the drift structurally. References repointed in README en/ja (install section), CLAUDE.md (walk-order), CODEMAPS, glossary, and graph.jsonld (new EcosystemRepo node). ADR-0016 and ADR-0018, which cite the phase wording at `docs/akc-cycle.md`, are left unchanged: they are historical records, the path still resolves via the forwarding pointer, and both explicitly disclaim revising the phase definition.
+- **"research-program" → "research-ecosystem"** across README en/ja, llms.txt, llms-full.txt, CODEMAPS, and graph.jsonld — the author is a practitioner operating an ecosystem of research lines, not a single research program.
+- **Bijective-binding language retired** (ADR-0019). graph.jsonld (top-level description, all six phase nodes, the six-phase-loop concept, the JSON-LD design-choices Q&A), the README phase table and cycle-skills list, llms.txt, and llms-full.txt are reworded from "bound bijectively to X" / "1:1 phase-to-skill binding" to "currently scaffolded by X (a mutable snapshot)". Curate is presented as layered everywhere; skill-comply flagged as a substrate-absorption candidate.
+- **CODEMAPS freshness** — ADR count 15 → 16; `docs/skills/` recorded as holding only a pointer README (the three design-pattern skills externalized to standalone repos); stale per-skill routing rows replaced with the pointer; the "Six phases" invariant annotated with ADR-0019 provisionality; total file count re-derived from `git ls-files`.
+
+### Fixed
+
+- **ADR-0013 SkillsBench mislabel** — the Liu et al. empirical paper (arXiv:2604.04323) was corrected; arXiv:2602.12670 (the real SkillsBench, Li et al.) is named only as a disambiguation foil and is not cited as prior art.
 
 ## v2.3.0 — 2026-06-12
 

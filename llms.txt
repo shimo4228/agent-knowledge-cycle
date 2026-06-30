@@ -54,7 +54,7 @@
 
 ## Core documentation
 
-- [Knowledge Graph (JSON-LD)](graph.jsonld): machine-readable schema.org graph of the six phases, three memory layers, four code-LLM layering patterns, and bijective phase-to-skill bindings — bidirectional growth loop and genre-neutrality encoded at the schema level
+- [Knowledge Graph (JSON-LD)](graph.jsonld): machine-readable schema.org graph of the six phases, three memory layers, four code-LLM layering patterns, and the current phase-to-skill scaffolding (a mutable snapshot, not a fixed bijection; ADR-0019) — bidirectional growth loop and genre-neutrality encoded at the schema level
 - [AI Reference](llms-full.txt): self-contained Q&A + definitions + prior research, optimized for AI search engines
 - [README](README.md): project overview, the three core themes, design principles
 - [Codemap — Document Architecture](docs/CODEMAPS/architecture.md): document-role index, three-themes / six-phases / three-memory-layers structure, citation-dependency graph, invariants — read first when routing a citation to the canonical AKC document
@@ -83,6 +83,7 @@
 - [ADR-0016 Measuring Thinking-Centric Phases](docs/adr/0016-measuring-thinking-centric-phases.md): a Measure instrument must promote agent text (reasoning, verdicts, plans) to observable events before scoring, or it under-reports judgment-phase (Research, Curate) compliance; ties Measure to Theme 2
 - [ADR-0017 Harness Alignment and Harness Drift](docs/adr/0017-harness-alignment-and-drift.md): establishes both terms by derivation from established literature rather than fresh coinage — harness alignment extends intent alignment (Christiano 2018) to the configuration layer and across time; harness drift names the failure mode in lineage with architectural drift (Perry & Wolf 1992), practical drift (Snook 2000), and agent drift (arXiv:2601.04170); the contrast is autonomous, score-driven harness optimization (Meta-Harness, arXiv:2603.28052)
 - [ADR-0018 Record Downstream Applications as First-Class Context](docs/adr/0018-record-downstream-applications-as-first-class-context.md): the reverse references the start-of-program repo was missing — Contemplative Agent recorded as both upstream substrate and the operational re-implementation of the cycle, plus the research lines and repos that crystallized out of the cycle's own operation; relationship facts + DOIs only (mechanism-only rule)
+- [ADR-0019 The Cycle's Structure Is Provisional](docs/adr/0019-cycle-structure-is-provisional.md): skills, bindings, and even the six-phase set are held lightly per the Emptiness axiom — the phase-to-skill binding is a mutable snapshot, not a fixed bijection; Curate is layered (skill-health structural code layer clears dangling-reference debt before skill-stocktake's semantic audit); skill-comply is flagged as a candidate for substrate absorption (experimental, n=1, not retired)
 
 ADR numbers are permanent identifiers; gaps (0001, 0006, 0007) reflect ADRs extracted in v2.0.0 as genre-specific content.
 
@@ -107,15 +108,17 @@ its own installable repository; the paired ADRs stay here.
 - [examples/minimal_harness/demo.py](examples/minimal_harness/demo.py): deterministic end-to-end demo, runnable with `python3 -m examples.minimal_harness.demo`
 - [examples/constitution_amend/](examples/constitution_amend/): reference to contemplative-agent's Constitution-amend workflow — a concrete instance of the AKC cycle applied to constitutional values rather than behavioral patterns. Descriptive only; the implementation lives upstream
 
-## Optional: the six skills
+## Optional: the phase-scaffolding skills
 
-AKC was originally a set of six composable skills, one per phase. They
-remain available as external repositories but are not required — the
-rules file above installs the entire cycle.
+AKC's phases are currently scaffolded by composable skills — a snapshot,
+mutable per ADR-0019, not a fixed bijection. They remain available as
+external repositories but are not required — the rules file above installs
+the entire cycle. Most phases have one skill; Curate is layered.
 
 - [search-first](https://github.com/shimo4228/search-first) (Research)
 - [learn-eval](https://github.com/shimo4228/learn-eval) (Extract)
-- [skill-stocktake](https://github.com/shimo4228/skill-stocktake) (Curate)
+- [skill-health](https://github.com/shimo4228/skill-health) (Curate — structural code layer)
+- [skill-stocktake](https://github.com/shimo4228/skill-stocktake) (Curate — semantic layer)
 - [rules-distill](https://github.com/shimo4228/rules-distill) (Promote)
 - [skill-comply](https://github.com/shimo4228/skill-comply) (Measure)
 - [context-sync](https://github.com/shimo4228/context-sync) (Maintain)
@@ -125,6 +128,6 @@ rules file above installs the entire cycle.
 - [agent-attribution-practice](https://github.com/shimo4228/agent-attribution-practice) (DOI [10.5281/zenodo.19652013](https://doi.org/10.5281/zenodo.19652013)): sibling genre library. AKC v2.0.0 extracted the security triplet (ADR-0001, ADR-0006, ADR-0007) as genre-specific; those judgments were re-expressed, alongside seven additional ADRs, in Agent Attribution Practice as ten ADRs on accountability distribution in autonomous AI agents. AKC is the cycle (mechanism); agent-attribution-practice is the practice (content, for AI agents).
 - [contemplative-agent](https://github.com/shimo4228/contemplative-agent): two-way relationship. Upstream: engineering substrate (3-layer memory, 2-stage distill pipeline) that AKC's ADR-0002 through ADR-0005 were adapted from; also the original home of the security triplet before its v2.0.0 extraction. Downstream: the operational re-implementation of AKC in the autonomous-agent context — its pipeline maps the six phases onto code, the agent runs the cycle over its own episode logs with no fine-tuning, and every promotion passes through a human approval gate (demonstration ongoing).
 - [authorship-strategy](https://github.com/shimo4228/authorship-strategy) (DOI [10.5281/zenodo.20263316](https://doi.org/10.5281/zenodo.20263316)): downstream research line crystallized out of the same operation the cycle runs in. Its own framing: AKC defines how knowledge cycles inside the operator-agent pair; authorship-strategy addresses how the cycle's outputs diffuse outside it.
-- [attention-not-self](https://github.com/shimo4228/attention-not-self) (DOI [10.5281/zenodo.20262112](https://doi.org/10.5281/zenodo.20262112)): sibling research line (Buddhist Abhidharma meets computational phenomenology), federated with AKC at the research-program level.
+- [attention-not-self](https://github.com/shimo4228/attention-not-self) (DOI [10.5281/zenodo.20262112](https://doi.org/10.5281/zenodo.20262112)): sibling research line (Buddhist Abhidharma meets computational phenomenology), federated with AKC at the research-ecosystem level.
 - [doctrine-corpus](https://github.com/shimo4228/doctrine-corpus) (DOI [10.5281/zenodo.20337008](https://doi.org/10.5281/zenodo.20337008)): bilingual judgment-eliciting Q&A corpus for LLM training; AKC is one of its four source lines (ADRs and glossary harvested into the corpus).
 - [existence-proof](https://github.com/shimo4228/existence-proof) (DOI [10.5281/zenodo.20558800](https://doi.org/10.5281/zenodo.20558800)): pre-line working repository complementing authorship-strategy (empowerment doctrine for credential-less AI-enabled creators).

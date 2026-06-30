@@ -23,6 +23,7 @@ considered, and the consequences.
 | [0016](0016-measuring-thinking-centric-phases.md) | Measuring Thinking-Centric Phases |
 | [0017](0017-harness-alignment-and-drift.md) | Harness Alignment and Harness Drift |
 | [0018](0018-record-downstream-applications-as-first-class-context.md) | Record Downstream Applications as First-Class Context |
+| [0019](0019-cycle-structure-is-provisional.md) | The Cycle's Structure Is Provisional — Skills, Bindings, and Phases Held Lightly |
 
 ADR numbers are permanent identifiers. Gaps (0001, 0006, 0007) reflect
 ADRs that were extracted from this repository in v2.0.0 as
