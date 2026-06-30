@@ -28,8 +28,8 @@
 > decision to front-load these three themes in the project's reading
 > surface.
 >
-> AKC is not a harness. It runs on top of harnesses (like Everything
-> Claude Code) to keep the harness alive as understanding evolves.
+> AKC is not a harness. It runs on top of harnesses (like Claude Code)
+> to keep the harness alive as understanding evolves.
 > That activity is harness alignment — keeping the harness aligned
 > with the operator's evolving intent; its failure mode is harness
 > drift (ADR-0017). The cycle is the sole defining characteristic — see ADR-0009 for the

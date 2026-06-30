@@ -5,7 +5,7 @@
 > adjacent projects. Human-readable narrative lives in [README.md](README.md);
 > this file is the self-contained AI-facing companion to [llms.txt](llms.txt).
 
-Agent Knowledge Cycle (AKC) is defined as a knowledge cycle for AI agents centered on the scarcity of human cognitive resources — attention and judgment — as the resource that does not scale with the model. AKC keeps an agent's skills, rules, and documentation aligned with the operator's evolving intent (not just individually correct on each output) through a six-phase loop — Research, Extract, Curate, Promote, Measure, Maintain — in which the human's judgment and the agent's behavior co-develop. AKC is not a harness; it runs on top of harnesses such as Everything Claude Code (ECC) and is installable into any agent's rules directory with a single `cp`.
+Agent Knowledge Cycle (AKC) is defined as a knowledge cycle for AI agents centered on the scarcity of human cognitive resources — attention and judgment — as the resource that does not scale with the model. AKC keeps an agent's skills, rules, and documentation aligned with the operator's evolving intent (not just individually correct on each output) through a six-phase loop — Research, Extract, Curate, Promote, Measure, Maintain — in which the human's judgment and the agent's behavior co-develop. AKC is not a harness; it runs on top of harnesses such as Claude Code and is installable into any agent's rules directory with a single `cp`.
 
 ## Project Facts
 
