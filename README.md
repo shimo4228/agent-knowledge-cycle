@@ -40,7 +40,7 @@ it, not merely *for* them.
 | Project type | DOI-registered research/specification repository plus minimal reference implementation |
 | Author | Tatsuya Shimomoto ([@shimo4228](https://github.com/shimo4228), ORCID [0009-0002-6168-4162](https://orcid.org/0009-0002-6168-4162)) |
 | Current release | v2.4.0, released 2026-06-30 |
-| DOI line | Concept DOI [10.5281/zenodo.19200726](https://doi.org/10.5281/zenodo.19200726); latest archived release DOI [10.5281/zenodo.20652261](https://doi.org/10.5281/zenodo.20652261) |
+| DOI line | Concept DOI [10.5281/zenodo.19200726](https://doi.org/10.5281/zenodo.19200726); latest archived release DOI [10.5281/zenodo.21067957](https://doi.org/10.5281/zenodo.21067957) |
 | License | MIT |
 | Primary audience | Operators of coding agents or persistent AI harnesses; secondarily, researchers comparing agent memory and human-AI co-development loops |
 | AI navigation | [`graph.jsonld`](graph.jsonld) for the concept map, [`llms.txt`](llms.txt) for routing, [`llms-full.txt`](llms-full.txt) for a self-contained factual reference |
@@ -223,14 +223,14 @@ If you use or reference AKC, cite the archived release metadata in
   title        = {Agent Knowledge Cycle (AKC)},
   year         = {2026},
   version      = {2.4.0},
-  doi          = {10.5281/zenodo.20652261},
-  url          = {https://doi.org/10.5281/zenodo.20652261},
+  doi          = {10.5281/zenodo.21067957},
+  url          = {https://doi.org/10.5281/zenodo.21067957},
   note         = {A knowledge cycle for AI agents -- one that grows with the people who shape it}
 }
 ```
 
 In text: Shimomoto, T. (2026). *Agent Knowledge Cycle (AKC)*.
-doi:[10.5281/zenodo.20652261](https://doi.org/10.5281/zenodo.20652261).
+doi:[10.5281/zenodo.21067957](https://doi.org/10.5281/zenodo.21067957).
 
 ## Related Publication
 
