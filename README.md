@@ -215,7 +215,9 @@ between February and March 2026; `context-sync` was developed independently.
 ## How to Cite
 
 If you use or reference AKC, cite the archived release metadata in
-[`CITATION.cff`](CITATION.cff):
+[`CITATION.cff`](CITATION.cff), also available as
+[`codemeta.json`](codemeta.json) (schema.org-based software metadata, read by
+the Software Heritage indexer):
 
 ```bibtex
 @software{shimomoto2026akc,
