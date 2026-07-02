@@ -17,6 +17,14 @@ major version.
   ADR-0019 the binding remains a mutable snapshot. Reflected in the README
   phase tables (en/ja), llms.txt, llms-full.txt, and graph.jsonld (new
   EcosystemRepo node with an `implements` edge to the Curate phase).
+- **graph.jsonld: stale `claude-skill-*` repo URLs updated to current names**
+  (7 nodes: search-first, learn-eval, skill-stocktake, rules-distill,
+  skill-comply, context-sync, daily-research — all renames verified via the
+  GitHub API). The `@id`s now match the hub graph's EcosystemRepo `@id`s, so
+  cross-graph federation resolves the skills as identical entities.
+  Historical mentions of the old names in ADR-0016 and docs/inspiration.md
+  are left as-is — they record release history, and GitHub redirects the old
+  URLs.
 
 ## v2.4.0 — Provisional structure, Curate's code layer, and ecosystem federation (2026-06-30)
 

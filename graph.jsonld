@@ -459,29 +459,29 @@
     },
 
     {
-      "@id": "https://github.com/shimo4228/claude-skill-search-first",
+      "@id": "https://github.com/shimo4228/search-first",
       "@type": ["EcosystemRepo", "SoftwareSourceCode"],
       "name": "search-first",
       "description": "AKC Research-phase skill (1 of 6). Search existing solutions before building.",
-      "url": "https://github.com/shimo4228/claude-skill-search-first",
+      "url": "https://github.com/shimo4228/search-first",
       "extends": "https://doi.org/10.5281/zenodo.19200726",
       "implements": "https://shimo4228.github.io/shimo4228/vocab#akc-phase/research"
     },
     {
-      "@id": "https://github.com/shimo4228/claude-skill-learn-eval",
+      "@id": "https://github.com/shimo4228/learn-eval",
       "@type": ["EcosystemRepo", "SoftwareSourceCode"],
       "name": "learn-eval",
       "description": "AKC Extract-phase skill (2 of 6). Extract reusable patterns with quality gates.",
-      "url": "https://github.com/shimo4228/claude-skill-learn-eval",
+      "url": "https://github.com/shimo4228/learn-eval",
       "extends": "https://doi.org/10.5281/zenodo.19200726",
       "implements": "https://shimo4228.github.io/shimo4228/vocab#akc-phase/extract"
     },
     {
-      "@id": "https://github.com/shimo4228/claude-skill-stocktake",
+      "@id": "https://github.com/shimo4228/skill-stocktake",
       "@type": ["EcosystemRepo", "SoftwareSourceCode"],
       "name": "skill-stocktake",
       "description": "AKC Curate-phase skill — semantic / judgment layer (ADR-0019). Audit skills for staleness, conflicts, redundancy (Keep / Improve / Retire / Merge), after skill-health clears structural debt.",
-      "url": "https://github.com/shimo4228/claude-skill-stocktake",
+      "url": "https://github.com/shimo4228/skill-stocktake",
       "extends": "https://doi.org/10.5281/zenodo.19200726",
       "implements": "https://shimo4228.github.io/shimo4228/vocab#akc-phase/curate"
     },
@@ -495,29 +495,29 @@
       "implements": "https://shimo4228.github.io/shimo4228/vocab#akc-phase/curate"
     },
     {
-      "@id": "https://github.com/shimo4228/claude-skill-rules-distill",
+      "@id": "https://github.com/shimo4228/rules-distill",
       "@type": ["EcosystemRepo", "SoftwareSourceCode"],
       "name": "rules-distill",
       "description": "AKC Promote-phase skill (4 of 6). Distill cross-cutting principles into rules.",
-      "url": "https://github.com/shimo4228/claude-skill-rules-distill",
+      "url": "https://github.com/shimo4228/rules-distill",
       "extends": "https://doi.org/10.5281/zenodo.19200726",
       "implements": "https://shimo4228.github.io/shimo4228/vocab#akc-phase/promote"
     },
     {
-      "@id": "https://github.com/shimo4228/claude-skill-comply",
+      "@id": "https://github.com/shimo4228/skill-comply",
       "@type": ["EcosystemRepo", "SoftwareSourceCode"],
       "name": "skill-comply",
       "description": "AKC Measure-phase skill (5 of 6). Test whether agents follow their skills and rules.",
-      "url": "https://github.com/shimo4228/claude-skill-comply",
+      "url": "https://github.com/shimo4228/skill-comply",
       "extends": "https://doi.org/10.5281/zenodo.19200726",
       "implements": "https://shimo4228.github.io/shimo4228/vocab#akc-phase/measure"
     },
     {
-      "@id": "https://github.com/shimo4228/claude-skill-context-sync",
+      "@id": "https://github.com/shimo4228/context-sync",
       "@type": ["EcosystemRepo", "SoftwareSourceCode"],
       "name": "context-sync",
       "description": "AKC Maintain-phase skill (6 of 6). Audit docs for role overlaps and stale content.",
-      "url": "https://github.com/shimo4228/claude-skill-context-sync",
+      "url": "https://github.com/shimo4228/context-sync",
       "extends": "https://doi.org/10.5281/zenodo.19200726",
       "implements": "https://shimo4228.github.io/shimo4228/vocab#akc-phase/maintain"
     },
@@ -648,11 +648,11 @@
       "derivesFrom": "https://doi.org/10.5281/zenodo.19212118"
     },
     {
-      "@id": "https://github.com/shimo4228/claude-skill-daily-research",
+      "@id": "https://github.com/shimo4228/daily-research",
       "@type": ["EcosystemRepo", "SoftwareSourceCode"],
       "name": "daily-research",
       "description": "Pre-AKC ancestor of the Research phase: the author's daily signal-first research pipeline, skillified in April 2026. Documented as implementation history in docs/inspiration.md.",
-      "url": "https://github.com/shimo4228/claude-skill-daily-research",
+      "url": "https://github.com/shimo4228/daily-research",
       "groundedIn": "https://github.com/shimo4228/agent-knowledge-cycle/blob/main/docs/inspiration.md"
     },
     {
