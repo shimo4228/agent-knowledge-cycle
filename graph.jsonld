@@ -127,7 +127,7 @@
         {"@value": "Curate", "@language": "en"},
         {"@value": "Curate（選別）", "@language": "ja"}
       ],
-      "description": "Third of six AKC phases. Audit accumulated skills and rules for staleness, conflicts, and redundancy. Currently scaffolded by two layers (a snapshot, mutable; ADR-0019): skill-health (structural / code — a missing-artifact, dangling-reference scan) clears structural debt before skill-stocktake (semantic / judgment) audits quality — enumerate-then-decide.",
+      "description": "Third of six AKC phases. Audit accumulated skills and rules for staleness, conflicts, and redundancy. Currently scaffolded by three scaffolds (a snapshot, mutable; ADR-0019): skill-health (structural / code — a missing-artifact, dangling-reference scan) clears structural debt before the semantic / judgment layers audit quality — skill-stocktake for skills, rules-stocktake for always-loaded rules (residency cost, staleness, substrate absorption) — enumerate-then-decide.",
       "ordinal": 3
     },
     {
@@ -482,6 +482,15 @@
       "name": "skill-stocktake",
       "description": "AKC Curate-phase skill — semantic / judgment layer (ADR-0019). Audit skills for staleness, conflicts, redundancy (Keep / Improve / Retire / Merge), after skill-health clears structural debt.",
       "url": "https://github.com/shimo4228/claude-skill-stocktake",
+      "extends": "https://doi.org/10.5281/zenodo.19200726",
+      "implements": "https://shimo4228.github.io/shimo4228/vocab#akc-phase/curate"
+    },
+    {
+      "@id": "https://github.com/shimo4228/rules-stocktake",
+      "@type": ["EcosystemRepo", "SoftwareSourceCode"],
+      "name": "rules-stocktake",
+      "description": "AKC Curate-phase skill — semantic / judgment layer for always-loaded rules (ADR-0019). Audits rules for per-session residency cost, staleness, and substrate absorption (Keep / Improve / Update / Merge / Demote-to-skill / Dissolve / Retire); the Dissolve verdict executes Scaffold Dissolution's two vectors. The audit counterpart of rules-distill's Promote direction.",
+      "url": "https://github.com/shimo4228/rules-stocktake",
       "extends": "https://doi.org/10.5281/zenodo.19200726",
       "implements": "https://shimo4228.github.io/shimo4228/vocab#akc-phase/curate"
     },

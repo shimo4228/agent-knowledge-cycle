@@ -4,6 +4,20 @@ All notable changes to AKC are recorded here. AKC follows semantic
 versioning; breaking changes to positioning or public interfaces bump the
 major version.
 
+## Unreleased
+
+- **rules-stocktake joins the Curate scaffolding** as a third scaffold —
+  the semantic / judgment layer for always-loaded rules
+  ([standalone repo](https://github.com/shimo4228/rules-stocktake)). It
+  inverts skill-stocktake's cost model (trigger pollution → per-session
+  residency), replaces the usage axis with residency density and substrate
+  absorption, and adds two rules-specific verdicts: Demote-to-skill (the
+  inverse of rules-distill's Promote direction) and Dissolve (retirement by
+  success — the executor of Scaffold Dissolution's two vectors). Per
+  ADR-0019 the binding remains a mutable snapshot. Reflected in the README
+  phase tables (en/ja), llms.txt, llms-full.txt, and graph.jsonld (new
+  EcosystemRepo node with an `implements` edge to the Curate phase).
+
 ## v2.4.0 — Provisional structure, Curate's code layer, and ecosystem federation (2026-06-30)
 
 The cycle's structure is held provisionally. A positioning question — where

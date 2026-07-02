@@ -75,6 +75,7 @@ shaped so that budget is not wasted?
 | Maintenance pressure | AKC response |
 |---|---|
 | Skills go stale | `skill-health` catches structural debt; `skill-stocktake` audits semantic quality |
+| Rules accumulate residency cost | `rules-stocktake` audits always-loaded rules for density, staleness, and substrate absorption |
 | Rules stop matching practice | `skill-comply` measures actual behavioral compliance |
 | Knowledge stays scattered | `rules-distill` promotes recurring patterns into rules |
 | Documentation drifts | `context-sync` keeps document roles and facts fresh |
@@ -127,7 +128,7 @@ fixed essence; see
 |---|---|---|
 | Research | [search-first](https://github.com/shimo4228/search-first) | Search broadly, intake only signal that can change the next action |
 | Extract | [learn-eval](https://github.com/shimo4228/learn-eval) | Extract reusable session patterns with quality gates |
-| Curate | [skill-health](https://github.com/shimo4228/skill-health) + [skill-stocktake](https://github.com/shimo4228/skill-stocktake) | Run structural debt checks before semantic skill review |
+| Curate | [skill-health](https://github.com/shimo4228/skill-health) + [skill-stocktake](https://github.com/shimo4228/skill-stocktake) + [rules-stocktake](https://github.com/shimo4228/rules-stocktake) | Run structural debt checks before semantic review of skills and always-loaded rules |
 | Promote | [rules-distill](https://github.com/shimo4228/rules-distill) | Turn recurring patterns into durable rules |
 | Measure | [skill-comply](https://github.com/shimo4228/skill-comply) | Test whether agents actually follow skills and rules |
 | Maintain | [context-sync](https://github.com/shimo4228/context-sync) | Keep documentation roles clean and facts fresh |
