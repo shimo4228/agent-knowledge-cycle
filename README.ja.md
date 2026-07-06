@@ -8,12 +8,12 @@ Language: [English](README.md) | 日本語
 
 **AI エージェントのための知識サイクル — それを形作る人とともに成長する。**
 
-Agent Knowledge Cycle (AKC) は、永続的な AI エージェントを運用する人の
-ための 6 フェーズの知識サイクルである。エージェントの反復経験を、保守
-されたスキル・ルール・ドキュメントへ変換しつつ、将来の振る舞いを形作る
-変更は human approval の下に置く。AKC は harness ではない。Claude Code
-のような harness の上で動き、運用者の変化していく意図と harness を
-アラインし続ける。
+Agent Knowledge Cycle (AKC) は、永続的な AI エージェントが経験から
+成長していくための 6 フェーズの知識サイクルである。反復経験を、将来の
+振る舞いを変えるスキル・ルール・ドキュメントへ蒸留し、その昇格は human
+approval の下に置く。Claude Code などの harness 上で動かせるが、核に
+あるのは特定の scaffold ではなく、experience-to-behavior の成長ループで
+ある。
 
 関連論文: *Harness Alignment and Harness Drift: Why Intent, Unlike
 Correctness, Resists Automation* — doi:[10.5281/zenodo.20578272](https://doi.org/10.5281/zenodo.20578272)

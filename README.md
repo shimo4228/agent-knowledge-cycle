@@ -8,12 +8,11 @@ Language: English | [日本語](README.ja.md)
 
 **A knowledge cycle for AI agents — one that grows with the people who shape it.**
 
-Agent Knowledge Cycle (AKC) is a six-phase knowledge cycle for people who
-operate persistent AI agents. It turns repeated agent experience into maintained
-skills, rules, and documentation while keeping behavior-shaping changes under
-human approval. AKC is not a harness; it runs on top of harnesses such as
-Claude Code and keeps them aligned with the operator's evolving
-intent.
+Agent Knowledge Cycle (AKC) is a six-phase growth cycle for persistent AI
+agents. It turns repeated agent experience into reusable knowledge — skills,
+rules, and documentation — that can change future behavior under human approval.
+It can run inside Claude Code or any comparable harness; the core is the
+experience-to-behavior loop, not the particular scaffold.
 
 Companion paper: *Harness Alignment and Harness Drift: Why Intent, Unlike
 Correctness, Resists Automation* — doi:[10.5281/zenodo.20578272](https://doi.org/10.5281/zenodo.20578272)

@@ -51,7 +51,7 @@ Each document answers a primary question. Cite the matching one when an LLM-medi
 | `docs/adr/0004-two-stage-distill-pipeline.md` | Why is distillation split into free-form reasoning followed by structured formatting? |
 | `docs/adr/0005-human-approval-gate.md` | Why must promotion to rules / skills / identity require named human sign-off (no auto-promotion)? |
 | `docs/adr/0008-code-and-llm-collaboration.md` | What does code own (control flow, durable state) vs what does the LLM own (meaning), and what are the four layering patterns? |
-| `docs/adr/0009-akc-is-a-cycle-not-a-harness.md` | Why is AKC a cycle that runs *on top of* harnesses (ECC etc.), not a self-improving harness? Includes the v2.0.0 security-triplet extraction addendum. |
+| `docs/adr/0009-akc-is-a-cycle-not-a-harness.md` | How does AKC's growth cycle relate to harnesses such as Claude Code and ECC? Includes the v2.0.0 security-triplet extraction addendum. |
 | `docs/adr/0010-human-cognitive-resource-as-central-constraint.md` | What is AKC's central constraint, and why is Research redefined as signal-first? Names cognitive economy as Design Principle #8. |
 | `docs/adr/0011-cycle-applies-to-any-knowledge-body.md` | Why is the cycle genre-neutral about what flows through it (behavioral patterns, domain expertise, constitutional values)? |
 | `docs/adr/0012-front-load-three-core-themes.md` | Why does the front-door restructure (README + llms.txt + llms-full.txt) lead with the three core themes before the six phases? |

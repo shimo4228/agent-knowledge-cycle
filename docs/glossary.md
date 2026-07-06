@@ -17,8 +17,11 @@ are marked inline; the two glossaries are written to be consistent.
 Six composable phases — Research, Extract, Curate, Promote, Measure,
 Maintain — by which an agent's experience becomes durable,
 behavior-shaping knowledge, with human approval required on every change
-to the agent's future behavior. A cycle, not a harness: it is what you
-do *to* a harness over time, portable across harnesses (ADR-0009).
+to the agent's future behavior. Its core is the growth cycle:
+experience becomes reusable knowledge, reusable knowledge changes
+future behavior, and the loop sharpens human judgment as it runs. It is
+portable across harnesses and can also be packaged as harness-facing
+artifacts such as rules, skills, and examples (ADR-0009).
 Genre-neutral: the same six phases run on behavioral patterns, domain
 expertise, or constitutional values (ADR-0011). The one-page installable
 form is the standalone [akc-cycle](https://github.com/shimo4228/akc-cycle)
@@ -84,10 +87,12 @@ not its only one. See ADR-0005.
 ## Harness
 
 The configuration layer an agent runs on: skills, rules, prompts,
-scripts, documentation. AKC is not a competitor to harnesses but an
-activity performed on them over time (ADR-0009). The term follows the
-harness-engineering discourse (Hashimoto 2026; the externalization
-survey, Zhou et al. 2026, maps the field).
+scripts, documentation. AKC's cycle can run inside a harness and may be
+distributed through harness-facing artifacts, but its defining object is
+the experience-to-behavior growth loop rather than any single scaffold
+(ADR-0009). The term follows the harness-engineering discourse
+(Hashimoto 2026; the externalization survey, Zhou et al. 2026, maps the
+field).
 
 **The same non-weights layer is called *scaffolding* in the AI-safety
 and accountability discourse** (Davidson et al. 2023). AAP's glossary
