@@ -523,6 +523,7 @@
     },
     {
       "@id": "https://github.com/shimo4228/skill-health",
+      "sameAs": "https://www.wikidata.org/wiki/Q140448381",
       "@type": ["EcosystemRepo", "SoftwareSourceCode"],
       "name": "skill-health",
       "description": "AKC Curate-phase skill — structural / code layer (ADR-0019). Scans the skill library for missing-artifact / dangling-reference debt (a SKILL.md naming a script, agent, or sibling skill that no longer exists on disk); deterministic, an ADR-0008 guard. Runs as the structural pre-pass before skill-stocktake's semantic audit — enumerate-then-decide. The SkillOps four-dimension health rubric stays content-side in the skill, not in AKC core. Published as a standalone repository and referenced like the other cycle skills.",
