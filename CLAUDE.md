@@ -18,7 +18,7 @@ front-door documentation で必ず先に登場させる 3 つの load-bearing �
 2. [`llms.txt`](llms.txt) — navigation index
 3. [`llms-full.txt`](llms-full.txt) — consolidated Q&A + factual reference
 4. [`README.md`](README.md) (or [`README.ja.md`](README.ja.md)) — three themes、全体像
-5. [`docs/adr/`](docs/adr/) — judgment lineage (15 ADRs, gaps at 0001/0006/0007 are intentional)
+5. [`docs/adr/`](docs/adr/) — judgment lineage (count の正本は llms-full.txt; gaps at 0001/0006/0007 are intentional)
 6. [`docs/CODEMAPS/architecture.md`](docs/CODEMAPS/architecture.md) — file-level routing index (code を navigate する時)
 
 ## Sibling projects (context を失わない)

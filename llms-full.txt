@@ -19,7 +19,7 @@ Agent Knowledge Cycle (AKC) is defined as a six-phase growth cycle for persisten
 - **Repository**: [github.com/shimo4228/agent-knowledge-cycle](https://github.com/shimo4228/agent-knowledge-cycle)
 - **Archive**: Zenodo (auto-archived on each GitHub Release)
 - **Phases**: 6 (Research → Extract → Curate → Promote → Measure → Maintain)
-- **ADRs**: 16 (ADR-0002, ADR-0003, ADR-0004, ADR-0005, ADR-0008 through ADR-0019; numbering has permanent gaps at 0001, 0006, 0007 from the v2.0.0 extraction)
+- **ADRs**: 17 (ADR-0002, ADR-0003, ADR-0004, ADR-0005, ADR-0008 through ADR-0020; numbering has permanent gaps at 0001, 0006, 0007 from the v2.0.0 extraction)
 - **Three core themes** (per ADR-0012, surfaced in priority order in front-door docs): (1) human cognitive resource scarcity as the central constraint, (2) intent alignment over individual correctness, (3) the cycle changes the human as much as the agent — bidirectional growth loop
 - **Design principles**: 9 (Composable, Observable, Non-destructive, Tool-agnostic, Evaluation-scales, Scaffold-dissolution, Code-LLM Layering, Cognitive-economy, Genre-neutrality)
 - **Cycle skills**: 8 external repos — a mutable snapshot, not a fixed bijection (ADR-0019): search-first, learn-eval, skill-health + skill-stocktake + rules-stocktake (Curate's structural code layer and its semantic layers for skills and always-loaded rules), rules-distill, skill-comply, context-sync
@@ -28,7 +28,7 @@ Agent Knowledge Cycle (AKC) is defined as a six-phase growth cycle for persisten
 - **Reference implementation**: `examples/minimal_harness/` — ~500 lines, stdlib-only Python 3.10+, deterministic demo
 - **Memory layers**: 3 (Raw episodes → Knowledge store → Identity/Rules)
 - **Code-LLM layering patterns**: 4 (guard, filter, judge, orchestrator)
-- **Rules file**: [`docs/akc-cycle.md`](docs/akc-cycle.md) — installs the entire cycle without the six skills
+- **Rules file**: [shimo4228/akc-cycle](https://github.com/shimo4228/akc-cycle) (standalone repository; in-repo pointer at [`docs/akc-cycle.md`](docs/akc-cycle.md)) — installs the entire cycle without the six skills
 
 ## Prior Research References
 
@@ -69,7 +69,7 @@ Agent Knowledge Cycle (AKC) is defined as a six-phase growth cycle for persisten
 
 ## What is the Agent Knowledge Cycle (AKC)?
 
-Agent Knowledge Cycle (AKC) is defined as a knowledge cycle for AI agents centered on the scarcity of human cognitive resources — attention and judgment — as the resource that does not scale with the model. Its purpose is to keep the agent's behavior aligned with the operator's evolving intent across sessions, not merely individually correct on each output, while the operator's judgment about good agent behavior also sharpens through use — making AKC a bidirectional growth loop in which agent and human co-develop. The mechanism is six composable phases — Research, Extract, Curate, Promote, Measure, Maintain — that keep skills, rules, and documentation aligned with the operator's intent. AKC was first proposed and implemented by Tatsuya Shimomoto in February 2026 and is published under DOI `10.5281/zenodo.21067957` with MIT license. AKC ships as specifications, JSON schemas, sixteen Architecture Decision Records (ADR-0002 through ADR-0005, ADR-0008 through ADR-0019; the numbering has permanent gaps at 0001, 0006, and 0007 from the v2.0.0 extraction of the security triplet), three design-pattern skills (externalized to standalone repositories), one rules file (`docs/akc-cycle.md`), and one dependency-free Python reference implementation at `examples/minimal_harness/` (~500 lines, stdlib only).
+Agent Knowledge Cycle (AKC) is defined as a knowledge cycle for AI agents centered on the scarcity of human cognitive resources — attention and judgment — as the resource that does not scale with the model. Its purpose is to keep the agent's behavior aligned with the operator's evolving intent across sessions, not merely individually correct on each output, while the operator's judgment about good agent behavior also sharpens through use — making AKC a bidirectional growth loop in which agent and human co-develop. The mechanism is six composable phases — Research, Extract, Curate, Promote, Measure, Maintain — that keep skills, rules, and documentation aligned with the operator's intent. AKC was first proposed and implemented by Tatsuya Shimomoto in February 2026 and is published under DOI `10.5281/zenodo.21067957` with MIT license. AKC ships as specifications, JSON schemas, seventeen Architecture Decision Records (ADR-0002 through ADR-0005, ADR-0008 through ADR-0020; the numbering has permanent gaps at 0001, 0006, and 0007 from the v2.0.0 extraction of the security triplet), three design-pattern skills (externalized to standalone repositories), one rules file (externalized to the standalone shimo4228/akc-cycle repository, with an in-repo pointer at `docs/akc-cycle.md`), and one dependency-free Python reference implementation at `examples/minimal_harness/` (~500 lines, stdlib only).
 
 ## What is AKC's central constraint?
 
@@ -101,14 +101,15 @@ Signal-first Research is defined as filtering at intake rather than after accumu
 
 ## Who is the intended audience of AKC?
 
-AKC is written for two audiences. The primary audience is the operator of an AI coding agent — someone running Claude Code, a custom harness, or any agent with persistent configuration — who has accumulated enough skills and rules that maintenance has become a real cost. The secondary audience is researchers and authors comparing approaches to agent memory, skill management, or human-AI co-development. AKC is not aimed at end users of AI products; it is aimed at the humans who configure and sustain coding agents. The rules file `docs/akc-cycle.md` is also directly consumable by LLM agents themselves.
+AKC is written for two audiences. The primary audience is the operator of an AI coding agent — someone running Claude Code, a custom harness, or any agent with persistent configuration — who has accumulated enough skills and rules that maintenance has become a real cost. The secondary audience is researchers and authors comparing approaches to agent memory, skill management, or human-AI co-development. AKC is not aimed at end users of AI products; it is aimed at the humans who configure and sustain coding agents. The rules file (standalone repository shimo4228/akc-cycle, pointed to by `docs/akc-cycle.md`) is also directly consumable by LLM agents themselves.
 
 ## How does an agent install AKC in under a minute?
 
-AKC's install path is defined as a single file copy:
+AKC's install path is defined as a single file copy from the standalone rules repository:
 
 ```bash
-cp docs/akc-cycle.md ~/.claude/rules/common/akc-cycle.md
+# From a clone of github.com/shimo4228/akc-cycle
+cp rules/common/akc-cycle.md ~/.claude/rules/common/akc-cycle.md
 ```
 
 That rule file distills all six phases into behavioral principles any AI agent can follow through natural conversation. No skills, no plugins, no CLI tools are required. Operators who want guided step-by-step workflows per phase can additionally install the cycle skills as external repositories (search-first, learn-eval, skill-health, skill-stocktake, rules-stocktake, rules-distill, skill-comply, context-sync). Rules and skills coexist — rules ensure the cycle runs even when skills are not triggered.
