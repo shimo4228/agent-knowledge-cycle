@@ -100,23 +100,12 @@ phase skills を追加する。どれも fork してよい — AKC が定義す�
 溶けることを意図している
 ([docs/scaffold-dissolution.md](docs/scaffold-dissolution.md))。
 
-## 事実
-
-| 事実 | 内容 |
-|---|---|
-| プロジェクト種別 | DOI 登録済み研究 / 仕様リポジトリ + 最小リファレンス実装 |
-| 著者 | Tatsuya Shimomoto ([@shimo4228](https://github.com/shimo4228), ORCID [0009-0002-6168-4162](https://orcid.org/0009-0002-6168-4162)) |
-| 現行リリース | v2.4.0, 2026-06-30 |
-| DOI line | Concept DOI [10.5281/zenodo.19200726](https://doi.org/10.5281/zenodo.19200726); 最新 archived release DOI [10.5281/zenodo.21067957](https://doi.org/10.5281/zenodo.21067957) |
-| ライセンス | MIT |
-| 主対象 | coding agent / 永続的 AI harness の運用者。副対象は agent memory や human-AI co-development loop を比較する研究者 |
-| AI navigation | [`graph.jsonld`](graph.jsonld) が concept map、[`llms.txt`](llms.txt) が routing、[`llms-full.txt`](llms-full.txt) が自己完結した事実参照（9 つの設計原則を含む） |
-
 ## このリポジトリの中身
 
 | 領域 | 内容 |
 |---|---|
 | 決定記録 | [`docs/adr/`](docs/adr/) の ADR カタログ。0001, 0006, 0007 は v2.0.0 extraction 由来の恒久 gap |
+| AI navigation | [`graph.jsonld`](graph.jsonld) が concept map、[`llms.txt`](llms.txt) が routing、[`llms-full.txt`](llms-full.txt) が自己完結した事実参照（9 つの設計原則を含む） |
 | 仕様 | [`schemas/episode-log.schema.json`](schemas/episode-log.schema.json), [`schemas/knowledge.schema.json`](schemas/knowledge.schema.json) |
 | リファレンス実装 | [`examples/minimal_harness/`](examples/minimal_harness/): 3 メモリ層と 2 段階 distill pipeline の dependency-free Python demo |
 | routing map | [`docs/CODEMAPS/architecture.md`](docs/CODEMAPS/architecture.md): canonical file-level navigation index |
@@ -146,8 +135,10 @@ ADR-0017, [`llms-full.txt`](llms-full.txt) にある。
 
 ## 出自と謝辞
 
-このアーキテクチャは 2026 年 2 月に Tatsuya Shimomoto によって最初に提案・
-実装された。土台は [@affaan-m](https://github.com/affaan-m) による
+このアーキテクチャは 2026 年 2 月に Tatsuya Shimomoto
+([@shimo4228](https://github.com/shimo4228), ORCID
+[0009-0002-6168-4162](https://orcid.org/0009-0002-6168-4162)) によって最初に
+提案・実装された。土台は [@affaan-m](https://github.com/affaan-m) による
 [Everything Claude Code (ECC)](https://github.com/affaan-m/everything-claude-code)
 — 日常運用の baseline harness — である。そこに著者自身が追加したスキルと
 ルールが増え、陳腐化したスキル、矛盾するルール、ドリフトするドキュメントが
@@ -156,6 +147,11 @@ ADR-0017, [`llms-full.txt`](llms-full.txt) にある。
 `context-sync` は独立に開発された。
 
 ## 引用方法
+
+AKC は 2 つの DOI を持つ。Concept DOI
+[10.5281/zenodo.19200726](https://doi.org/10.5281/zenodo.19200726)（badge が
+使用）は常に最新版に解決され、各 archived release は個別の DOI を持つ —
+引用には下の release DOI を使ってほしい。
 
 AKC を利用・参照する場合は、[`CITATION.cff`](CITATION.cff) の archived
 release metadata を引用してほしい。同じメタデータは

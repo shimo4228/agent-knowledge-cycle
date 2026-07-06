@@ -97,23 +97,12 @@ execution; fork any of it — AKC defines the cycle, not the implementation.
 Skills are scaffolding meant to dissolve once the cycle is internalized
 ([docs/scaffold-dissolution.md](docs/scaffold-dissolution.md)).
 
-## Facts
-
-| Fact | Value |
-|---|---|
-| Project type | DOI-registered research/specification repository plus minimal reference implementation |
-| Author | Tatsuya Shimomoto ([@shimo4228](https://github.com/shimo4228), ORCID [0009-0002-6168-4162](https://orcid.org/0009-0002-6168-4162)) |
-| Current release | v2.4.0, released 2026-06-30 |
-| DOI line | Concept DOI [10.5281/zenodo.19200726](https://doi.org/10.5281/zenodo.19200726); latest archived release DOI [10.5281/zenodo.21067957](https://doi.org/10.5281/zenodo.21067957) |
-| License | MIT |
-| Primary audience | Operators of coding agents or persistent AI harnesses; secondarily, researchers comparing agent memory and human-AI co-development loops |
-| AI navigation | [`graph.jsonld`](graph.jsonld) for the concept map, [`llms.txt`](llms.txt) for routing, [`llms-full.txt`](llms-full.txt) for a self-contained factual reference (includes the nine design principles) |
-
 ## What's in this repo
 
 | Area | Contents |
 |---|---|
 | Decision record | ADR catalog in [`docs/adr/`](docs/adr/), with permanent gaps at 0001, 0006, and 0007 from the v2.0.0 extraction |
+| AI navigation | [`graph.jsonld`](graph.jsonld) for the concept map, [`llms.txt`](llms.txt) for routing, [`llms-full.txt`](llms-full.txt) for a self-contained factual reference (includes the nine design principles) |
 | Specifications | [`schemas/episode-log.schema.json`](schemas/episode-log.schema.json), [`schemas/knowledge.schema.json`](schemas/knowledge.schema.json) |
 | Reference implementation | [`examples/minimal_harness/`](examples/minimal_harness/), a dependency-free Python demo of the three memory layers and two-stage distill pipeline |
 | Routing map | [`docs/CODEMAPS/architecture.md`](docs/CODEMAPS/architecture.md), the canonical file-level navigation index |
@@ -143,7 +132,9 @@ ADR-0017, and [`llms-full.txt`](llms-full.txt).
 
 ## Origin & Acknowledgments
 
-This architecture was first proposed and implemented by Tatsuya Shimomoto in
+This architecture was first proposed and implemented by Tatsuya Shimomoto
+([@shimo4228](https://github.com/shimo4228), ORCID
+[0009-0002-6168-4162](https://orcid.org/0009-0002-6168-4162)) in
 February 2026, building on
 [Everything Claude Code (ECC)](https://github.com/affaan-m/everything-claude-code)
 by [@affaan-m](https://github.com/affaan-m), the baseline harness used in daily
@@ -153,6 +144,11 @@ their own maintenance problem. The first five cycle skills were contributed to
 ECC between February and March 2026; `context-sync` was developed independently.
 
 ## How to Cite
+
+AKC carries two DOIs: the concept DOI
+[10.5281/zenodo.19200726](https://doi.org/10.5281/zenodo.19200726) (used by the
+badge) always resolves to the latest version, while each archived release has
+its own DOI — cite the release DOI below.
 
 If you use or reference AKC, cite the archived release metadata in
 [`CITATION.cff`](CITATION.cff), also available as
