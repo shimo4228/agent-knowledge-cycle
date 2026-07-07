@@ -206,6 +206,48 @@
       "relation": "references",
       "resource_type": "publication-preprint",
       "scheme": "doi"
+    },
+    {
+      "identifier": "10.48550/arXiv.2605.20173",
+      "relation": "references",
+      "resource_type": "publication-preprint",
+      "scheme": "doi"
+    },
+    {
+      "identifier": "10.48550/arXiv.2510.26493",
+      "relation": "references",
+      "resource_type": "publication-preprint",
+      "scheme": "doi"
+    },
+    {
+      "identifier": "10.48550/arXiv.2603.26707",
+      "relation": "references",
+      "resource_type": "publication-preprint",
+      "scheme": "doi"
+    },
+    {
+      "identifier": "10.48550/arXiv.2605.27899",
+      "relation": "references",
+      "resource_type": "publication-preprint",
+      "scheme": "doi"
+    },
+    {
+      "identifier": "10.48550/arXiv.2604.16736",
+      "relation": "references",
+      "resource_type": "publication-preprint",
+      "scheme": "doi"
+    },
+    {
+      "identifier": "10.48550/arXiv.2601.17055",
+      "relation": "references",
+      "resource_type": "publication-preprint",
+      "scheme": "doi"
+    },
+    {
+      "identifier": "10.48550/arXiv.2605.24309",
+      "relation": "references",
+      "resource_type": "publication-preprint",
+      "scheme": "doi"
     }
   ]
 }

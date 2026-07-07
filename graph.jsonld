@@ -885,6 +885,7 @@
       "datePublished": "2026",
       "identifier": "arXiv:2603.11768",
       "url": "https://arxiv.org/abs/2603.11768",
+      "about": "https://shimo4228.github.io/shimo4228/vocab#akc/concept/self-reingestion",
       "description": "One of three further 2026 drift coinages audited in the position paper's pre-deposit sweep (§6): memory drift, with semantic, procedural, and goal sub-forms. Its reference list contains no classical software-evolution literature, while citing the agent-drift coining paper itself — evidence the drift vocabulary propagates within the 2026 agent literature while remaining severed from the classical lineage.",
       "groundedIn": "https://doi.org/10.5281/zenodo.20578272"
     },
@@ -921,6 +922,7 @@
       "datePublished": "2025",
       "identifier": "arXiv:2506.05109",
       "url": "https://arxiv.org/abs/2506.05109",
+      "about": "https://shimo4228.github.io/shimo4228/vocab#akc/concept/human-approval-gate",
       "description": "Taxonomy named in ADR-0005's defense of the human approval gate. In its intrinsic/extrinsic distinction, AKC's gate is extrinsic metacognition — a human-designed loop with a human evaluator at the decision point — and stays so by design, not by immaturity: behavior-modifying writes remain gated because they are where the operator's evolving intent enters the loop.",
       "groundedIn": "https://github.com/shimo4228/agent-knowledge-cycle/blob/main/docs/adr/0005-human-approval-gate.md"
     },
@@ -933,6 +935,7 @@
       "datePublished": "2026",
       "identifier": "arXiv:2604.08224",
       "url": "https://arxiv.org/abs/2604.08224",
+      "about": "https://shimo4228.github.io/shimo4228/vocab#concept/three-layer-structure",
       "description": "Field map named in ADR-0013's Related-Work positioning. Frames the field as three coupled forms of externalization — memory, skills, protocols — coordinated by harness engineering as the unification layer; AKC accepts that it sits squarely inside this frame, overlapping the memory and skills quadrants, and locates its delta in loop ownership rather than in the externalization operations themselves.",
       "groundedIn": "https://github.com/shimo4228/agent-knowledge-cycle/blob/main/docs/adr/0013-positioning-within-agent-memory-literature.md"
     },
@@ -970,6 +973,90 @@
       "identifier": "arXiv:2604.04323",
       "url": "https://arxiv.org/abs/2604.04323",
       "description": "Empirical corroboration named in ADR-0013's 2026-06-25 addendum. Finds that skill benefits are fragile — degrading toward the no-skill baseline as the library grows large and uncurated and the agent must retrieve from many real-world skills rather than be handed a hand-crafted one. Independent support for ADR-0010's claim that curation is the load-bearing, attention-bound act: the scarce resource is the human judgment that decides what stays, not the storage that holds it. Corroboration rather than precedent.",
+      "groundedIn": "https://github.com/shimo4228/agent-knowledge-cycle/blob/main/docs/adr/0013-positioning-within-agent-memory-literature.md"
+    },
+    {
+      "@id": "https://shimo4228.github.io/shimo4228/vocab#prior-art/sdb-runtime-patterns",
+      "@type": ["ExternalReference", "ScholarlyArticle"],
+      "name": "A Methodology for Selecting and Composing Runtime Architecture Patterns for Production LLM Agents",
+      "author": "Srinivasan, V.",
+      "datePublished": "2026",
+      "identifier": "arXiv:2605.20173",
+      "url": "https://arxiv.org/abs/2605.20173",
+      "about": "https://shimo4228.github.io/shimo4228/vocab#akc/concept/code-llm-layering",
+      "description": "Corroboration named in ADR-0013's 2026-07-08 addendum. Names the stochastic-deterministic boundary (SDB) — a four-part contract of proposer, verifier, commit step, and reject signal — as the load-bearing primitive of production agent runtimes, and organizes runtime design into coordination, state, and control concerns around it. A production-derived formalization of code-LLM layering: code decides, the LLM proposes.",
+      "groundedIn": "https://github.com/shimo4228/agent-knowledge-cycle/blob/main/docs/adr/0013-positioning-within-agent-memory-literature.md"
+    },
+    {
+      "@id": "https://shimo4228.github.io/shimo4228/vocab#prior-art/context-engineering-2",
+      "@type": ["ExternalReference", "ScholarlyArticle"],
+      "name": "Context Engineering 2.0: The Context of Context Engineering",
+      "author": "Hua, Q. et al.",
+      "datePublished": "2025",
+      "identifier": "arXiv:2510.26493",
+      "url": "https://arxiv.org/abs/2510.26493",
+      "about": ["https://shimo4228.github.io/shimo4228/vocab#akc/concept/signal-first", "https://shimo4228.github.io/shimo4228/vocab#akc/concept/cognitive-economy"],
+      "description": "Corroboration named in ADR-0013's 2026-07-08 addendum. Treats the selection and shaping of what reaches the model as a discipline in its own right, with a history predating LLMs. Independent convergence with signal-first (information that changes no action is not taken in) and cognitive economy (attention managed as the scarce budget).",
+      "groundedIn": "https://github.com/shimo4228/agent-knowledge-cycle/blob/main/docs/adr/0013-positioning-within-agent-memory-literature.md"
+    },
+    {
+      "@id": "https://shimo4228.github.io/shimo4228/vocab#prior-art/cognitive-divergence",
+      "@type": ["ExternalReference", "ScholarlyArticle"],
+      "name": "The Cognitive Divergence: AI Context Windows, Human Attention Decline, and the Delegation Feedback Loop",
+      "author": "Eliav, N.",
+      "datePublished": "2026",
+      "identifier": "arXiv:2603.26707",
+      "url": "https://arxiv.org/abs/2603.26707",
+      "about": ["https://shimo4228.github.io/shimo4228/vocab#akc/concept/cognitive-economy", "https://shimo4228.github.io/shimo4228/vocab#akc/concept/loop-failure-modes"],
+      "description": "Corroboration named in ADR-0013's 2026-07-08 addendum. Quantifies the asymmetry cognitive economy assumes — model context windows expanding roughly 3,906-fold (2017-2026) while human effective context span contracts — and names a self-reinforcing delegation feedback loop, the coupling ADR-0014 records as delegation-feedback divergence.",
+      "groundedIn": "https://github.com/shimo4228/agent-knowledge-cycle/blob/main/docs/adr/0013-positioning-within-agent-memory-literature.md"
+    },
+    {
+      "@id": "https://shimo4228.github.io/shimo4228/vocab#prior-art/skillc",
+      "@type": ["ExternalReference", "ScholarlyArticle"],
+      "name": "SKILLC: Learning Autonomous Skill Internalization in LLM Agents via Contrastive Credit Assignment",
+      "author": "Lin, H. et al.",
+      "datePublished": "2026",
+      "identifier": "arXiv:2605.27899",
+      "url": "https://arxiv.org/abs/2605.27899",
+      "about": "https://shimo4228.github.io/shimo4228/vocab#concept/scaffold-dissolution",
+      "description": "Corroboration named in ADR-0013's 2026-07-08 addendum. Converts the gap between skill-injected and skill-free rollouts into a direct learning signal for skill internalization, withdrawing the scaffold as the gap closes — scaffold dissolution operationalized as a measurable, driveable process rather than an end-state aspiration.",
+      "groundedIn": "https://github.com/shimo4228/agent-knowledge-cycle/blob/main/docs/adr/0013-positioning-within-agent-memory-literature.md"
+    },
+    {
+      "@id": "https://shimo4228.github.io/shimo4228/vocab#prior-art/format-cost-separation",
+      "@type": ["ExternalReference", "ScholarlyArticle"],
+      "name": "When Agents Go Quiet: Output Generation Capacity and Format-Cost Separation for LLM Document Synthesis",
+      "author": "Agyemang, J. O. et al.",
+      "datePublished": "2026",
+      "identifier": "arXiv:2604.16736",
+      "url": "https://arxiv.org/abs/2604.16736",
+      "about": "https://shimo4228.github.io/shimo4228/vocab#akc/concept/two-stage-distill",
+      "description": "Corroboration named in ADR-0013's 2026-07-08 addendum. Proves a Format-Cost Separation Theorem: deferred rendering is at least as token-efficient as direct generation for any format whose overhead multiplier exceeds one. Upgrades ADR-0004's two-stage distill pipeline — think free-form first, format second — from an empirical rule to a conditionally optimal design.",
+      "groundedIn": "https://github.com/shimo4228/agent-knowledge-cycle/blob/main/docs/adr/0013-positioning-within-agent-memory-literature.md"
+    },
+    {
+      "@id": "https://shimo4228.github.io/shimo4228/vocab#prior-art/verification-bottleneck",
+      "@type": ["ExternalReference", "ScholarlyArticle"],
+      "name": "AI, Metacognition, and the Verification Bottleneck: A Three-Wave Longitudinal Study of Human Problem-Solving",
+      "author": "Huemmer, M. et al.",
+      "datePublished": "2026",
+      "identifier": "arXiv:2601.17055",
+      "url": "https://arxiv.org/abs/2601.17055",
+      "about": ["https://shimo4228.github.io/shimo4228/vocab#akc/concept/loop-failure-modes", "https://shimo4228.github.io/shimo4228/vocab#akc/concept/bidirectional-growth-loop"],
+      "description": "Corroboration named in ADR-0013's 2026-07-08 addendum. A three-wave longitudinal record of the loop failure modes in a human population: participants leaned on AI most heavily for the hardest tasks, exactly where their verification confidence and accuracy were lowest — the bidirectional growth loop observed running in reverse.",
+      "groundedIn": "https://github.com/shimo4228/agent-knowledge-cycle/blob/main/docs/adr/0013-positioning-within-agent-memory-literature.md"
+    },
+    {
+      "@id": "https://shimo4228.github.io/shimo4228/vocab#prior-art/agent-human-interaction-security",
+      "@type": ["ExternalReference", "ScholarlyArticle"],
+      "name": "Reframing LLM Agent Security as an Agent-Human Interaction Problem",
+      "author": "Wang, P. et al.",
+      "datePublished": "2026",
+      "identifier": "arXiv:2605.24309",
+      "url": "https://arxiv.org/abs/2605.24309",
+      "about": "https://shimo4228.github.io/shimo4228/vocab#akc/concept/intent-alignment",
+      "description": "Corroboration named in ADR-0013's 2026-07-08 addendum. Analyzes 59 academic papers against 21 production agent systems: the academically favored mechanisms (intent anchoring, trust labeling) see zero production deployment while human-centric mechanisms — policy specification, runtime approval, scope configuration — dominate industry practice. The intent-alignment theme's industry-academia gap, measured.",
       "groundedIn": "https://github.com/shimo4228/agent-knowledge-cycle/blob/main/docs/adr/0013-positioning-within-agent-memory-literature.md"
     },
 

@@ -6,6 +6,23 @@ major version.
 
 ## Unreleased
 
+- **Concept-corroboration wave cited in [ADR-0013](docs/adr/0013-positioning-within-agent-memory-literature.md)** (2026-07-08 addendum):
+  seven externally verified 2026 papers that independently converge on named
+  AKC concepts — SDB runtime patterns (arXiv:2605.20173 → code-LLM layering),
+  Context Engineering 2.0 (arXiv:2510.26493 → signal-first / cognitive
+  economy), The Cognitive Divergence (arXiv:2603.26707 → cognitive economy /
+  loop failure modes), SkillC (arXiv:2605.27899 → scaffold dissolution),
+  When Agents Go Quiet (arXiv:2604.16736 → two-stage distill), the
+  verification-bottleneck study (arXiv:2601.17055 → loop failure modes /
+  bidirectional growth loop), and agent-human-interaction security
+  (arXiv:2605.24309 → intent alignment). Added as `ExternalReference` nodes
+  in graph.jsonld with `about` edges to their concepts, and into
+  `.zenodo.json` references and the llms-full.txt Prior Research table.
+  Three existing graph nodes (SSGM, intrinsic-metacognitive-learning,
+  Externalization survey) also gained `about` edges to self-reingestion,
+  human approval gate, and three-layer structure respectively — closing the
+  concept-level grounding gap that kept re-surfacing in the research
+  pipeline.
 - **rules-stocktake joins the Curate scaffolding** as a third scaffold —
   the semantic / judgment layer for always-loaded rules
   ([standalone repo](https://github.com/shimo4228/rules-stocktake)). It
