@@ -6,6 +6,21 @@ major version.
 
 ## Unreleased
 
+- **Tagline replaced ([ADR-0021](docs/adr/0021-replace-growth-tagline.md), 2026-07-08)**:
+  *"A knowledge cycle for AI agents — one that grows with the people who
+  shape it"* → *"A knowledge cycle for AI agents — agent behavior
+  compounds, human judgment sharpens."* The earlier phrasing collided
+  with the tagline of a widely adopted agent-centric autonomous
+  self-improvement product ("The agent that grows with you", 2026-02),
+  which predated it — a semantically inverting collision that read AKC
+  as derivative and obscured the human-gated, bidirectional core. The
+  parallel two-clause form encodes bidirectionality in the syntax and
+  carries themes #1 and #3 simultaneously. Updated in the same diff:
+  README.md / README.ja.md (tagline, theme-3 body echo, BibTeX note),
+  llms.txt blockquote + ADR list (0020/0021 entries added), llms-full.txt
+  (harness-relation answer, ADR count 17→18), CITATION.cff / .zenodo.json
+  abstract leads, graph.jsonld (ADR-0021 node), CODEMAPS invariant #1.
+  Supersedes only the tagline-preservation clauses of ADR-0010 / ADR-0012.
 - **Concept-corroboration wave cited in [ADR-0013](docs/adr/0013-positioning-within-agent-memory-literature.md)** (2026-07-08 addendum):
   seven externally verified 2026 papers that independently converge on named
   AKC concepts — SDB runtime patterns (arXiv:2605.20173 → code-LLM layering),

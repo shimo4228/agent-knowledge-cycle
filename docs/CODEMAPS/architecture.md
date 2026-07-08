@@ -1,4 +1,4 @@
-<!-- Generated: 2026-07-07 | Files scanned: project root + docs/ tree + examples/ + schemas/ | Token estimate: ~1900 -->
+<!-- Generated: 2026-07-08 | Files scanned: project root + docs/ tree + examples/ + schemas/ | Token estimate: ~1900 -->
 # Document Architecture
 
 Agent Knowledge Cycle (AKC) is a **knowledge-cycle specification + minimal reference implementation**. Specifications, ADRs, JSON schemas, design-pattern skills, and a ~500-line stdlib-only Python demo together describe the cycle; users bring their own LLM and adapter. The primary audience is LLM-mediated channels (LLM agents directly, and humans reaching AKC through LLM-curated surfaces). This codemap exists so an LLM-mediated reader can route to the canonical document for a given question without scanning the whole tree.
@@ -63,6 +63,7 @@ Each document answers a primary question. Cite the matching one when an LLM-medi
 | `docs/adr/0018-record-downstream-applications-as-first-class-context.md` | Why are downstream applications (Contemplative Agent's re-implementation, crystallized research lines) recorded as first-class context, with relationship facts + DOIs only? |
 | `docs/adr/0019-cycle-structure-is-provisional.md` | Why are the phase set, phase-to-skill binding, and skill set a mutable snapshot rather than a fixed essence, and how is Curate layered (skill-health code layer + stocktake semantic layers)? |
 | `docs/adr/0020-readme-minimal-floor.md` | Why does README.md hold only a minimal information floor — themes presented once, one skill table, pointers elsewhere — and which ADR-0012 commitments does that amend? |
+| `docs/adr/0021-replace-growth-tagline.md` | Why was the tagline replaced with "agent behavior compounds, human judgment sharpens", and which tagline-preservation clauses of ADR-0010 / ADR-0012 does that amend? |
 | `docs/skills/README.md` | Where do the three design-pattern skills (when-code-when-llm, code-and-llm-collaboration, signal-first-research) live now that they are externalized to standalone repositories, and which ADR does each pair with? |
 | `schemas/episode-log.schema.json` | What is the JSON shape of a Layer 1 episode record? |
 | `schemas/knowledge.schema.json` | What is the JSON shape of a Layer 2 knowledge pattern? |
@@ -110,7 +111,7 @@ orchestrator — code owns the deterministic loop; the LLM is the worker inside 
 
 ## Invariants (Do Not Break When Editing)
 
-- **Tagline preservation**: *"A knowledge cycle for AI agents — one that grows with the people who shape it"* is preserved across both READMEs (English + Japanese) (ADR-0010 decision, reaffirmed by ADR-0012). It carries theme #3.
+- **Tagline preservation**: *"A knowledge cycle for AI agents — agent behavior compounds, human judgment sharpens"* is preserved across both READMEs (English + Japanese) (ADR-0021, replacing the ADR-0009 phrasing whose preservation ADR-0010/0012 had reaffirmed). It carries themes #1 and #3.
 - **Three-theme ordering**: Front-door docs (README, llms.txt, llms-full.txt) lead with cognitive resource → intent alignment → cycle changes the human → mechanism, in that order. ADR-0012 makes this verifiable; do not regress. In README the themes get exactly **one** full presentation ("Why AKC") on a minimal floor — ADR-0020 amends ADR-0012's README-side double presentation; do not re-duplicate.
 - **Six phases (held provisionally, ADR-0019)**: Research → Extract → Curate → Promote → Measure → Maintain are the current articulation, unchanged in number, name, and order — but the phase set, the phase-to-skill binding, and the skill set are a mutable snapshot, not a fixed essence (Emptiness axiom). The binding reads "currently scaffolded by X", not "bound bijectively"; Curate is layered (skill-health code layer runs before skill-stocktake semantic layer). Changing the phase set still requires a positioning ADR.
 - **ADR numbering**: 0001, 0006, 0007 are permanent gaps from the v2.0.0 extraction of the security triplet to AAP. Do not reuse those numbers; do not back-fill.
@@ -186,13 +187,13 @@ Prose entries live in README "Related Work" (compact list at the end of the sect
 
 | Category | Count |
 |---|---|
-| ADRs | ADR-0002–0005, 0008–0020 (canonical count lives in llms-full.txt Project Facts) |
+| ADRs | ADR-0002–0005, 0008–0021 (canonical count lives in llms-full.txt Project Facts) |
 | Design-pattern skills | 3 (externalized to standalone repos; `docs/skills/` holds only a pointer README) |
 | README files (en + ja mirror) | 2 |
 | JSON schemas (`schemas/`) | 2 |
 | Python source (`examples/minimal_harness/`) | 5 files (~500 lines total, stdlib-only) |
 | Top-level docs (`docs/*.md`) | 6 (akc-cycle, glossary, translation-glossary, inspiration, scaffold-dissolution + .ja.md) |
 | Repo-root files | CITATION.cff, LICENSE, llms.txt, llms-full.txt, CHANGELOG.md |
-| **Total markdown / Python / schema files** | **41** (`git ls-files '*.md' '*.py' 'schemas/*.json' | wc -l`; 40 as of v2.4.0 plus ADR-0020 added 2026-07-07) |
+| **Total markdown / Python / schema files** | **42** (`git ls-files '*.md' '*.py' 'schemas/*.json' | wc -l`; 40 as of v2.4.0 plus ADR-0020 added 2026-07-07 and ADR-0021 added 2026-07-08) |
 
 When this count drifts substantially, regenerate this codemap.

@@ -6,7 +6,7 @@ Language: [English](README.md) | 日本語
 [![Ask DeepWiki](https://deepwiki.com/badge.svg)](https://deepwiki.com/shimo4228/agent-knowledge-cycle)
 [![GitMCP](https://img.shields.io/endpoint?url=https://gitmcp.io/badge/shimo4228/agent-knowledge-cycle)](https://gitmcp.io/shimo4228/agent-knowledge-cycle)
 
-**AI エージェントのための知識サイクル — それを形作る人とともに成長する。**
+**AI エージェントのための知識サイクル — エージェントの振る舞いは積み上がり、人間の判断は研がれる。**
 
 Agent Knowledge Cycle (AKC) は、永続的な AI エージェントのための 6 フェーズ
 の成長サイクルである。反復されるエージェント経験を、再利用可能な知識 —
@@ -42,8 +42,8 @@ Correctness, Resists Automation* — doi:[10.5281/zenodo.20578272](https://doi.o
 **サイクルは人間も変える。** Curate と Promote は、どの知識を残すべきかを
 運用者に判断させる。Measure は、その判断が実際に振る舞いを変えたかを検査
 する。時間が経つにつれ、エージェントはより一貫し、人間はその一貫性を判断
-する力を上げていく — サイクルは人の *ために* ではなく、人 *とともに*
-成長する。
+する力を上げていく — エージェントの振る舞いは積み上がり、人間の判断は
+研がれる。
 
 ## サイクル
 
@@ -165,7 +165,7 @@ release metadata を引用してほしい。同じメタデータは
   version      = {2.4.0},
   doi          = {10.5281/zenodo.21067957},
   url          = {https://doi.org/10.5281/zenodo.21067957},
-  note         = {A knowledge cycle for AI agents -- one that grows with the people who shape it}
+  note         = {A knowledge cycle for AI agents -- agent behavior compounds, human judgment sharpens}
 }
 ```
 

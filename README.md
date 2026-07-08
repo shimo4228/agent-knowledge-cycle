@@ -6,7 +6,7 @@ Language: English | [日本語](README.ja.md)
 [![Ask DeepWiki](https://deepwiki.com/badge.svg)](https://deepwiki.com/shimo4228/agent-knowledge-cycle)
 [![GitMCP](https://img.shields.io/endpoint?url=https://gitmcp.io/badge/shimo4228/agent-knowledge-cycle)](https://gitmcp.io/shimo4228/agent-knowledge-cycle)
 
-**A knowledge cycle for AI agents — one that grows with the people who shape it.**
+**A knowledge cycle for AI agents — agent behavior compounds, human judgment sharpens.**
 
 Agent Knowledge Cycle (AKC) is a six-phase growth cycle for persistent AI
 agents. It turns repeated agent experience into reusable knowledge — skills,
@@ -42,8 +42,8 @@ drift** — the derivation is in
 **The cycle changes the human too.** Curate and Promote force the operator to
 decide what knowledge is worth retaining; Measure then tests whether those
 decisions changed behavior. Over time the agent becomes more coherent and the
-human becomes better at judging coherence — the cycle grows *with* the people
-who shape it, not merely *for* them.
+human becomes better at judging coherence — agent behavior compounds, human
+judgment sharpens.
 
 ## The cycle
 
@@ -162,7 +162,7 @@ If you use or reference AKC, cite the archived release metadata in
   version      = {2.4.0},
   doi          = {10.5281/zenodo.21067957},
   url          = {https://doi.org/10.5281/zenodo.21067957},
-  note         = {A knowledge cycle for AI agents -- one that grows with the people who shape it}
+  note         = {A knowledge cycle for AI agents -- agent behavior compounds, human judgment sharpens}
 }
 ```
 
