@@ -168,14 +168,14 @@ release metadata を引用してほしい。同じメタデータは
   title        = {Agent Knowledge Cycle (AKC)},
   year         = {2026},
   version      = {2.5.0},
-  doi          = {10.5281/zenodo.21067957},
-  url          = {https://doi.org/10.5281/zenodo.21067957},
+  doi          = {10.5281/zenodo.21279356},
+  url          = {https://doi.org/10.5281/zenodo.21279356},
   note         = {A knowledge cycle for AI agents -- agent behavior compounds, human judgment sharpens}
 }
 ```
 
 文中では: Shimomoto, T. (2026). *Agent Knowledge Cycle (AKC)*.
-doi:[10.5281/zenodo.21067957](https://doi.org/10.5281/zenodo.21067957).
+doi:[10.5281/zenodo.21279356](https://doi.org/10.5281/zenodo.21279356).
 
 ## 関連プロジェクト
 
