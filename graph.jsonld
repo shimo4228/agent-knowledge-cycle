@@ -993,6 +993,7 @@
     },
     {
       "@id": "https://shimo4228.github.io/shimo4228/vocab#prior-art/sdb-runtime-patterns",
+      "sameAs": "https://www.wikidata.org/wiki/Q140471983",
       "@type": ["ExternalReference", "ScholarlyArticle"],
       "name": "A Methodology for Selecting and Composing Runtime Architecture Patterns for Production LLM Agents",
       "author": "Srinivasan, V.",
@@ -1005,6 +1006,7 @@
     },
     {
       "@id": "https://shimo4228.github.io/shimo4228/vocab#prior-art/context-engineering-2",
+      "sameAs": "https://www.wikidata.org/wiki/Q140471990",
       "@type": ["ExternalReference", "ScholarlyArticle"],
       "name": "Context Engineering 2.0: The Context of Context Engineering",
       "author": "Hua, Q. et al.",
@@ -1017,6 +1019,7 @@
     },
     {
       "@id": "https://shimo4228.github.io/shimo4228/vocab#prior-art/cognitive-divergence",
+      "sameAs": "https://www.wikidata.org/wiki/Q140471992",
       "@type": ["ExternalReference", "ScholarlyArticle"],
       "name": "The Cognitive Divergence: AI Context Windows, Human Attention Decline, and the Delegation Feedback Loop",
       "author": "Eliav, N.",
@@ -1029,6 +1032,7 @@
     },
     {
       "@id": "https://shimo4228.github.io/shimo4228/vocab#prior-art/skillc",
+      "sameAs": "https://www.wikidata.org/wiki/Q140471995",
       "@type": ["ExternalReference", "ScholarlyArticle"],
       "name": "SKILLC: Learning Autonomous Skill Internalization in LLM Agents via Contrastive Credit Assignment",
       "author": "Lin, H. et al.",
@@ -1041,6 +1045,7 @@
     },
     {
       "@id": "https://shimo4228.github.io/shimo4228/vocab#prior-art/format-cost-separation",
+      "sameAs": "https://www.wikidata.org/wiki/Q140471997",
       "@type": ["ExternalReference", "ScholarlyArticle"],
       "name": "When Agents Go Quiet: Output Generation Capacity and Format-Cost Separation for LLM Document Synthesis",
       "author": "Agyemang, J. O. et al.",
@@ -1053,6 +1058,7 @@
     },
     {
       "@id": "https://shimo4228.github.io/shimo4228/vocab#prior-art/verification-bottleneck",
+      "sameAs": "https://www.wikidata.org/wiki/Q140471999",
       "@type": ["ExternalReference", "ScholarlyArticle"],
       "name": "AI, Metacognition, and the Verification Bottleneck: A Three-Wave Longitudinal Study of Human Problem-Solving",
       "author": "Huemmer, M. et al.",
@@ -1065,6 +1071,7 @@
     },
     {
       "@id": "https://shimo4228.github.io/shimo4228/vocab#prior-art/agent-human-interaction-security",
+      "sameAs": "https://www.wikidata.org/wiki/Q140472001",
       "@type": ["ExternalReference", "ScholarlyArticle"],
       "name": "Reframing LLM Agent Security as an Agent-Human Interaction Problem",
       "author": "Wang, P. et al.",
