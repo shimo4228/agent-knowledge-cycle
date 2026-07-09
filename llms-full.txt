@@ -10,7 +10,7 @@ Agent Knowledge Cycle (AKC) is defined as a six-phase growth cycle for persisten
 ## Project Facts
 
 - **Name**: Agent Knowledge Cycle (AKC)
-- **Version**: 2.4.0 (akc-cycle single-file rules externalized to a standalone repo; research-program → research-ecosystem reframe; ADR-0019 — the cycle's structure held provisionally, the phase-to-skill binding reframed from a fixed bijection to a mutable snapshot, Curate gains the skill-health code layer)
+- **Version**: 2.5.0 (minimal-floor README with the install path lifted to the lead — ADR-0020; tagline de-collided — ADR-0021; Maintain gains repo-asset-stocktake as its second scaffold, Measure gains its deterministic telemetry layer, and scaffold-dissolution records its first telemetry-verified retirement)
 - **DOI**: [10.5281/zenodo.21067957](https://doi.org/10.5281/zenodo.21067957)
 - **Companion paper**: *Harness Alignment and Harness Drift: Why Intent, Unlike Correctness, Resists Automation* — Zenodo working paper, concept DOI [10.5281/zenodo.20578272](https://doi.org/10.5281/zenodo.20578272)
 - **Author**: Tatsuya Shimomoto ([@shimo4228](https://github.com/shimo4228))

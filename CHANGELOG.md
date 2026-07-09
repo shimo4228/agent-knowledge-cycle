@@ -4,23 +4,65 @@ All notable changes to AKC are recorded here. AKC follows semantic
 versioning; breaking changes to positioning or public interfaces bump the
 major version.
 
-## Unreleased
+## v2.5.0 — Minimal-floor front door, Maintain's second scaffold, telemetry-verified dissolution (2026-07-09)
 
-- **Tagline replaced ([ADR-0021](docs/adr/0021-replace-growth-tagline.md), 2026-07-08)**:
-  *"A knowledge cycle for AI agents — one that grows with the people who
-  shape it"* → *"A knowledge cycle for AI agents — agent behavior
-  compounds, human judgment sharpens."* The earlier phrasing collided
-  with the tagline of a widely adopted agent-centric autonomous
-  self-improvement product ("The agent that grows with you", 2026-02),
-  which predated it — a semantically inverting collision that read AKC
-  as derivative and obscured the human-gated, bidirectional core. The
-  parallel two-clause form encodes bidirectionality in the syntax and
-  carries themes #1 and #3 simultaneously. Updated in the same diff:
-  README.md / README.ja.md (tagline, theme-3 body echo, BibTeX note),
-  llms.txt blockquote + ADR list (0020/0021 entries added), llms-full.txt
-  (harness-relation answer, ADR count 17→18), CITATION.cff / .zenodo.json
-  abstract leads, graph.jsonld (ADR-0021 node), CODEMAPS invariant #1.
-  Supersedes only the tagline-preservation clauses of ADR-0010 / ADR-0012.
+The front door was rebuilt on a minimal floor under a de-collided tagline
+(ADR-0020 / ADR-0021), and the cycle's scaffolding kept moving the way
+ADR-0019 says it should: Curate and Maintain each gained a layer, Measure
+gained its deterministic telemetry layer, and the first dissolution decided
+by an instrument rather than by impression was recorded as evidence.
+
+### Added
+
+- **repo-asset-stocktake joins the Maintain scaffolding** as a second
+  scaffold ([standalone repo](https://github.com/shimo4228/repo-asset-stocktake)):
+  context-sync audits documentation role coherence; repo-asset-stocktake
+  audits the repository's other non-code assets — tool configs, CI
+  workflows, runbooks — for consumers that have vanished (Keep / Update /
+  Retire / Merge; tier-1 reachability is deterministic code, tier-2 value
+  is holistic judgment — enumerate-then-decide). Reflected in the README
+  phase tables (en/ja), llms.txt, llms-full.txt, and graph.jsonld (new
+  `EcosystemRepo` node with an `implements` edge to the Maintain phase).
+- **Measure's deterministic telemetry layer recorded** — alongside
+  skill-comply's semantic compliance layer, harness-side usage logging
+  records whether skills fire at all, a consumer-independent measurement
+  whose output feeds Curate's silence check (the ADR-0019 structural /
+  semantic layering, applied to Measure). graph.jsonld Measure phase
+  description and llms-full.txt phase definitions.
+- **Scaffold-dissolution evidence #3 — first telemetry-verified retirement**
+  (docs/scaffold-dissolution en/ja): one month of usage telemetry showed
+  zero organic activations for the signal-first-research design-pattern
+  skill while its principle fired daily through the always-loaded rules
+  layer and search-first — inward-vector absorption completed and
+  instrumentally visible. The local install was retired 2026-07-09; the
+  published repository persists as the citable design-pattern artifact.
+  First retirement decided by the silence check rather than narrative
+  impression.
+- **[ADR-0020](docs/adr/0020-readme-minimal-floor.md) — Minimal-floor README
+  with single-location theme presentation** (ADR count 17 → 18 together with
+  ADR-0021). Amends ADR-0012 after its fix overshot into a double theme
+  presentation and a three-table skill list (302 lines / 8 tables, observed
+  as operator pain 2026-07-07). README now gives the three themes exactly
+  one full presentation, collapses the skill list to the single phase→skill
+  table, and points to llms-full.txt as the canonical information floor.
+  The Facts table was dissolved into existing sections in the same wave.
+- **AI-native preprint platform placements federated into graph.jsonld**
+  (aiXiv et al. as distribution surfaces), continuing the ecosystem
+  federation line.
+- **`codemeta.json` added alongside CITATION.cff** — generated via
+  `cffconvert`, giving Software Heritage's metadata indexer a layer it
+  reads directly (CITATION.cff alone is not read by SWH).
+- **rules-stocktake joins the Curate scaffolding** as a third scaffold —
+  the semantic / judgment layer for always-loaded rules
+  ([standalone repo](https://github.com/shimo4228/rules-stocktake)). It
+  inverts skill-stocktake's cost model (trigger pollution → per-session
+  residency), replaces the usage axis with residency density and substrate
+  absorption, and adds two rules-specific verdicts: Demote-to-skill (the
+  inverse of rules-distill's Promote direction) and Dissolve (retirement by
+  success — the executor of Scaffold Dissolution's two vectors). Per
+  ADR-0019 the binding remains a mutable snapshot. Reflected in the README
+  phase tables (en/ja), llms.txt, llms-full.txt, and graph.jsonld (new
+  EcosystemRepo node with an `implements` edge to the Curate phase).
 - **Concept-corroboration wave cited in [ADR-0013](docs/adr/0013-positioning-within-agent-memory-literature.md)** (2026-07-08 addendum):
   seven externally verified 2026 papers that independently converge on named
   AKC concepts — SDB runtime patterns (arXiv:2605.20173 → code-LLM layering),
@@ -38,17 +80,40 @@ major version.
   human approval gate, and three-layer structure respectively — closing the
   concept-level grounding gap that kept re-surfacing in the research
   pipeline.
-- **rules-stocktake joins the Curate scaffolding** as a third scaffold —
-  the semantic / judgment layer for always-loaded rules
-  ([standalone repo](https://github.com/shimo4228/rules-stocktake)). It
-  inverts skill-stocktake's cost model (trigger pollution → per-session
-  residency), replaces the usage axis with residency density and substrate
-  absorption, and adds two rules-specific verdicts: Demote-to-skill (the
-  inverse of rules-distill's Promote direction) and Dissolve (retirement by
-  success — the executor of Scaffold Dissolution's two vectors). Per
-  ADR-0019 the binding remains a mutable snapshot. Reflected in the README
-  phase tables (en/ja), llms.txt, llms-full.txt, and graph.jsonld (new
-  EcosystemRepo node with an `implements` edge to the Curate phase).
+
+### Changed
+
+- **Tagline replaced ([ADR-0021](docs/adr/0021-replace-growth-tagline.md), 2026-07-08)**:
+  *"A knowledge cycle for AI agents — one that grows with the people who
+  shape it"* → *"A knowledge cycle for AI agents — agent behavior
+  compounds, human judgment sharpens."* The earlier phrasing collided
+  with the tagline of a widely adopted agent-centric autonomous
+  self-improvement product ("The agent that grows with you", 2026-02),
+  which predated it — a semantically inverting collision that read AKC
+  as derivative and obscured the human-gated, bidirectional core. The
+  parallel two-clause form encodes bidirectionality in the syntax and
+  carries themes #1 and #3 simultaneously. Updated in the same diff:
+  README.md / README.ja.md (tagline, theme-3 body echo, BibTeX note),
+  llms.txt blockquote + ADR list (0020/0021 entries added), llms-full.txt
+  (harness-relation answer, ADR count 17→18), CITATION.cff / .zenodo.json
+  abstract leads, graph.jsonld (ADR-0021 node), CODEMAPS invariant #1.
+  Supersedes only the tagline-preservation clauses of ADR-0010 / ADR-0012.
+- **README install path lifted to the lead** (en/ja): a one-line "Try it
+  first" pointer — one `cp` of the standalone
+  [akc-cycle](https://github.com/shimo4228/akc-cycle) rules file — now sits
+  directly under the lead paragraph, so the first screen answers "how do I
+  use this" as well as "what is this". The full Install section is
+  unchanged; the AKC repo stays the citable mechanism home while akc-cycle
+  is the usable install home.
+- **AKC–harness relation reframed** — "a growth cycle that can run inside
+  Claude Code or any comparable harness" replaces the older
+  runs-on-top-of-ECC phrasing across the front door, and positioning
+  examples name Claude Code directly.
+- **Baked-in "six cycle skills" counts de-numbered** (llms-full.txt,
+  CODEMAPS, CLAUDE.md) — the scaffold count is volatile state per ADR-0019;
+  the canonical count lives in llms-full.txt Project Facts only.
+- **graph.jsonld: skill-health node gained its Wikidata `sameAs`**
+  (Q140448381), continuing identifier federation.
 - **graph.jsonld: stale `claude-skill-*` repo URLs updated to current names**
   (7 nodes: search-first, learn-eval, skill-stocktake, rules-distill,
   skill-comply, context-sync, daily-research — all renames verified via the
