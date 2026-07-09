@@ -20,6 +20,10 @@ Claude Code or any comparable harness.
 Companion paper: *Harness Alignment and Harness Drift: Why Intent, Unlike
 Correctness, Resists Automation* — doi:[10.5281/zenodo.20578272](https://doi.org/10.5281/zenodo.20578272)
 
+**Try it first**: one `cp` of the standalone
+[akc-cycle rules file](https://github.com/shimo4228/akc-cycle) gives any AI
+agent the six-phase behavior — see [Install](#install).
+
 ## Why AKC
 
 **The bottleneck has moved.** Most agent frameworks optimize the agent side:
@@ -70,7 +74,7 @@ flowchart TD
 | Curate | [skill-health](https://github.com/shimo4228/skill-health) + [skill-stocktake](https://github.com/shimo4228/skill-stocktake) + [rules-stocktake](https://github.com/shimo4228/rules-stocktake) | Run structural debt checks before semantic review of skills and always-loaded rules |
 | Promote | [rules-distill](https://github.com/shimo4228/rules-distill) | Turn recurring patterns into durable rules |
 | Measure | [skill-comply](https://github.com/shimo4228/skill-comply) | Test whether agents actually follow skills and rules |
-| Maintain | [context-sync](https://github.com/shimo4228/context-sync) | Keep documentation roles clean and facts fresh |
+| Maintain | [context-sync](https://github.com/shimo4228/context-sync) + [repo-asset-stocktake](https://github.com/shimo4228/repo-asset-stocktake) | Keep documentation roles clean, and audit non-code assets for consumers that have vanished |
 
 Three design-pattern skills — [when-code-when-llm](https://github.com/shimo4228/when-code-when-llm),
 [code-and-llm-collaboration](https://github.com/shimo4228/code-and-llm-collaboration),

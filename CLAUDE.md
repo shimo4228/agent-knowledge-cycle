@@ -82,7 +82,7 @@ HF 側の `README.md` (dataset card) は HF 用に customize されている (si
 - **AKC は autonomous でない** — ADR-0005 Human Approval Gate。挙動を形成する artifact (skills / rules / identity) への変更はすべて名前付き human sign-off を要求する。Gate は structural
 - **AKC は harness でない** — ADR-0009。harness の上で動く cycle であり、cycle は harness 間 portable、harness は cycle ではない
 - **AKC は genre-neutral** — ADR-0011。behavioral patterns / domain expertise / constitutional values いずれにも適用可能。content には position を取らない
-- **Skills は scaffold** — `docs/scaffold-dissolution.md` 参照。cycle を内在化したら 6 個の external skill repo は drop してよい。Dissolution は intended end state、fallback ではない
+- **Skills は scaffold** — `docs/scaffold-dissolution.md` 参照。cycle を内在化したら external skill repo 群は drop してよい。Dissolution は intended end state、fallback ではない
 - **「実装は溶ける、judgment は残る」** — model 進化で具体実装は時代依存、ADR の judgment 構造のみが時間軸で残る
 
 ## Core thesis

@@ -1,4 +1,4 @@
-<!-- Generated: 2026-07-08 | Files scanned: project root + docs/ tree + examples/ + schemas/ | Token estimate: ~1900 -->
+<!-- Generated: 2026-07-09 | Files scanned: project root + docs/ tree + examples/ + schemas/ | Token estimate: ~1900 -->
 # Document Architecture
 
 Agent Knowledge Cycle (AKC) is a **knowledge-cycle specification + minimal reference implementation**. Specifications, ADRs, JSON schemas, design-pattern skills, and a ~500-line stdlib-only Python demo together describe the cycle; users bring their own LLM and adapter. The primary audience is LLM-mediated channels (LLM agents directly, and humans reaching AKC through LLM-curated surfaces). This codemap exists so an LLM-mediated reader can route to the canonical document for a given question without scanning the whole tree.
@@ -41,7 +41,7 @@ Each document answers a primary question. Cite the matching one when an LLM-medi
 | `README.md` | What is AKC at a glance? Minimal-floor front door (ADR-0020): three core themes (cognitive resource → intent alignment → cycle changes the human) presented once, cycle + phase table, install, citation — details live behind pointers. |
 | `llms.txt` | How does an LLM-mediated reader navigate AKC's documents (Answer.AI llms.txt standard)? |
 | `llms-full.txt` | Self-contained Q&A reference: definitions, central constraint, intent alignment framing, install path, citations. |
-| `docs/akc-cycle.md` | Pointer to the standalone `shimo4228/akc-cycle` repo, the rules-file install target — what rules does an AI agent need to run the cycle in conversation, without installing the six external skills? |
+| `docs/akc-cycle.md` | Pointer to the standalone `shimo4228/akc-cycle` repo, the rules-file install target — what rules does an AI agent need to run the cycle in conversation, without installing the external phase skills? |
 | `docs/scaffold-dissolution.md` | Why are AKC's skills scaffolding, and how do they become unnecessary as the cycle is internalized? |
 | `docs/inspiration.md` | What prior art seeded AKC (contemplative-agent's three-layer memory + two-stage distill, Mind in Life, Laukkonen 2025)? |
 | `docs/glossary.md` | What does each load-bearing AKC term mean, which ADR is canonical for it, and how does it map to the AAP sibling vocabulary (harness/scaffolding, dissolution senses)? |
@@ -113,7 +113,7 @@ orchestrator — code owns the deterministic loop; the LLM is the worker inside 
 
 - **Tagline preservation**: *"A knowledge cycle for AI agents — agent behavior compounds, human judgment sharpens"* is preserved across both READMEs (English + Japanese) (ADR-0021, replacing the ADR-0009 phrasing whose preservation ADR-0010/0012 had reaffirmed). It carries themes #1 and #3.
 - **Three-theme ordering**: Front-door docs (README, llms.txt, llms-full.txt) lead with cognitive resource → intent alignment → cycle changes the human → mechanism, in that order. ADR-0012 makes this verifiable; do not regress. In README the themes get exactly **one** full presentation ("Why AKC") on a minimal floor — ADR-0020 amends ADR-0012's README-side double presentation; do not re-duplicate.
-- **Six phases (held provisionally, ADR-0019)**: Research → Extract → Curate → Promote → Measure → Maintain are the current articulation, unchanged in number, name, and order — but the phase set, the phase-to-skill binding, and the skill set are a mutable snapshot, not a fixed essence (Emptiness axiom). The binding reads "currently scaffolded by X", not "bound bijectively"; Curate is layered (skill-health code layer runs before skill-stocktake semantic layer). Changing the phase set still requires a positioning ADR.
+- **Six phases (held provisionally, ADR-0019)**: Research → Extract → Curate → Promote → Measure → Maintain are the current articulation, unchanged in number, name, and order — but the phase set, the phase-to-skill binding, and the skill set are a mutable snapshot, not a fixed essence (Emptiness axiom). The binding reads "currently scaffolded by X", not "bound bijectively"; Curate is layered (skill-health code layer runs before skill-stocktake semantic layer), and Maintain is layered too (context-sync for documentation roles + repo-asset-stocktake for non-code asset liveness). Changing the phase set still requires a positioning ADR.
 - **ADR numbering**: 0001, 0006, 0007 are permanent gaps from the v2.0.0 extraction of the security triplet to AAP. Do not reuse those numbers; do not back-fill.
 - **Four-pattern canonical (ADR-0008 is authoritative)**: `guard` = code validates LLM output *after* it is produced (post-LLM output validation); `filter` = code narrows input *before* the LLM runs (pre-LLM input narrowing); `judge` = the LLM decides among bounded options and code enforces the verdict (human gate for high-stakes, ADR-0005); `orchestrator` = code owns the deterministic loop and the LLM is the worker inside it. When this codemap, `graph.jsonld`, or `llms-full.txt` describe the four patterns differently, ADR-0008 wins and the others are the drift.
 - **Genre neutrality (ADR-0011)**: `docs/skills/` hosts only cycle-mechanic skills. No genre-specific content (constitutional, security-specific, domain-specific) is added to AKC.
@@ -176,7 +176,7 @@ contemplative-agent                      ← two-way relationship. Upstream: the
 | [attention-not-self](https://github.com/shimo4228/attention-not-self) | Sibling research line, federated at the research-ecosystem level | 10.5281/zenodo.20262112 |
 | [doctrine-corpus](https://github.com/shimo4228/doctrine-corpus) | Judgment Q&A corpus; AKC is one of four source lines | 10.5281/zenodo.20337008 |
 | [existence-proof](https://github.com/shimo4228/existence-proof) | Pre-line working repo, complement of authorship-strategy | 10.5281/zenodo.20558800 |
-| [claude-harness](https://github.com/shimo4228/claude-harness) | Bundled distribution of the six cycle skills | — |
+| [claude-harness](https://github.com/shimo4228/claude-harness) | Bundled distribution of the cycle skills | — |
 | [akc-mcp](https://github.com/shimo4228/akc-mcp) | MCP server exposing the cycle's cognitive operations | — |
 | [claude-skill-daily-research](https://github.com/shimo4228/claude-skill-daily-research) | Pre-AKC ancestor of the Research phase (see `docs/inspiration.md`) | — |
 | [shimo4228 hub](https://github.com/shimo4228/shimo4228) | Canonical research-ecosystem relationship map (graph.jsonld) | — |

@@ -117,7 +117,7 @@ its own installable repository; the paired ADRs stay here.
 AKC's phases are currently scaffolded by composable skills — a snapshot,
 mutable per ADR-0019, not a fixed bijection. They remain available as
 external repositories but are not required — the rules file above installs
-the entire cycle. Most phases have one skill; Curate is layered.
+the entire cycle. Most phases have one skill; Curate and Maintain are layered.
 
 - [search-first](https://github.com/shimo4228/search-first) (Research)
 - [learn-eval](https://github.com/shimo4228/learn-eval) (Extract)
@@ -126,7 +126,8 @@ the entire cycle. Most phases have one skill; Curate is layered.
 - [rules-stocktake](https://github.com/shimo4228/rules-stocktake) (Curate — semantic layer, always-loaded rules: residency cost, staleness, substrate absorption)
 - [rules-distill](https://github.com/shimo4228/rules-distill) (Promote)
 - [skill-comply](https://github.com/shimo4228/skill-comply) (Measure)
-- [context-sync](https://github.com/shimo4228/context-sync) (Maintain)
+- [context-sync](https://github.com/shimo4228/context-sync) (Maintain — documentation role coherence and freshness)
+- [repo-asset-stocktake](https://github.com/shimo4228/repo-asset-stocktake) (Maintain — non-code asset liveness: tool configs, CI workflows, runbooks whose consumer has vanished)
 
 ## Related repositories
 

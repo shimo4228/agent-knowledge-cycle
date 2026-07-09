@@ -20,6 +20,11 @@ Claude Code をはじめ同等の harness の上で動く。
 関連論文: *Harness Alignment and Harness Drift: Why Intent, Unlike
 Correctness, Resists Automation* — doi:[10.5281/zenodo.20578272](https://doi.org/10.5281/zenodo.20578272)
 
+**まず試すなら**: 単独リポジトリ
+[akc-cycle のルールファイル](https://github.com/shimo4228/akc-cycle)を `cp`
+1 回コピーするだけで、任意の AI エージェントに 6 フェーズの振る舞いが入る —
+詳細は[サイクルを導入する](#サイクルを導入する)。
+
 ## なぜ AKC か
 
 **ボトルネックは移動した。** 多くの agent framework はエージェント側を
@@ -70,7 +75,7 @@ flowchart TD
 | Curate | [skill-health](https://github.com/shimo4228/skill-health) + [skill-stocktake](https://github.com/shimo4228/skill-stocktake) + [rules-stocktake](https://github.com/shimo4228/rules-stocktake) | 構造的負債の検査の後に、skill と常時ロード rules を意味的にレビューする |
 | Promote | [rules-distill](https://github.com/shimo4228/rules-distill) | 反復パターンを durable rule に変換する |
 | Measure | [skill-comply](https://github.com/shimo4228/skill-comply) | エージェントが実際にスキルとルールに従うかをテストする |
-| Maintain | [context-sync](https://github.com/shimo4228/context-sync) | 文書役割を清潔にし、事実を新鮮に保つ |
+| Maintain | [context-sync](https://github.com/shimo4228/context-sync) + [repo-asset-stocktake](https://github.com/shimo4228/repo-asset-stocktake) | 文書役割を清潔にし、consumer が消えた非コード資産を監査する |
 
 3 つの design-pattern skills —
 [when-code-when-llm](https://github.com/shimo4228/when-code-when-llm),

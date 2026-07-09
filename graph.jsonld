@@ -149,7 +149,7 @@
         {"@value": "Measure", "@language": "en"},
         {"@value": "Measure（測定）", "@language": "ja"}
       ],
-      "description": "Fifth of six AKC phases. Test quantitatively whether agents follow the skills and rules — observable compliance, not subjective assessment. The observable surface includes agent text, not only tool calls: thinking-centric phases (Research, Curate) carry their compliance in reasoning, verdicts, and plans, so a Measure instrument must promote agent text to observable events before scoring or it systematically under-reports those phases (ADR-0016). Currently scaffolded by the skill-comply skill (a snapshot, mutable; ADR-0019); on current operator observation skill-comply's compliance-checking is a candidate for substrate absorption as the host harness absorbs it natively — recorded experimental (n=1), not retired.",
+      "description": "Fifth of six AKC phases. Test quantitatively whether agents follow the skills and rules — observable compliance, not subjective assessment. The observable surface includes agent text, not only tool calls: thinking-centric phases (Research, Curate) carry their compliance in reasoning, verdicts, and plans, so a Measure instrument must promote agent text to observable events before scoring or it systematically under-reports those phases (ADR-0016). Alongside the semantic compliance layer, Measure carries a deterministic telemetry layer — harness-side usage logging that records whether skills fire at all, a consumer-independent measurement whose output feeds Curate's silence check (the structural / semantic layering of ADR-0019, applied to Measure). Currently scaffolded by the skill-comply skill (a snapshot, mutable; ADR-0019); on current operator observation skill-comply's compliance-checking is a candidate for substrate absorption as the host harness absorbs it natively — recorded experimental (n=1), not retired.",
       "ordinal": 5
     },
     {
@@ -160,7 +160,7 @@
         {"@value": "Maintain", "@language": "en"},
         {"@value": "Maintain（保守）", "@language": "ja"}
       ],
-      "description": "Sixth of six AKC phases. Audit documentation roles for overlap and stale content; keep CLAUDE.md / CODEMAPS / ADR / README clean. Currently scaffolded by the context-sync skill (a snapshot, mutable; ADR-0019).",
+      "description": "Sixth of six AKC phases. Audit documentation roles for overlap and stale content; keep CLAUDE.md / CODEMAPS / ADR / README clean. Currently scaffolded by two scaffolds (a snapshot, mutable; ADR-0019): context-sync audits documentation role coherence and freshness; repo-asset-stocktake audits the repository's other non-code assets — tool configs, CI workflows, runbooks — for consumers that have vanished (Keep / Update / Retire / Merge).",
       "ordinal": 6
     },
 
@@ -545,6 +545,15 @@
       "extends": "https://doi.org/10.5281/zenodo.19200726",
       "implements": "https://shimo4228.github.io/shimo4228/vocab#akc-phase/curate",
       "groundedIn": "https://github.com/shimo4228/agent-knowledge-cycle/blob/main/docs/adr/0019-cycle-structure-is-provisional.md"
+    },
+    {
+      "@id": "https://github.com/shimo4228/repo-asset-stocktake",
+      "@type": ["EcosystemRepo", "SoftwareSourceCode"],
+      "name": "repo-asset-stocktake",
+      "description": "AKC Maintain-phase skill (ADR-0019). Audits a project repository's non-code assets — tool configs, CI workflows, runbooks — for consumers that have vanished (Keep / Update / Retire / Merge). Tier-1 reachability is deterministic code, tier-2 value is holistic judgment — enumerate-then-decide (ADR-0008). Complements context-sync within Maintain: context-sync audits documentation role coherence, repo-asset-stocktake audits asset liveness.",
+      "url": "https://github.com/shimo4228/repo-asset-stocktake",
+      "extends": "https://doi.org/10.5281/zenodo.19200726",
+      "implements": "https://shimo4228.github.io/shimo4228/vocab#akc-phase/maintain"
     },
 
     {
