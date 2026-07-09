@@ -42,6 +42,12 @@ Phase 3: スキルは不要になる
 
 棚卸しを生き残ったものは明快な法則に従う (後述「What Survives」参照): 453 行の OWASP チェックリスト (モデル知識との差分ゼロ) は退役し、45 行の個人用セッション起動 skill (差分 100%) は残った。
 
+### 2026-07-09 — telemetry で初めて実証された退役 (rules 層への吸収)
+
+第三の観測が、溶解と計測のループを閉じた。運用者のハーネスは決定論的な usage telemetry 層 (Measure) を持ち、その出力は Curate の silence check に流れる。1 ヶ月分のログは、3 つの design-pattern skill の 1 つである signal-first-research の organic な発火がゼロであることを示した: 明示的な起動はなく、ファイル read はすべて監査または cross-reference セッション由来で、実作業での使用は一度もなかった。原則そのものは毎日発火していた — ただし常時ロードの rules 層 (Research フェーズの rule) と search-first フェーズ skill を通してである。skill の operational な中身は完全に吸収されていた: 内面化経路の完了が、初めて計器の上で可視化された。
+
+同日、ローカルの install は退役し、参照は rules 層の正本に付け替えられた。公開リポジトリは citable な design-pattern artifact として無変更で存続する — 溶解が取り除くのは install された足場であって、記録された judgment ではない。この観測が先の 2 つと異なる点は 2 つ: 退役の判断が語りの印象ではなく計器 (silence check) によって下されたこと — 後述の「observable, not just narratable」基準が実地で満たされた — そして Implication 1 の直接の確認になっていること — 使用ゼロが、まさにそれが意味する成功シグナルとして読まれた。
+
 ## Why This Happens
 
 ### ユーザー側の学習

@@ -43,6 +43,12 @@ The outcome: six skills and one rule file deleted (further stale sections trimme
 
 What survived the stocktake follows a clean law (see "What Survives" below): a 453-line OWASP checklist (zero differential against model knowledge) was retired; a 45-line personal session-spawning skill (full differential) was kept.
 
+### 2026-07-09 — first telemetry-verified retirement (rules-layer absorption)
+
+A third observation closed the loop between dissolution and measurement. The operator's harness carries a deterministic usage-telemetry layer (Measure) whose output feeds Curate's silence check. One month of logs showed that signal-first-research — one of the three design-pattern skills — had zero organic activations: no explicit invocations, and every file read traced back to an audit or cross-reference session, not to working use. The principle itself was firing daily — but through the always-loaded rules layer (the Research phase rule) and the search-first phase skill. The skill's operational content had been fully absorbed: the internalization pathway, completed and now instrumentally visible.
+
+The local install was retired the same day, with references repointed to the rules-layer canonical. The published repository persists unchanged as the citable design-pattern artifact — dissolution removes the installed scaffold, not the recorded judgment. Two things distinguish this observation from the earlier two: the retirement was decided by an instrument (the silence check) rather than by narrative impression, meeting the "observable, not just narratable" criterion below in practice; and it confirms Implication 1 directly — zero usage was read as the success signal it is.
+
 ## Why This Happens
 
 ### User-side learning
