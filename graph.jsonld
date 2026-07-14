@@ -25,7 +25,6 @@
     "groundedIn": {"@id": "shimo:groundedIn", "@type": "@id"},
     "appliesTo": {"@id": "shimo:appliesTo", "@type": "@id"},
     "hasFailureMode": {"@id": "shimo:hasFailureMode", "@type": "@id"},
-    "inverseOf": {"@id": "shimo:inverseOf", "@type": "@id"},
     "contrastsWith": {"@id": "shimo:contrastsWith", "@type": "@id"},
     "level": "shimo:level",
     "ordinal": "shimo:ordinal"
