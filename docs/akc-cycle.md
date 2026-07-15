@@ -15,7 +15,10 @@ cycle, without installing the six standalone [cycle skills](../README.md#the-cyc
 cp rules/common/akc-cycle.md ~/.claude/rules/common/akc-cycle.md
 ```
 
-The repository's README covers the per-phase trigger table and the one-way
+Since v1.1.0 the same repository also ships the nine cycle-phase skills as a
+Claude Code plugin (`/plugin marketplace add shimo4228/akc-cycle`) — the rules
+file stays the minimal floor, the plugin adds the skill layer. The repository's
+README covers the per-phase trigger table, both install paths, and the one-way
 sync model.
 
 ## Why it moved

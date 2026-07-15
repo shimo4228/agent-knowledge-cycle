@@ -1120,7 +1120,7 @@
       "@id": "https://github.com/shimo4228/akc-cycle",
       "@type": "TechArticle",
       "name": "akc-cycle (single-file cycle rules)",
-      "description": "The entire AKC cycle as a single rules file, copy-installable to any agent's rules directory. Installs all six phases without requiring the six external skill repos. Published as a standalone repository (the same distribution model as the design-pattern skills); the AKC repository points to it instead of carrying a divergent copy. Canonical source is the author's live harness, mirrored one-way. Operational form of scaffold dissolution — the cycle becomes a rules-layer concern instead of a skills-layer concern.",
+      "description": "The install entry point for the AKC cycle: a single rules file copy-installable to any agent's rules directory (installs all six phases without the skill repos), plus — since v1.1.0 — a Claude Code plugin bundling the nine cycle-phase skills and their two subagents. Published as a standalone repository that is also its own plugin marketplace; the AKC repository points to it instead of carrying a divergent copy. Canonical sources are the author's live harness, mirrored one-way. Operational form of scaffold dissolution — the cycle floor becomes a rules-layer concern, with the skill layer as an optional plugin on top.",
       "groundedIn": "https://github.com/shimo4228/agent-knowledge-cycle/blob/main/docs/adr/0009-akc-is-a-cycle-not-a-harness.md"
     },
 
