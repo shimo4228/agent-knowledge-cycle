@@ -1,4 +1,4 @@
-<!-- Generated: 2026-07-09 | Files scanned: project root + docs/ tree + examples/ + schemas/ | Token estimate: ~1900 -->
+<!-- Generated: 2026-07-23 | Files scanned: project root + docs/ tree + examples/ + schemas/ | Token estimate: ~1900 -->
 # Document Architecture
 
 Agent Knowledge Cycle (AKC) is a **knowledge-cycle specification + minimal reference implementation**. Specifications, ADRs, JSON schemas, design-pattern skills, and a ~500-line stdlib-only Python demo together describe the cycle; users bring their own LLM and adapter. The primary audience is LLM-mediated channels (LLM agents directly, and humans reaching AKC through LLM-curated surfaces). This codemap exists so an LLM-mediated reader can route to the canonical document for a given question without scanning the whole tree.
@@ -20,7 +20,7 @@ agent-knowledge-cycle/
 │   ├── translation-glossary.md             EN ↔ JA rendering rules for the READMEs
 │   ├── inspiration.md                      prior art and acknowledgements
 │   ├── scaffold-dissolution.md / .ja.md    skills dissolve as the cycle is internalized
-│   ├── adr/                                16 ADRs (English-only); permanent gaps at 0001 / 0006 / 0007
+│   ├── adr/                                ADRs (English-only; count canonical in llms-full.txt); permanent gaps at 0001 / 0006 / 0007
 │   ├── skills/                             pointer README (3 design-pattern skills externalized to standalone repos)
 │   ├── history/                            frozen snapshots of earlier major versions
 │   └── CODEMAPS/                           this directory
@@ -64,6 +64,7 @@ Each document answers a primary question. Cite the matching one when an LLM-medi
 | `docs/adr/0019-cycle-structure-is-provisional.md` | Why are the phase set, phase-to-skill binding, and skill set a mutable snapshot rather than a fixed essence, and how is Curate layered (skill-health code layer + stocktake semantic layers)? |
 | `docs/adr/0020-readme-minimal-floor.md` | Why does README.md hold only a minimal information floor — themes presented once, one skill table, pointers elsewhere — and which ADR-0012 commitments does that amend? |
 | `docs/adr/0021-replace-growth-tagline.md` | Why was the tagline replaced with "agent behavior compounds, human judgment sharpens", and which tagline-preservation clauses of ADR-0010 / ADR-0012 does that amend? |
+| `docs/adr/0022-transfer-as-completion-test-for-dissolution.md` | Why does same-context ablation indistinguishability not certify internalization, and why is held-out transfer the completion evidence for dissolution? (experimental) |
 | `docs/skills/README.md` | Where do the three design-pattern skills (when-code-when-llm, code-and-llm-collaboration, signal-first-research) live now that they are externalized to standalone repositories, and which ADR does each pair with? |
 | `schemas/episode-log.schema.json` | What is the JSON shape of a Layer 1 episode record? |
 | `schemas/knowledge.schema.json` | What is the JSON shape of a Layer 2 knowledge pattern? |

@@ -86,7 +86,14 @@ A general-purpose harness therefore purifies over time into an operating system 
 
 ## Completion Criterion and Dissolution Order
 
-Dissolution is observable, not just narratable. The Measure phase supplies a termination test: run compliance measurement (skill-comply) with and without the rule loaded — when the two are indistinguishable, internalization is complete and the rule may be deleted. The norm document carries its own death-determination criterion.
+Dissolution is observable, not just narratable. The Measure phase supplies a termination test, in two stages (ADR-0022):
+
+1. **Ablation (necessary).** Run compliance measurement (skill-comply) with and without the rule loaded, in the context the rule has been operating in. If the two conditions differ, the rule is still load-bearing. But indistinguishability alone is not the certificate — on the rule's home distribution it cannot separate *internalized* from *carried by the surrounding context* (or from the rule never having been load-bearing there at all).
+2. **Held-out transfer (completion evidence).** The same judgment must reproduce in a held-out context — a different repository, task genre, or session lineage that shares the principle but not the surface instances. Only transfer certifies that the judgment lives in the durable layers rather than in the local context. Then the rule may be deleted.
+
+The external evidence for requiring the second stage is EvoAgentBench (arXiv:2607.05202), whose ability-supported yet instance-disjoint split showed that skill value is decided at transfer, not on the home distribution: curated skill content transferred positively in all 24 evaluation cells, while no automatic extraction method sustained positive gain in all settings — reaching −36.3 points of negative transfer in software engineering. A store of extracted behavior can look beneficial where it was built and be net harmful one controlled step away; a completion test that never leaves the home context cannot see the difference.
+
+Retirement decisions accordingly name their evidence class: **silence** (telemetry shows the artifact unused — retires an artifact, claims nothing about internalization; the 2026-07-09 retirement above is this class), **ablation** (necessary), or **transfer** (the completion certificate). The norm document carries its own death-determination criterion; ADR-0022 sharpened it from one test to two.
 
 The predicted order of dissolution follows the differential law applied to AKC itself:
 

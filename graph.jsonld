@@ -307,6 +307,14 @@
       "description": "Replaces the tagline 'A knowledge cycle for AI agents — one that grows with the people who shape it' (introduced by ADR-0009, preservation reaffirmed by ADR-0010 and ADR-0012) with 'A knowledge cycle for AI agents — agent behavior compounds, human judgment sharpens.' The earlier phrasing collided with the tagline of a widely adopted agent-centric autonomous self-improvement product ('The agent that grows with you', February 2026), which predated it by two months — a semantically inverting collision: that product's 'grows' is ungated agent-side self-improvement, precisely the framework class AKC positions against, so the surface similarity read AKC as derivative and obscured its human-gated, bidirectional core. The new parallel two-clause form abandons the shared relative-clause-with-'grows with' structure, encodes bidirectionality in the syntax itself (one clause per end of the loop), and carries theme 1 (human judgment) and theme 3 (bidirectional loop) simultaneously; 'judgment sharpens' was already canonical AKC vocabulary (coin-sparingly / anchor-densely). Supersedes only the tagline-preservation clauses of ADR-0010 and ADR-0012; the cycle-not-harness repositioning (ADR-0009), the three-theme front-loading discipline, and the ADR-0012/0020 Measure checklists stand unchanged.",
       "groundedIn": "https://github.com/shimo4228/agent-knowledge-cycle/blob/main/docs/adr/0009-akc-is-a-cycle-not-a-harness.md"
     },
+    {
+      "@id": "https://github.com/shimo4228/agent-knowledge-cycle/blob/main/docs/adr/0022-transfer-as-completion-test-for-dissolution.md",
+      "@type": ["ADR", "TechArticle"],
+      "name": "ADR-0022: Transfer as the Completion Test for Dissolution",
+      "description": "Experimental. Revises the dissolution Completion Criterion (docs/scaffold-dissolution.md) from one test to two: same-context ablation indistinguishability (running compliance with and without the rule loaded) is necessary evidence but cannot separate internalization from context-carry — the surrounding context carrying the behavior locally; the completion evidence is held-out transfer — the same judgment reproducing in a context that shares the principle but not the surface instances (a different repository, task genre, or session lineage; instance-disjoint, not merely re-run). Records the falsifiable claim that a criterion testing only same-context ablation will retire rules that were context-carried, not internalized. External trigger: EvoAgentBench (arXiv:2607.05202), whose ability-supported yet instance-disjoint split shows skill value is decided at transfer — curated content positive in all 24 cells, no automatic extraction method sustaining positive gain, negative transfer to −36.3 points. Names three retirement evidence classes: silence (retires an artifact, claims nothing about internalization), ablation (necessary), transfer (completion certificate). Sibling of ADR-0016: 0016 specifies which surface a Measure instrument observes (agent text), 0022 which distribution it tests against (held-out). No reference instrument shipped — solo-operator-scale held-out construction remains an open instrument-design question. Status experimental: external evidence plus structural argument, zero own-cycle transfer observations.",
+      "siblingOf": "https://github.com/shimo4228/agent-knowledge-cycle/blob/main/docs/adr/0016-measuring-thinking-centric-phases.md",
+      "groundedIn": "https://github.com/shimo4228/agent-knowledge-cycle/blob/main/docs/adr/0019-cycle-structure-is-provisional.md"
+    },
 
     {
       "@id": "https://shimo4228.github.io/shimo4228/vocab#concept/six-phase-loop",
@@ -1042,6 +1050,18 @@
       "about": "https://shimo4228.github.io/shimo4228/vocab#akc/concept/intent-alignment",
       "description": "Corroboration named in ADR-0013's 2026-07-08 addendum. Analyzes 59 academic papers against 21 production agent systems: the academically favored mechanisms (intent anchoring, trust labeling) see zero production deployment while human-centric mechanisms — policy specification, runtime approval, scope configuration — dominate industry practice. The intent-alignment theme's industry-academia gap, measured.",
       "groundedIn": "https://github.com/shimo4228/agent-knowledge-cycle/blob/main/docs/adr/0013-positioning-within-agent-memory-literature.md"
+    },
+    {
+      "@id": "https://shimo4228.github.io/shimo4228/vocab#prior-art/evoagentbench",
+      "@type": ["ExternalReference", "ScholarlyArticle"],
+      "name": "EvoAgentBench: Benchmarking Agent Self-Evolution via Ability Transfer",
+      "author": "Gao, X. et al.",
+      "datePublished": "2026",
+      "identifier": "arXiv:2607.05202",
+      "url": "https://arxiv.org/abs/2607.05202",
+      "about": "https://shimo4228.github.io/shimo4228/vocab#concept/scaffold-dissolution",
+      "description": "Controlled corroboration named in ADR-0013's 2026-07-23 addendum, and the external evidence base of ADR-0022. Benchmarks agent self-evolution as ability transfer under an ability-supported yet instance-disjoint split (528/267 train/test; every test task backed by verified training-side ability support, no instance repeated). Curated ability content — the curator-side Anchor Skill reference, explicitly not a deployable method — transfers positively in all 24 domain-scaffold-backbone cells; no automatic extraction method evaluated (Memento, ReasoningBank, GEPA) sustains positive gain in all settings, with negative transfer reaching −36.3 points in software engineering. The first controlled comparison on the axis of the human-gate delta (ADR-0005), and the demonstration that same-distribution gain does not certify internalization — the trigger for ADR-0022's held-out transfer completion test.",
+      "groundedIn": ["https://github.com/shimo4228/agent-knowledge-cycle/blob/main/docs/adr/0013-positioning-within-agent-memory-literature.md", "https://github.com/shimo4228/agent-knowledge-cycle/blob/main/docs/adr/0022-transfer-as-completion-test-for-dissolution.md"]
     },
 
     {

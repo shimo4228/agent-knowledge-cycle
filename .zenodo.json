@@ -248,6 +248,12 @@
       "relation": "references",
       "resource_type": "publication-preprint",
       "scheme": "doi"
+    },
+    {
+      "identifier": "10.48550/arXiv.2607.05202",
+      "relation": "references",
+      "resource_type": "publication-preprint",
+      "scheme": "doi"
     }
   ]
 }

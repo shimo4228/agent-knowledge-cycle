@@ -26,6 +26,7 @@ considered, and the consequences.
 | [0019](0019-cycle-structure-is-provisional.md) | The Cycle's Structure Is Provisional — Skills, Bindings, and Phases Held Lightly |
 | [0020](0020-readme-minimal-floor.md) | Minimal-floor README with Single-location Theme Presentation |
 | [0021](0021-replace-growth-tagline.md) | Replace the Growth Tagline |
+| [0022](0022-transfer-as-completion-test-for-dissolution.md) | Transfer as the Completion Test for Dissolution *(experimental)* |
 
 ADR numbers are permanent identifiers. Gaps (0001, 0006, 0007) reflect
 ADRs that were extracted from this repository in v2.0.0 as
