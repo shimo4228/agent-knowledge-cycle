@@ -50,11 +50,17 @@ requires human approval. It runs not between skills and rules but
 between **records** (transcripts, distilled notes — disposable,
 regenerable, free to write) and **the artifacts that shape future
 behavior** (skills, rules, identity prose — approval required). See
-ADR-0005's decision table. The position paper presents this boundary as
-the cycle's load-bearing structural commitment — the place where the
-human-gated property becomes architecture: what can be verified without
-the operator runs unattended; every behavior-shaping change passes the
-gate ([position paper](https://doi.org/10.5281/zenodo.20578272), §5).
+ADR-0005's decision table. The criterion reaches past that table's
+enumeration to the harness's own control plane — hooks, permission
+grants, scheduled task definitions — which shapes future behavior by
+fixing what proceeds without asking. A change there moves the gate
+itself, so a gate-loosening edit is exactly the change that would
+otherwise take effect without passing one. The position paper presents
+this boundary as the cycle's load-bearing structural commitment — the
+place where the human-gated property becomes architecture: what can be
+verified without the operator runs unattended; every behavior-shaping
+change passes the gate
+([position paper](https://doi.org/10.5281/zenodo.20578272), §5).
 
 ## Rules (layer)
 
