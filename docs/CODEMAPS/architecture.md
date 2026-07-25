@@ -65,6 +65,7 @@ Each document answers a primary question. Cite the matching one when an LLM-medi
 | `docs/adr/0020-readme-minimal-floor.md` | Why does README.md hold only a minimal information floor — themes presented once, one skill table, pointers elsewhere — and which ADR-0012 commitments does that amend? |
 | `docs/adr/0021-replace-growth-tagline.md` | Why was the tagline replaced with "agent behavior compounds, human judgment sharpens", and which tagline-preservation clauses of ADR-0010 / ADR-0012 does that amend? |
 | `docs/adr/0022-transfer-as-completion-test-for-dissolution.md` | Why does same-context ablation indistinguishability not certify internalization, and why is held-out transfer the completion evidence for dissolution? (experimental) |
+| `docs/adr/0023-generation-review-as-a-fourth-evidence-class.md` | Why are silence / ablation / transfer blind to a rule whose premise expired at a model generation boundary, and what schedules the audit that catches it? |
 | `docs/skills/README.md` | Where do the three design-pattern skills (when-code-when-llm, code-and-llm-collaboration, signal-first-research) live now that they are externalized to standalone repositories, and which ADR does each pair with? |
 | `schemas/episode-log.schema.json` | What is the JSON shape of a Layer 1 episode record? |
 | `schemas/knowledge.schema.json` | What is the JSON shape of a Layer 2 knowledge pattern? |
@@ -184,17 +185,17 @@ contemplative-agent                      ← two-way relationship. Upstream: the
 
 Prose entries live in README "Related Work" (compact list at the end of the section); concept-level edges in `graph.jsonld`.
 
-## File-Count Snapshot (2026-07-07)
+## File-Count Snapshot (2026-07-25)
 
 | Category | Count |
 |---|---|
-| ADRs | ADR-0002–0005, 0008–0021 (canonical count lives in llms-full.txt Project Facts) |
+| ADRs | ADR-0002–0005, 0008–0023 (canonical count lives in llms-full.txt Project Facts) |
 | Design-pattern skills | 3 (externalized to standalone repos; `docs/skills/` holds only a pointer README) |
 | README files (en + ja mirror) | 2 |
 | JSON schemas (`schemas/`) | 2 |
 | Python source (`examples/minimal_harness/`) | 5 files (~500 lines total, stdlib-only) |
 | Top-level docs (`docs/*.md`) | 6 (akc-cycle, glossary, translation-glossary, inspiration, scaffold-dissolution + .ja.md) |
 | Repo-root files | CITATION.cff, LICENSE, llms.txt, llms-full.txt, CHANGELOG.md |
-| **Total markdown / Python / schema files** | **42** (`git ls-files '*.md' '*.py' 'schemas/*.json' | wc -l`; 40 as of v2.4.0 plus ADR-0020 added 2026-07-07 and ADR-0021 added 2026-07-08) |
+| **Total markdown / Python / schema files** | **45** (`git ls-files '*.md' '*.py' 'schemas/*.json' | wc -l`; 42 as of 2026-07-08 plus ADR-0022 added 2026-07-23 and ADR-0023 added 2026-07-25) |
 
 When this count drifts substantially, regenerate this codemap.

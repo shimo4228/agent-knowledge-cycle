@@ -19,7 +19,7 @@ Agent Knowledge Cycle (AKC) is defined as a six-phase growth cycle for persisten
 - **Repository**: [github.com/shimo4228/agent-knowledge-cycle](https://github.com/shimo4228/agent-knowledge-cycle)
 - **Archive**: Zenodo (auto-archived on each GitHub Release)
 - **Phases**: 6 (Research → Extract → Curate → Promote → Measure → Maintain)
-- **ADRs**: 19 (ADR-0002, ADR-0003, ADR-0004, ADR-0005, ADR-0008 through ADR-0022; numbering has permanent gaps at 0001, 0006, 0007 from the v2.0.0 extraction)
+- **ADRs**: 20 (ADR-0002, ADR-0003, ADR-0004, ADR-0005, ADR-0008 through ADR-0023; numbering has permanent gaps at 0001, 0006, 0007 from the v2.0.0 extraction)
 - **Three core themes** (per ADR-0012, surfaced in priority order in front-door docs): (1) human cognitive resource scarcity as the central constraint, (2) intent alignment over individual correctness, (3) the cycle changes the human as much as the agent — bidirectional growth loop
 - **Design principles**: 9 (Composable, Observable, Non-destructive, Tool-agnostic, Evaluation-scales, Scaffold-dissolution, Code-LLM Layering, Cognitive-economy, Genre-neutrality)
 - **Cycle skills**: 9 external repos — a mutable snapshot, not a fixed bijection (ADR-0019): search-first, learn-eval, skill-health + skill-stocktake + rules-stocktake (Curate's structural code layer and its semantic layers for skills and always-loaded rules), rules-distill, skill-comply, context-sync + repo-asset-stocktake (Maintain's documentation-role and non-code-asset-liveness layers)
