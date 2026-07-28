@@ -4,6 +4,113 @@ All notable changes to AKC are recorded here. AKC follows semantic
 versioning; breaking changes to positioning or public interfaces bump the
 major version.
 
+## v2.6.0 — Transfer-tested dissolution, generation review, the gate's full reach (2026-07-28)
+
+The dissolution norm grew both of its edges. The completion criterion was
+sharpened from one test into two (ADR-0022): same-context ablation
+indistinguishability is necessary evidence, held-out transfer is the
+completion evidence. And a fourth retirement evidence class was named
+(ADR-0023) for the failure mode the first three cannot see: a rule whose
+premise expired at a model generation boundary while it keeps firing on
+every session. On the gate side, the line-of-approval criterion was
+extended past ADR-0005's enumeration to the harness's own control plane
+and the artifacts that produce the gate's verification evidence.
+
+### Added
+
+- **[ADR-0022](docs/adr/0022-transfer-as-completion-test-for-dissolution.md)
+  — Transfer as the completion test for dissolution** (experimental; ADR
+  count 18 → 20 together with ADR-0023). Same-context ablation
+  indistinguishability cannot separate *internalized* from *carried by
+  the surrounding context*, so it is demoted from certificate to
+  necessary evidence; completion is held-out transfer — the same
+  judgment reproducing in a context that shares the principle but not
+  the instances. Evidence base: EvoAgentBench (arXiv:2607.05202), whose
+  ability-supported yet instance-disjoint split shows curated skill
+  content transferring positively in all 24 cells while no automatic
+  extraction method sustains positive gain (negative transfer to −36.3
+  points). Sibling of ADR-0016: which surface to observe (0016), which
+  distribution to test against (0022).
+- **[ADR-0023](docs/adr/0023-generation-review-as-a-fourth-evidence-class.md)
+  — Generation review as a fourth retirement evidence class** (accepted).
+  Silence, ablation, and transfer all detect an *absence* — of use, of
+  effect, of portability — and are structurally blind to negative
+  information differential: an over-constraint written for a weaker
+  model generation shows full usage right up to the point where the
+  firing itself is the cost. Generation review audits on the model
+  release cadence rather than the usage log and admits the vendor's own
+  prompt-engineering guidance as evidence. Own-cycle observation
+  2026-07-25: a rules layer cut 43,971 → 19,240 characters (−56%) after
+  Anthropic reported an 80% system-prompt reduction for the Claude 5
+  generation with no evaluation loss.
+- **Scaffold dissolution's fourth mechanism — model-side capability
+  turnover** (docs/scaffold-dissolution en/ja): the scaffold's *premise*
+  expires rather than its function being duplicated — the only pathway
+  that leaves the scaffold actively harmful rather than merely idle.
+  The information-differential law gains its **negative pole** (a
+  negative-differential artifact must be removed, not merely allowed to
+  lapse), and the training-wheels analogy records where it breaks.
+- **Line of approval reaches the control plane and the evidence layer**
+  (docs/glossary.md): the gate's criterion covers the harness's own
+  control plane — hooks, permission grants, scheduled task definitions —
+  because a gate-loosening edit is exactly the change that would
+  otherwise take effect without passing one; and the artifacts that
+  produce the gate's verification evidence — tests, lint and CI
+  configuration, review prompts, dependency manifests — because an
+  evidence-loosening edit lets "runs unattended" expand invisibly.
+- **Two concept-scaffold repos surfaced beside the phase table**
+  (README en/ja, llms-full.txt, graph.jsonld):
+  [human-gate](https://github.com/shimo4228/human-gate) scaffolds the
+  approval gate's presentation split, and
+  [generation-audit](https://github.com/shimo4228/generation-audit)
+  scaffolds Scaffold Dissolution's model-generation trigger — repos that
+  implement Concept nodes rather than Phases, with the same
+  mutable-snapshot status (ADR-0019).
+- **agent-stocktake joins the Curate scaffolding** as a fourth scaffold
+  ([standalone repo](https://github.com/shimo4228/agent-stocktake)) —
+  the semantic layer for agent definitions, alongside skill-health
+  (structural code), skill-stocktake (skills), and rules-stocktake
+  (always-loaded rules). Cycle skills 9 → 10 external repos.
+
+### Changed
+
+- **graph.jsonld**: the akc-cycle repo's description now records that it
+  ships the nine cycle-phase skills as a Claude Code plugin since its
+  v1.1.0 (`/plugin marketplace add shimo4228/akc-cycle`) — the rules
+  file stays the minimal floor; the unused `inverseOf` context
+  declaration was dropped; `docs/akc-cycle.md` documents both install
+  paths.
+- **Position-paper §5 boundary sentence restored verbatim** in
+  docs/glossary.md and llms-full.txt: "What can be verified without the
+  operator runs unattended; every change that shapes behavior passes the
+  gate, and intent enters the loop with it."
+- **Externalization survey description corrected** (llms-full.txt): the
+  field maps as three coupled forms of externalization — memory, skills,
+  protocols — coordinated by harness engineering as the unification
+  layer, not four parallel forms.
+- **README failure-mode terms glossed inline** — gate complacency
+  (approvals rubber-stamped over time), deskilling (the operator's own
+  judgment atrophying), delegation-feedback divergence (delegating more
+  while reading less of the outcome) — and the Related Work relationship
+  descriptions tightened; ja mirror got a register pass.
+
+### Sunset
+
+- **Community-authority-record edges purged from graph.jsonld**: the
+  Wikidata `sameAs` edges added in the concept-corroboration wave were
+  removed after the registration route was permanently retired
+  (authorship-strategy ADR-0021, governance revocation). Entity
+  grounding is now self-sovereign only — DOI, ORCID, SWHID, and the
+  ecosystem's own graphs.
+
+### Notes
+
+- No schema, install-path, or positioning changes; ADR numbering gaps at
+  0001 / 0006 / 0007 remain permanent. The dissolution completion
+  criterion change is doctrinal, not operational: no retirement recorded
+  before v2.6.0 is invalidated, and the one instrument-verified
+  retirement (2026-07-09) already declared its evidence class (silence).
+
 ## v2.5.0 — Minimal-floor front door, Maintain's second scaffold, telemetry-verified dissolution (2026-07-09)
 
 The front door was rebuilt on a minimal floor under a de-collided tagline
