@@ -81,8 +81,14 @@ flowchart TD
 [when-code-when-llm](https://github.com/shimo4228/when-code-when-llm),
 [code-and-llm-collaboration](https://github.com/shimo4228/code-and-llm-collaboration),
 [signal-first-research](https://github.com/shimo4228/signal-first-research) —
-がサイクルの再利用可能な設計判断を担う。フェーズ集合と phase-to-skill
-binding は可変なスナップショットであり、AKC の固定された本質ではない
+がサイクルの再利用可能な設計判断を担う。さらに 2 つの repo は phase ではなく
+load-bearing な概念を scaffold する:
+[human-gate](https://github.com/shimo4228/human-gate) は承認ゲートで人間が
+何を判断するかを固定し（behavior-shaping / control plane / 証拠生成物は本文、
+実装コードは固定スキーマの意図の要約）、
+[generation-audit](https://github.com/shimo4228/generation-audit) は
+Scaffold Dissolution のモデル世代交代トリガーを実行する。フェーズ集合と
+phase-to-skill binding は可変なスナップショットであり、AKC の固定された本質ではない
 ([ADR-0019](docs/adr/0019-cycle-structure-is-provisional.md))。
 
 ## サイクルを導入する

@@ -79,8 +79,15 @@ flowchart TD
 Three design-pattern skills — [when-code-when-llm](https://github.com/shimo4228/when-code-when-llm),
 [code-and-llm-collaboration](https://github.com/shimo4228/code-and-llm-collaboration),
 [signal-first-research](https://github.com/shimo4228/signal-first-research) —
-carry the cycle's reusable design judgments. The phase set and phase-to-skill
-bindings are a mutable snapshot, not AKC's fixed essence
+carry the cycle's reusable design judgments. Two further repos scaffold
+load-bearing concepts rather than phases:
+[human-gate](https://github.com/shimo4228/human-gate) fixes what the human
+judges at the approval gate (full text for behavior-shaping, control-plane,
+and evidence-producing artifacts; a fixed-schema intent summary for
+implementation code), and
+[generation-audit](https://github.com/shimo4228/generation-audit) runs
+Scaffold Dissolution's model-generation trigger. The phase set and
+phase-to-skill bindings are a mutable snapshot, not AKC's fixed essence
 ([ADR-0019](docs/adr/0019-cycle-structure-is-provisional.md)).
 
 ## Install
