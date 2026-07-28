@@ -126,10 +126,20 @@ the entire cycle. Most phases have one skill; Curate and Maintain are layered.
 - [skill-health](https://github.com/shimo4228/skill-health) (Curate — structural code layer)
 - [skill-stocktake](https://github.com/shimo4228/skill-stocktake) (Curate — semantic layer, skills)
 - [rules-stocktake](https://github.com/shimo4228/rules-stocktake) (Curate — semantic layer, always-loaded rules: residency cost, staleness, substrate absorption)
+- [agent-stocktake](https://github.com/shimo4228/agent-stocktake) (Curate — semantic layer, agent definitions: hybrid cost model — always-loaded descriptions as residency, bodies as invocation payload)
 - [rules-distill](https://github.com/shimo4228/rules-distill) (Promote)
 - [skill-comply](https://github.com/shimo4228/skill-comply) (Measure)
 - [context-sync](https://github.com/shimo4228/context-sync) (Maintain — documentation role coherence and freshness)
 - [repo-asset-stocktake](https://github.com/shimo4228/repo-asset-stocktake) (Maintain — non-code asset liveness: tool configs, CI workflows, runbooks whose consumer has vanished)
+
+Two further repos scaffold load-bearing concepts rather than phases, with
+the same mutable-snapshot status: [human-gate](https://github.com/shimo4228/human-gate)
+scaffolds the human approval gate's presentation split (what the human
+judges once the gate stops — full text for behavior-shaping, control-plane,
+and evidence-producing artifacts; a fixed-schema intent summary for
+implementation code), and [generation-audit](https://github.com/shimo4228/generation-audit)
+scaffolds Scaffold Dissolution's model-generation trigger (the instrument
+behind ADR-0023's generation-review evidence class).
 
 ## Related repositories
 

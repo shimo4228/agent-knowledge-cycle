@@ -125,7 +125,7 @@
         {"@value": "Curate", "@language": "en"},
         {"@value": "Curate（選別）", "@language": "ja"}
       ],
-      "description": "Third of six AKC phases. Audit accumulated skills and rules for staleness, conflicts, and redundancy. Currently scaffolded by three scaffolds (a snapshot, mutable; ADR-0019): skill-health (structural / code — a missing-artifact, dangling-reference scan) clears structural debt before the semantic / judgment layers audit quality — skill-stocktake for skills, rules-stocktake for always-loaded rules (residency cost, staleness, substrate absorption) — enumerate-then-decide.",
+      "description": "Third of six AKC phases. Audit accumulated skills and rules for staleness, conflicts, and redundancy. Currently scaffolded by four scaffolds (a snapshot, mutable; ADR-0019): skill-health (structural / code — a missing-artifact, dangling-reference scan) clears structural debt before the semantic / judgment layers audit quality — skill-stocktake for skills, rules-stocktake for always-loaded rules (residency cost, staleness, substrate absorption), agent-stocktake for agent definitions (hybrid cost model: always-loaded descriptions audited as residency, bodies as invocation payload) — enumerate-then-decide.",
       "ordinal": 3
     },
     {
@@ -342,7 +342,7 @@
       "@id": "https://shimo4228.github.io/shimo4228/vocab#concept/scaffold-dissolution",
       "@type": ["Concept", "DefinedTerm"],
       "name": "scaffold dissolution",
-      "description": "Property that explicit AKC skills can be dropped once the cycle has been internalized. The skills are scaffolding, not the goal. Dissolution is the intended end state, not a fallback.",
+      "description": "Property that explicit AKC skills can be dropped once the cycle has been internalized. The skills are scaffolding, not the goal. Dissolution is the intended end state, not a fallback. Its model-generation trigger is currently scaffolded by the generation-audit skill (a snapshot, mutable; ADR-0019), the instrument that produces generation review, the fourth retirement evidence class (ADR-0023).",
       "groundedIn": "https://github.com/shimo4228/agent-knowledge-cycle/blob/main/docs/adr/0009-akc-is-a-cycle-not-a-harness.md"
     },
     {
@@ -432,7 +432,7 @@
       "@id": "https://shimo4228.github.io/shimo4228/vocab#akc/concept/human-approval-gate",
       "@type": ["Concept", "DefinedTerm"],
       "name": "human approval gate",
-      "description": "Structural checkpoint for behavior-modifying writes. AKC is not autonomous; every change to the artifacts that shape future behavior — skills, rules, identity — requires named human sign-off. The same criterion reaches the harness's own control plane (hooks, permission grants, scheduled task definitions), since a change there moves the gate itself, and the artifacts that produce the gate's verification evidence (tests, lint and CI configuration, review prompts, dependency manifests), since a change there moves what counts as verified. Codified as ADR-0005, whose decision table enumerates the first group.",
+      "description": "Structural checkpoint for behavior-modifying writes. AKC is not autonomous; every change to the artifacts that shape future behavior — skills, rules, identity — requires named human sign-off. The same criterion reaches the harness's own control plane (hooks, permission grants, scheduled task definitions), since a change there moves the gate itself, and the artifacts that produce the gate's verification evidence (tests, lint and CI configuration, review prompts, dependency manifests), since a change there moves what counts as verified. Codified as ADR-0005, whose decision table enumerates the first group. Currently scaffolded in the first running instance by the human-gate rule and its evidence-file notice hook (a snapshot, mutable; ADR-0019), which allocate the gate's presentation by target: full text for behavior-shaping, control-plane, and evidence-producing artifacts; a fixed-schema intent summary for implementation code.",
       "groundedIn": "https://github.com/shimo4228/agent-knowledge-cycle/blob/main/docs/adr/0005-human-approval-gate.md"
     },
     {
@@ -558,6 +558,36 @@
       "extends": "https://doi.org/10.5281/zenodo.19200726",
       "implements": "https://shimo4228.github.io/shimo4228/vocab#akc-phase/curate",
       "groundedIn": "https://github.com/shimo4228/agent-knowledge-cycle/blob/main/docs/adr/0019-cycle-structure-is-provisional.md"
+    },
+    {
+      "@id": "https://github.com/shimo4228/agent-stocktake",
+      "@type": ["EcosystemRepo", "SoftwareSourceCode"],
+      "name": "agent-stocktake",
+      "description": "AKC Curate-phase skill — semantic / judgment layer for agent definitions (ADR-0019). Audits agent definitions with a hybrid cost model: the description is always-loaded via the agent-type listing (residency, like a rule) while the body loads only on invocation (like a skill), so the two layers get different audit questions. Screens for suppression instructions (Improve-by-inversion: rewrite the direction, never just delete), previous-generation over-constraint, and substrate absorption judged on a fresh/rich context axis. Completes the stocktake set beside skill-stocktake and rules-stocktake.",
+      "url": "https://github.com/shimo4228/agent-stocktake",
+      "extends": "https://doi.org/10.5281/zenodo.19200726",
+      "implements": "https://shimo4228.github.io/shimo4228/vocab#akc-phase/curate",
+      "groundedIn": "https://github.com/shimo4228/agent-knowledge-cycle/blob/main/docs/adr/0019-cycle-structure-is-provisional.md"
+    },
+    {
+      "@id": "https://github.com/shimo4228/generation-audit",
+      "@type": ["EcosystemRepo", "SoftwareSourceCode"],
+      "name": "generation-audit",
+      "description": "Skill scaffolding Scaffold Dissolution's model-generation trigger (a snapshot, mutable; ADR-0019). When a model generation ships, it captures the live runtime layer (system prompt + tool descriptions) in verbatim quotes, classifies mismatches with self-authored assets as conflict / redundancy / drift, judges each with an intent / evidence / freshness / expiry frame, and hands the evidence dossier to the per-asset-class stocktake skills — it holds no verdicts itself. The instrument that produces generation review, the fourth retirement evidence class (ADR-0023).",
+      "url": "https://github.com/shimo4228/generation-audit",
+      "extends": "https://doi.org/10.5281/zenodo.19200726",
+      "implements": "https://shimo4228.github.io/shimo4228/vocab#concept/scaffold-dissolution",
+      "groundedIn": "https://github.com/shimo4228/agent-knowledge-cycle/blob/main/docs/adr/0023-generation-review-as-a-fourth-evidence-class.md"
+    },
+    {
+      "@id": "https://github.com/shimo4228/human-gate",
+      "@type": ["EcosystemRepo", "SoftwareSourceCode"],
+      "name": "human-gate",
+      "description": "Always-loaded rule plus deterministic hook scaffolding the human approval gate in the cycle's first running instance, the author's harness (a snapshot, mutable; ADR-0019). Fixes what the human judges at the gate — machines own machine-checkable artifact correctness, the human owns intent — and allocates the gate's presentation by target: full text for behavior-shaping artifacts, the control plane, and evidence-producing artifacts; a fixed five-field intent summary with a forced plan-delta value for implementation code. Bundles the evidence-file notice hook, the deterministic detection surface for the evidence-producing category.",
+      "url": "https://github.com/shimo4228/human-gate",
+      "extends": "https://doi.org/10.5281/zenodo.19200726",
+      "implements": "https://shimo4228.github.io/shimo4228/vocab#akc/concept/human-approval-gate",
+      "groundedIn": "https://github.com/shimo4228/agent-knowledge-cycle/blob/main/docs/adr/0005-human-approval-gate.md"
     },
     {
       "@id": "https://github.com/shimo4228/repo-asset-stocktake",

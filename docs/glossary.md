@@ -86,7 +86,11 @@ of the install), *human* (a named operator, not an automated validator),
 and *structural* (no path routes around it) — no "auto-approve after N
 days" escape hatch, no self-approval path. The commit history of gated
 artifacts becomes an audit trail of every intentional behavioral change.
-See ADR-0005. AAP's glossary carries the sibling entry *approval gate*
+See ADR-0005. In the first running instance, what the gate presents to
+the human is currently scaffolded by the
+[human-gate rule](https://github.com/shimo4228/human-gate) and its
+deterministic evidence-file hook (a snapshot, mutable; ADR-0019).
+AAP's glossary carries the sibling entry *approval gate*
 for its genre; both descend from the same Contemplative Agent decision.
 
 ## Promote

@@ -71,7 +71,7 @@ flowchart TD
 |---|---|---|
 | Research | [search-first](https://github.com/shimo4228/search-first) | Search broadly, intake only signal that can change the next action |
 | Extract | [learn-eval](https://github.com/shimo4228/learn-eval) | Extract reusable session patterns with quality gates |
-| Curate | [skill-health](https://github.com/shimo4228/skill-health) + [skill-stocktake](https://github.com/shimo4228/skill-stocktake) + [rules-stocktake](https://github.com/shimo4228/rules-stocktake) | Run structural debt checks before semantic review of skills and always-loaded rules |
+| Curate | [skill-health](https://github.com/shimo4228/skill-health) + [skill-stocktake](https://github.com/shimo4228/skill-stocktake) + [rules-stocktake](https://github.com/shimo4228/rules-stocktake) + [agent-stocktake](https://github.com/shimo4228/agent-stocktake) | Run structural debt checks before semantic review of skills, always-loaded rules, and agent definitions |
 | Promote | [rules-distill](https://github.com/shimo4228/rules-distill) | Turn recurring patterns into durable rules |
 | Measure | [skill-comply](https://github.com/shimo4228/skill-comply) | Test whether agents actually follow skills and rules |
 | Maintain | [context-sync](https://github.com/shimo4228/context-sync) + [repo-asset-stocktake](https://github.com/shimo4228/repo-asset-stocktake) | Keep documentation roles clean, and audit non-code assets for consumers that have vanished |
