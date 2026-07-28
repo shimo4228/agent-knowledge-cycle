@@ -80,14 +80,23 @@ Three design-pattern skills — [when-code-when-llm](https://github.com/shimo422
 [code-and-llm-collaboration](https://github.com/shimo4228/code-and-llm-collaboration),
 [signal-first-research](https://github.com/shimo4228/signal-first-research) —
 carry the cycle's reusable design judgments. Two further repos scaffold
-load-bearing concepts rather than phases:
-[human-gate](https://github.com/shimo4228/human-gate) fixes what the human
-judges at the approval gate (full text for behavior-shaping, control-plane,
-and evidence-producing artifacts; a fixed-schema intent summary for
-implementation code), and
-[generation-audit](https://github.com/shimo4228/generation-audit) runs
-Scaffold Dissolution's model-generation trigger. The phase set and
-phase-to-skill bindings are a mutable snapshot, not AKC's fixed essence
+concepts the cycle depends on rather than a phase.
+[human-gate](https://github.com/shimo4228/human-gate) fixes what is shown
+to the human at the human approval gate, the checkpoint every
+behavior-shaping change passes
+([ADR-0005](docs/adr/0005-human-approval-gate.md)): the full text for any
+change that shapes future behavior (including the tests and checks that
+decide what counts as passing), and a short fixed-format intent summary
+for ordinary implementation code.
+[generation-audit](https://github.com/shimo4228/generation-audit)
+re-audits rules and skills when a new model generation ships, the point
+where scaffolding written for an older, weaker model turns into friction.
+It is the re-runnable check behind **Scaffold Dissolution**, the
+principle that skills are scaffolding meant to dissolve once the cycle is
+internalized ([docs/scaffold-dissolution.md](docs/scaffold-dissolution.md)).
+
+The phase set and phase-to-skill bindings are themselves a mutable
+snapshot, not AKC's fixed essence
 ([ADR-0019](docs/adr/0019-cycle-structure-is-provisional.md)).
 
 ## Install
@@ -106,14 +115,15 @@ Adopt in stages: the rules file alone lets the cycle emerge in ordinary
 conversation; add the phase skills above when you want guided, step-by-step
 execution; fork any of it — AKC defines the cycle, not the implementation.
 Skills are scaffolding meant to dissolve once the cycle is internalized
-([docs/scaffold-dissolution.md](docs/scaffold-dissolution.md)).
+(Scaffold Dissolution,
+[docs/scaffold-dissolution.md](docs/scaffold-dissolution.md)).
 
 ## What's in this repo
 
 | Area | Contents |
 |---|---|
-| Decision record | ADR catalog in [`docs/adr/`](docs/adr/), with permanent gaps at 0001, 0006, and 0007 from the v2.0.0 extraction |
-| AI navigation | [`graph.jsonld`](graph.jsonld) for the concept map, [`llms.txt`](llms.txt) for routing, [`llms-full.txt`](llms-full.txt) for a self-contained factual reference (includes the nine design principles) |
+| Decision record | ADR catalog in [`docs/adr/`](docs/adr/), with permanent gaps at 0001, 0006, and 0007 from the v2.0.0 extraction (that content now lives in the sibling repo Agent Attribution Practice) |
+| AI navigation | [`graph.jsonld`](graph.jsonld) for the concept map, [`llms.txt`](llms.txt) for routing, [`llms-full.txt`](llms-full.txt) for a self-contained factual reference (includes the design principles) |
 | Specifications | [`schemas/episode-log.schema.json`](schemas/episode-log.schema.json), [`schemas/knowledge.schema.json`](schemas/knowledge.schema.json) |
 | Reference implementation | [`examples/minimal_harness/`](examples/minimal_harness/), a dependency-free Python demo of the three memory layers and two-stage distill pipeline |
 | Routing map | [`docs/CODEMAPS/architecture.md`](docs/CODEMAPS/architecture.md), the canonical file-level navigation index |
@@ -122,8 +132,9 @@ Skills are scaffolding meant to dissolve once the cycle is internalized
 
 The bidirectional loop can fail on the human side —
 [ADR-0014](docs/adr/0014-failure-modes-of-the-bidirectional-loop.md) names gate
-complacency, deskilling, and delegation-feedback divergence — and on the
-artifact side as harness drift. The two can compound, which is why AKC treats
+complacency (approvals rubber-stamped over time), deskilling (the operator's
+own judgment atrophying), and delegation-feedback divergence (delegating more
+while reading less of the outcome) — and on the artifact side as harness drift. The two can compound, which is why AKC treats
 maintenance as a cycle rather than a one-time configuration. AKC makes these
 risks explicit and keeps the human approval gate as the structural defense; it
 does not claim to eliminate them.
@@ -189,11 +200,11 @@ canonical relationship map for the broader set of research lines.
 | Repository | Relationship to AKC |
 |---|---|
 | [Contemplative Agent](https://github.com/shimo4228/contemplative-agent) | Upstream engineering substrate for AKC's early ADRs and downstream operational re-implementation of the six-phase cycle |
-| [Agent Attribution Practice](https://github.com/shimo4228/agent-attribution-practice) | Sibling genre library; AKC = cycle mechanism, AAP = attribution practice content |
-| [Authorship Strategy](https://github.com/shimo4228/authorship-strategy) | Downstream research line on how outputs diffuse outside the operator-agent pair |
-| [Attention, Not Self](https://github.com/shimo4228/attention-not-self) | Sibling research line federated at the ecosystem level |
-| [doctrine-corpus](https://github.com/shimo4228/doctrine-corpus) | Bilingual judgment-eliciting Q&A corpus that includes AKC as one source line |
-| [existence-proof](https://github.com/shimo4228/existence-proof) | Pre-line working repository complementing Authorship Strategy |
+| [Agent Attribution Practice](https://github.com/shimo4228/agent-attribution-practice) | Sibling library in a different genre: AKC defines the cycle (mechanism), AAP the attribution practice (content) |
+| [Authorship Strategy](https://github.com/shimo4228/authorship-strategy) | Downstream research line (a separate DOI'd investigation crystallized from the same daily practice) on how outputs diffuse outside the operator-agent pair |
+| [Attention, Not Self](https://github.com/shimo4228/attention-not-self) | Sibling research line, cross-linked through the shared hub repo rather than merged here |
+| [doctrine-corpus](https://github.com/shimo4228/doctrine-corpus) | Bilingual judgment-eliciting Q&A corpus that includes AKC as one of its source lines |
+| [existence-proof](https://github.com/shimo4228/existence-proof) | Working repository complementing Authorship Strategy, not yet crystallized into a research line of its own |
 
 Japanese development notes are on [Zenn](https://zenn.dev/shimo4228); English
 translations are on [Dev.to](https://dev.to/shimo4228).
