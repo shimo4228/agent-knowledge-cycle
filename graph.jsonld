@@ -432,7 +432,7 @@
       "@id": "https://shimo4228.github.io/shimo4228/vocab#akc/concept/human-approval-gate",
       "@type": ["Concept", "DefinedTerm"],
       "name": "human approval gate",
-      "description": "Structural checkpoint for behavior-modifying writes. AKC is not autonomous; every change to the artifacts that shape future behavior — skills, rules, identity — requires named human sign-off. The same criterion reaches the harness's own control plane (hooks, permission grants, scheduled task definitions), since a change there moves the gate itself. Codified as ADR-0005, whose decision table enumerates the former group.",
+      "description": "Structural checkpoint for behavior-modifying writes. AKC is not autonomous; every change to the artifacts that shape future behavior — skills, rules, identity — requires named human sign-off. The same criterion reaches the harness's own control plane (hooks, permission grants, scheduled task definitions), since a change there moves the gate itself, and the artifacts that produce the gate's verification evidence (tests, lint and CI configuration, review prompts, dependency manifests), since a change there moves what counts as verified. Codified as ADR-0005, whose decision table enumerates the first group.",
       "groundedIn": "https://github.com/shimo4228/agent-knowledge-cycle/blob/main/docs/adr/0005-human-approval-gate.md"
     },
     {

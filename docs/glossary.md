@@ -55,7 +55,12 @@ enumeration to the harness's own control plane — hooks, permission
 grants, scheduled task definitions — which shapes future behavior by
 fixing what proceeds without asking. A change there moves the gate
 itself, so a gate-loosening edit is exactly the change that would
-otherwise take effect without passing one. The position paper presents
+otherwise take effect without passing one. The same reach covers the
+artifacts that produce the gate's verification evidence — tests, lint
+and CI configuration, review prompts, dependency manifests — since a
+change there moves what counts as verified: an evidence-loosening edit
+lets "runs unattended" expand without any behavior-shaping artifact
+appearing to change. The position paper presents
 this boundary as the cycle's load-bearing structural commitment — the
 place where the human-gated property becomes architecture: "What can be
 verified without the operator runs unattended; every change that shapes
