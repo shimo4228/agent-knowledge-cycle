@@ -1103,6 +1103,20 @@
     },
 
     {
+      "@id": "https://shimo4228.github.io/shimo4228/vocab#prior-art/contextual-memory-memo",
+      "@type": ["ExternalReference", "ScholarlyArticle"],
+      "name": "Contextual Agentic Memory is a Memo, Not True Memory",
+      "author": "Xu, B., Dai, X. & Zhang, K.",
+      "datePublished": "2026",
+      "identifier": "arXiv:2604.27707",
+      "url": "https://arxiv.org/abs/2604.27707",
+      "about": "https://shimo4228.github.io/shimo4228/vocab#concept/three-layer-structure",
+      "contrastsWith": "https://github.com/shimo4228/agent-knowledge-cycle/blob/main/docs/adr/0009-akc-is-a-cycle-not-a-harness.md",
+      "description": "Paradigm challenge named in ADR-0013's 2026-08-08 addendum — the first entry that disputes the class AKC belongs to rather than conceding precedent or supplying evidence. Argues that vector stores, RAG, scratchpads, and context-window management 'do not implement memory: they implement lookup', a category error framed through Complementary Learning Systems theory: agents implement the fast hippocampal half without the slow neocortical consolidation half. Theorem 1 (Compositional Sample Complexity Separation) quantifies the cost — retrieval needs Omega(k^2) samples against a parametric learner's O((d log(1/delta)+log(1/beta))/delta), a separation ratio of Omega(k^2/d) on compositionally novel tasks. v2 concludes with co-existence rather than abandonment: episodic retrieval is the legitimate fast-learning half and 'should remain the operating substrate until a candidate update passes selection, retention, security, and regression checks', paired with a consolidation channel (fine-tuning, knowledge editing, test-time training, self-distillation) carrying episodic experience into persistent adaptive state. The challenge lands on ADR-0009's harness-portability trade — AKC's durable output is text and touches no weights, so it has no consolidation channel in this sense and claims none — not on the human approval gate; the paper's checkpoint language names the gate's structural position while leaving automated verification, not named human sign-off, as its owner. Bounded by the paper's own limitations: the separation is conditional and 'not a universal ranking of ICL and fine-tuning', no compute-matched frontier experiment demonstrates the Frozen Novice effect, and large-scale consolidation reliability remains unsolved.",
+      "groundedIn": "https://github.com/shimo4228/agent-knowledge-cycle/blob/main/docs/adr/0013-positioning-within-agent-memory-literature.md"
+    },
+
+    {
       "@id": "https://github.com/shimo4228/agent-knowledge-cycle/blob/main/schemas/episode-log.schema.json",
       "@type": ["CreativeWork", "DataDownload"],
       "name": "Episode log JSON schema",
