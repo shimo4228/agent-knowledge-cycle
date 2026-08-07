@@ -725,7 +725,7 @@
 
     {
       "@id": "https://doi.org/10.5281/zenodo.20578272",
-      "sameAs": ["https://papers.ssrn.com/sol3/papers.cfm?abstract_id=6892740", "https://airaxiv.com/papers/view/2607.0008/", "https://aixiv.science/abs/aixiv.260702.000009"],
+      "sameAs": ["https://doi.org/10.2139/ssrn.6892740", "https://papers.ssrn.com/sol3/papers.cfm?abstract_id=6892740", "https://airaxiv.com/papers/view/2607.0008/", "https://aixiv.science/abs/aixiv.260702.000009"],
       "@type": "ScholarlyArticle",
       "name": "Harness Alignment and Harness Drift: Why Intent, Unlike Correctness, Resists Automation",
       "author": {"@id": "https://orcid.org/0009-0002-6168-4162"},

@@ -12,7 +12,7 @@ Agent Knowledge Cycle (AKC) is defined as a six-phase growth cycle for persisten
 - **Name**: Agent Knowledge Cycle (AKC)
 - **Version**: 2.6.0 (dissolution's completion test sharpened to held-out transfer — ADR-0022; generation review named as the fourth retirement evidence class — ADR-0023; scaffold-dissolution gains its fourth mechanism, model-side capability turnover, and the negative pole of the information-differential law; the line-of-approval criterion extended to the harness's own control plane and the gate's verification-evidence artifacts; two concept-scaffold repos — human-gate, generation-audit — surfaced beside the phase table, and agent-stocktake joins Curate as its fourth scaffold)
 - **DOI**: [10.5281/zenodo.21644565](https://doi.org/10.5281/zenodo.21644565)
-- **Companion paper**: *Harness Alignment and Harness Drift: Why Intent, Unlike Correctness, Resists Automation* — Zenodo working paper, concept DOI [10.5281/zenodo.20578272](https://doi.org/10.5281/zenodo.20578272)
+- **Companion paper**: *Harness Alignment and Harness Drift: Why Intent, Unlike Correctness, Resists Automation* — Zenodo working paper, concept DOI [10.5281/zenodo.20578272](https://doi.org/10.5281/zenodo.20578272); SSRN mirror of the same paper, DOI [10.2139/ssrn.6892740](https://doi.org/10.2139/ssrn.6892740) (Crossref-registered 2026-07-29). Cite the Zenodo DOI — the SSRN DOI identifies the same work on a second platform, not a second work
 - **Author**: Tatsuya Shimomoto ([@shimo4228](https://github.com/shimo4228))
 - **Origin date**: February 2026
 - **License**: MIT
