@@ -604,6 +604,16 @@
       "@type": "Person",
       "name": "Tatsuya Shimomoto",
       "alternateName": ["shimo4228", {"@value": "下本竜也", "@language": "ja"}],
+      "sameAs": [
+        "https://github.com/shimo4228",
+        "https://orcid.org/0009-0002-6168-4162",
+        "https://scholar.google.com/citations?user=56_p8vEAAAAJ",
+        "https://huggingface.co/Shimo4228",
+        "https://www.linkedin.com/in/%E7%AB%9C%E4%B9%9F-%E4%B8%8B%E6%9C%AC-bb9b793a4",
+        "https://zenn.dev/shimo4228",
+        "https://dev.to/shimo4228",
+        "https://shimo4228.substack.com"
+      ],
       "identifier": "0009-0002-6168-4162",
       "url": "https://orcid.org/0009-0002-6168-4162"
     },
