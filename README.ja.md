@@ -4,7 +4,6 @@ Language: [English](README.md) | 日本語
 
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.19200726.svg)](https://doi.org/10.5281/zenodo.19200726)
 [![Ask DeepWiki](https://deepwiki.com/badge.svg)](https://deepwiki.com/shimo4228/agent-knowledge-cycle)
-[![GitMCP](https://img.shields.io/endpoint?url=https://gitmcp.io/badge/shimo4228/agent-knowledge-cycle)](https://gitmcp.io/shimo4228/agent-knowledge-cycle)
 
 **AI エージェントのための知識サイクル — エージェントの振る舞いは積み上がり、人間の判断は研がれる。**
 
