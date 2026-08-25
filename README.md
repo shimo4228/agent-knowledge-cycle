@@ -149,7 +149,12 @@ Memory, ReMe, and MemGPT; its delta is loop ownership — a structural human
 approval gate ([ADR-0005](docs/adr/0005-human-approval-gate.md)), bidirectional
 judgment growth, and attention-side scarcity. The full citation trail is in
 [ADR-0013](docs/adr/0013-positioning-within-agent-memory-literature.md),
-ADR-0017, and [`llms-full.txt`](llms-full.txt).
+ADR-0017, and [`llms-full.txt`](llms-full.txt). Against vendor process
+frameworks: Anthropic's AI-native SDLC playbook (2026-08) names the
+product-side loop, while AKC is the configuration-side loop the playbook
+leaves scattered across its stages — the two-loop correspondence, including
+where the two Maintains diverge, is mapped in
+[docs/ai-native-sdlc-correspondence.md](docs/ai-native-sdlc-correspondence.md).
 
 ## Origin & Acknowledgments
 

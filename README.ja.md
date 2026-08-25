@@ -152,7 +152,13 @@ Voyager, Agent Workflow Memory, ReMe, MemGPT などの先行 agent-memory 研究
 ([ADR-0005](docs/adr/0005-human-approval-gate.md))、双方向の判断力の成長、
 attention 側の希少性 — にあります。完全な引用経路は
 [ADR-0013](docs/adr/0013-positioning-within-agent-memory-literature.md),
-ADR-0017, [`llms-full.txt`](llms-full.txt) にあります。
+ADR-0017, [`llms-full.txt`](llms-full.txt) にあります。ベンダーの
+プロセスフレームワークに対しては: Anthropic の AI-native SDLC playbook
+(2026-08) はプロダクト側のループを名指し、AKC はその playbook が各 stage に
+散らしたままにしている構成側のループです — 二重ループの対応（2 つの Maintain が
+分岐する点を含む）は
+[docs/ai-native-sdlc-correspondence.ja.md](docs/ai-native-sdlc-correspondence.ja.md)
+に写像してあります。
 
 ## 出自と謝辞
 

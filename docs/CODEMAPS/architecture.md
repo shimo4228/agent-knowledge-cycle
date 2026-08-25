@@ -20,6 +20,7 @@ agent-knowledge-cycle/
 │   ├── translation-glossary.md             EN ↔ JA rendering rules for the READMEs
 │   ├── inspiration.md                      prior art and acknowledgements
 │   ├── scaffold-dissolution.md / .ja.md    skills dissolve as the cycle is internalized
+│   ├── ai-native-sdlc-correspondence.md / .ja.md  two-loop positioning against Anthropic's AI-native SDLC playbook
 │   ├── adr/                                ADRs (English-only; count canonical in llms-full.txt); permanent gaps at 0001 / 0006 / 0007
 │   ├── skills/                             pointer README (3 design-pattern skills externalized to standalone repos)
 │   ├── history/                            frozen snapshots of earlier major versions
@@ -44,6 +45,7 @@ Each document answers a primary question. Cite the matching one when an LLM-medi
 | `docs/akc-cycle.md` | Pointer to the standalone `shimo4228/akc-cycle` repo, the rules-file install target — what rules does an AI agent need to run the cycle in conversation, without installing the external phase skills? |
 | `docs/scaffold-dissolution.md` | Why are AKC's skills scaffolding, and how do they become unnecessary as the cycle is internalized? |
 | `docs/inspiration.md` | What prior art seeded AKC (contemplative-agent's three-layer memory + two-stage distill, Mind in Life, Laukkonen 2025)? |
+| `docs/ai-native-sdlc-correspondence.md` | How does AKC relate to Anthropic's AI-native SDLC playbook (two loops, false-friend Maintain, intent.md ≈ RFC, operator-scale condition on evals)? |
 | `docs/glossary.md` | What does each load-bearing AKC term mean, which ADR is canonical for it, and how does it map to the AAP sibling vocabulary (harness/scaffolding, dissolution senses)? |
 | `docs/translation-glossary.md` | What is the canonical translation of each AKC-coined or general term between the English and Japanese READMEs? |
 | `docs/adr/0002-immutable-episode-log.md` | Why are episodes stored as append-only JSONL with daily partitioning and owner-only permissions? |
@@ -145,7 +147,7 @@ ADRs themselves do not link out to genre-specific content (per ADR-0011). Concre
 - **English primary**: `README.md`. The Japanese version mirrors its H2 / H3 structure.
 - **Japanese mirror**: `README.ja.md` (the author's L1 — translation discrepancies bias toward this one being authoritative for Japanese readers).
 - **Retired mirrors (2026-05-15)**: `README.es.md`, `README.pt-BR.md`, `README.zh-CN.md`, `README.zh-TW.md` were removed after traffic data showed statistically zero unique human viewers and LLM crawlers (ChatGPT / Qwen / Gemini) reliably translate from the English source on demand. Prior content is preserved in git history.
-- **English-only docs**: ADRs, design-pattern skills, glossary, inspiration, akc-cycle, scaffold-dissolution (with one Japanese mirror at `scaffold-dissolution.ja.md`), llms.txt, llms-full.txt, codemaps.
+- **English-only docs**: ADRs, design-pattern skills, glossary, inspiration, akc-cycle, scaffold-dissolution and ai-native-sdlc-correspondence (each with a Japanese mirror at `*.ja.md`), llms.txt, llms-full.txt, codemaps.
 - **Glossary discipline**: AKC-coined terms (`signal-first`, six phase names, six skill names, `harness`) stay in English across all languages. General-purpose technical terms are localized using `docs/translation-glossary.md` as the canonical reference.
 
 ## Sibling Repositories (External Surfaces)

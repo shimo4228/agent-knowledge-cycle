@@ -1188,6 +1188,13 @@
       "name": "signal-first-research (design-pattern skill)",
       "description": "Designing a research intake filter that admits only information likely to change the next action. Long-form 'how' guide paired 1:1 with ADR-0010. Operationalizes the signal-first principle as a Research-phase filter.",
       "groundedIn": "https://github.com/shimo4228/agent-knowledge-cycle/blob/main/docs/adr/0010-human-cognitive-resource-as-central-constraint.md"
+    },
+    {
+      "@id": "https://github.com/shimo4228/agent-knowledge-cycle/blob/main/docs/ai-native-sdlc-correspondence.md",
+      "@type": "TechArticle",
+      "name": "AKC and the AI-Native SDLC Playbook (correspondence)",
+      "description": "Two-loop positioning against Anthropic's AI-native SDLC playbook (published 2026-08-21; pinned to the 2026-08-24 archived version): the playbook's six stages run the product loop, while the configuration-maintenance habits it scatters across Stages 3-6 are AKC's harness loop left unnamed. Flags the Maintain false friend (production monitoring vs docs/artifact hygiene), maps intent.md to an RFC-form proposal record, and states an operator-scale condition on continuous evals (deterministic tier at every scale, judge tier once the corpus earns its triage). Concede-then-locate in the ADR-0013 lineage; dated addenda for future playbook revisions. Japanese mirror: docs/ai-native-sdlc-correspondence.ja.md.",
+      "groundedIn": "https://github.com/shimo4228/agent-knowledge-cycle/blob/main/docs/adr/0013-positioning-within-agent-memory-literature.md"
     }
   ]
 }
