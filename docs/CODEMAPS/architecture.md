@@ -14,6 +14,7 @@ agent-knowledge-cycle/
 ├── llms-full.txt                           AI self-contained Q&A reference
 ├── graph.jsonld                            canonical concept-level map (schema.org triples, HF Datasets mirror)
 ├── CHANGELOG.md                            release history (semver, with positioning notes)
+├── rfcs/                                   public proposal / open-question ledger (NNNN-slug.md, state in frontmatter)
 ├── docs/
 │   ├── akc-cycle.md                        pointer to the standalone shimo4228/akc-cycle repo (rules-file install target)
 │   ├── glossary.md                         concept glossary (load-bearing terms, ADR pointers, AAP cross-references)
