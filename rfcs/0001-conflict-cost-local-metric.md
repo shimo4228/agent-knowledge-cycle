@@ -1,5 +1,5 @@
 ---
-state: candidate
+state: draft
 ---
 
 ## タスク
@@ -11,7 +11,7 @@ ADR-0022 が held-out transfer の reference construction を欠くのと同型�
 
 ## 着手条件
 
-AKC の Measure フェーズを触るとき、計器を作るかを決める（採否未定なので candidate）。
+AKC の Measure フェーズを触るとき、計器を作るかを決める（採否未定なので draft）。
 
 ## 詳細
 
@@ -24,7 +24,7 @@ AKC の Measure フェーズを触るとき、計器を作るかを決める（�
 
 ## Status
 
-candidate（≈ draft） — conflict cost のローカル計器は採否未定の提案。generation review の 4 証拠クラス
+draft — conflict cost のローカル計器は採否未定の提案。generation review の 4 証拠クラス
 中ただ 1 つ instrument を持たない状態が続いている（2026-08-25 に `.notes/TASKS.md` から移送）。
 
 ## Next action
