@@ -2,7 +2,11 @@
 
 AKC records design decisions as ADRs. Each ADR is short, dated, and
 self-contained: it states the context, the decision, the alternatives
-considered, and the consequences.
+considered, and the consequences. ADRs are dated hypotheses, not
+permanent constraints: from ADR-0024 onward each carries a
+`## Review-when` section naming its expiry conditions (ADR-0026);
+earlier ADRs are read by their Context premises and Date — lint
+reports of a missing Review-when on 0002–0023 are expected, not debt.
 
 ## Index
 
@@ -28,6 +32,9 @@ considered, and the consequences.
 | [0021](0021-replace-growth-tagline.md) | Replace the Growth Tagline |
 | [0022](0022-transfer-as-completion-test-for-dissolution.md) | Transfer as the Completion Test for Dissolution *(experimental)* |
 | [0023](0023-generation-review-as-a-fourth-evidence-class.md) | Generation Review as a Fourth Retirement Evidence Class |
+| [0024](0024-judge-build-human-three-role-loop.md) | The Judge/Build/Human Three-Role Loop as the Operational Form of Attention Scarcity |
+| [0025](0025-llm-first-artifact-readability.md) | LLM-First Artifact Readability |
+| [0026](0026-expiry-conditioned-knowledge.md) | Expiry-Conditioned Knowledge |
 
 ADR numbers are permanent identifiers. Gaps (0001, 0006, 0007) reflect
 ADRs that were extracted from this repository in v2.0.0 as

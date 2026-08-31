@@ -323,6 +323,30 @@
       "siblingOf": "https://github.com/shimo4228/agent-knowledge-cycle/blob/main/docs/adr/0022-transfer-as-completion-test-for-dissolution.md",
       "groundedIn": "https://github.com/shimo4228/agent-knowledge-cycle/blob/main/docs/adr/0019-cycle-structure-is-provisional.md"
     },
+    {
+      "@id": "https://github.com/shimo4228/agent-knowledge-cycle/blob/main/docs/adr/0024-judge-build-human-three-role-loop.md",
+      "@type": ["ADR", "TechArticle"],
+      "name": "ADR-0024: The Judge/Build/Human Three-Role Loop as the Operational Form of Attention Scarcity",
+      "description": "Names the judge/build/human three-role loop a mechanism-level concept: the operational form the human approval gate (ADR-0005) takes under the attention-scarcity constraint (ADR-0010) when the artifact upstream of the gate is an open-ended task ledger rather than a single proposed change. Filing a task is the cheapest operation in the system, so ledgers grow; by 2026-08-17 the operator's observed ledgers held no dispatchable work — the bottleneck was judgment, not implementation (in one sibling repository, review-origin filings accounted for 22 of 30 new entries; a manual dispatch on 2026-08-16 found 2 of 7 task premises refuted at pre-implementation verification — operator-harness records, not reproducible from this repository). The loop: a judge tier (one stronger-model session per repository) verifies each task's premise against the code, decides worth-doing, dispatches accepted work, and independently inspects results; a build tier (a fresh session per task) implements and halts on a refuted premise; the human holds direction-setting, a one-decision-per-message digest, and the final merge switch. The gate stays binary and human at merge — what moves upstream to the judge tier is attention, not authority. Scope boundary: AKC records the role topology only; ledger formats, claim/lease mechanics, and scheduling are harness content, recorded as relation facts on the ecosystem node. Annotates (does not reverse) a 2026-07-09 rejection that kept ledger hygiene out of the Maintain phase: that disposition stands, but its premise — that there was nothing beyond hygiene to promote — expired when the three-role topology emerged; rejection records are dated hypotheses per ADR-0026. Evidence: roughly two weeks of single-operator practice (2026-08-17 through 2026-09-01), stated as such.",
+      "groundedIn": "https://github.com/shimo4228/agent-knowledge-cycle/blob/main/docs/adr/0010-human-cognitive-resource-as-central-constraint.md",
+      "extends": "https://github.com/shimo4228/agent-knowledge-cycle/blob/main/docs/adr/0005-human-approval-gate.md"
+    },
+    {
+      "@id": "https://github.com/shimo4228/agent-knowledge-cycle/blob/main/docs/adr/0025-llm-first-artifact-readability.md",
+      "@type": ["ADR", "TechArticle"],
+      "name": "ADR-0025: LLM-First Artifact Readability",
+      "description": "Names the reader of the cycle's artifacts explicitly: the default reader, editor, and reviewer of skills, rules, distilled knowledge, tests, and decision records is the next session's LLM — on 2026-08-31 the operator confirmed that humans read only the README and the surface text of outputs. Optimizing for this reader is the quality bar itself, a change of audience rather than a lowering: the LLM reader is often less forgiving than a human one, and ambiguous, clever, or bloated artifacts come back as bounced edits. LLM readability consists of locality (self-contained units that fit in context) over deep abstraction, explicitness over cleverness, types and invariant comments as beacons; the measuring stick is context economy, not human cognitive load. What is preserved is verifiability, not readability — explanations are derivable on demand, while the preservation layer is what cannot be regenerated: types, tests, frozen goldens, stated invariants. The enforcer of the standard is the machine gate, not the human eye (gates selected on LLM-first axes — bug class, canonical diff-stable formatting, edit-reliability budgets, boundary type enforcement — with human-aesthetic style linters deliberately absent); an artifact that fails its gate is unacceptable even if nobody reads it. The human-readability budget has one line item: the README and output surface text (ADR-0020's minimal floor unchanged). Adjacent to ADR-0008, not overlapping: 0008 answers who checks (code vs. LLM), 0025 answers who reads. Review-when: unreliable explanation-regeneration across a substrate generation, or human co-editing returning as a primary mode.",
+      "siblingOf": "https://github.com/shimo4228/agent-knowledge-cycle/blob/main/docs/adr/0008-code-and-llm-collaboration.md",
+      "groundedIn": "https://github.com/shimo4228/agent-knowledge-cycle/blob/main/docs/adr/0010-human-cognitive-resource-as-central-constraint.md"
+    },
+    {
+      "@id": "https://github.com/shimo4228/agent-knowledge-cycle/blob/main/docs/adr/0026-expiry-conditioned-knowledge.md",
+      "@type": ["ADR", "TechArticle"],
+      "name": "ADR-0026: Expiry-Conditioned Knowledge",
+      "description": "External knowledge in the LLM and agent field goes stale on a roughly one-week scale, and the cycle's intake already honors that (as-of dates, primary-source verification) — but the cycle's own storage ran on the opposite assumption: decision records, curated knowledge, and rejection records were written once and read back months later as if permanent, constraining new ideas after their premises died. Operator report 2026-08-19 (subjective, zero recorded case-level instances at baseline — stated as such): sessions felt bound by past decision records five days after a declaration that 'decision records are scaffolds' was added — the declaration alone had not changed the felt behavior; the structural remedy was adopted instead. ADR-0026 makes stored judgment expiry-conditioned: every recommendation or decision states what observation or premise failure would void or weaken it (a recommendation that cannot name an expiry condition is freshness-unknown and weighted weakly); the AKC ADR format gains a `## Review-when` section after Decision, required from ADR-0024 onward with an explicit null rendering, and deliberately not backfilled into 0002–0023 (a retrofitted expiry condition would be invented post hoc — the exact false precision the ADR warns against); weakening is annotated in place, dated, never deleted, and where the weakened record cannot carry a published annotation the weakening is recorded in the new ADR instead. Rejection records get the same reading — dated hypotheses, not permanent vetoes; divergence-stage ideation must not use them as refutation (verification happens at adoption), and ADR-0024's Decision 3 — recording the 2026-07-09 triage rejection's surviving scope and expired premise — is the first instance of the reading. Gives ADR-0019's provisionality a per-decision instrument; generation review's external clock (ADR-0023) is one class of expiry condition. Its own Review-when: three consecutive 'none' renderings demote the section; native substrate freshness-tracking makes it a downward-dissolution candidate.",
+      "siblingOf": "https://github.com/shimo4228/agent-knowledge-cycle/blob/main/docs/adr/0023-generation-review-as-a-fourth-evidence-class.md",
+      "groundedIn": "https://github.com/shimo4228/agent-knowledge-cycle/blob/main/docs/adr/0019-cycle-structure-is-provisional.md"
+    },
 
     {
       "@id": "https://shimo4228.github.io/shimo4228/vocab#concept/six-phase-loop",
@@ -455,6 +479,30 @@
       "name": "code-LLM layering",
       "description": "Four patterns formalize when to use code, when to use the LLM, and how to layer them: guard (code validates LLM output against schema, forbidden-pattern, and size checks after generation, before it touches persistent state), filter (code narrows a large, noisy input before the LLM is invoked), judge (LLM decides among bounded options provided by code, which enforces the deterministic action), orchestrator (code owns the loop — termination, retries, state — and the LLM is the worker doing one semantic task per step). Codified as ADR-0008.",
       "groundedIn": "https://github.com/shimo4228/agent-knowledge-cycle/blob/main/docs/adr/0008-code-and-llm-collaboration.md"
+    },
+    {
+      "@id": "https://shimo4228.github.io/shimo4228/vocab#akc/concept/three-role-loop",
+      "@type": ["Concept", "DefinedTerm"],
+      "name": "judge/build/human three-role loop",
+      "description": "The operational form the human approval gate takes under attention scarcity when the upstream artifact is an open-ended task ledger: a judge tier (stronger-model session) verifies premises, decides worth-doing, dispatches, and independently inspects results; a build tier (a fresh session per task) implements and halts on a refuted premise; the human holds direction-setting and the final merge switch. Model judgment is spent to conserve human judgment — attention moves upstream, authority does not. AKC records the role topology only; ledger mechanics are harness content. Codified as ADR-0024.",
+      "groundedIn": "https://github.com/shimo4228/agent-knowledge-cycle/blob/main/docs/adr/0024-judge-build-human-three-role-loop.md",
+      "appliesTo": "https://shimo4228.github.io/shimo4228/vocab#akc/concept/human-approval-gate"
+    },
+    {
+      "@id": "https://shimo4228.github.io/shimo4228/vocab#akc/concept/llm-first-readability",
+      "@type": ["Concept", "DefinedTerm"],
+      "name": "LLM-first artifact readability",
+      "description": "The default reader, editor, and reviewer of cycle artifacts — skills, rules, distilled knowledge, tests, decision records — is the next session's LLM. Locality over deep abstraction, explicitness over cleverness, context economy as the measuring stick; verifiability (types, tests, frozen goldens, invariants) is the preservation layer, prose explanations are derivable on demand; the machine gate, not the human eye, enforces the standard. The human-readability budget has one line item: the README and output surface text. Codified as ADR-0025.",
+      "groundedIn": "https://github.com/shimo4228/agent-knowledge-cycle/blob/main/docs/adr/0025-llm-first-artifact-readability.md",
+      "appliesTo": "https://shimo4228.github.io/shimo4228/vocab#akc/concept/cognitive-economy"
+    },
+    {
+      "@id": "https://shimo4228.github.io/shimo4228/vocab#akc/concept/expiry-conditioned-knowledge",
+      "@type": ["Concept", "DefinedTerm"],
+      "name": "expiry-conditioned knowledge",
+      "description": "Stored judgment carries its own expiry conditions: a decision or recommendation states what observation or premise failure would void or weaken it, intake states its as-of date, and a recommendation that cannot name an expiry condition is freshness-unknown and weighted weakly. Weakening is annotated in place, dated, never deleted; rejection records are dated hypotheses, not permanent vetoes. In AKC's ADR format this is the `## Review-when` section (ADR-0024 onward, no backfill). Codified as ADR-0026.",
+      "groundedIn": "https://github.com/shimo4228/agent-knowledge-cycle/blob/main/docs/adr/0026-expiry-conditioned-knowledge.md",
+      "appliesTo": "https://shimo4228.github.io/shimo4228/vocab#concept/scaffold-dissolution"
     },
 
     {
@@ -704,9 +752,18 @@
       "@id": "https://github.com/shimo4228/claude-harness",
       "@type": ["EcosystemRepo", "SoftwareSourceCode"],
       "name": "claude-harness",
-      "description": "Bundled distribution of the author's Claude Code harness. Ships the six AKC cycle skills together — its README states they 'are components of the Agent Knowledge Cycle' — so the harness can be read end-to-end. Each skill is also published as its own standalone repo.",
+      "description": "Bundled distribution of the author's Claude Code harness — the running system the AKC cycle operates on and co-evolves with. As of 2026-09 it ships an origin-tracked library of some 58 skills (the six AKC cycle skills among them, each also published as its own standalone repo), a worldview rules layer (always-loaded rules such as LLM-first artifact readability and knowledge staleness, whose AKC-side judgments are ADR-0025 and ADR-0026), deterministic hooks and machine gates, and a public rfcs/ task ledger operated by the judge/build/human three-role triage loop (ADR-0024). Its own ADR series records the harness-side lineage of these practices.",
       "url": "https://github.com/shimo4228/claude-harness",
-      "extends": "https://doi.org/10.5281/zenodo.19200726"
+      "extends": "https://doi.org/10.5281/zenodo.19200726",
+      "implements": "https://shimo4228.github.io/shimo4228/vocab#akc/concept/three-role-loop"
+    },
+    {
+      "@id": "https://github.com/shimo4228/herdr-toolkit",
+      "@type": ["EcosystemRepo", "SoftwareSourceCode"],
+      "name": "herdr-toolkit",
+      "description": "Claude Code plugin for running agents on top of the Herdr agent multiplexer — cross-vendor task delegation with fabrication-resistant acceptance and phone-driven detached session spawning. In the operator's practice it is the build-dispatch substrate of the judge/build/human three-role loop (ADR-0024): the judge tier spawns and monitors build sessions through it. Relation fact only; the loop's mechanism is recorded in AKC, the tooling lives here.",
+      "url": "https://github.com/shimo4228/herdr-toolkit",
+      "implements": "https://shimo4228.github.io/shimo4228/vocab#akc/concept/three-role-loop"
     },
     {
       "@id": "https://github.com/shimo4228/akc-mcp",

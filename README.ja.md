@@ -5,57 +5,79 @@ Language: [English](README.md) | 日本語
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.19200726.svg)](https://doi.org/10.5281/zenodo.19200726)
 [![Ask DeepWiki](https://deepwiki.com/badge.svg)](https://deepwiki.com/shimo4228/agent-knowledge-cycle)
 
-**AI エージェントのための知識サイクル — エージェントの振る舞いは積み上がり、人間の判断は研がれる。**
+**AI エージェントのための知識サイクル — エージェントの挙動は積み重なり、人間の判断は研ぎ澄まされる。**
 
-Agent Knowledge Cycle (AKC) は、永続的な AI エージェントのための 6 フェーズ
-の成長サイクルです。反復されるエージェント経験を、再利用可能な知識 —
-スキル・ルール・ドキュメント — へ人間の承認の下で変換し、希少資源である
-**人間の注意と判断**を本当に必要な場所にだけ使いながら、エージェントを
-運用者の変化し続ける意図（intent）にアラインさせ続けます。サイクルは人間も
-変えます: 回すことで、それを舵取りする判断力自体が研がれていきます。coding
-agent や永続的 AI harness を日常的に運用する人のために作られており、
-Claude Code をはじめ同等の harness の上で動きます。
+Agent Knowledge Cycle (AKC) は、コーディングエージェントや永続的な AI ハーネスを
+日常的に運用する人のための 6 フェーズの成長サイクルです。繰り返されるエージェント
+体験を、オンデマンドで読み込むスキルから、エージェントの既定値を定める常駐ルール
+まで、将来の挙動を変える知識へと変換します。すべての変更には名前を持つ人間の承認が
+入ります。守っている予算はモデルの能力ではなく、運用者の注意と判断力です。そして
+サイクルは人間側も変えます。回すうちに、それを操縦する判断力そのものが研がれて
+いきます。Claude Code でも、同等の任意のハーネスでも動きます。
 
-関連論文: *Harness Alignment and Harness Drift: Why Intent, Unlike
+コンパニオン論文: *Harness Alignment and Harness Drift: Why Intent, Unlike
 Correctness, Resists Automation* — doi:[10.5281/zenodo.20578272](https://doi.org/10.5281/zenodo.20578272)
 
-**まず試すなら**: 単独リポジトリ
-[akc-cycle のルールファイル](https://github.com/shimo4228/akc-cycle)を `cp`
-1 回コピーするだけで、任意の AI エージェントに 6 フェーズの振る舞いが入ります —
-詳細は[サイクルを導入する](#サイクルを導入する)へ。
+**まず試すなら**: 単独リポジトリの
+[akc-cycle rules file](https://github.com/shimo4228/akc-cycle) をエージェントの
+rules ディレクトリへコピーするだけで 6 フェーズの挙動が付いてきます —
+[Install](#install) を見てください。
 
-## なぜ AKC か
+## Why AKC
 
-**ボトルネックは移動しました。** 多くの agent framework はエージェント側を
-最適化します — より多くのツール、メモリ、コンテキスト、自動化。AKC は逆の
-制約から出発します: エージェント能力が伸びるほど、希少資源はループを
-舵取りするための人間の注意と判断になります
+**ボトルネックは移動しました。** 多くのエージェントフレームワークはエージェント側を
+最適化します: より多くのツール、メモリ、コンテキスト、自動化。AKC は逆の制約から
+始めます。エージェントの能力が伸びるほど、希少になるのはループを操縦するために
+必要な人間の注意と判断力です
 ([ADR-0010](docs/adr/0010-human-cognitive-resource-as-central-constraint.md))。
-スキルは陳腐化し、ルールは常駐コストを溜め込み、ドキュメントはドリフトします
-— サイクルの各フェーズは、その maintenance が運用者の固定予算を食い潰さ
-ないために存在します。
+スキルは古び、ルールは読み込まれているだけでコンテキスト予算を消費し続け、
+ドキュメントはずれていき、候補タスクは誰も読み切れない速さで積み上がります。
+サイクルのあらゆる部分は、この維持作業が運用者の固定予算を食い潰さないために
+あります。タスクが注意を上回ったときにそれがどう成立するかは、後述します。
 
-**正しさだけでなく、意図とのアライン。** テストやリンタは、ある出力が仕様を
-満たすかを確認できます。しかし、変わり続ける harness が運用者の意図に今も
-沿っているかまでは確認できません — 使い込みのなかで判断が研がれるにつれて、
-意図そのものが動くからです。AKC はこの configuration layer での活動を
-**harness alignment** と呼び、その failure mode を **harness drift** と
-呼びます。導出は [ADR-0017](docs/adr/0017-harness-alignment-and-drift.md) と
-関連論文にあります。
+**正しさではなく、意図との整合。** テストやリンターは、1 つの出力が仕様を満たすか
+どうかを検査できます。しかし、変化し続けるハーネスが「運用者が今意味していること」
+にまだ合っているかは検査できません。意図そのものが、使い込むほど研がれる判断力と
+ともに動くからです。この構成レイヤーでの営みを AKC は **harness alignment**
+（ハーネスを運用者の意図に沿わせ続けること）と呼び、その失敗様式を **harness
+drift**（静かにずれていくこと）と呼びます。導出は
+[ADR-0017](docs/adr/0017-harness-alignment-and-drift.md) とコンパニオン論文に
+あります。
 
-**サイクルは人間も変えます。** Curate と Promote は、どの知識を残すべきかを
-運用者に判断させます。Measure は、その判断が実際に振る舞いを変えたかを検査
-します。時間が経つにつれ、エージェントはより一貫し、人間はその一貫性を判断
-する力を上げていきます — エージェントの振る舞いは積み上がり、人間の判断は
-研がれます。
+**サイクルは人間も変えます。** Curate と Promote は、どの知識を残す価値があるかを
+運用者に決めさせます。Measure は、その決定が挙動を変えたかを検査します。時間と
+ともにエージェントはより一貫し、人間は一貫性を判定するのがうまくなっていきます —
+英語版 tagline の *agent behavior compounds, human judgment sharpens* はこの
+双方向性を指しています。
 
-## サイクル
+## What a running AKC looks like
 
-AKC は経験を 6 つのフェーズで durable behavior に変換します。Research が
-intake を絞り、Extract が再利用可能パターンを捕捉し、Curate が蓄積物を
-監査し、Promote が選ばれたパターンを振る舞いを形成するルールへ移し、
-Measure が振る舞いの変化を検査し、Maintain がドキュメントと artifact を
-整合させます。
+AKC はフェーズごとに 1 つ、6 つのスキルとして始まりました（Research, Extract,
+Curate, Promote, Measure, Maintain — 後述の *The cycle* 参照）。7 ヶ月の日常運用
+（2026 年 2 月〜9 月）を経て、サイクルが生み出す知識は 4 つの層に落ち着き、
+決定記録 — 最新の 3 件は 2026 年 9 月 — がそれぞれの背後にある判断を名指しして
+います:
+
+| 層 | 何を持つか | 決定記録 |
+|---|---|---|
+| **Procedures（手順）** | エージェントがオンデマンドで読み込む段階的スキル — 下のフェーズ表。設計上の足場であり、内在化されたら溶けることを意図しています | [ADR-0019](docs/adr/0019-cycle-structure-is-provisional.md), [Scaffold Dissolution](docs/scaffold-dissolution.md) |
+| **Worldviews（世界観）** | 手順でなく既定値を定める小さな常駐ルール。現在 2 つが記録済み: 成果物は次にそれを読む AI セッションに向けて書く; 保存された決定はすべて自らの失効条件を名指しする | [ADR-0025](docs/adr/0025-llm-first-artifact-readability.md), [ADR-0026](docs/adr/0026-expiry-conditioned-knowledge.md) |
+| **Enforcement（執行）** | 機械ゲート — lint、型、テスト、凍結された golden 出力 — が成果物の正しさを所有し、人間の目は検査の主体になりません | [ADR-0008](docs/adr/0008-code-and-llm-collaboration.md) |
+| **Attention topology（注意の配置）** | judge/build/human の三役ループ: judge セッションが各タスクの前提を検証し、やる価値を判定して dispatch し、新しい build セッションが実装し、人間は方向づけと最後のマージスイッチを持ちます | [ADR-0024](docs/adr/0024-judge-build-human-three-role-loop.md) |
+
+これらを貫くのが human approval gate
+([ADR-0005](docs/adr/0005-human-approval-gate.md)) です。どの層であれ、将来の
+挙動を形づくる変更は、名前を持つ人間の承認なしには入りません。三役ループは
+このゲートのスケールした姿です — モデルの判断を使って人間の判断を節約し、
+注意は上流へ移りますが、権限は人間に残ります。
+
+## The cycle
+
+層の下では 1 つのループが回っています。6 つのフェーズが体験を持続する挙動へ変えて
+いきます: Research が取り込みを絞り、Extract が再利用可能なパターンを捉え、Curate
+が蓄積を棚卸しし、Promote が選ばれたパターンを挙動を形づくるルールへ昇格させ、
+Measure が挙動が変わったかを検査し、Maintain がドキュメントと成果物の整合を
+保ちます。
 
 ```mermaid
 flowchart TD
@@ -68,121 +90,120 @@ flowchart TD
   T --> E
 ```
 
-| Phase | 現在の外部スキル | 目的 |
+| フェーズ | 現在の外部スキル | 目的 |
 |---|---|---|
-| Research | [search-first](https://github.com/shimo4228/search-first) | 広く探索し、次の行動を変える signal だけを取り込む |
-| Extract | [learn-eval](https://github.com/shimo4228/learn-eval) | セッションの再利用可能パターンを品質ゲート付きで抽出する |
-| Curate | [skill-health](https://github.com/shimo4228/skill-health) + [skill-stocktake](https://github.com/shimo4228/skill-stocktake) + [rules-stocktake](https://github.com/shimo4228/rules-stocktake) + [agent-stocktake](https://github.com/shimo4228/agent-stocktake) | 構造的負債の検査の後に、スキル・常駐ルール・agent 定義を意味的にレビューする |
-| Promote | [rules-distill](https://github.com/shimo4228/rules-distill) | 反復パターンを durable rule に変換する |
-| Measure | [skill-comply](https://github.com/shimo4228/skill-comply) | エージェントが実際にスキルとルールに従うかをテストする |
-| Maintain | [context-sync](https://github.com/shimo4228/context-sync) + [repo-asset-stocktake](https://github.com/shimo4228/repo-asset-stocktake) | 文書役割を清潔にし、consumer が消えた非コード資産を監査する |
+| Research | [search-first](https://github.com/shimo4228/search-first) | 広く探し、次の行動を変えうるシグナルだけを取り込む |
+| Extract | [learn-eval](https://github.com/shimo4228/learn-eval) | 品質ゲート付きでセッションから再利用可能なパターンを抽出する |
+| Curate | [skill-health](https://github.com/shimo4228/skill-health) + [skill-stocktake](https://github.com/shimo4228/skill-stocktake) + [rules-stocktake](https://github.com/shimo4228/rules-stocktake) + [agent-stocktake](https://github.com/shimo4228/agent-stocktake) | スキル・常駐ルール・エージェント定義の意味的レビューの前に構造的負債の検査を走らせる |
+| Promote | [rules-distill](https://github.com/shimo4228/rules-distill) | 繰り返すパターンを持続するルールへ変える |
+| Measure | [skill-comply](https://github.com/shimo4228/skill-comply) | エージェントが実際にスキルとルールに従っているかを検査する |
+| Maintain | [context-sync](https://github.com/shimo4228/context-sync) + [repo-asset-stocktake](https://github.com/shimo4228/repo-asset-stocktake) | ドキュメントの役割を清潔に保ち、消費者が消えた非コード資産を棚卸しする |
 
-3 つの design-pattern skills —
-[when-code-when-llm](https://github.com/shimo4228/when-code-when-llm),
-[code-and-llm-collaboration](https://github.com/shimo4228/code-and-llm-collaboration),
+3 つのデザインパターンスキル —
+[when-code-when-llm](https://github.com/shimo4228/when-code-when-llm)、
+[code-and-llm-collaboration](https://github.com/shimo4228/code-and-llm-collaboration)、
 [signal-first-research](https://github.com/shimo4228/signal-first-research) —
-がサイクルの再利用可能な設計判断を担います。さらに 2 つの repo は、phase
-ではなくサイクルが依拠する概念を scaffold しています。
-[human-gate](https://github.com/shimo4228/human-gate) は、**人間承認ゲート**
-（振る舞いを形成するすべての変更が通る確認点 —
-[ADR-0005](docs/adr/0005-human-approval-gate.md)）で人間に何を見せるかを
-固定します: 将来の振る舞いを形成する変更（何をもって合格とするかを決める
-テストや検査を含む）は本文を、通常の実装コードは短い固定形式の意図の要約を
-見せます。[generation-audit](https://github.com/shimo4228/generation-audit)
-は、新しいモデル世代が出たときにルールとスキルを再監査します — 旧世代の
-弱いモデルに合わせて書いた足場が、摩擦に転じる時点です。これは **Scaffold
-Dissolution**（スキルは足場であり、サイクルが内在化されたら溶けることを
-意図している、という原則 —
-[docs/scaffold-dissolution.md](docs/scaffold-dissolution.md)）を実行可能な
-検査にしたものです。
+がサイクルの再利用可能な設計判断を運びます。さらに 2 つのリポジトリは、フェーズ
+ではなく荷重を受ける概念の足場です:
+[human-gate](https://github.com/shimo4228/human-gate) は承認ゲートが人間に何を
+見せるかを固定し、
+[generation-audit](https://github.com/shimo4228/generation-audit) は新しいモデル
+世代が出たとき — 古く弱いモデル向けに書かれた足場が摩擦へ変わる瞬間 — にルールと
+スキルを再監査します
+([ADR-0023](docs/adr/0023-generation-review-as-a-fourth-evidence-class.md))。
 
-フェーズ集合と phase-to-skill binding は、それ自体が可変なスナップショット
-であり、AKC の固定された本質ではありません
+フェーズの集合とフェーズ・スキルの対応は変更可能なスナップショットであり、AKC の
+固定した本質ではありません
 ([ADR-0019](docs/adr/0019-cycle-structure-is-provisional.md))。
 
-## サイクルを導入する
+## Install
 
-最も軽い導入経路は、単独リポジトリ
-[**shimo4228/akc-cycle**](https://github.com/shimo4228/akc-cycle) のルール
-ファイルです。フェーズ別スキルを入れなくても、AI エージェントに 6
-フェーズの振る舞いを渡せます:
+いちばん軽い導入は単独リポジトリ
+[**shimo4228/akc-cycle**](https://github.com/shimo4228/akc-cycle) の rules file
+です。フェーズスキルを 1 つも入れずに 6 フェーズの挙動が手に入ります:
 
 ```bash
 # github.com/shimo4228/akc-cycle のクローンから、ルールを
-# エージェントのルールディレクトリにコピーする。
+# 自分のエージェントの rules ディレクトリへコピーします。
 cp rules/common/akc-cycle.md ~/.claude/rules/common/akc-cycle.md
 ```
 
-導入は段階的で構いません。ルールファイルだけで、通常の対話の中からサイクルが
-自然に立ち上がります。特定フェーズの段階的な実行ガイドが必要になったら、上の
-phase skills を追加してください。どれも fork して構いません — AKC が定義する
-のは実装ではなくサイクルです。スキルは足場であり、サイクルが内在化されたら
-溶けることを意図しています（Scaffold Dissolution,
-[docs/scaffold-dissolution.md](docs/scaffold-dissolution.md)）。
+著者自身の運用ハーネスが育ったのと同じように、層で導入してください: rules file
+だけでもサイクルは普段の会話の中に立ち上がります。段階的なガイド付き実行が欲しく
+なったら上のフェーズスキルを足します。機械ゲートと triage ループはあなたの
+ハーネス側の仕事で、このリポジトリからは来ません。どれを fork しても構いません —
+AKC が定義するのはサイクルであって実装ではないからです。スキルはサイクルが内在化
+されたら溶けることを意図した足場です
+([docs/scaffold-dissolution.md](docs/scaffold-dissolution.md))。
 
-## このリポジトリの中身
+## What's in this repo
 
 | 領域 | 内容 |
 |---|---|
-| 決定記録 | [`docs/adr/`](docs/adr/) の ADR カタログ。0001, 0006, 0007 は v2.0.0 extraction 由来の恒久 gap（その内容は sibling repo の Agent Attribution Practice に移管済み） |
-| AI navigation | [`graph.jsonld`](graph.jsonld) が concept map、[`llms.txt`](llms.txt) が routing、[`llms-full.txt`](llms-full.txt) が自己完結した事実参照（設計原則の一覧を含む） |
-| 仕様 | [`schemas/episode-log.schema.json`](schemas/episode-log.schema.json), [`schemas/knowledge.schema.json`](schemas/knowledge.schema.json) |
-| リファレンス実装 | [`examples/minimal_harness/`](examples/minimal_harness/): 3 メモリ層と 2 段階 distill pipeline の dependency-free Python demo |
-| routing map | [`docs/CODEMAPS/architecture.md`](docs/CODEMAPS/architecture.md): canonical file-level navigation index |
+| 決定記録 | [`docs/adr/`](docs/adr/) の ADR カタログ。0001・0006・0007 の欠番は v2.0.0 の抽出によるもので恒久です（その内容は姉妹リポジトリ Agent Attribution Practice にあります） |
+| AI ナビゲーション | 概念マップの [`graph.jsonld`](graph.jsonld)、ルーティングの [`llms.txt`](llms.txt)、自己完結の事実リファレンス [`llms-full.txt`](llms-full.txt)（設計原則を含む） |
+| 仕様 | [`schemas/episode-log.schema.json`](schemas/episode-log.schema.json)、[`schemas/knowledge.schema.json`](schemas/knowledge.schema.json) |
+| リファレンス実装 | [`examples/minimal_harness/`](examples/minimal_harness/) — 3 層メモリモデル（生エピソード → 知識 → identity/rules。上の 4 運用層より低レベルの保存層です）と 2 段階 distill パイプラインの依存ゼロ Python デモ |
+| ルーティングマップ | [`docs/CODEMAPS/architecture.md`](docs/CODEMAPS/architecture.md) — ファイルレベルの正準ナビゲーション索引 |
+| 未決の提案 | [`rfcs/`](rfcs/) — まだ決定していない提案の公開台帳（決定は ADR に着地します） |
 
 ## Limitations
 
-双方向ループは人間側にも失敗しえます —
-[ADR-0014](docs/adr/0014-failure-modes-of-the-bidirectional-loop.md) は
-**gate complacency**（承認が時とともに形骸化する）、**deskilling**（運用者
-自身の判断力が衰える）、**delegation-feedback divergence**（委譲は増えるのに
-結果を読む量は減っていく）を名づけています — そして artifact 側の失敗が
-harness drift です。両者は複合しうるため、AKC は maintenance を一度限りの
-設定ではなく cycle として扱います。AKC はこれらのリスクを明示し、人間承認
-ゲートを構造的な防御として残します。リスクを消せるとは主張しません。
+双方向ループは人間側で壊れえます —
+[ADR-0014](docs/adr/0014-failure-modes-of-the-bidirectional-loop.md) はゲートの
+形骸化（承認が時間とともにゴム印になる）、脱スキル化（運用者自身の判断力の萎縮）、
+委任とフィードバックの乖離（委ねる量が増える一方で結果を読む量が減る）を名指しし、
+成果物側では harness drift として壊れえます。両者は複合しうるため、AKC は維持を
+一度きりの設定ではなくサイクルとして扱います。AKC はこれらのリスクを明示し、
+human approval gate を構造的防御として保ちますが、消し去れるとは主張しません。
 
-## 位置づけ
+三役ループには同じリスクが集中します: 人間が judge セッションの「1 判断 1 通」の
+ダイジェストに答える代わりに生のタスク一覧を直接読むようになったら、ループは注意の
+節約に失敗しており、それが 2 サイクル続けば主張自体が失効します（ADR-0024 に記録）。
+最も新しい層の証拠は薄く、決定記録自身がそう述べています: 三役ループの根拠は約 2
+週間の単独運用者の実践（2026-08-17 から）であり、新しい ADR はそれぞれ自分を支える
+証拠の強さを明記しています。
 
-Harness engineering は、出力が初回で正しくなるように scaffold を改善します。
-AKC は、運用者の意図が変化するなかで scaffold をその意図にアラインさせ
-続けます ([ADR-0009](docs/adr/0009-akc-is-a-cycle-not-a-harness.md),
-[ADR-0017](docs/adr/0017-harness-alignment-and-drift.md))。AKC の個別操作は
-Voyager, Agent Workflow Memory, ReMe, MemGPT などの先行 agent-memory 研究
-と重なります。差分は loop ownership — 構造的な人間承認ゲート
-([ADR-0005](docs/adr/0005-human-approval-gate.md))、双方向の判断力の成長、
-attention 側の希少性 — にあります。完全な引用経路は
-[ADR-0013](docs/adr/0013-positioning-within-agent-memory-literature.md),
-ADR-0017, [`llms-full.txt`](llms-full.txt) にあります。ベンダーの
-プロセスフレームワークに対しては: Anthropic の AI-native SDLC playbook
-(2026-08) はプロダクト側のループを名指し、AKC はその playbook が各 stage に
-散らしたままにしている構成側のループです — 二重ループの対応（2 つの Maintain が
-分岐する点を含む）は
+## Positioning
+
+ハーネスエンジニアリングは、出力が一発で正しくなるように足場を改善します。AKC は、
+意図が進化していく中で足場を「運用者が意味していること」に沿わせ続けます
+([ADR-0009](docs/adr/0009-akc-is-a-cycle-not-a-harness.md)、
+[ADR-0017](docs/adr/0017-harness-alignment-and-drift.md))。AKC の個々の操作は
+Voyager、Agent Workflow Memory、ReMe、MemGPT といった先行のエージェントメモリ研究
+と重なります。違いは、AKC がループそのものを所有する点です — 構造的な human
+approval gate ([ADR-0005](docs/adr/0005-human-approval-gate.md))、双方向の
+判断力の成長、そして注意側の希少性です。引用の全系譜は
+[ADR-0013](docs/adr/0013-positioning-within-agent-memory-literature.md)、
+ADR-0017、[`llms-full.txt`](llms-full.txt) にあります。ベンダーのプロセス
+フレームワークとの対比では: Anthropic の AI-native SDLC playbook (2026-08) は
+プロダクト側のループを名指しし、AKC は playbook が各ステージに散らしたままの
+構成側のループです — 2 つの Maintain がどこで分岐するかを含む対応表は
 [docs/ai-native-sdlc-correspondence.ja.md](docs/ai-native-sdlc-correspondence.ja.md)
-に写像してあります。
+にあります。
 
-## 出自と謝辞
+## Origin & Acknowledgments
 
 このアーキテクチャは 2026 年 2 月に Tatsuya Shimomoto
-([@shimo4228](https://github.com/shimo4228), ORCID
-[0009-0002-6168-4162](https://orcid.org/0009-0002-6168-4162)) によって最初に
-提案・実装されました。土台は [@affaan-m](https://github.com/affaan-m) による
+([@shimo4228](https://github.com/shimo4228)、ORCID
+[0009-0002-6168-4162](https://orcid.org/0009-0002-6168-4162)) が最初に提案・実装
+しました。土台は日常的に使っていたベースラインハーネス
 [Everything Claude Code (ECC)](https://github.com/affaan-m/everything-claude-code)
-— 日常運用の baseline harness — です。そこに著者自身が追加したスキルと
-ルールが増え、陳腐化したスキル、矛盾するルール、ドリフトするドキュメントが
-それ自体の maintenance problem になったときに、AKC が生まれました。最初の
-5 つの cycle skills は 2026 年 2 月から 3 月にかけて ECC に貢献されました。
-`context-sync` は独立に開発されたものです。
+([@affaan-m](https://github.com/affaan-m) 作) です。自分で足したスキルとルールが
+十分大きく育ち、古びたスキル・矛盾するルール・ずれていくドキュメントがそれ自体
+維持問題になったとき、AKC が生まれました。最初の 5 つのサイクルスキルは 2026 年
+2〜3 月に ECC へ貢献されたもので、`context-sync` は独立に開発されました。
 
-## 引用方法
+## How to Cite
 
-AKC は 2 つの DOI を持ちます。Concept DOI
-[10.5281/zenodo.19200726](https://doi.org/10.5281/zenodo.19200726)（badge が
-使用）は常に最新版に解決され、各 archived release は個別の DOI を持ちます —
-引用には下の release DOI を使ってください。
+AKC は 2 つの DOI を持ちます: concept DOI
+[10.5281/zenodo.19200726](https://doi.org/10.5281/zenodo.19200726)（バッジが使用）
+は常に最新版へ解決し、各アーカイブリリースは固有の DOI を持ちます — 引用には下の
+release DOI を使ってください。
 
-AKC を利用・参照する場合は、[`CITATION.cff`](CITATION.cff) の archived
-release metadata を引用してください。同じメタデータは
-[`codemeta.json`](codemeta.json) としても提供しています:
+AKC を使用・参照する場合は、[`CITATION.cff`](CITATION.cff)
+（[`codemeta.json`](codemeta.json) としても利用可能）のアーカイブリリース
+メタデータを引いてください:
 
 ```bibtex
 @software{shimomoto2026akc,
@@ -196,23 +217,23 @@ release metadata を引用してください。同じメタデータは
 }
 ```
 
-文中では: Shimomoto, T. (2026). *Agent Knowledge Cycle (AKC)*.
+本文中では: Shimomoto, T. (2026). *Agent Knowledge Cycle (AKC)*.
 doi:[10.5281/zenodo.21644565](https://doi.org/10.5281/zenodo.21644565).
 
-## 関連プロジェクト
+## Related Work
 
-研究エコシステムの hub は
-[`shimo4228/shimo4228`](https://github.com/shimo4228/shimo4228) です。より
-広い研究ライン群の canonical relationship map を持ちます。
+研究エコシステムのハブは
+[`shimo4228/shimo4228`](https://github.com/shimo4228/shimo4228) で、より広い
+研究ラインの正準関係マップを持ちます。
 
-| Repository | AKC との関係 |
+| リポジトリ | AKC との関係 |
 |---|---|
-| [Contemplative Agent](https://github.com/shimo4228/contemplative-agent) | AKC 初期 ADR の upstream engineering substrate であり、6 フェーズ cycle の downstream operational re-implementation |
-| [Agent Attribution Practice](https://github.com/shimo4228/agent-attribution-practice) | ジャンル違いの sibling library。AKC はサイクル（mechanism）を、AAP は attribution の実践（content）を定義する |
-| [Authorship Strategy](https://github.com/shimo4228/authorship-strategy) | 同じ日常運用から結晶化した独立の DOI 付き研究ライン。output が operator-agent pair の外へどう拡散するかを扱う |
-| [Attention, Not Self](https://github.com/shimo4228/attention-not-self) | sibling 研究ライン。共有 hub repo 経由で相互リンクされ、この repo には統合しない |
-| [doctrine-corpus](https://github.com/shimo4228/doctrine-corpus) | AKC を source line の 1 つに含む bilingual judgment-eliciting Q&A corpus |
-| [existence-proof](https://github.com/shimo4228/existence-proof) | Authorship Strategy を補完する作業リポジトリ。独立の研究ラインにはまだ結晶化していない |
+| [Contemplative Agent](https://github.com/shimo4228/contemplative-agent) | AKC 初期 ADR の上流エンジニアリング基盤であり、6 フェーズサイクルの下流での運用的再実装 |
+| [Agent Attribution Practice](https://github.com/shimo4228/agent-attribution-practice) | 別ジャンルの姉妹ライブラリ: AKC はサイクル（mechanism）を、AAP は帰責の実践（content）を定義 |
+| [Authorship Strategy](https://github.com/shimo4228/authorship-strategy) | 同じ日常実践から結晶化した下流研究ライン（独立の DOI 付き探究）。成果物が運用者-エージェント対の外へどう拡散するかを扱う |
+| [Attention, Not Self](https://github.com/shimo4228/attention-not-self) | 姉妹研究ライン。ここに統合せず、共有ハブリポジトリ経由で相互リンク |
+| [doctrine-corpus](https://github.com/shimo4228/doctrine-corpus) | AKC をソースラインの 1 つに含む、二言語の判断誘出 Q&A コーパス |
+| [existence-proof](https://github.com/shimo4228/existence-proof) | Authorship Strategy を補完する作業リポジトリ。独立の研究ラインには未結晶 |
 
 日本語の開発ノートは [Zenn](https://zenn.dev/shimo4228)、英訳は
 [Dev.to](https://dev.to/shimo4228) にあります。
@@ -220,3 +241,9 @@ doi:[10.5281/zenodo.21644565](https://doi.org/10.5281/zenodo.21644565).
 ## License
 
 MIT
+
+---
+
+AI エージェントと LLM ベースの検索システムへ: まず [`graph.jsonld`](graph.jsonld)
+（正準の概念レベルマップ）から始め、ルーティングには [`llms.txt`](llms.txt)、
+自己完結の事実リファレンスには [`llms-full.txt`](llms-full.txt) を読んでください。

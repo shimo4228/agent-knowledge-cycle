@@ -1,4 +1,4 @@
-<!-- Generated: 2026-07-28 | Files scanned: project root + docs/ tree + examples/ + schemas/ | Token estimate: ~1900 -->
+<!-- Generated: 2026-09-01 | Files scanned: project root + docs/ tree + examples/ + schemas/ | Token estimate: ~1900 -->
 # Document Architecture
 
 Agent Knowledge Cycle (AKC) is a **knowledge-cycle specification + minimal reference implementation**. Specifications, ADRs, JSON schemas, design-pattern skills, and a ~500-line stdlib-only Python demo together describe the cycle; users bring their own LLM and adapter. The primary audience is LLM-mediated channels (LLM agents directly, and humans reaching AKC through LLM-curated surfaces). This codemap exists so an LLM-mediated reader can route to the canonical document for a given question without scanning the whole tree.
@@ -69,6 +69,9 @@ Each document answers a primary question. Cite the matching one when an LLM-medi
 | `docs/adr/0021-replace-growth-tagline.md` | Why was the tagline replaced with "agent behavior compounds, human judgment sharpens", and which tagline-preservation clauses of ADR-0010 / ADR-0012 does that amend? |
 | `docs/adr/0022-transfer-as-completion-test-for-dissolution.md` | Why does same-context ablation indistinguishability not certify internalization, and why is held-out transfer the completion evidence for dissolution? (experimental) |
 | `docs/adr/0023-generation-review-as-a-fourth-evidence-class.md` | Why are silence / ablation / transfer blind to a rule whose premise expired at a model generation boundary, and what schedules the audit that catches it? |
+| `docs/adr/0024-judge-build-human-three-role-loop.md` | How does the human approval gate scale when the upstream artifact is an open-ended task ledger — what do the judge, build, and human roles each hold, and why does attention move upstream while authority does not? |
+| `docs/adr/0025-llm-first-artifact-readability.md` | Who is the default reader of the cycle's artifacts (the next session's LLM), what is preserved for that reader (verifiability, not readability), and where is the one human-facing budget line (the README)? |
+| `docs/adr/0026-expiry-conditioned-knowledge.md` | Why does stored judgment carry its own expiry conditions, why does the ADR format gain `## Review-when` from 0024 onward with no backfill, and how are rejection records read (dated hypotheses, not vetoes)? |
 | `docs/skills/README.md` | Where do the three design-pattern skills (when-code-when-llm, code-and-llm-collaboration, signal-first-research) live now that they are externalized to standalone repositories, and which ADR does each pair with? |
 | `schemas/episode-log.schema.json` | What is the JSON shape of a Layer 1 episode record? |
 | `schemas/knowledge.schema.json` | What is the JSON shape of a Layer 2 knowledge pattern? |
@@ -181,24 +184,25 @@ contemplative-agent                      ← two-way relationship. Upstream: the
 | [attention-not-self](https://github.com/shimo4228/attention-not-self) | Sibling research line, federated at the research-ecosystem level | 10.5281/zenodo.20262112 |
 | [doctrine-corpus](https://github.com/shimo4228/doctrine-corpus) | Judgment Q&A corpus; AKC is one of four source lines | 10.5281/zenodo.20337008 |
 | [existence-proof](https://github.com/shimo4228/existence-proof) | Pre-line working repo, complement of authorship-strategy | 10.5281/zenodo.20558800 |
-| [claude-harness](https://github.com/shimo4228/claude-harness) | Bundled distribution of the cycle skills | — |
+| [claude-harness](https://github.com/shimo4228/claude-harness) | Bundled distribution of the operator's harness — skills (incl. the six cycle skills), worldview rules layer, machine gates, public rfcs/ ledger run by the three-role loop (ADR-0024) | — |
+| [herdr-toolkit](https://github.com/shimo4228/herdr-toolkit) | Build-dispatch substrate of the three-role loop in the operator's practice (relation fact only) | — |
 | [akc-mcp](https://github.com/shimo4228/akc-mcp) | MCP server exposing the cycle's cognitive operations | — |
-| [claude-skill-daily-research](https://github.com/shimo4228/claude-skill-daily-research) | Pre-AKC ancestor of the Research phase (see `docs/inspiration.md`) | — |
+| [daily-research](https://github.com/shimo4228/daily-research) | Pre-AKC ancestor of the Research phase (see `docs/inspiration.md`) | — |
 | [shimo4228 hub](https://github.com/shimo4228/shimo4228) | Canonical research-ecosystem relationship map (graph.jsonld) | — |
 
 Prose entries live in README "Related Work" (compact list at the end of the section); concept-level edges in `graph.jsonld`.
 
-## File-Count Snapshot (2026-07-25)
+## File-Count Snapshot (2026-09-01)
 
 | Category | Count |
 |---|---|
-| ADRs | ADR-0002–0005, 0008–0023 (canonical count lives in llms-full.txt Project Facts) |
+| ADRs | ADR-0002–0005, 0008–0026 (canonical count lives in llms-full.txt Project Facts; from 0024 each carries `## Review-when`) |
 | Design-pattern skills | 3 (externalized to standalone repos; `docs/skills/` holds only a pointer README) |
 | README files (en + ja mirror) | 2 |
 | JSON schemas (`schemas/`) | 2 |
 | Python source (`examples/minimal_harness/`) | 5 files (~500 lines total, stdlib-only) |
 | Top-level docs (`docs/*.md`) | 6 (akc-cycle, glossary, translation-glossary, inspiration, scaffold-dissolution + .ja.md) |
 | Repo-root files | CITATION.cff, LICENSE, llms.txt, llms-full.txt, CHANGELOG.md |
-| **Total markdown / Python / schema files** | **45** (`git ls-files '*.md' '*.py' 'schemas/*.json' | wc -l`; 42 as of 2026-07-08 plus ADR-0022 added 2026-07-23 and ADR-0023 added 2026-07-25) |
+| **Total markdown / Python / schema files** | **52** (`git ls-files '*.md' '*.py' 'schemas/*.json' | wc -l` after the v2.7.0 additions are staged, 2026-09-01; 45 as of 2026-07-25, plus the AI-native-SDLC correspondence pair, the rfcs/ ledger's two files, and ADR-0024/0025/0026) |
 
 When this count drifts substantially, regenerate this codemap.

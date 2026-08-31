@@ -102,7 +102,7 @@ HF 側の `README.md` (dataset card) は HF 用に customize されている (si
 
 ### ADR format
 
-`docs/adr/` 直下に番号付き markdown。必須 section: **Status / Date / Context / Decision / Alternatives Considered / Consequences / Relationship to other ADRs** (lineage を記録する section。header 名はこの表記で統一)。実験的判断は Status 欄に `**experimental**` と太字で付記。
+`docs/adr/` 直下に番号付き markdown。必須 section: **Status / Date / Context / Decision / Alternatives Considered / Consequences / Relationship to other ADRs** (lineage を記録する section。header 名はこの表記で統一)。実験的判断は Status 欄に `**experimental**` と太字で付記。ADR-0024 以降は `## Review-when` (失効条件) を Decision の直後に置く — ADR は日付つき仮説であり、0023 以前は backfill しない (ADR-0026)。
 
 ### 「mechanism」と「content」の区別
 

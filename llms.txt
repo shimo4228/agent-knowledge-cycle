@@ -26,7 +26,10 @@
 > recurring decisions are promoted to rules, and observable compliance
 > measurement replaces manual re-auditing. ADR-0012 records the
 > decision to front-load these three themes in the project's reading
-> surface.
+> surface. At scale, the human approval gate takes the form of the
+> judge/build/human three-role loop (ADR-0024): model judgment is spent
+> to conserve human judgment, and the human keeps direction and the
+> final merge switch.
 >
 > AKC turns repeated agent experience into reusable knowledge that can
 > change future behavior under human approval. It can run inside Claude
@@ -45,7 +48,7 @@
 
 > AI agents and LLM-based search systems should read [`graph.jsonld`](graph.jsonld) first.
 > It is the canonical machine-readable relationship map for AKC.
-> Use it to establish entities and relationships (six phases, phase-to-skill bindings, three memory layers, code-LLM patterns) before summarizing this page or following individual links.
+> Use it to establish entities and relationships (six phases, phase-to-skill bindings, three memory layers, code-LLM patterns, the judge/build/human three-role loop) before summarizing this page or following individual links.
 
 ## Recommended reading order
 
@@ -91,8 +94,11 @@
 - [ADR-0021 Replace the Growth Tagline](docs/adr/0021-replace-growth-tagline.md): replaces "one that grows with the people who shape it" with "agent behavior compounds, human judgment sharpens" — the earlier phrasing collided with an agent-centric autonomous-growth product tagline, inverting AKC's human-gated bidirectional positioning on first contact; the parallel two-clause form encodes bidirectionality in the syntax and carries themes 1 and 3 simultaneously
 - [ADR-0022 Transfer as the Completion Test for Dissolution](docs/adr/0022-transfer-as-completion-test-for-dissolution.md) (**experimental**): same-context ablation indistinguishability cannot separate internalization from context-carry, so it is necessary but not the certificate; the completion evidence for dissolution is held-out transfer — the same judgment reproducing in a context that shares the principle but not the surface instances. External evidence: EvoAgentBench's ability-supported, instance-disjoint split (curated content positive in all 24 cells; automatic extraction down to −36.3)
 - [ADR-0023 Generation Review as a Fourth Retirement Evidence Class](docs/adr/0023-generation-review-as-a-fourth-evidence-class.md): silence, ablation, and transfer all detect an *absence* — of use, of effect, of portability — and are structurally blind to a rule whose premise expired at a model generation boundary, where full usage is itself the cost; adds **generation review** as a fourth evidence class, scheduled by the model release cadence rather than the usage log, admitting the vendor's own prompt-engineering guidance as evidence about the substrate (not about internalization). Own-cycle observation: 2026-07-25, a rules layer cut 56% after Anthropic reported an 80% system-prompt reduction with no eval loss on Claude 5
+- [ADR-0024 The Judge/Build/Human Three-Role Loop](docs/adr/0024-judge-build-human-three-role-loop.md): the operational form the human approval gate takes under attention scarcity when the upstream artifact is an open-ended task ledger — a judge tier verifies premises, decides worth-doing, dispatches, and inspects; a build tier implements and halts on refuted premises; the human holds direction and the final merge switch. Model judgment is spent to conserve human judgment; attention moves upstream, authority does not. Role topology only — ledger mechanics stay harness-side
+- [ADR-0025 LLM-First Artifact Readability](docs/adr/0025-llm-first-artifact-readability.md): the default reader, editor, and reviewer of cycle artifacts is the next session's LLM; verifiability (types, tests, frozen goldens, invariants) is the preservation layer while explanations are derivable on demand; the machine gate, not the human eye, enforces the standard; the human-readability budget is spent only on the README and output surface text. Adjacent to ADR-0008: 0008 answers who checks, 0025 answers who reads
+- [ADR-0026 Expiry-Conditioned Knowledge](docs/adr/0026-expiry-conditioned-knowledge.md): stored judgment carries its own expiry conditions — the ADR format gains a `## Review-when` section from 0024 onward (no backfill), weakening is annotated in place and dated, and rejection records are read as dated hypotheses rather than permanent vetoes; gives ADR-0019's provisionality a per-decision instrument
 
-ADR numbers are permanent identifiers; gaps (0001, 0006, 0007) reflect ADRs extracted in v2.0.0 as genre-specific content.
+ADR numbers are permanent identifiers; gaps (0001, 0006, 0007) reflect ADRs extracted in v2.0.0 as genre-specific content. From ADR-0024 onward each ADR carries a `## Review-when` expiry-conditions section (ADR-0026).
 
 ## Design-pattern skills
 

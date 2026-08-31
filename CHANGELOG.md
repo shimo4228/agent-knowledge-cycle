@@ -4,6 +4,77 @@ All notable changes to AKC are recorded here. AKC follows semantic
 versioning; breaking changes to positioning or public interfaces bump the
 major version.
 
+## v2.7.0 — The gate at scale, the reader named, judgments that expire (2026-09-01)
+
+Three judgments that had been running unstated in the operator's harness are
+promoted to mechanism, and the front door is rebuilt around the multi-layer
+operational form the cycle has grown into. The README now leads from the
+running system — procedures, worldviews, enforcement, attention topology —
+before the six-phase mechanism beneath it.
+
+### Added
+
+- **[ADR-0024](docs/adr/0024-judge-build-human-three-role-loop.md)
+  — The judge/build/human three-role loop** (accepted). The operational form
+  the human approval gate (ADR-0005) takes under attention scarcity
+  (ADR-0010) when the upstream artifact is an open-ended task ledger: a
+  judge tier verifies premises, decides worth-doing, dispatches, and
+  independently inspects; a build tier implements and halts on refuted
+  premises; the human keeps direction and the final merge switch. Attention
+  moves upstream, authority does not. Role topology only — ledger mechanics
+  stay harness-side as relation facts. Evidence: roughly two weeks of
+  single-operator practice (2026-08-17 →), stated as such. Also carries the
+  repo's first dated weakening record: a 2026-07-09 rejection of binding
+  ledger hygiene to Maintain stands, while its premise is recorded as
+  expired.
+- **[ADR-0025](docs/adr/0025-llm-first-artifact-readability.md)
+  — LLM-first artifact readability** (accepted). Names the reader: cycle
+  artifacts — skills, rules, distilled knowledge, tests, decision records —
+  are read, edited, and reviewed by the next session's LLM; the operator
+  confirmed (2026-08-31) that humans read only the README and output
+  surface text. Verifiability (types, tests, frozen goldens, invariants) is
+  the preservation layer; explanations are derivable on demand; the machine
+  gate, not the human eye, enforces the standard; the human-readability
+  budget has one line item. Adjacent to ADR-0008: 0008 answers who checks,
+  0025 answers who reads.
+- **[ADR-0026](docs/adr/0026-expiry-conditioned-knowledge.md)
+  — Expiry-conditioned knowledge** (accepted). Stored judgment carries its
+  own expiry conditions, the way intake already carries as-of dates. The
+  ADR format gains a `## Review-when` section (required from 0024 onward,
+  explicit null rendering, no backfill into 0002–0023); weakening is
+  annotated in place, dated, never deleted; rejection records are dated
+  hypotheses, not permanent vetoes. The underlying harm rests on a
+  single-operator subjective report with zero recorded instances at
+  baseline — stated as such in the ADR's Status.
+- graph.jsonld: three Concept nodes (three-role loop, LLM-first artifact
+  readability, expiry-conditioned knowledge) and the three ADR nodes;
+  herdr-toolkit added as an EcosystemRepo (build-dispatch substrate of the
+  three-role loop, relation fact only).
+- Public `rfcs/` proposal ledger (introduced 2026-08-25): one file per
+  open proposal, frontmatter state as the source of truth, decisions
+  landing in ADRs; RFC-0001 (conflict-cost local metric) is the first
+  entry. The two-loop correspondence with Anthropic's AI-native SDLC
+  playbook (docs/ai-native-sdlc-correspondence.md, en + ja, 2026-08-21)
+  also lands in this release.
+
+### Changed
+
+- **README (en + ja) fully rebuilt** around the multi-layer operational
+  form: a new "What a running AKC looks like" section (four layers —
+  procedures, worldviews, enforcement, attention topology) now precedes
+  the six-phase mechanism; Theme 1 gains its at-scale answer; the
+  minimal-floor discipline (ADR-0020), theme order (ADR-0012), and tagline
+  (ADR-0021) are unchanged. A plain-text AI navigation pointer closes the
+  file.
+- claude-harness ecosystem node rewritten from "ships the six cycle
+  skills" to the multi-layer harness it now is (skills, worldview rules
+  layer, machine gates, public rfcs/ ledger run by the three-role loop).
+- daily-research URL corrected from the retired `claude-skill-daily-research`
+  name in llms-full.txt and the codemap.
+- CLAUDE.md and docs/adr/README.md record the Review-when format change;
+  llms.txt / llms-full.txt / glossary / codemap synced (ADR count 23,
+  three new Q&A entries, three new glossary terms).
+
 ## v2.6.0 — Transfer-tested dissolution, generation review, the gate's full reach (2026-07-28)
 
 The dissolution norm grew both of its edges. The completion criterion was

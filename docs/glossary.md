@@ -93,6 +93,19 @@ deterministic evidence-file hook (a snapshot, mutable; ADR-0019).
 AAP's glossary carries the sibling entry *approval gate*
 for its genre; both descend from the same Contemplative Agent decision.
 
+## Three-role loop (judge / build / human)
+
+The operational form the gate takes under attention scarcity when what
+sits upstream of it is an open-ended task ledger rather than a single
+proposed change. A judge tier (a stronger-model session per repository)
+verifies each task's premise, decides whether it is worth doing,
+dispatches accepted work, and independently inspects results; a build
+tier (a fresh session per task) implements and halts on a refuted
+premise; the human holds direction-setting and the final merge switch.
+Model judgment is spent to conserve human judgment — attention moves
+upstream, authority does not. AKC records the role topology only;
+ledger mechanics are harness content. See ADR-0024.
+
 ## Promote
 
 The cycle phase that elevates a recurring pattern to the rules layer,
@@ -276,6 +289,29 @@ ignores agent text (stated reasoning, verdicts, plans) systematically
 under-reports compliance for judgment-phase work, which lives in text
 rather than tool calls. Instruments must treat agent text as first-class
 evidence.
+
+## LLM-first artifact readability
+
+The standard that the default reader, editor, and reviewer of cycle
+artifacts — skills, rules, distilled knowledge, tests, decision
+records — is the next session's LLM, with humans reading only the
+README and the surface text of outputs. Locality over deep
+abstraction, explicitness over cleverness, context economy as the
+measuring stick; what is preserved is verifiability (types, tests,
+frozen goldens, stated invariants), since explanations are derivable
+on demand; the machine gate, not the human eye, enforces the
+standard. See ADR-0025.
+
+## Expiry-conditioned knowledge
+
+The discipline that stored judgment carries its own expiry conditions:
+a decision or recommendation states what observation or premise
+failure would void or weaken it, intake states its as-of date, and a
+recommendation that cannot name an expiry condition is treated as
+freshness-unknown. In this repo's ADR format the instrument is the
+`## Review-when` section (ADR-0024 onward, no backfill); weakening is
+annotated in place, dated, never deleted, and rejection records are
+read as dated hypotheses rather than permanent vetoes. See ADR-0026.
 
 ## Mechanism vs content
 
