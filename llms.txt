@@ -88,7 +88,7 @@
 - [ADR-0015 Self-Reingestion — When the Cycle Feeds on Its Own Output](docs/adr/0015-loop-failure-modes-self-reingestion.md) (**experimental**): the cycle feeds on its own output — promoted rules and agent-written notes re-enter as distillation input, so the agent's phrasings can echo back as fact and re-summarization loses grounding; distilled from a Contemplative Agent production observation. Guards: the observed record as the only ground, the self-generated share kept visible (Measure), the approval gate as circuit-breaker
 - [ADR-0016 Measuring Thinking-Centric Phases](docs/adr/0016-measuring-thinking-centric-phases.md): a Measure instrument must promote agent text (reasoning, verdicts, plans) to observable events before scoring, or it under-reports judgment-phase (Research, Curate) compliance; ties Measure to Theme 2
 - [ADR-0017 Harness Alignment and Harness Drift](docs/adr/0017-harness-alignment-and-drift.md): establishes both terms by derivation from established literature rather than fresh coinage — harness alignment extends intent alignment (Christiano 2018) to the configuration layer and across time; harness drift names the failure mode in lineage with architectural drift (Perry & Wolf 1992), practical drift (Snook 2000), and agent drift (arXiv:2601.04170); the contrast is autonomous, score-driven harness optimization (Meta-Harness, arXiv:2603.28052)
-- [ADR-0018 Record Downstream Applications as First-Class Context](docs/adr/0018-record-downstream-applications-as-first-class-context.md): the reverse references the start-of-program repo was missing — Contemplative Agent recorded as both upstream substrate and the operational re-implementation of the cycle, plus the research lines and repos that crystallized out of the cycle's own operation; relationship facts + DOIs only (mechanism-only rule)
+- [ADR-0018 Record Downstream Applications as First-Class Context](docs/adr/0018-record-downstream-applications-as-first-class-context.md): the reverse references the start-of-program repo was missing — Contemplative Agent recorded as both upstream substrate and the operational re-implementation of the cycle, plus the research lines and repos that crystallized out of the cycle's own operation; relationship facts + DOIs only (a discipline ADR-0027 later extended into the mental-model/instance grounding expectation)
 - [ADR-0019 The Cycle's Structure Is Provisional](docs/adr/0019-cycle-structure-is-provisional.md): skills, bindings, and even the six-phase set are held lightly per the Emptiness axiom — the phase-to-skill binding is a mutable snapshot, not a fixed bijection; Curate is layered (skill-health structural code layer clears dangling-reference debt before skill-stocktake's semantic audit); skill-comply is flagged as a candidate for substrate absorption (experimental, n=1, not retired)
 - [ADR-0020 Minimal-floor README with Single-location Theme Presentation](docs/adr/0020-readme-minimal-floor.md): README.md holds a minimal information floor — the three themes presented exactly once, a single phase→skill table, pointers into llms-full.txt and ADRs instead of second copies; amends ADR-0012's README-side double presentation while its front-load principle stands
 - [ADR-0021 Replace the Growth Tagline](docs/adr/0021-replace-growth-tagline.md): replaces "one that grows with the people who shape it" with "agent behavior compounds, human judgment sharpens" — the earlier phrasing collided with an agent-centric autonomous-growth product tagline, inverting AKC's human-gated bidirectional positioning on first contact; the parallel two-clause form encodes bidirectionality in the syntax and carries themes 1 and 3 simultaneously
@@ -97,6 +97,7 @@
 - [ADR-0024 The Judge/Build/Human Three-Role Loop](docs/adr/0024-judge-build-human-three-role-loop.md): the operational form the human approval gate takes under attention scarcity when the upstream artifact is an open-ended task ledger — a judge tier verifies premises, decides worth-doing, dispatches, and inspects; a build tier implements and halts on refuted premises; the human holds direction and the final merge switch. Model judgment is spent to conserve human judgment; attention moves upstream, authority does not. Role topology only — ledger mechanics stay harness-side
 - [ADR-0025 LLM-First Artifact Readability](docs/adr/0025-llm-first-artifact-readability.md): the default reader, editor, and reviewer of cycle artifacts is the next session's LLM; verifiability (types, tests, frozen goldens, invariants) is the preservation layer while explanations are derivable on demand; the machine gate, not the human eye, enforces the standard; the human-readability budget is spent only on the README and output surface text. Adjacent to ADR-0008: 0008 answers who checks, 0025 answers who reads
 - [ADR-0026 Expiry-Conditioned Knowledge](docs/adr/0026-expiry-conditioned-knowledge.md): stored judgment carries its own expiry conditions — the ADR format gains a `## Review-when` section from 0024 onward (no backfill), weakening is annotated in place and dated, and rejection records are read as dated hypotheses rather than permanent vetoes; gives ADR-0019's provisionality a per-decision instrument
+- [ADR-0027 Mental Model and Instance](docs/adr/0027-mental-model-and-instance.md): replaces the mechanism/content cut with mental model / instance — core owns judgment (ADRs, concepts, cycle structure), running instances are owned downstream and linked as first-class grounding (every concept carries an instance edge where a public instance exists), inlining instance content stays prohibited, and links follow the running state (a retired instance is unlinked, dated — first applied to human-gate, retired 2026-08-02)
 
 ADR numbers are permanent identifiers; gaps (0001, 0006, 0007) reflect ADRs extracted in v2.0.0 as genre-specific content. From ADR-0024 onward each ADR carries a `## Review-when` expiry-conditions section (ADR-0026).
 
@@ -139,14 +140,16 @@ the entire cycle. Most phases have one skill; Curate and Maintain are layered.
 - [context-sync](https://github.com/shimo4228/context-sync) (Maintain — documentation role coherence and freshness)
 - [repo-asset-stocktake](https://github.com/shimo4228/repo-asset-stocktake) (Maintain — non-code asset liveness: tool configs, CI workflows, runbooks whose consumer has vanished)
 
-Two further repos scaffold load-bearing concepts rather than phases, with
-the same mutable-snapshot status: [human-gate](https://github.com/shimo4228/human-gate)
-scaffolds the human approval gate's presentation split (what the human
-judges once the gate stops — full text for behavior-shaping, control-plane,
-and evidence-producing artifacts; a fixed-schema intent summary for
-implementation code), and [generation-audit](https://github.com/shimo4228/generation-audit)
+One further repo scaffolds a load-bearing concept rather than a phase, with
+the same mutable-snapshot status:
+[generation-audit](https://github.com/shimo4228/generation-audit)
 scaffolds Scaffold Dissolution's model-generation trigger (the instrument
-behind ADR-0023's generation-review evidence class).
+behind ADR-0023's generation-review evidence class). A second concept
+scaffold, [human-gate](https://github.com/shimo4228/human-gate) (the approval
+gate's presentation split), was retired from the running harness on
+2026-08-02 as the substrate absorbed its defaults — the repository remains
+published with its retirement note, and its front-door link was removed under
+ADR-0027's links-follow-running-state discipline.
 
 ## Related repositories
 

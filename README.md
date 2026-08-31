@@ -63,9 +63,9 @@ four layers, and the decision records — the newest three from September
 | Layer | What it holds | Decision record |
 |---|---|---|
 | **Procedures** | Step-by-step skills an agent loads on demand — the phase table below. Scaffolding by design: meant to dissolve once internalized | [ADR-0019](docs/adr/0019-cycle-structure-is-provisional.md), [Scaffold Dissolution](docs/scaffold-dissolution.md) |
-| **Worldviews** | Small always-loaded rules that set defaults instead of prescribing steps. Two now recorded: artifacts are written for the next AI session that reads them; every stored decision names what would expire it | [ADR-0025](docs/adr/0025-llm-first-artifact-readability.md), [ADR-0026](docs/adr/0026-expiry-conditioned-knowledge.md) |
-| **Enforcement** | Machine gates — lint, types, tests, frozen golden outputs — own artifact correctness, so the human eye is never the checker of record | [ADR-0008](docs/adr/0008-code-and-llm-collaboration.md) |
-| **Attention topology** | The judge/build/human three-role loop: a judge session verifies each task's premise, decides what is worth doing, and dispatches it; fresh build sessions implement; the human keeps direction and the final merge switch | [ADR-0024](docs/adr/0024-judge-build-human-three-role-loop.md) |
+| **Worldviews** | Small always-loaded rules that set defaults instead of prescribing steps. Two now recorded: artifacts are written for the next AI session that reads them; every stored decision names what would expire it. Running instances: [llm-first-code](https://github.com/shimo4228/claude-harness/blob/main/rules/common/llm-first-code.md), [knowledge-staleness](https://github.com/shimo4228/claude-harness/blob/main/rules/common/knowledge-staleness.md) | [ADR-0025](docs/adr/0025-llm-first-artifact-readability.md), [ADR-0026](docs/adr/0026-expiry-conditioned-knowledge.md) |
+| **Enforcement** | Machine gates — lint, types, tests, frozen golden outputs — own artifact correctness, so the human eye is never the checker of record. Running instances: the harness's [hooks](https://github.com/shimo4228/claude-harness/tree/main/hooks) and the [verify-bootstrap](https://github.com/shimo4228/claude-harness/tree/main/skills/verify-bootstrap) skill | [ADR-0008](docs/adr/0008-code-and-llm-collaboration.md) |
+| **Attention topology** | The judge/build/human three-role loop: a judge session verifies each task's premise, decides what is worth doing, and dispatches it; fresh build sessions implement; the human keeps direction and the final merge switch. Running instances: the [task-triage](https://github.com/shimo4228/claude-harness/tree/main/skills/task-triage) skill, dispatching through the [herdr-toolkit](https://github.com/shimo4228/herdr-toolkit) plugin | [ADR-0024](docs/adr/0024-judge-build-human-three-role-loop.md) |
 
 The through-line is the human approval gate
 ([ADR-0005](docs/adr/0005-human-approval-gate.md)): whatever the layer, no
@@ -105,13 +105,11 @@ flowchart TD
 Three design-pattern skills — [when-code-when-llm](https://github.com/shimo4228/when-code-when-llm),
 [code-and-llm-collaboration](https://github.com/shimo4228/code-and-llm-collaboration),
 [signal-first-research](https://github.com/shimo4228/signal-first-research) —
-carry the cycle's reusable design judgments, and two further repos scaffold
-load-bearing concepts rather than phases:
-[human-gate](https://github.com/shimo4228/human-gate) fixes what the approval
-gate shows the human, and
-[generation-audit](https://github.com/shimo4228/generation-audit) re-audits
-rules and skills when a new model generation ships — the point where
-scaffolding written for an older, weaker model turns into friction
+carry the cycle's reusable design judgments, and
+[generation-audit](https://github.com/shimo4228/generation-audit) scaffolds a
+load-bearing concept rather than a phase: it re-audits rules and skills when a
+new model generation ships — the point where scaffolding written for an older,
+weaker model turns into friction
 ([ADR-0023](docs/adr/0023-generation-review-as-a-fourth-evidence-class.md)).
 
 The phase set and phase-to-skill bindings are a mutable snapshot, not AKC's

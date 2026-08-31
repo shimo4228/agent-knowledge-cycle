@@ -32,6 +32,8 @@ AKC already reads its own ADRs informally as dated hypotheses — a stored judgm
 
 3. **Weakening is annotated in place, dated, and never deleted** — `> **Note (YYYY-MM-DD, ADR-NNNN)**` appended under the affected section of a published ADR. Rejection records receive the same reading: they are dated hypotheses, not permanent vetoes. Where the weakened record cannot carry a published annotation — the 2026-07-09 triage rejection lives in an operator-private ledger — the weakening is recorded in the new ADR instead: ADR-0024's Decision 3 records that rejection's surviving scope and expired premise in place of an annotation on the original, and is this repo's first instance of the dated-weakening reading (the `> **Note**` form itself has no instance yet).
 
+   > **Note (2026-09-01, ADR-0027)**: the parenthetical above expired the same day — ADR-0027's vocabulary supersede placed the first three `> **Note**` annotations on published ADRs (0018, 0019, 0024).
+
 ## Review-when
 
 If three consecutive new ADRs render Review-when as "none — a record, not a standing decision", demote the section to optional prose inside Consequences. If the substrate natively tracks decision freshness — dates and expiry conditions checked at read time — this format mechanism becomes a downward-dissolution candidate.

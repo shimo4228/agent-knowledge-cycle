@@ -28,6 +28,8 @@ A prior operator record bears on how this loop should be read against the cycle'
 
 2. **Scope boundary.** AKC records the role topology only — that a judge tier verifies and dispatches, a build tier implements, and a human sets direction and merges. Ledger formats, claim/lease mechanics, scheduling, and digest plumbing are harness content; they are recorded solely as relation facts on the operator harness's ecosystem node in `graph.jsonld`, per the mechanism-only inclusion rule, not as mechanism in AKC's core.
 
+   > **Note (2026-09-01, ADR-0027)**: "mechanism-only inclusion rule" here reads, unchanged in substance, as ADR-0027's mental-model/instance boundary — the ledger mechanics stay downstream-owned; the loop's running instances are linked as grounding.
+
 3. **The 2026-07-09 rejection stands for what it covered.** Ledger hygiene remains outside the cycle; that disposition is not reversed. This clause is itself the dated weakening record: the original rejection lives in an operator-private ledger that cannot carry a published annotation, so its surviving scope (ledger hygiene stays out) and its expired premise — that there was nothing beyond hygiene to promote, which lapsed when the three-role topology emerged in practice on 2026-08-17 — are recorded here, dated, with the original left unedited. Rejection records are dated hypotheses, not permanent exclusions (ADR-0026, recorded in the same release as this ADR).
 
 ## Review-when

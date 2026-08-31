@@ -7,10 +7,12 @@ major version.
 ## v2.7.0 — The gate at scale, the reader named, judgments that expire (2026-09-01)
 
 Three judgments that had been running unstated in the operator's harness are
-promoted to mechanism, and the front door is rebuilt around the multi-layer
+promoted to mechanism, the inclusion boundary itself is re-cut (mental model
+/ instance, ADR-0027), and the front door is rebuilt around the multi-layer
 operational form the cycle has grown into. The README now leads from the
-running system — procedures, worldviews, enforcement, attention topology —
-before the six-phase mechanism beneath it.
+running system — procedures, worldviews, enforcement, attention topology,
+each grounded in a linked running instance — before the six-phase mechanism
+beneath it.
 
 ### Added
 
@@ -46,10 +48,23 @@ before the six-phase mechanism beneath it.
   hypotheses, not permanent vetoes. The underlying harm rests on a
   single-operator subjective report with zero recorded instances at
   baseline — stated as such in the ADR's Status.
+- **[ADR-0027](docs/adr/0027-mental-model-and-instance.md)
+  — Mental model and instance** (accepted). Replaces the mechanism/content
+  cut with mental model / instance: core owns judgment (ADRs, concepts,
+  cycle structure); running instances are owned downstream and linked as
+  first-class grounding — every mechanism concept carries an instance edge
+  where a public instance exists; inlining instance content stays
+  prohibited; links follow the running state. Triggered by the author's
+  2026-09-01 judgment that the old rule had begun obstructing
+  understanding. First application of the link discipline: human-gate,
+  retired from the running harness 2026-08-02, is unlinked from the front
+  door (the repository remains published with its retirement note).
 - graph.jsonld: three Concept nodes (three-role loop, LLM-first artifact
-  readability, expiry-conditioned knowledge) and the three ADR nodes;
-  herdr-toolkit added as an EcosystemRepo (build-dispatch substrate of the
-  three-role loop, relation fact only).
+  readability, expiry-conditioned knowledge) and four ADR nodes
+  (0024–0027); herdr-toolkit added as an EcosystemRepo (build-dispatch
+  substrate of the three-role loop); claude-harness gains implements
+  edges to all three new concepts; the human-gate node and the
+  human-approval-gate concept record the 2026-08-02 retirement, dated.
 - Public `rfcs/` proposal ledger (introduced 2026-08-25): one file per
   open proposal, frontmatter state as the source of truth, decisions
   landing in ADRs; RFC-0001 (conflict-cost local metric) is the first
@@ -61,11 +76,14 @@ before the six-phase mechanism beneath it.
 
 - **README (en + ja) fully rebuilt** around the multi-layer operational
   form: a new "What a running AKC looks like" section (four layers —
-  procedures, worldviews, enforcement, attention topology) now precedes
-  the six-phase mechanism; Theme 1 gains its at-scale answer; the
-  minimal-floor discipline (ADR-0020), theme order (ADR-0012), and tagline
-  (ADR-0021) are unchanged. A plain-text AI navigation pointer closes the
-  file.
+  procedures, worldviews, enforcement, attention topology, each row
+  linking its running instances per ADR-0027) now precedes the six-phase
+  mechanism; Theme 1 gains its at-scale answer; the minimal-floor
+  discipline (ADR-0020), theme order (ADR-0012), and tagline (ADR-0021)
+  are unchanged. The human-gate link is removed (retired instance); a
+  plain-text AI navigation pointer closes the file.
+- CLAUDE.md's inclusion-rule section rewritten from "mechanism / content"
+  to "mental model / instance" (ADR-0027); the glossary entry follows.
 - claude-harness ecosystem node rewritten from "ships the six cycle
   skills" to the multi-layer harness it now is (skills, worldview rules
   layer, machine gates, public rfcs/ ledger run by the three-role loop).

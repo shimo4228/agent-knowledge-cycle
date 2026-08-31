@@ -32,6 +32,8 @@ AKC records its downstream applications as first-class context. The decision has
 
 3. **Record relationship facts and DOIs only — import no downstream content.** No strategy payloads, corpus content, or threat models from downstream repositories enter AKC's core. The mechanism-only inclusion rule (CLAUDE.md) is preserved: AKC records relationships between artifacts, not the content of those artifacts.
 
+   > **Note (2026-09-01, ADR-0027)**: the "mechanism-only" vocabulary this clause preserves was superseded by ADR-0027's mental-model/instance cut. The substance of this clause survives unchanged — no downstream content enters core — and ADR-0027 extends it: relationship facts now come with a standing expectation of instance links (grounding), which this clause's wording neither required nor forbade.
+
 4. **Encode the downstream relationships in graph.jsonld.** Contemplative Agent gains an `implements` edge to the six-phase-loop concept, using the same predicate the minimal_harness reference implementation uses. The AKC research line gains `workExample` edges to Contemplative Agent and minimal_harness. The four DOI-registered downstream repositories gain `derivesFrom` / `siblingOf` edges as their relationship warrants.
 
 ## Alternatives Considered

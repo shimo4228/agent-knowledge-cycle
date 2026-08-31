@@ -42,7 +42,7 @@ front-door documentation で必ず先に登場させる 3 つの load-bearing �
 
 ### Downstream ecosystem (cycle の結晶化物)
 
-サイクルを回した日常運用から結晶化した下流 repo 群は README の "Related Work" 節末尾の compact list と graph.jsonld に記録されている — authorship-strategy / attention-not-self / doctrine-corpus / existence-proof (research lines・DOI 持ち) は README + graph + llms.txt、claude-harness / akc-mcp / daily-research / hub repo (配布・周辺層) は graph + llms-full.txt のみ。AKC 側に書くのは関係の事実 + DOI のみ (mechanism-only rule — 各 repo の content は持ち込まない)。
+サイクルを回した日常運用から結晶化した下流 repo 群は README の "Related Work" 節末尾の compact list と graph.jsonld に記録されている — authorship-strategy / attention-not-self / doctrine-corpus / existence-proof (research lines・DOI 持ち) は README + graph + llms.txt、claude-harness / akc-mcp / daily-research / hub repo (配布・周辺層) は graph + llms-full.txt のみ。AKC 側に書くのは関係の事実 + DOI + インスタンスへの接地リンクのみ (ADR-0027 — 各 repo の本文は持ち込まない)。
 
 ## HF Datasets mirror
 
@@ -104,13 +104,13 @@ HF 側の `README.md` (dataset card) は HF 用に customize されている (si
 
 `docs/adr/` 直下に番号付き markdown。必須 section: **Status / Date / Context / Decision / Alternatives Considered / Consequences / Relationship to other ADRs** (lineage を記録する section。header 名はこの表記で統一)。実験的判断は Status 欄に `**experimental**` と太字で付記。ADR-0024 以降は `## Review-when` (失効条件) を Decision の直後に置く — ADR は日付つき仮説であり、0023 以前は backfill しない (ADR-0026)。
 
-### 「mechanism」と「content」の区別
+### 「メンタルモデル」と「インスタンス」の区別 (ADR-0027。旧「mechanism/content」を supersede)
 
-AKC 本体が扱うのは **mechanism (cycle / phases / memory layers / ADRs / patterns)** のみ。具体的 use case や domain knowledge は **content** (downstream project の責任)。
+AKC core が**所有**するのは **メンタルモデル** (判断 = ADR / 概念 = graph.jsonld / cycle 構造) のみ。**インスタンス** (動いている skills / rules / hooks / gates / loops) の所有は downstream repo。ただしインスタンスは排除しない — **第一級のリンクで接地する**: 各 mechanism Concept は公開インスタンスが存在する限り graph の `implements` 辺と front-door のリンクを持つ (grounding expectation)。無ければ無いと書く。リンクは running state に従う — インスタンスが運用から退役したら日付つきでリンクを外す/注記する (先例: human-gate、2026-08-02 退役 → 2026-09-01 リンク除去)。
 
-**Mechanism-only inclusion rule**: 具体的 instance は `examples/` ディレクトリ専用。core / ADR / cycle 図 / graph.jsonld には載せない。v2.0.0 で security triplet を extract した根拠もこの規約 (genre-specific threat model は mechanism-neutral cycle に属さない)。
+禁止が残るのは 2 つだけ: (1) インスタンス本文を core へ**複製**する (inlining)、(2) **domain genre** (どの behavioral pattern / value set / threat model が cycle を流れるか) に position を取る — これは ADR-0011 の genre-neutrality で不変。「content」という旧語彙はこの 2 つを混同していた。具体的 instance の in-repo 最小版は引き続き `examples/` に置く。
 
-**Structural guard vs populated content の境界**: security control に似ていても、empty-default で ship される parameterized check (structural guard / validation seam — 例: 中身が空のまま渡される forbidden-pattern slot) は **mechanism** として core に属する。content にあたるのは、その seam に投入される populated threat model (具体的な forbidden payload 一覧 / domain-specific deny list) のみ。空の構造は cycle が持ち、埋める中身は downstream project が持つ。
+**Structural guard vs populated content の境界** (不変): empty-default で ship される parameterized check (structural guard / validation seam) は mechanism として core に属し、seam に投入される populated threat model (具体的 deny list 等) は downstream が持つ。v2.0.0 の security triplet extract の根拠。
 
 ### ADR 番号と gap
 

@@ -20,6 +20,8 @@ That conclusion was a reification error, and the operator caught it. Three of it
 
 2. **"Reference a skill" was conflated with "import content."** AKC already references nine specific skill instances (six cycle skills + three design-pattern skills) as external repositories. Naming skill-health as Curate's code layer is the same kind of reference, not an import of genre-specific content. The mechanism-only rule forbids the latter, not the former.
 
+   > **Note (2026-09-01, ADR-0027)**: the same conflation recurred in session on 2026-09-01 despite this correction — evidence that the "mechanism-only" wording kept inviting the misreading. ADR-0027 replaced the vocabulary itself (mental model / instance); this paragraph's reference-vs-import distinction is the reading ADR-0027 makes structural.
+
 3. **The absence of skill-health from the repo was read as deliberate exclusion, and "no observed pain" as decisive.** In fact, running skill-health as the structural pre-pass to Curate is long-standing operator practice — the repeated-practice evidence the bar accepts. The absence was an *unrecorded* practice, not an exclusion.
 
 The first correction, taken alone, invites a second reification: declare "the six phases" the new invariant beneath the mutable skills. The operator rejected this too, on the Emptiness axiom (contemplative-axioms, Laukkonen et al. 2025, Appendix C): *"all beliefs, goals, and conceptual frameworks are provisional and lack any fixed, ultimate essence … refrain from rigidly reifying any single objective as final."* Reifying the phase set repeats the same mistake one level up. AKC's own Theme 2 already implies this: intent is a *moving* criterion, and a cycle whose target moves cannot freeze its own frame.

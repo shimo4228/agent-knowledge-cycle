@@ -35,6 +35,7 @@ reports of a missing Review-when on 0002–0023 are expected, not debt.
 | [0024](0024-judge-build-human-three-role-loop.md) | The Judge/Build/Human Three-Role Loop as the Operational Form of Attention Scarcity |
 | [0025](0025-llm-first-artifact-readability.md) | LLM-First Artifact Readability |
 | [0026](0026-expiry-conditioned-knowledge.md) | Expiry-Conditioned Knowledge |
+| [0027](0027-mental-model-and-instance.md) | Mental Model and Instance — Core Owns Judgment, Instances Ground It |
 
 ADR numbers are permanent identifiers. Gaps (0001, 0006, 0007) reflect
 ADRs that were extracted from this repository in v2.0.0 as

@@ -87,11 +87,15 @@ and *structural* (no path routes around it) — no "auto-approve after N
 days" escape hatch, no self-approval path. The commit history of gated
 artifacts becomes an audit trail of every intentional behavioral change.
 See ADR-0005. In the first running instance, what the gate presents to
-the human is currently scaffolded by the
+the human was scaffolded by the
 [human-gate rule](https://github.com/shimo4228/human-gate) and its
-deterministic evidence-file hook (a snapshot, mutable; ADR-0019).
-AAP's glossary carries the sibling entry *approval gate*
-for its genre; both descend from the same Contemplative Agent decision.
+deterministic evidence-file hook until 2026-08-02, when that scaffold
+retired as the substrate absorbed its defaults (the repository remains
+published with its retirement note; ADR-0027's links-follow-running-state
+discipline). At scale the gate takes the judge/build/human three-role
+form (ADR-0024). AAP's glossary carries the sibling entry *approval
+gate* for its genre; both descend from the same Contemplative Agent
+decision.
 
 ## Three-role loop (judge / build / human)
 
@@ -313,15 +317,20 @@ freshness-unknown. In this repo's ADR format the instrument is the
 annotated in place, dated, never deleted, and rejection records are
 read as dated hypotheses rather than permanent vetoes. See ADR-0026.
 
-## Mechanism vs content
+## Mental model vs instance
 
-AKC carries the **mechanism** only — the cycle, phases, layers, decision
-records, and patterns. Concrete use cases, domain knowledge, and
-populated threat models are **content**, owned by downstream projects
-and confined to `examples/`. The boundary case: an empty-default
-parameterized check (a structural guard / validation seam) is mechanism;
-the populated list that fills it is content. See ADR-0011 and the
-inclusion rule in `CLAUDE.md`.
+The distinction that governs what AKC's core may contain (ADR-0027,
+superseding the earlier "mechanism vs content" vocabulary). Core owns
+the **mental model** — judgments (ADRs), concepts (graph.jsonld), the
+cycle structure. **Instances** — running skills, rules, hooks, gates,
+loops — are owned by downstream repositories and linked as first-class
+grounding: every mechanism concept carries an edge to a public instance
+where one exists, and links follow the running state (a retired
+instance is unlinked, dated). Two prohibitions remain: inlining
+instance content into core, and taking a position on domain genre
+(ADR-0011). The boundary case survives unchanged: an empty-default
+parameterized check (a structural guard / validation seam) belongs to
+the mental model; the populated list that fills it belongs downstream.
 
 ## Judgment lineage
 
