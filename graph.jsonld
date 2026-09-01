@@ -548,7 +548,10 @@
       "description": "AKC Research-phase skill (1 of 6). Search existing solutions before building.",
       "url": "https://github.com/shimo4228/search-first",
       "extends": "https://doi.org/10.5281/zenodo.19200726",
-      "implements": "https://shimo4228.github.io/shimo4228/vocab#akc-phase/research"
+      "implements": [
+        "https://shimo4228.github.io/shimo4228/vocab#akc-phase/research",
+        "https://shimo4228.github.io/shimo4228/vocab#akc/concept/signal-first"
+      ]
     },
     {
       "@id": "https://github.com/shimo4228/learn-eval",
@@ -783,7 +786,8 @@
       "description": "MCP (Model Context Protocol) server providing Agent Knowledge Cycle cognitive tools — memory distillation, identity evolution, skill extraction — as a standalone server any AI agent can plug into. Born from the Contemplative Agent framework; re-implements its cognitive layer behind the MCP interface. A third encoding of the cycle's operations alongside the Markdown skills and Contemplative Agent's code pipeline.",
       "url": "https://github.com/shimo4228/akc-mcp",
       "extends": "https://doi.org/10.5281/zenodo.19200726",
-      "derivesFrom": "https://doi.org/10.5281/zenodo.19212118"
+      "derivesFrom": "https://doi.org/10.5281/zenodo.19212118",
+      "implements": "https://shimo4228.github.io/shimo4228/vocab#akc/concept/two-stage-distill"
     },
     {
       "@id": "https://github.com/shimo4228/daily-research",
@@ -1241,6 +1245,7 @@
       "@type": "TechArticle",
       "name": "when-code-when-llm (design-pattern skill)",
       "description": "Per-task decision: is this property structural or semantic? Long-form 'how' guide paired 1:1 with ADR-0008. Provides concrete patterns, code sketches, and audit checklists to operationalize the code-vs-LLM choice.",
+      "implements": "https://shimo4228.github.io/shimo4228/vocab#akc/concept/code-llm-layering",
       "groundedIn": "https://github.com/shimo4228/agent-knowledge-cycle/blob/main/docs/adr/0008-code-and-llm-collaboration.md"
     },
     {
@@ -1248,6 +1253,13 @@
       "@type": "TechArticle",
       "name": "code-and-llm-collaboration (design-pattern skill)",
       "description": "Per-pipeline decision: how to layer code and LLM. Long-form 'how' guide paired 1:1 with ADR-0008. Realizes the four code-LLM layering patterns (guard, filter, judge, orchestrator) with concrete pipeline sketches.",
+      "implements": [
+        "https://shimo4228.github.io/shimo4228/vocab#akc/concept/code-llm-layering",
+        "https://shimo4228.github.io/shimo4228/vocab#akc/pattern/guard",
+        "https://shimo4228.github.io/shimo4228/vocab#akc/pattern/filter",
+        "https://shimo4228.github.io/shimo4228/vocab#akc/pattern/judge",
+        "https://shimo4228.github.io/shimo4228/vocab#akc/pattern/orchestrator"
+      ],
       "groundedIn": "https://github.com/shimo4228/agent-knowledge-cycle/blob/main/docs/adr/0008-code-and-llm-collaboration.md"
     },
     {
@@ -1255,6 +1267,7 @@
       "@type": "TechArticle",
       "name": "signal-first-research (design-pattern skill)",
       "description": "Designing a research intake filter that admits only information likely to change the next action. Long-form 'how' guide paired 1:1 with ADR-0010. Operationalizes the signal-first principle as a Research-phase filter.",
+      "implements": "https://shimo4228.github.io/shimo4228/vocab#akc/concept/signal-first",
       "groundedIn": "https://github.com/shimo4228/agent-knowledge-cycle/blob/main/docs/adr/0010-human-cognitive-resource-as-central-constraint.md"
     },
     {
