@@ -10,9 +10,9 @@ authors:
     alias: shimo4228
     orcid: "https://orcid.org/0009-0002-6168-4162"
 license: MIT
-doi: 10.5281/zenodo.21644565
+doi: 10.5281/zenodo.22216991
 repository-code: https://github.com/shimo4228/agent-knowledge-cycle
-url: https://doi.org/10.5281/zenodo.21644565
+url: https://doi.org/10.5281/zenodo.22216991
 keywords:
   - ai-agent
   - self-improvement
@@ -35,6 +35,9 @@ identifiers:
   - type: swh
     value: "swh:1:snp:12c661ce28c9f5ed2b50f1c8f77ef184a02cd237"
     description: "Software Heritage snapshot of v2.6.0"
+  - type: swh
+    value: "swh:1:snp:c3933a5a9d56062620feac2f45f0ec8b6ea19467"
+    description: "Software Heritage snapshot of v2.7.0"
 references:
   - type: software
     title: "Contemplative Agent"

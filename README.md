@@ -213,15 +213,15 @@ If you use or reference AKC, cite the archived release metadata in
   author       = {Shimomoto, Tatsuya},
   title        = {Agent Knowledge Cycle (AKC)},
   year         = {2026},
-  version      = {2.6.0},
-  doi          = {10.5281/zenodo.21644565},
-  url          = {https://doi.org/10.5281/zenodo.21644565},
+  version      = {2.7.0},
+  doi          = {10.5281/zenodo.22216991},
+  url          = {https://doi.org/10.5281/zenodo.22216991},
   note         = {A knowledge cycle for AI agents -- agent behavior compounds, human judgment sharpens}
 }
 ```
 
 In text: Shimomoto, T. (2026). *Agent Knowledge Cycle (AKC)*.
-doi:[10.5281/zenodo.21644565](https://doi.org/10.5281/zenodo.21644565).
+doi:[10.5281/zenodo.22216991](https://doi.org/10.5281/zenodo.22216991).
 
 ## Related Work
 
