@@ -61,6 +61,14 @@ Two features distinguish this observation. The evidence class was **vendor discl
 
 A third feature is measurable only in aggregate: after the cut, the largest resident cost in that harness was no longer the rules layer but the skill listing — 60 skill descriptions totalling 23,473 characters against a listing budget of roughly 1% of the context window. Dissolution relocates the constraint rather than removing it.
 
+### 2026-09-05 — platform absorption of a documentation scaffold (hand-maintained codemaps → language server)
+
+A fifth observation extends platform absorption from *skills* to *documents*. The operator's repos each carried `docs/CODEMAPS/`: hand-maintained Markdown describing file-level code structure (module inventories, import graph, per-pipeline data-flow prose) for the LLM of the next session to read. In the largest repo the set had grown to six files and ~205 KB — the architecture file alone ~30k tokens — and since June it had taken 159 commits to keep aligned with 197 source commits. Nobody read it: the author never did, and no session was observed reaching for it — sessions reach for the language server, `grep`, and the ADR a docstring cites.
+
+The absorbing feature was the coding platform's native LSP tool: symbol search, references, and call hierarchy answered live from the checkout (`incomingCalls` on one function → 17 callers, line-accurate, no install beyond the pyright already present). With that in place the codemap's structural content had an information differential of zero — a stored snapshot of what the tool derives on demand — and its remaining prose had a *negative* differential: the dated brackets threaded through the data-flow sections were a changelog inlined into the body, duplicating `git log` at the cost of one sync commit per source commit. A bounded audit before deletion found 25 of 27 rationale items already present in the owning ADR or in the docstring beside the guard; two were moved, nothing else.
+
+The retirement removed the documents, the freshness hook and readings that policed them, and — at the harness level — the skill and agent that produced them, so the mechanism cannot regrow. An independent build-or-not review had recommended keeping a per-repo opt-out instead of removing the producer; the author overrode it, and the difference is recorded in the harness ADR as a transfer condition. That is the caveat this observation carries for the Completion Criterion below: the evidence here is a **reader-side instrument run plus a measured maintenance cost**, not a held-out transfer. It is necessary evidence — the scaffold's premise (a reader with no symbol index) has expired, the way the 2026-07-25 premise expired — but the transfer half arrives only as the nine sibling repos that still hold codemaps, this one included, delete theirs and answer structure questions without them.
+
 ## Why This Happens
 
 ### User-side learning

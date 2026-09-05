@@ -60,6 +60,14 @@ Phase 3: スキルは不要になる
 
 第三の特徴は集計でのみ計測できる。削減の後、そのハーネスで最大の常駐コストは rules 層ではなく skill listing になった — 60 個の skill description が計 23,473 文字で、listing の予算はコンテキストウィンドウの約 1% である。溶解は制約を取り除くのではなく、移動させる。
 
+### 2026-09-05 — 文書足場のプラットフォーム吸収 (手保守の codemap → language server)
+
+5 つ目の観測は、プラットフォーム吸収を*スキル*から*文書*へ広げた。著者の各 repo は `docs/CODEMAPS/` を持っていた — 次セッションの LLM が読むための、file-level のコード構造（モジュール一覧・import グラフ・パイプラインごとのデータフロー散文）を手で保守した Markdown である。最大の repo では 6 枚 ~205 KB に育ち — architecture ファイル単体で ~30k token — 6 月以降、ソース 197 commit に追随するのに 159 commit を費やしていた。誰も読んでいなかった: 著者は一度も読まず、セッションが手を伸ばした証拠も無い — セッションは language server・`grep`・docstring が引く ADR に向かう。
+
+吸収した機能はコーディングプラットフォーム native の LSP tool だった。symbol 検索・参照・call hierarchy を checkout から生で答える（ある関数の `incomingCalls` → 呼び出し元 17 件、行番号まで正確、既にある pyright 以外の導入なし）。これが在る以上、codemap の構造部分の情報差分はゼロ — ツールが都度導出するものの保存スナップショット — で、残る散文の差分は*負*だった: データフロー節に縫い込まれた日付つき括弧は本文に inline された changelog で、`git log` をソース commit 1 件あたり同期 commit 1 件のコストで複製していた。削除前の bounded な監査では、27 の理由項目のうち 25 が所有 ADR か guard の隣の docstring に既にあり、2 件を移して他は何も移さなかった。
+
+退役では文書と、それを監視していた freshness hook・読み値と、harness 側では生産していた skill と agent を消し、機構が再び育たないようにした。独立の build-or-not レビューは producer の削除でなく per-repo opt-out を勧めていた。著者はそれを上書きし、差分は harness ADR に transfer 条件として記録されている。これが本観測が下の完了判定に対して抱える留保である: ここでの証拠は**読者側の計器実走と実測した保守コスト**であって、held-out transfer ではない。必要証拠ではある — 足場の前提（symbol index を持たない読者）は 2026-07-25 の前提と同じ仕方で失効した — が、transfer の半分は、この repo を含めまだ codemap を持つ sibling 9 repo が自分のものを削除し、codemap 無しで構造の問いに答えて初めて揃う。
+
 ## Why This Happens
 
 ### ユーザー側の学習
