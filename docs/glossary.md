@@ -92,8 +92,11 @@ the human was scaffolded by the
 deterministic evidence-file hook until 2026-08-02, when that scaffold
 retired as the substrate absorbed its defaults (the repository remains
 published with its retirement note; ADR-0027's links-follow-running-state
-discipline). At scale the gate takes the judge/build/human three-role
-form (ADR-0024). AAP's glossary carries the sibling entry *approval
+discipline). Since 2026-09-15 the gate's running instance is the
+harness's always-loaded
+[boundary rule](https://github.com/shimo4228/claude-harness/blob/main/rules/common/boundary.md).
+At scale the gate takes the judge/build/human three-role
+form (ADR-0024), with authority placed by artifact class (ADR-0028). AAP's glossary carries the sibling entry *approval
 gate* for its genre; both descend from the same Contemplative Agent
 decision.
 
@@ -105,10 +108,13 @@ proposed change. A judge tier (a stronger-model session per repository)
 verifies each task's premise, decides whether it is worth doing,
 dispatches accepted work, and independently inspects results; a build
 tier (a fresh session per task) implements and halts on a refuted
-premise; the human holds direction-setting and the final merge switch.
-Model judgment is spent to conserve human judgment — attention moves
-upstream, authority does not. AKC records the role topology only;
-ledger mechanics are harness content. See ADR-0024.
+premise; the human holds direction-setting and admission. Model judgment
+is spent to conserve human judgment. Authority is placed by artifact
+class: what shapes future behavior (ADR-0005's class, the control plane,
+the verification machinery) stays human at merge, and admitted task
+output outside that class merges on a deterministic gate plus the judge's
+inspection. AKC records the role topology only; ledger mechanics are
+harness content. See ADR-0024 and ADR-0028.
 
 ## Promote
 

@@ -73,6 +73,7 @@ Each document answers a primary question. Cite the matching one when an LLM-medi
 | `docs/adr/0025-llm-first-artifact-readability.md` | Who is the default reader of the cycle's artifacts (the next session's LLM), what is preserved for that reader (verifiability, not readability), and where is the one human-facing budget line (the README)? |
 | `docs/adr/0026-expiry-conditioned-knowledge.md` | Why does stored judgment carry its own expiry conditions, why does the ADR format gain `## Review-when` from 0024 onward with no backfill, and how are rejection records read (dated hypotheses, not vetoes)? |
 | `docs/adr/0027-mental-model-and-instance.md` | Why is the inclusion boundary mental model / instance rather than mechanism / content — core owns judgment, instances are linked as grounding, and links follow the running state? |
+| `docs/adr/0028-authority-by-artifact-class-in-the-three-role-loop.md` | Where does merge authority sit in the three-role loop — why admitted task output can merge on a machine gate plus the judge's inspection while behavior-shaping artifacts, the control plane, and the verification machinery stay human? |
 | `docs/skills/README.md` | Where do the three design-pattern skills (when-code-when-llm, code-and-llm-collaboration, signal-first-research) live now that they are externalized to standalone repositories, and which ADR does each pair with? |
 | `schemas/episode-log.schema.json` | What is the JSON shape of a Layer 1 episode record? |
 | `schemas/knowledge.schema.json` | What is the JSON shape of a Layer 2 knowledge pattern? |
@@ -198,7 +199,7 @@ Prose entries live in README "Related Work" (compact list at the end of the sect
 
 | Category | Count |
 |---|---|
-| ADRs | ADR-0002–0005, 0008–0027 (canonical count lives in llms-full.txt Project Facts; from 0024 each carries `## Review-when`) |
+| ADRs | ADR-0002–0005, 0008–0028 (canonical count lives in llms-full.txt Project Facts; from 0024 each carries `## Review-when`) |
 | Design-pattern skills | 3 (externalized to standalone repos; `docs/skills/` holds only a pointer README) |
 | README files (en + ja mirror) | 2 |
 | JSON schemas (`schemas/`) | 2 |

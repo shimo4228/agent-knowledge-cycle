@@ -66,7 +66,7 @@ Curate, Promote, Measure, Maintain — 後述の *The cycle* 参照）。7 ヶ�
 | **Procedures（手順）** | エージェントがオンデマンドで読み込む段階的スキル — 下のフェーズ表。設計上の足場であり、内在化されたら溶けることを意図しています | 下のフェーズ表 | [ADR-0019](docs/adr/0019-cycle-structure-is-provisional.md), [Scaffold Dissolution](docs/scaffold-dissolution.md) |
 | **Worldviews（世界観）** | 手順でなく既定値を定める小さな常駐ルール。現在 2 つが記録済み: 成果物は次にそれを読む AI セッションに向けて書く; 保存された決定はすべて自らの失効条件を名指しする | [llm-first-code](https://github.com/shimo4228/claude-harness/blob/main/rules/common/llm-first-code.md), [knowledge-staleness](https://github.com/shimo4228/claude-harness/blob/main/rules/common/knowledge-staleness.md) | [ADR-0025](docs/adr/0025-llm-first-artifact-readability.md), [ADR-0026](docs/adr/0026-expiry-conditioned-knowledge.md) |
 | **Enforcement（執行）** | 機械ゲート — lint、型、テスト、凍結された golden 出力 — が成果物の正しさを所有し、人間の目は検査の主体になりません | harness の [hooks](https://github.com/shimo4228/claude-harness/tree/main/hooks)、[verify-bootstrap](https://github.com/shimo4228/claude-harness/tree/main/skills/verify-bootstrap) | [ADR-0008](docs/adr/0008-code-and-llm-collaboration.md) |
-| **Attention topology（注意の配置）** | judge/build/human の三役ループ: judge セッションが各タスクの前提を検証し、やる価値を判定して dispatch し、新しい build セッションが実装し、人間は方向づけと最後のマージスイッチを持ちます | [task-triage](https://github.com/shimo4228/claude-harness/tree/main/skills/task-triage)（dispatch の既定は cloud session、ローカルの pane へは [herdr-toolkit](https://github.com/shimo4228/herdr-toolkit) 経由） | [ADR-0024](docs/adr/0024-judge-build-human-three-role-loop.md) |
+| **Attention topology（注意の配置）** | judge/build/human の三役ループ: judge セッションが各タスクの前提を検証し、やる価値を判定して dispatch し、新しい build セッションが実装します。人間は方向づけとタスクの受け入れを持ち、受け入れたタスクの出力は機械ゲートと judge の検収が通れば judge が取り込みます — rules・skills・制御面・検証の仕組みへの変更は引き続き人間を待ちます | [task-triage](https://github.com/shimo4228/claude-harness/tree/main/skills/task-triage)（dispatch の既定は cloud session、ローカルの pane へは [herdr-toolkit](https://github.com/shimo4228/herdr-toolkit) 経由） | [ADR-0024](docs/adr/0024-judge-build-human-three-role-loop.md), [ADR-0028](docs/adr/0028-authority-by-artifact-class-in-the-three-role-loop.md) |
 
 これらを貫くのが human approval gate
 ([ADR-0005](docs/adr/0005-human-approval-gate.md)) です。どの層であれ、将来の
@@ -75,7 +75,9 @@ Curate, Promote, Measure, Maintain — 後述の *The cycle* 参照）。7 ヶ�
 [boundary.md](https://github.com/shimo4228/claude-harness/blob/main/rules/common/boundary.md) で、人間に渡す
 操作を列挙しています。三役ループは
 このゲートのスケールした姿です — モデルの判断を使って人間の判断を節約し、
-注意は上流へ移りますが、権限は人間に残ります。
+注意は上流へ移ります。権限は artifact の種類で置かれます
+（[ADR-0028](docs/adr/0028-authority-by-artifact-class-in-the-three-role-loop.md)）。将来の挙動を形づくるものは引き続き
+人間を待ち、受け入れ済みのタスクの出力は機械ゲートと judge の検収が通れば取り込まれます。
 
 ## The cycle
 

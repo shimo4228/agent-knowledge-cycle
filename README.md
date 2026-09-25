@@ -70,7 +70,7 @@ four layers, and the decision records — the newest three from September
 | **Procedures** | Step-by-step skills an agent loads on demand — the phase table below. Scaffolding by design: meant to dissolve once internalized | the phase table below | [ADR-0019](docs/adr/0019-cycle-structure-is-provisional.md), [Scaffold Dissolution](docs/scaffold-dissolution.md) |
 | **Worldviews** | Small always-loaded rules that set defaults instead of prescribing steps. Two now recorded: artifacts are written for the next AI session that reads them; every stored decision names what would expire it | [llm-first-code](https://github.com/shimo4228/claude-harness/blob/main/rules/common/llm-first-code.md), [knowledge-staleness](https://github.com/shimo4228/claude-harness/blob/main/rules/common/knowledge-staleness.md) | [ADR-0025](docs/adr/0025-llm-first-artifact-readability.md), [ADR-0026](docs/adr/0026-expiry-conditioned-knowledge.md) |
 | **Enforcement** | Machine gates — lint, types, tests, frozen golden outputs — own artifact correctness, so the human eye is never the checker of record | the harness's [hooks](https://github.com/shimo4228/claude-harness/tree/main/hooks), [verify-bootstrap](https://github.com/shimo4228/claude-harness/tree/main/skills/verify-bootstrap) | [ADR-0008](docs/adr/0008-code-and-llm-collaboration.md) |
-| **Attention topology** | The judge/build/human three-role loop: a judge session verifies each task's premise, decides what is worth doing, and dispatches it; fresh build sessions implement; the human keeps direction and the final merge switch | [task-triage](https://github.com/shimo4228/claude-harness/tree/main/skills/task-triage), dispatching to cloud sessions by default and to local panes via [herdr-toolkit](https://github.com/shimo4228/herdr-toolkit) | [ADR-0024](docs/adr/0024-judge-build-human-three-role-loop.md) |
+| **Attention topology** | The judge/build/human three-role loop: a judge session verifies each task's premise, decides what is worth doing, and dispatches it; fresh build sessions implement; the human sets direction and admits tasks, and the judge merges admitted task output once a machine gate and its own inspection pass — changes to rules, skills, the control plane, or the verify machinery still wait for the human | [task-triage](https://github.com/shimo4228/claude-harness/tree/main/skills/task-triage), dispatching to cloud sessions by default and to local panes via [herdr-toolkit](https://github.com/shimo4228/herdr-toolkit) | [ADR-0024](docs/adr/0024-judge-build-human-three-role-loop.md), [ADR-0028](docs/adr/0028-authority-by-artifact-class-in-the-three-role-loop.md) |
 
 The through-line is the human approval gate
 ([ADR-0005](docs/adr/0005-human-approval-gate.md)): whatever the layer, no
@@ -79,8 +79,10 @@ running harness the gate is one always-loaded rule,
 [boundary.md](https://github.com/shimo4228/claude-harness/blob/main/rules/common/boundary.md), which lists what
 is handed to the human. The
 three-role loop is that gate at scale — model judgment is spent to conserve
-human judgment, and attention moves upstream while authority stays with the
-human.
+human judgment, and attention moves upstream. Authority is placed by artifact
+class ([ADR-0028](docs/adr/0028-authority-by-artifact-class-in-the-three-role-loop.md)): anything that shapes future
+behavior still waits for the human, while admitted task output merges once a
+machine gate and the judge's inspection pass.
 
 ## The cycle
 
