@@ -116,6 +116,7 @@ its own installable repository; the paired ADRs stay here.
 
 Running instances of the judge pattern in the author's harness (relation facts, not part of AKC core):
 
+- [llm-as-judge](https://github.com/shimo4228/llm-as-judge): the LLM side of the pattern — binary checks as evidence, one named verdict, no score aggregation; the enforce side is outside its scope
 - [jev-judgment-design](https://github.com/shimo4228/claude-harness/tree/main/skills/jev-judgment-design): moves closed LLM judgments (relevant? new? how strong?) to a typed judgment model that answers with probabilities; code decides acceptance
 - [jev-skill-router](https://github.com/shimo4228/jev-skill-router): skill selection as a typed judgment over the installed-skill roster, shadow-first; its README records why it is unlikely to help a strong model as a router
 
@@ -166,7 +167,10 @@ running instance is claude-harness's always-loaded
 what is handed to the human. Intent alignment (the second core theme) is
 grounded in [author-calibrated-eval](https://github.com/shimo4228/claude-harness/tree/main/skills/author-calibrated-eval),
 where the author's blind reading decides what is worth reading and an LLM judge
-only screens fidelity.
+only screens fidelity. Scaffold Dissolution also has a design-time instance,
+[harness-boundary](https://github.com/shimo4228/claude-harness/tree/main/skills/harness-boundary), which asks
+before a mechanism is added whether the next model generation will make it
+unnecessary.
 
 ## Related repositories
 

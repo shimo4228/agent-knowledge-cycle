@@ -16,6 +16,9 @@ Running instances of the judge pattern (ADR-0008) in the author's harness —
 relation facts, linked under the grounding rule of
 [ADR-0027](../adr/0027-mental-model-and-instance.md):
 
+- [llm-as-judge](https://github.com/shimo4228/llm-as-judge) designs the LLM
+  side of the pattern — binary checks as evidence, one named verdict, no
+  score aggregation; the enforce side is outside its scope.
 - [jev-judgment-design](https://github.com/shimo4228/claude-harness/tree/main/skills/jev-judgment-design)
   moves closed LLM judgments to a typed judgment model that answers with
   probabilities; code decides acceptance.

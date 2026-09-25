@@ -773,7 +773,7 @@
       "@id": "https://github.com/shimo4228/claude-harness",
       "@type": ["EcosystemRepo", "SoftwareSourceCode"],
       "name": "claude-harness",
-      "description": "Bundled distribution of the author's Claude Code harness — the running system the AKC cycle operates on and co-evolves with. As of 2026-09 it ships an origin-tracked library of some 58 skills (the six AKC cycle skills among them, each also published as its own standalone repo), a worldview rules layer (always-loaded rules such as LLM-first artifact readability and knowledge staleness, whose AKC-side judgments are ADR-0025 and ADR-0026), deterministic hooks and machine gates, and a public rfcs/ task ledger operated by the judge/build/human three-role triage loop (ADR-0024), whose build sessions run as cloud sessions by default since 2026-09-24. Since 2026-09-15 its always-loaded boundary rule (rules/common/boundary.md) is the running instance of the human approval gate (ADR-0005): one list of what is handed to the human (publication, billing, outbound messages, and unattended changes to rules, hooks, permissions, scheduled tasks, the verify gate, ADRs, and skills), the risks taken without asking, and the conditions for stopping. The author-calibrated-eval skill (2026-09-25) grounds intent alignment in an evaluation loop for generated reading material: the author's blind reading is the target for what is worth reading, an LLM judge only screens fidelity to the source material, and code checks form. The jev-judgment-design skill (2026-09-23) grounds the code-LLM judge pattern (ADR-0008): closed judgments move to a typed judgment model that answers with probabilities, and code decides acceptance. Its own ADR series records the harness-side lineage of these practices.",
+      "description": "Bundled distribution of the author's Claude Code harness — the running system the AKC cycle operates on and co-evolves with. As of 2026-09 it ships an origin-tracked library of some 58 skills (the six AKC cycle skills among them, each also published as its own standalone repo), a worldview rules layer (always-loaded rules such as LLM-first artifact readability and knowledge staleness, whose AKC-side judgments are ADR-0025 and ADR-0026), deterministic hooks and machine gates, and a public rfcs/ task ledger operated by the judge/build/human three-role triage loop (ADR-0024), whose build sessions run as cloud sessions by default since 2026-09-24. Since 2026-09-15 its always-loaded boundary rule (rules/common/boundary.md) is the running instance of the human approval gate (ADR-0005): one list of what is handed to the human (publication, billing, outbound messages, and unattended changes to rules, hooks, permissions, scheduled tasks, the verify gate, ADRs, and skills), the risks taken without asking, and the conditions for stopping. The author-calibrated-eval skill (2026-09-25) grounds intent alignment in an evaluation loop for generated reading material: the author's blind reading is the target for what is worth reading, an LLM judge only screens fidelity to the source material, and code checks form. The jev-judgment-design skill (2026-09-23) grounds the code-LLM judge pattern (ADR-0008): closed judgments move to a typed judgment model that answers with probabilities, and code decides acceptance. Three older skills ground concepts the same way: harness-boundary asks, before a mechanism enters the harness, whether the next model generation will make it unnecessary and can return Make temporary or Delete — Scaffold Dissolution applied at design time rather than at retirement; review-to-lint moves the machine-decidable items of an LLM reviewer's checklist into a deterministic script and leaves the reviewer only the semantic checks — code-LLM layering applied to review; and adr-writer makes every decision record carry a Review-when section of expiry conditions and routes decisions below the ADR bar into commit bodies that carry the same Context / Decision / Review-when triple — expiry-conditioned knowledge in its running form. Its own ADR series records the harness-side lineage of these practices.",
       "url": "https://github.com/shimo4228/claude-harness",
       "extends": "https://doi.org/10.5281/zenodo.19200726",
       "implements": [
@@ -782,7 +782,9 @@
         "https://shimo4228.github.io/shimo4228/vocab#akc/concept/expiry-conditioned-knowledge",
         "https://shimo4228.github.io/shimo4228/vocab#akc/concept/human-approval-gate",
         "https://shimo4228.github.io/shimo4228/vocab#akc/concept/intent-alignment",
-        "https://shimo4228.github.io/shimo4228/vocab#akc/pattern/judge"
+        "https://shimo4228.github.io/shimo4228/vocab#akc/pattern/judge",
+        "https://shimo4228.github.io/shimo4228/vocab#concept/scaffold-dissolution",
+        "https://shimo4228.github.io/shimo4228/vocab#akc/concept/code-llm-layering"
       ]
     },
     {
@@ -802,6 +804,17 @@
       "name": "jev-skill-router",
       "description": "Claude Code plugin (a UserPromptSubmit hook) that sends each prompt and the installed-skill roster to TypeSafe's Jev judgment model as two typed requests, gets probabilities back, and lets code decide whether to name at most one skill — recording the decision only (shadow) or injecting a one-line pointer (inject). An instance of the code-LLM judge pattern (ADR-0008) in the author's harness since 2026-09-21, also bundled in claude-harness. Its README records why it is unlikely to help a strong model as a router; it stays in shadow mode as an instrument. Relation fact only.",
       "url": "https://github.com/shimo4228/jev-skill-router",
+      "implements": "https://shimo4228.github.io/shimo4228/vocab#akc/pattern/judge"
+    },
+    {
+      "@id": "https://github.com/shimo4228/llm-as-judge",
+      "@type": [
+        "EcosystemRepo",
+        "SoftwareSourceCode"
+      ],
+      "name": "llm-as-judge",
+      "description": "Agent Skill for designing LLM-as-judge evaluators: binary checks as evidence, one named holistic verdict, no score aggregation. It grounds the LLM side of the code-LLM judge pattern (ADR-0008) — the bounded, named options the judge chooses among — and states that the enforce side (code taking the deterministic action) is outside its scope. Also bundled in claude-harness. Relation fact only.",
+      "url": "https://github.com/shimo4228/llm-as-judge",
       "implements": "https://shimo4228.github.io/shimo4228/vocab#akc/pattern/judge"
     },
     {
