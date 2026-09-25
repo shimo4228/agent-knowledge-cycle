@@ -216,14 +216,14 @@ AKC を使用・参照する場合は、[`CITATION.cff`](CITATION.cff)
   title        = {Agent Knowledge Cycle (AKC)},
   year         = {2026},
   version      = {2.8.0},
-  doi          = {10.5281/zenodo.22216991},
-  url          = {https://doi.org/10.5281/zenodo.22216991},
+  doi          = {10.5281/zenodo.22960535},
+  url          = {https://doi.org/10.5281/zenodo.22960535},
   note         = {A knowledge cycle for AI agents -- agent behavior compounds, human judgment sharpens}
 }
 ```
 
 本文中では: Shimomoto, T. (2026). *Agent Knowledge Cycle (AKC)*.
-doi:[10.5281/zenodo.22216991](https://doi.org/10.5281/zenodo.22216991).
+doi:[10.5281/zenodo.22960535](https://doi.org/10.5281/zenodo.22960535).
 
 ## Related Work
 
