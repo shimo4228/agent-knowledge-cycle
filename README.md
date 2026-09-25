@@ -153,7 +153,6 @@ the cycle is internalized
 | AI navigation | [`graph.jsonld`](graph.jsonld) for the concept map, [`llms.txt`](llms.txt) for routing, [`llms-full.txt`](llms-full.txt) for a self-contained factual reference (includes the design principles) |
 | Specifications | [`schemas/episode-log.schema.json`](schemas/episode-log.schema.json), [`schemas/knowledge.schema.json`](schemas/knowledge.schema.json) |
 | Reference implementation | [`examples/minimal_harness/`](examples/minimal_harness/), a dependency-free Python demo of the three-layer memory model (raw episodes → knowledge → identity/rules, a lower-level store than the four operational layers above) and its two-stage distill pipeline |
-| Routing map | [`docs/CODEMAPS/architecture.md`](docs/CODEMAPS/architecture.md), the canonical file-level navigation index |
 | Open proposals | [`rfcs/`](rfcs/), the public ledger of not-yet-decided proposals (decisions land in ADRs) |
 
 ## Limitations

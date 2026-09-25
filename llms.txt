@@ -64,7 +64,6 @@
 - [Knowledge Graph (JSON-LD)](graph.jsonld): machine-readable schema.org graph of the six phases, three memory layers, four code-LLM layering patterns, and the current phase-to-skill scaffolding (a mutable snapshot, not a fixed bijection; ADR-0019) — bidirectional growth loop and genre-neutrality encoded at the schema level
 - [AI Reference](llms-full.txt): self-contained Q&A + definitions + prior research, optimized for AI search engines
 - [README](README.md): minimal-floor project overview — the three core themes (single presentation, ADR-0020), cycle, install, citation
-- [Codemap — Document Architecture](docs/CODEMAPS/architecture.md): document-role index, three-themes / six-phases / three-memory-layers structure, citation-dependency graph, invariants — read first when routing a citation to the canonical AKC document
 - [AKC Cycle Rules](docs/akc-cycle.md): the cycle as a single rules file, copy-installable to any agent's rules directory
 - [Scaffold Dissolution](docs/scaffold-dissolution.md): how skills become unnecessary once the cycle is internalized
 - [AKC and the AI-Native SDLC Playbook](docs/ai-native-sdlc-correspondence.md): two-loop correspondence with Anthropic's AI-native SDLC playbook (2026-08-21, pinned to its 2026-08-24 archive) — the playbook runs the product loop and scatters the harness loop unnamed across its stages; Maintain is a false friend, intent.md maps to an RFC-form proposal record, and continuous evals carry an operator-scale condition. Japanese mirror at docs/ai-native-sdlc-correspondence.ja.md

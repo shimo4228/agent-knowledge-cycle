@@ -66,7 +66,7 @@ Phase 3: スキルは不要になる
 
 吸収した機能はコーディングプラットフォーム native の LSP tool だった。symbol 検索・参照・call hierarchy を checkout から生で答える（ある関数の `incomingCalls` → 呼び出し元 17 件、行番号まで正確、既にある pyright 以外の導入なし）。これが在る以上、codemap の構造部分の情報差分はゼロ — ツールが都度導出するものの保存スナップショット — で、残る散文の差分は*負*だった: データフロー節に縫い込まれた日付つき括弧は本文に inline された changelog で、`git log` をソース commit 1 件あたり同期 commit 1 件のコストで複製していた。削除前の bounded な監査では、27 の理由項目のうち 25 が所有 ADR か guard の隣の docstring に既にあり、2 件を移して他は何も移さなかった。
 
-退役では文書と、それを監視していた freshness hook・読み値と、harness 側では生産していた skill と agent を消し、機構が再び育たないようにした。独立の build-or-not レビューは producer の削除でなく per-repo opt-out を勧めていた。著者はそれを上書きし、差分は harness ADR に transfer 条件として記録されている。これが本観測が下の完了判定に対して抱える留保である: ここでの証拠は**読者側の計器実走と実測した保守コスト**であって、held-out transfer ではない。必要証拠ではある — 足場の前提（symbol index を持たない読者）は 2026-07-25 の前提と同じ仕方で失効した — が、transfer の半分は、この repo を含めまだ codemap を持つ sibling 9 repo が自分のものを削除し、codemap 無しで構造の問いに答えて初めて揃う。
+退役では文書と、それを監視していた freshness hook・読み値と、harness 側では生産していた skill と agent を消し、機構が再び育たないようにした。独立の build-or-not レビューは producer の削除でなく per-repo opt-out を勧めていた。著者はそれを上書きし、差分は harness ADR に transfer 条件として記録されている。これが本観測が下の完了判定に対して抱える留保である: ここでの証拠は**読者側の計器実走と実測した保守コスト**であって、held-out transfer ではない。必要証拠ではある — 足場の前提（symbol index を持たない読者）は 2026-07-25 の前提と同じ仕方で失効した — が、transfer の半分は、この repo を含めまだ codemap を持つ sibling 9 repo が自分のものを削除し、codemap 無しで構造の問いに答えて初めて揃う。2026-09-26 に本 repo は自分の `docs/CODEMAPS/`（2 枚）を削除した。architecture ファイルが持っていた不変条件のうち、ADR にも CLAUDE.md にも無かった 3 つを CLAUDE.md へ移し、他は何も移さなかった。これは削除であってまだ transfer ではない — transfer の証拠は、以後のセッションがこの repo を codemap 無しで辿れることである。
 
 ## Why This Happens
 

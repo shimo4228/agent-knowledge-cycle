@@ -19,7 +19,6 @@ front-door documentation で必ず先に登場させる 3 つの load-bearing �
 3. [`llms-full.txt`](llms-full.txt) — consolidated Q&A + factual reference
 4. [`README.md`](README.md) (or [`README.ja.md`](README.ja.md)) — three themes、全体像
 5. [`docs/adr/`](docs/adr/) — judgment lineage (count の正本は llms-full.txt; gaps at 0001/0006/0007 are intentional)
-6. [`docs/CODEMAPS/architecture.md`](docs/CODEMAPS/architecture.md) — file-level routing index (code を navigate する時)
 
 ## Sibling projects (context を失わない)
 
@@ -118,11 +117,12 @@ ADR 番号は permanent identifier。gap (0001 / 0006 / 0007) は v2.0.0 で AAP
 
 ## ディレクトリ
 
-repo の構造と各 doc の役割は [`docs/CODEMAPS/architecture.md`](docs/CODEMAPS/architecture.md) を canonical として参照。
+file-level の索引は持たない。構造は `git ls-files` と各 doc 自身（ADR の題名・llms.txt の一覧）から都度引く — 手保守の `docs/CODEMAPS/` は 2026-09-26 に削除した（harness ADR-0062 と同じ判断。経緯は [`docs/scaffold-dissolution.md`](docs/scaffold-dissolution.md) の 2026-09-05 項）。
 
-[`graph.jsonld`](graph.jsonld) と [`docs/CODEMAPS/architecture.md`](docs/CODEMAPS/architecture.md) は同じ project を **異なる abstraction 層** で扱う:
+concept-level の正本は [`graph.jsonld`](graph.jsonld)（「X とは何か、X と Y はどう関係するか」を JSON-LD triples で encode。AI search engine + LLM が entity を citation する時に読む）。新規 ADR / Concept / EcosystemRepo 追加時は graph.jsonld と llms.txt / llms-full.txt を更新する。
 
-- **CODEMAPS = file-level**: 「どのファイル / モジュールに X が住んでいるか」を prose で記述。人間 + agent が code を navigate する時に読む
-- **graph.jsonld = concept-level**: 「X とは何か、X と Y はどう関係するか」を JSON-LD triples で encode。AI search engine + LLM が entity を citation する時に読む
+### 編集時の不変条件
 
-両者は重複せず相補的。新規 ADR / Concept / EcosystemRepo 追加時は **両面で更新** する。役割境界は AAP の CLAUDE.md と同じ規約に従う。
+- **Tagline**: *"A knowledge cycle for AI agents — agent behavior compounds, human judgment sharpens"* を README の en / ja 両方で保つ (ADR-0021)
+- **README の en / ja 対応**: 両版の H2 / H3 構造を揃える。訳語の正本は [`docs/translation-glossary.md`](docs/translation-glossary.md)
+- **4 パターンの正本は ADR-0008**: guard / filter / judge / orchestrator の定義が graph.jsonld・llms-full.txt と食い違ったら ADR-0008 が正で、他が drift

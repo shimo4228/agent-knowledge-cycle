@@ -149,7 +149,6 @@ AKC が定義するのはサイクルであって実装ではないからです�
 | AI ナビゲーション | 概念マップの [`graph.jsonld`](graph.jsonld)、ルーティングの [`llms.txt`](llms.txt)、自己完結の事実リファレンス [`llms-full.txt`](llms-full.txt)（設計原則を含む） |
 | 仕様 | [`schemas/episode-log.schema.json`](schemas/episode-log.schema.json)、[`schemas/knowledge.schema.json`](schemas/knowledge.schema.json) |
 | リファレンス実装 | [`examples/minimal_harness/`](examples/minimal_harness/) — 3 層メモリモデル（生エピソード → 知識 → identity/rules。上の 4 運用層より低レベルの保存層です）と 2 段階 distill パイプラインの依存ゼロ Python デモ |
-| ルーティングマップ | [`docs/CODEMAPS/architecture.md`](docs/CODEMAPS/architecture.md) — ファイルレベルの正準ナビゲーション索引 |
 | 未決の提案 | [`rfcs/`](rfcs/) — まだ決定していない提案の公開台帳（決定は ADR に着地します） |
 
 ## Limitations
