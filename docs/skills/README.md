@@ -12,6 +12,18 @@ The paired ADRs (the "why") remain in this repository.
 | code-and-llm-collaboration | [shimo4228/code-and-llm-collaboration](https://github.com/shimo4228/code-and-llm-collaboration) | [ADR-0008](../adr/0008-code-and-llm-collaboration.md) | Per-pipeline decision: four layering patterns for mixing deterministic code and LLM calls |
 | signal-first-research | [shimo4228/signal-first-research](https://github.com/shimo4228/signal-first-research) | [ADR-0010](../adr/0010-human-cognitive-resource-as-central-constraint.md) | Design a research intake filter that admits only information likely to change your next action |
 
+Running instances of the judge pattern (ADR-0008) in the author's harness —
+relation facts, linked under the grounding rule of
+[ADR-0027](../adr/0027-mental-model-and-instance.md):
+
+- [jev-judgment-design](https://github.com/shimo4228/claude-harness/tree/main/skills/jev-judgment-design)
+  moves closed LLM judgments to a typed judgment model that answers with
+  probabilities; code decides acceptance.
+- [jev-skill-router](https://github.com/shimo4228/jev-skill-router) treats
+  skill selection as a typed judgment over the installed-skill roster,
+  shadow-first; its README records why it is unlikely to help a strong model
+  as a router.
+
 ## Installing
 
 Each repository follows the standard Agent Skills layout

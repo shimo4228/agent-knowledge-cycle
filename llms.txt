@@ -111,6 +111,11 @@ its own installable repository; the paired ADRs stay here.
 - [code-and-llm-collaboration](https://github.com/shimo4228/code-and-llm-collaboration): per-pipeline decision — four layering patterns (guard, filter, judge, orchestrator). Paired with ADR-0008
 - [signal-first-research](https://github.com/shimo4228/signal-first-research): design a research intake filter that admits only information likely to change the next action; paired with ADR-0010
 
+Running instances of the judge pattern in the author's harness (relation facts, not part of AKC core):
+
+- [jev-judgment-design](https://github.com/shimo4228/claude-harness/tree/main/skills/jev-judgment-design): moves closed LLM judgments (relevant? new? how strong?) to a typed judgment model that answers with probabilities; code decides acceptance
+- [jev-skill-router](https://github.com/shimo4228/jev-skill-router): skill selection as a typed judgment over the installed-skill roster, shadow-first; its README records why it is unlikely to help a strong model as a router
+
 ## Specifications
 
 - [Episode log schema](schemas/episode-log.schema.json): Layer 1 record shape
@@ -144,12 +149,21 @@ One further repo scaffolds a load-bearing concept rather than a phase, with
 the same mutable-snapshot status:
 [generation-audit](https://github.com/shimo4228/generation-audit)
 scaffolds Scaffold Dissolution's model-generation trigger (the instrument
-behind ADR-0023's generation-review evidence class). A second concept
+behind ADR-0023's generation-review evidence class). Since v2 (2026-09-25) it
+runs a runtime cross-check against the loaded system prompt and delegates the
+dated-pattern scan to the model vendor's bundled prompt-audit procedure rather
+than keeping its own copy of the pattern table. A second concept
 scaffold, [human-gate](https://github.com/shimo4228/human-gate) (the approval
 gate's presentation split), was retired from the running harness on
 2026-08-02 as the substrate absorbed its defaults — the repository remains
 published with its retirement note, and its front-door link was removed under
-ADR-0027's links-follow-running-state discipline.
+ADR-0027's links-follow-running-state discipline. Since 2026-09-15 the gate's
+running instance is claude-harness's always-loaded
+[boundary rule](https://github.com/shimo4228/claude-harness/blob/main/rules/common/boundary.md), one list of
+what is handed to the human. Intent alignment (the second core theme) is
+grounded in [author-calibrated-eval](https://github.com/shimo4228/claude-harness/tree/main/skills/author-calibrated-eval),
+where the author's blind reading decides what is worth reading and an LLM judge
+only screens fidelity.
 
 ## Related repositories
 

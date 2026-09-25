@@ -185,8 +185,9 @@ contemplative-agent                      ← two-way relationship. Upstream: the
 | [attention-not-self](https://github.com/shimo4228/attention-not-self) | Sibling research line, federated at the research-ecosystem level | 10.5281/zenodo.20262112 |
 | [doctrine-corpus](https://github.com/shimo4228/doctrine-corpus) | Judgment Q&A corpus; AKC is one of four source lines | 10.5281/zenodo.20337008 |
 | [existence-proof](https://github.com/shimo4228/existence-proof) | Pre-line working repo, complement of authorship-strategy | 10.5281/zenodo.20558800 |
-| [claude-harness](https://github.com/shimo4228/claude-harness) | Bundled distribution of the operator's harness — skills (incl. the six cycle skills), worldview rules layer, machine gates, public rfcs/ ledger run by the three-role loop (ADR-0024) | — |
-| [herdr-toolkit](https://github.com/shimo4228/herdr-toolkit) | Build-dispatch substrate of the three-role loop in the operator's practice (relation fact only) | — |
+| [claude-harness](https://github.com/shimo4228/claude-harness) | Bundled distribution of the operator's harness — skills (incl. the six cycle skills), worldview rules layer, machine gates, public rfcs/ ledger run by the three-role loop (ADR-0024); also grounds the human approval gate (boundary rule), intent alignment (author-calibrated-eval), and the judge pattern (jev-judgment-design) | — |
+| [herdr-toolkit](https://github.com/shimo4228/herdr-toolkit) | Local build-dispatch path of the three-role loop (the default moved to cloud sessions on 2026-09-24; relation fact only) | — |
+| [jev-skill-router](https://github.com/shimo4228/jev-skill-router) | Judge-pattern instance: skill selection as a typed judgment, shadow-first (relation fact only) | — |
 | [akc-mcp](https://github.com/shimo4228/akc-mcp) | MCP server exposing the cycle's cognitive operations | — |
 | [daily-research](https://github.com/shimo4228/daily-research) | Pre-AKC ancestor of the Research phase (see `docs/inspiration.md`) | — |
 | [shimo4228 hub](https://github.com/shimo4228/shimo4228) | Canonical research-ecosystem relationship map (graph.jsonld) | — |

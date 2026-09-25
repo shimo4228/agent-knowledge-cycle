@@ -158,7 +158,7 @@
         {"@value": "Maintain", "@language": "en"},
         {"@value": "Maintain（保守）", "@language": "ja"}
       ],
-      "description": "Sixth of six AKC phases. Audit documentation roles for overlap and stale content; keep CLAUDE.md / CODEMAPS / ADR / README clean. Currently scaffolded by two scaffolds (a snapshot, mutable; ADR-0019): context-sync audits documentation role coherence and freshness; repo-asset-stocktake audits the repository's other non-code assets — tool configs, CI workflows, runbooks — for consumers that have vanished (Keep / Update / Retire / Merge).",
+      "description": "Sixth of six AKC phases. Audit documentation roles for overlap and stale content; keep CLAUDE.md / ADR / README clean. Currently scaffolded by two scaffolds (a snapshot, mutable; ADR-0019): context-sync audits documentation role coherence and freshness; repo-asset-stocktake audits the repository's other non-code assets — tool configs, CI workflows, runbooks — for consumers that have vanished (Keep / Update / Retire / Merge).",
       "ordinal": 6
     },
 
@@ -631,7 +631,7 @@
       "@id": "https://github.com/shimo4228/generation-audit",
       "@type": ["EcosystemRepo", "SoftwareSourceCode"],
       "name": "generation-audit",
-      "description": "Skill scaffolding Scaffold Dissolution's model-generation trigger (a snapshot, mutable; ADR-0019). When a model generation ships, it captures the live runtime layer (system prompt + tool descriptions) in verbatim quotes, classifies mismatches with self-authored assets as conflict / redundancy / drift, judges each with an intent / evidence / freshness / expiry frame, and hands the evidence dossier to the per-asset-class stocktake skills — it holds no verdicts itself. The instrument that produces generation review, the fourth retirement evidence class (ADR-0023).",
+      "description": "Skill scaffolding Scaffold Dissolution's model-generation trigger (a snapshot, mutable; ADR-0019). Since 2026-09-25 (v2) it is the single entry for generation-change audits and runs two checks in one pass: a runtime cross-check of self-authored assets against the system prompt and tool descriptions actually loaded at inference time (conflict / redundancy), and a dated-pattern scan delegated to the model vendor's own prompt-audit procedure bundled with Claude Code — the pattern table is read at run time, not copied, so the audit's own catalog of outdated patterns has dissolved downward into the vendor. It judges each finding with an intent / evidence / freshness / expiry frame, applies high- and medium-confidence line fixes under explicit consent, and hands whole-asset verdicts to the per-asset-class stocktake skills. The instrument that produces generation review, the fourth retirement evidence class (ADR-0023).",
       "url": "https://github.com/shimo4228/generation-audit",
       "extends": "https://doi.org/10.5281/zenodo.19200726",
       "implements": "https://shimo4228.github.io/shimo4228/vocab#concept/scaffold-dissolution",
@@ -762,22 +762,36 @@
       "@id": "https://github.com/shimo4228/claude-harness",
       "@type": ["EcosystemRepo", "SoftwareSourceCode"],
       "name": "claude-harness",
-      "description": "Bundled distribution of the author's Claude Code harness — the running system the AKC cycle operates on and co-evolves with. As of 2026-09 it ships an origin-tracked library of some 58 skills (the six AKC cycle skills among them, each also published as its own standalone repo), a worldview rules layer (always-loaded rules such as LLM-first artifact readability and knowledge staleness, whose AKC-side judgments are ADR-0025 and ADR-0026), deterministic hooks and machine gates, and a public rfcs/ task ledger operated by the judge/build/human three-role triage loop (ADR-0024). Its own ADR series records the harness-side lineage of these practices.",
+      "description": "Bundled distribution of the author's Claude Code harness — the running system the AKC cycle operates on and co-evolves with. As of 2026-09 it ships an origin-tracked library of some 58 skills (the six AKC cycle skills among them, each also published as its own standalone repo), a worldview rules layer (always-loaded rules such as LLM-first artifact readability and knowledge staleness, whose AKC-side judgments are ADR-0025 and ADR-0026), deterministic hooks and machine gates, and a public rfcs/ task ledger operated by the judge/build/human three-role triage loop (ADR-0024), whose build sessions run as cloud sessions by default since 2026-09-24. Since 2026-09-15 its always-loaded boundary rule (rules/common/boundary.md) is the running instance of the human approval gate (ADR-0005): one list of what is handed to the human (publication, billing, outbound messages, and unattended changes to rules, hooks, permissions, scheduled tasks, the verify gate, ADRs, and skills), the risks taken without asking, and the conditions for stopping. The author-calibrated-eval skill (2026-09-25) grounds intent alignment in an evaluation loop for generated reading material: the author's blind reading is the target for what is worth reading, an LLM judge only screens fidelity to the source material, and code checks form. The jev-judgment-design skill (2026-09-23) grounds the code-LLM judge pattern (ADR-0008): closed judgments move to a typed judgment model that answers with probabilities, and code decides acceptance. Its own ADR series records the harness-side lineage of these practices.",
       "url": "https://github.com/shimo4228/claude-harness",
       "extends": "https://doi.org/10.5281/zenodo.19200726",
       "implements": [
         "https://shimo4228.github.io/shimo4228/vocab#akc/concept/three-role-loop",
         "https://shimo4228.github.io/shimo4228/vocab#akc/concept/llm-first-readability",
-        "https://shimo4228.github.io/shimo4228/vocab#akc/concept/expiry-conditioned-knowledge"
+        "https://shimo4228.github.io/shimo4228/vocab#akc/concept/expiry-conditioned-knowledge",
+        "https://shimo4228.github.io/shimo4228/vocab#akc/concept/human-approval-gate",
+        "https://shimo4228.github.io/shimo4228/vocab#akc/concept/intent-alignment",
+        "https://shimo4228.github.io/shimo4228/vocab#akc/pattern/judge"
       ]
     },
     {
       "@id": "https://github.com/shimo4228/herdr-toolkit",
       "@type": ["EcosystemRepo", "SoftwareSourceCode"],
       "name": "herdr-toolkit",
-      "description": "Claude Code plugin for running agents on top of the Herdr agent multiplexer — cross-vendor task delegation with fabrication-resistant acceptance and phone-driven detached session spawning. In the operator's practice it is the build-dispatch substrate of the judge/build/human three-role loop (ADR-0024): the judge tier spawns and monitors build sessions through it. Relation fact only; the loop's mechanism is recorded in AKC, the tooling lives here.",
+      "description": "Claude Code plugin for running agents on top of the Herdr agent multiplexer — cross-vendor task delegation with fabrication-resistant acceptance and phone-driven detached session spawning. In the operator's practice it was the build-dispatch substrate of the judge/build/human three-role loop (ADR-0024) until 2026-09-24, when cloud sessions became the default build executor; it remains the path for build sessions that must run locally (local data, macOS-only toolchains, repositories without CI). Relation fact only; the loop's mechanism is recorded in AKC, the tooling lives here.",
       "url": "https://github.com/shimo4228/herdr-toolkit",
       "implements": "https://shimo4228.github.io/shimo4228/vocab#akc/concept/three-role-loop"
+    },
+    {
+      "@id": "https://github.com/shimo4228/jev-skill-router",
+      "@type": [
+        "EcosystemRepo",
+        "SoftwareSourceCode"
+      ],
+      "name": "jev-skill-router",
+      "description": "Claude Code plugin (a UserPromptSubmit hook) that sends each prompt and the installed-skill roster to TypeSafe's Jev judgment model as two typed requests, gets probabilities back, and lets code decide whether to name at most one skill — recording the decision only (shadow) or injecting a one-line pointer (inject). An instance of the code-LLM judge pattern (ADR-0008) in the author's harness since 2026-09-21, also bundled in claude-harness. Its README records why it is unlikely to help a strong model as a router; it stays in shadow mode as an instrument. Relation fact only.",
+      "url": "https://github.com/shimo4228/jev-skill-router",
+      "implements": "https://shimo4228.github.io/shimo4228/vocab#akc/pattern/judge"
     },
     {
       "@id": "https://github.com/shimo4228/akc-mcp",
