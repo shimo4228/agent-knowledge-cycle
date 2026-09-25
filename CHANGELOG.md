@@ -4,6 +4,72 @@ All notable changes to AKC are recorded here. AKC follows semantic
 versioning; breaking changes to positioning or public interfaces bump the
 major version.
 
+## v2.8.0 — Authority placed by artifact class, new instances grounded (2026-09-25)
+
+The running harness moved twice between releases, and this release brings the
+mental model and its grounding in line with it. The judge/build/human loop no
+longer holds every merge for the human: authority is placed by artifact class
+(ADR-0028). Harness instances that entered after v2.7.0 are placed on the
+concepts they run, and existing placements whose running state moved are
+corrected under ADR-0027's links-follow-running-state discipline.
+
+### Added
+
+- **[ADR-0028](docs/adr/0028-authority-by-artifact-class-in-the-three-role-loop.md)
+  — Authority by artifact class in the three-role loop** (accepted; partially
+  supersedes ADR-0024 Decision 1). A protected class — what ADR-0005 gates
+  (rules, skills, identity, documents that describe behavior), the control
+  plane, and the verification machinery — stays binary and human at merge.
+  Admitted task output outside that class merges once a deterministic gate and
+  the judge tier's inspection pass; the human's authority over it sits at
+  admission and in a revert-count withdrawal condition. The instance moved
+  first (the operator's harness, 2026-09-15). Evidence is ten days of
+  single-operator practice, stated as thin, with the correlated-verifier risk
+  and the gap between the concept's evidence-producing reach and the running
+  instance's line recorded as Negative consequences.
+- **Grounding for concepts that had no running instance.** The human approval
+  gate is grounded again — in claude-harness's always-loaded boundary rule
+  (since 2026-09-15), after human-gate's retirement left it without one.
+  Intent alignment is grounded in the author-calibrated-eval skill (the author's
+  blind reading decides what is worth reading; an LLM judge only screens
+  fidelity). The code-LLM judge pattern is grounded in jev-judgment-design and
+  in jev-skill-router, added as a new ecosystem node (relation fact only, with
+  its own low-expected-value note). Front door, llms.txt, llms-full.txt,
+  docs/skills/, glossary, graph.jsonld.
+- **Backfilled `implements` edges** for pre-existing concepts (ADR-0027's named
+  open obligation): search-first and signal-first-research → signal-first;
+  when-code-when-llm and code-and-llm-collaboration → code-LLM layering and its
+  four pattern nodes; akc-mcp → two-stage distill.
+- **Scaffold Dissolution evidence, 2026-09-05**: platform absorption of a
+  documentation scaffold — hand-maintained codemaps retired once the platform's
+  language-server tool took over their structural function; recorded as
+  necessary evidence, not held-out transfer (en + ja).
+
+### Changed
+
+- **generation-audit** is described at its v2 (2026-09-25): a runtime
+  cross-check against the loaded system prompt plus a dated-pattern scan
+  delegated to the model vendor's bundled prompt-audit procedure — the pattern
+  table is read at run time, not copied. Its public repository was synced to
+  2.0 alongside this release.
+- **Three-role loop dispatch**: build sessions run as cloud sessions by default
+  since 2026-09-24; herdr-toolkit remains the path for local build sessions
+  (README row, graph, llms-full, CODEMAPS).
+- **docs/akc-cycle.md** documents the two editions side by side: the
+  self-contained edition owned by the akc-cycle repository and the pointer
+  edition running in claude-harness.
+- **Maintain phase** description no longer names CODEMAPS among the documents
+  it keeps clean.
+- ADR count 24 → 25 (llms-full.txt, codemeta, CITATION.cff abstract).
+
+### Sunset
+
+- The statement that the human holds the final merge switch for every task
+  (ADR-0024 Decision 1) — narrowed by ADR-0028; a dated note in ADR-0024 keeps
+  the surviving scope.
+- herdr-toolkit as the loop's default build-dispatch substrate (now the local
+  path only).
+
 ## v2.7.0 — The gate at scale, the reader named, judgments that expire (2026-09-01)
 
 Three judgments that had been running unstated in the operator's harness are

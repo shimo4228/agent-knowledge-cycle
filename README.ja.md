@@ -215,7 +215,7 @@ AKC を使用・参照する場合は、[`CITATION.cff`](CITATION.cff)
   author       = {Shimomoto, Tatsuya},
   title        = {Agent Knowledge Cycle (AKC)},
   year         = {2026},
-  version      = {2.7.0},
+  version      = {2.8.0},
   doi          = {10.5281/zenodo.22216991},
   url          = {https://doi.org/10.5281/zenodo.22216991},
   note         = {A knowledge cycle for AI agents -- agent behavior compounds, human judgment sharpens}

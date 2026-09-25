@@ -206,6 +206,6 @@ Prose entries live in README "Related Work" (compact list at the end of the sect
 | Python source (`examples/minimal_harness/`) | 5 files (~500 lines total, stdlib-only) |
 | Top-level docs (`docs/*.md`) | 6 (akc-cycle, glossary, translation-glossary, inspiration, scaffold-dissolution + .ja.md) |
 | Repo-root files | CITATION.cff, LICENSE, llms.txt, llms-full.txt, CHANGELOG.md |
-| **Total markdown / Python / schema files** | **53** (`git ls-files '*.md' '*.py' 'schemas/*.json' | wc -l` after the v2.7.0 additions are staged, 2026-09-01; 45 as of 2026-07-25, plus the AI-native-SDLC correspondence pair, the rfcs/ ledger's two files, and ADR-0024 through 0027) |
+| **Total markdown / Python / schema files** | **54** (`git ls-files '*.md' '*.py' 'schemas/*.json' | wc -l` at v2.8.0, 2026-09-25; 53 at v2.7.0 plus ADR-0028) |
 
 When this count drifts substantially, regenerate this codemap.
