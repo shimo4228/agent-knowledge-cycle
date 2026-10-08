@@ -4,6 +4,48 @@ All notable changes to AKC are recorded here. AKC follows semantic
 versioning; breaking changes to positioning or public interfaces bump the
 major version.
 
+## v2.9.0 — README split for human and AI readers, plugin grouped by phase (2026-10-08)
+
+The cycle's install target, [akc-cycle](https://github.com/shimo4228/akc-cycle),
+became a Claude Code plugin listed in the Claude plugin directory (as of
+2026-10-08, v1.5.0). This release rebuilds the README around that install path
+and brings the graph and llms files in line with the plugin's phase grouping.
+No new ADR; the cycle, the phases, and the tagline are unchanged.
+
+### Changed
+
+- **README rebuilt (en / ja)** with the author's readme-writer: the visible text
+  serves a human reader (lead, Try it, The cycle, a one-line-per-theme Why AKC,
+  How to Cite, More from the author), and a collapsed section at the end,
+  "For tools and AI assistants", carries what an LLM needs when it reads the
+  README alone (identity, the full three themes, the four-layer running-instance
+  table with its grounding links, core concepts, Limitations, Positioning,
+  Origin, Related Work, link map). Try it installs the rules file with `curl` to
+  `~/.claude/rules/akc-cycle.md` and the plugin with `/plugin marketplace add
+  shimo4228/akc-cycle` → `/plugin install akc-cycle@akc-cycle`, and says what
+  the plugin adds and runs. Dated facts were corrected (operation periods
+  replaced by as-of dates).
+- **Phase table holds all twenty plugin skills.** The skills formerly listed
+  apart as companions are placed in the phase where they are used: Extract adds
+  skill-creator; Curate adds generation-audit and harness-boundary; Promote adds
+  review-to-lint; Measure adds measurement-discipline, llm-as-judge,
+  author-calibrated-eval, and jev-judgment-design; Maintain adds adr-writer and
+  verify-bootstrap. Table links point to the plugin copies; the standalone
+  skill repositories are listed in the collapsed section with a pointer to
+  akc-cycle's Single skills guidance. The grouping is a mutable snapshot
+  (ADR-0019).
+- **graph.jsonld / llms.txt / llms-full.txt / docs/akc-cycle.md** describe the
+  akc-cycle plugin by phase and use the README's install path.
+  generation-audit and llm-as-judge keep their concept bindings and gain the
+  phase the table shows (Curate, Measure).
+
+### Notes
+
+- **ADR-0020** gains a dated Note: the full three-theme presentation moved into
+  the README's collapsed section, after the six-phase mechanism. Verification
+  conditions 1, 3, and 5 still hold; condition 2's ordering no longer does, and
+  condition 4's line target applies to the visible text only.
+
 ## v2.8.0 — Authority placed by artifact class, new instances grounded (2026-09-25)
 
 The running harness moved twice between releases, and this release brings the
