@@ -21,7 +21,7 @@ curl -fsSL https://raw.githubusercontent.com/shimo4228/akc-cycle/main/rules/comm
   -o ~/.claude/rules/akc-cycle.md
 ```
 
-**2. Claude Code のプラグイン。** 下の表のフェーズごとのスキルと、補助のスキルを足します。どちらも、フェーズで必要になったときにエージェントが読み込む手順書です:
+**2. Claude Code のプラグイン。** 下のフェーズ表のスキルを足します。どれも、フェーズで必要になったときにエージェントが読み込む手順書です:
 
 ```text
 /plugin marketplace add shimo4228/akc-cycle
@@ -49,16 +49,16 @@ flowchart TD
   T --> E
 ```
 
-各フェーズにスキルがあります。プラグインにはすべて入っていて、それぞれ単独のリポジトリ（英語）もあります:
+各フェーズに 1 つ以上のスキルがあり、プラグインにはすべて入っています（リンク先は英語）:
 
-| フェーズ | スキル | 目的 |
-|---|---|---|
-| Research | [search-first](https://github.com/shimo4228/search-first) | 広く探し、次の行動を変えうるシグナルだけを取り込む |
-| Extract | [learn-eval](https://github.com/shimo4228/learn-eval) | セッションから再利用できるパターンを、品質ゲートを通して抽出する |
-| Curate | [skill-health](https://github.com/shimo4228/skill-health) + [skill-stocktake](https://github.com/shimo4228/skill-stocktake) + [rules-stocktake](https://github.com/shimo4228/rules-stocktake) + [agent-stocktake](https://github.com/shimo4228/agent-stocktake) | スキル・常駐ルール・エージェント定義の中身を見直す前に、構造の負債を検査する |
-| Promote | [rules-distill](https://github.com/shimo4228/rules-distill) | 繰り返し現れるパターンを、長く使うルールにする |
-| Measure | [skill-comply](https://github.com/shimo4228/skill-comply) | エージェントがスキルとルールに実際に従っているかを確かめる |
-| Maintain | [context-sync](https://github.com/shimo4228/context-sync) + [repo-asset-stocktake](https://github.com/shimo4228/repo-asset-stocktake) | ドキュメントの役割分担を保ち、もう何にも使われていないコード以外の資産を見つける |
+| フェーズ | スキルがすること |
+|---|---|
+| Research | [search-first](https://github.com/shimo4228/akc-cycle/tree/main/skills/search-first) が広く探し、次の行動を変えうるシグナルだけを取り込む |
+| Extract | [learn-eval](https://github.com/shimo4228/akc-cycle/tree/main/skills/learn-eval) がセッションから再利用できるパターンを品質ゲートを通して抽出し、[skill-creator](https://github.com/shimo4228/akc-cycle/tree/main/skills/skill-creator) が残したパターンを新しいスキルにする |
+| Curate | [skill-health](https://github.com/shimo4228/akc-cycle/tree/main/skills/skill-health)・[skill-stocktake](https://github.com/shimo4228/akc-cycle/tree/main/skills/skill-stocktake)・[rules-stocktake](https://github.com/shimo4228/akc-cycle/tree/main/skills/rules-stocktake)・[agent-stocktake](https://github.com/shimo4228/akc-cycle/tree/main/skills/agent-stocktake) が構造の負債を検査してから、スキル・常駐ルール・エージェント定義の中身を見直す。[generation-audit](https://github.com/shimo4228/akc-cycle/tree/main/skills/generation-audit) は新しいモデル世代が出たときに監査し直し、[harness-boundary](https://github.com/shimo4228/akc-cycle/tree/main/skills/harness-boundary) は新しい仕組みが次のモデルでも要るかを問う |
+| Promote | [rules-distill](https://github.com/shimo4228/akc-cycle/tree/main/skills/rules-distill) が繰り返し現れるパターンを長く使うルールにし、[review-to-lint](https://github.com/shimo4228/akc-cycle/tree/main/skills/review-to-lint) が LLM レビュアーの項目のうち機械で判定できるものをスクリプトへ移す |
+| Measure | [skill-comply](https://github.com/shimo4228/akc-cycle/tree/main/skills/skill-comply) がエージェントがスキルとルールに従っているかを確かめ、[measurement-discipline](https://github.com/shimo4228/akc-cycle/tree/main/skills/measurement-discipline) が主張・閾値・観察期間を測定に見合ったものに保つ。[llm-as-judge](https://github.com/shimo4228/akc-cycle/tree/main/skills/llm-as-judge) と [author-calibrated-eval](https://github.com/shimo4228/akc-cycle/tree/main/skills/author-calibrated-eval) は LLM の判定役とそれを回す評価ループを組み立てる。[jev-judgment-design](https://github.com/shimo4228/akc-cycle/tree/main/skills/jev-judgment-design) は TypeSafe の Jev ライブラリを使う人向けで、LLM が下していた yes / no の判定を Jev へ移し、コードが決めるようにする |
+| Maintain | [context-sync](https://github.com/shimo4228/akc-cycle/tree/main/skills/context-sync) がドキュメントの役割分担を保ち、[repo-asset-stocktake](https://github.com/shimo4228/akc-cycle/tree/main/skills/repo-asset-stocktake) が使われていない資産を見つけ、[adr-writer](https://github.com/shimo4228/akc-cycle/tree/main/skills/adr-writer) が失効条件つきで決定を記録し、[verify-bootstrap](https://github.com/shimo4228/akc-cycle/tree/main/skills/verify-bootstrap) が機械のゲートを組み立てて棚卸しする |
 
 フェーズとスキルの対応は変わりうるスナップショットで、AKC の固定した核ではありません（[ADR-0019](docs/adr/0019-cycle-structure-is-provisional.md)、英語）。スキルは足場です。サイクルが自然に回るようになれば外れていくことを意図しています（[Scaffold Dissolution](docs/scaffold-dissolution.ja.md)）。
 
@@ -116,13 +116,13 @@ Agent Knowledge Cycle (AKC) は引用できる研究プロジェクトです（c
 
 ### What a running AKC looks like
 
-AKC は 2026 年 2 月に、フェーズごとに 1 つ、6 つのスキルとして始まりました。それ以来の日々の運用で、サイクルが生む知識は 4 つの層に落ち着き（2026-10 時点）、それぞれの背後にある判断を決定記録が名指ししています:
+AKC は 2026 年 2 月に、フェーズごとに 1 つ、6 つのスキルとして始まりました。それ以来の日々の運用で、サイクルが生む知識は 4 つの層に落ち着き（2026-10 時点）、それぞれの背後にある判断を決定記録が名指ししています。この表のスキルのリンク先は claude-harness にある著者の運用中の版で、インストールされるのはフェーズ表にあるプラグインの版です:
 
 | 層 | 何を持つか | 動いている実例 | 決定記録 |
 |---|---|---|---|
-| **Procedures（手順）** | エージェントが必要なときに読み込むスキル。上のフェーズ表です。設計上の足場で、身につけば溶けることを意図しています | フェーズ表。[harness-boundary](https://github.com/shimo4228/claude-harness/tree/main/skills/harness-boundary) は、仕組みを足す前に、次のモデル世代でそれが不要になるかを問います | [ADR-0019](docs/adr/0019-cycle-structure-is-provisional.md), [Scaffold Dissolution](docs/scaffold-dissolution.ja.md) |
+| **Procedures（手順）** | エージェントが必要なときに読み込むスキル。上のフェーズ表です。設計上の足場で、身につけば溶けることを意図しています | フェーズ表。たとえば [harness-boundary](https://github.com/shimo4228/claude-harness/tree/main/skills/harness-boundary) | [ADR-0019](docs/adr/0019-cycle-structure-is-provisional.md), [Scaffold Dissolution](docs/scaffold-dissolution.ja.md) |
 | **Worldviews（世界観）** | 手順ではなく既定値を定める、小さな常駐ルール。成果物は次にそれを読む AI セッションに向けて書く。保存する決定はどれも、自分が失効する条件を名指しする | [llm-first-code](https://github.com/shimo4228/claude-harness/blob/main/rules/common/llm-first-code.md)、[knowledge-staleness](https://github.com/shimo4228/claude-harness/blob/main/rules/common/knowledge-staleness.md)。[adr-writer](https://github.com/shimo4228/claude-harness/tree/main/skills/adr-writer) はすべての決定記録に Review-when 節を求めます | [ADR-0025](docs/adr/0025-llm-first-artifact-readability.md), [ADR-0026](docs/adr/0026-expiry-conditioned-knowledge.md) |
-| **Enforcement（執行）** | 機械のゲート（lint、型、テスト、凍結した golden 出力）が成果物の正しさを受け持ち、人間の目は検査の担い手になりません | ハーネスの [hooks](https://github.com/shimo4228/claude-harness/tree/main/hooks)、[verify-bootstrap](https://github.com/shimo4228/claude-harness/tree/main/skills/verify-bootstrap)、[review-to-lint](https://github.com/shimo4228/claude-harness/tree/main/skills/review-to-lint)（LLM レビュアーの項目のうち機械で判定できるものをスクリプトへ移します） | [ADR-0008](docs/adr/0008-code-and-llm-collaboration.md) |
+| **Enforcement（執行）** | 機械のゲート（lint、型、テスト、凍結した golden 出力）が成果物の正しさを受け持ち、人間の目は検査の担い手になりません | ハーネスの [hooks](https://github.com/shimo4228/claude-harness/tree/main/hooks)、[verify-bootstrap](https://github.com/shimo4228/claude-harness/tree/main/skills/verify-bootstrap)、[review-to-lint](https://github.com/shimo4228/claude-harness/tree/main/skills/review-to-lint) | [ADR-0008](docs/adr/0008-code-and-llm-collaboration.md) |
 | **Attention topology（注意の配置）** | judge / build / human の三役ループ。judge セッションが各タスクの前提を確かめ、やる価値を判定して振り分け、新しい build セッションが実装し、人間は方向を決めてタスクを受け入れます | [task-triage](https://github.com/shimo4228/claude-harness/tree/main/skills/task-triage)（振り分け先の既定はクラウドのセッション、ローカルの pane へは [herdr-toolkit](https://github.com/shimo4228/herdr-toolkit) 経由） | [ADR-0024](docs/adr/0024-judge-build-human-three-role-loop.md), [ADR-0028](docs/adr/0028-authority-by-artifact-class-in-the-three-role-loop.md) |
 
 これらを貫くのが人間の承認ゲート（[ADR-0005](docs/adr/0005-human-approval-gate.md)）です。どの層でも、将来の振る舞いを形づくる変更は、人間が承認し、その人の名前が残るまで入りません。動いているハーネスでは、このゲートは常駐ルール 1 本 [boundary.md](https://github.com/shimo4228/claude-harness/blob/main/rules/common/boundary.md) で、人間に渡す操作を並べています。権限は成果物の種類で置かれます（[ADR-0028](docs/adr/0028-authority-by-artifact-class-in-the-three-role-loop.md)）。ルール・スキル・制御面・検証の仕組みへの変更は人間を待ち、受け入れたタスクの出力は機械のゲートと judge の検収を通れば取り込まれます。三役ループは、このゲートを規模に合わせて広げた姿です。モデルの判断を使って人間の判断を節約します。
@@ -164,7 +164,8 @@ AKC は 2026 年 2 月に、フェーズごとに 1 つ、6 つのスキルと�
 - [`graph.jsonld`](graph.jsonld): 正本の概念マップ。[`llms.txt`](llms.txt) は案内役、[`llms-full.txt`](llms-full.txt) は設計原則を含む自己完結した事実のリファレンスです。
 - [`docs/akc-cycle.md`](docs/akc-cycle.md): ルールファイルの 2 つの版（自己完結版と、著者のハーネスが使うポインタ版）。
 - [`docs/scaffold-dissolution.ja.md`](docs/scaffold-dissolution.ja.md) と [`docs/glossary.md`](docs/glossary.md)。
-- [`docs/skills/`](docs/skills/README.md): 設計パターンのスキル [when-code-when-llm](https://github.com/shimo4228/when-code-when-llm)、[code-and-llm-collaboration](https://github.com/shimo4228/code-and-llm-collaboration)、[signal-first-research](https://github.com/shimo4228/signal-first-research) への案内。[generation-audit](https://github.com/shimo4228/generation-audit) は、新しいモデル世代が出たときにルールとスキルを監査し直します（[ADR-0023](docs/adr/0023-generation-review-as-a-fourth-evidence-class.md)）。
+- [`docs/skills/`](docs/skills/README.md): 設計パターンのスキル [when-code-when-llm](https://github.com/shimo4228/when-code-when-llm)、[code-and-llm-collaboration](https://github.com/shimo4228/code-and-llm-collaboration)、[signal-first-research](https://github.com/shimo4228/signal-first-research) への案内。
+- プラグインより前からある単独リポジトリ（いまはフェーズ表にあるスキルのもので、中身はプラグイン版と違います）: [search-first](https://github.com/shimo4228/search-first)、[learn-eval](https://github.com/shimo4228/learn-eval)、[skill-health](https://github.com/shimo4228/skill-health)、[skill-stocktake](https://github.com/shimo4228/skill-stocktake)、[rules-stocktake](https://github.com/shimo4228/rules-stocktake)、[agent-stocktake](https://github.com/shimo4228/agent-stocktake)、[rules-distill](https://github.com/shimo4228/rules-distill)、[skill-comply](https://github.com/shimo4228/skill-comply)、[context-sync](https://github.com/shimo4228/context-sync)、[repo-asset-stocktake](https://github.com/shimo4228/repo-asset-stocktake)、それに [generation-audit](https://github.com/shimo4228/generation-audit)（[ADR-0023](docs/adr/0023-generation-review-as-a-fourth-evidence-class.md)）。
 - [`schemas/`](schemas/): エピソードログと知識エントリの JSON スキーマ。
 - [`examples/minimal_harness/`](examples/minimal_harness/): 3 層のメモリモデル（生のエピソード、知識、identity とルール）と 2 段階の蒸留パイプラインの、依存のない Python デモ。
 - [`rfcs/`](rfcs/): まだ決まっていない提案の公開台帳。決まったものは ADR になります。
