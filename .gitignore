@@ -3,3 +3,7 @@ CLAUDE.local.md
 .notes/
 .DS_Store
 .claude/
+
+# html-plan byproducts
+*.packed.html
+*.artifact.html
