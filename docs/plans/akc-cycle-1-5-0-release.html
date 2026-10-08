@@ -1,0 +1,391 @@
+<!doctype html>
+<html lang="ja">
+<meta charset="utf-8">
+<title>AKC リリース計画</title>
+<link rel="stylesheet" href="htmlplan.css">
+<script src="htmlplan.js" defer></script>
+<style data-mock-shared>
+  .rd { font: 14px/1.5 -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; color: #1f2328; background: #fff; border: 1px solid #d0d7de; border-radius: 8px; overflow: hidden; }
+  .rd .bar { padding: 8px 14px; border-bottom: 1px solid #d0d7de; background: #f6f8fa; font-size: 12.5px; color: #59636e; }
+  .rd .in { padding: 12px 16px; }
+  .rd h1 { font-size: 20px; margin: 0 0 6px; padding-bottom: 6px; border-bottom: 1px solid #d0d7de; }
+  .rd h2 { font-size: 15px; margin: 12px 0 4px; padding-bottom: 3px; border-bottom: 1px solid #eaeef2; }
+  .rd p { margin: 4px 0; color: #393f46; }
+  .rd .tag { font-weight: 650; }
+  .rd .cmd { font: 12.5px ui-monospace, Menlo, monospace; background: #f6f8fa; border-radius: 6px; padding: 6px 10px; margin: 4px 0; }
+  .rd .new { background: #dafbe1; border-radius: 4px; padding: 0 3px; }
+  .rd .fold { margin-top: 10px; border: 1px solid #d0d7de; border-radius: 6px; padding: 6px 10px; color: #59636e; }
+  .rd .dim { color: #8c959f; }
+</style>
+<body>
+
+<header>
+  <h1>akc-cycle 1.5.0 と AKC v2.9.0 のリリース</h1>
+  <doc-changes new="5" changed="30"></doc-changes>
+  <details class="thread"><summary>Why · 2 requests</summary>
+    <doc-quote via="prompt" from="the user">akc-cycleがAnthropicのプラグインライブラリに収録された。また、ハーネスにも新しいスキルが増えていたりするので、AKCに取り入れるべきものを選定した上で、Akc-cycleに編入して。AKc-cycleの1.5.0及びAKCのDOIをリリースしたいのでプランして</doc-quote>
+    <doc-quote via="prompt" from="the user">READMEのハーネスを大きく改善したので、両リポともREADME改善もプランに入れて</doc-quote>
+  </details>
+  <p>調査 report: <a href="research/2026-10-08-akc-cycle-1-5-0-release.md">research/2026-10-08-akc-cycle-1-5-0-release.md</a>（as-of 2026-10-08）</p>
+</header>
+
+<main>
+<doc-plan>
+
+<!-- ═════ 1 ═════ -->
+<doc-claim>
+  <p>akc-cycle の利用者は skill-creator など 3 skill も入れられる。</p>
+  <doc-mock frame="terminal" title="claude" w="470" caption="緑の 3 行が 1.5.0 で増える skill。既存 17 は harness と差分ゼロ。"><template><span class="dim">></span> /plugin install akc-cycle
+<span class="g">✓</span> akc-cycle <b>1.5.0</b> · 20 skills
+  Research   search-first
+  Extract    learn-eval
+  Curate     skill-stocktake · skill-health · rules-stocktake · agent-stocktake
+  Promote    rules-distill
+  Measure    skill-comply
+  Maintain   context-sync · repo-asset-stocktake
+  Companion  generation-audit · adr-writer · harness-boundary · review-to-lint
+             llm-as-judge · jev-judgment-design · author-calibrated-eval
+<span class="g">+ Companion  skill-creator      Extract → Promote の行き先</span>
+<span class="g">+ Companion  verify-bootstrap   ADR-0025 の機械ゲート</span>
+<span class="g">+ Companion  measurement-discipline  測定に基づく主張の規律</span></template></doc-mock>
+  <doc-ask id="skills">
+    <p>どの skill を 1.5.0 に編入しますか？</p>
+    <label><input type="checkbox" name="skills" value="skill-creator" checked> skill-creator <small>payload 10 skill が約 25 箇所で名指し</small></label>
+    <label><input type="checkbox" name="skills" value="verify-bootstrap" checked> verify-bootstrap <small>ADR-0025 と AKC README:72 に接地</small></label>
+    <label><input type="checkbox" name="skills" value="measurement-discipline" checked> measurement-discipline <small>移植は最小。AKC ADR の名指しは無い</small></label>
+    <label><input type="checkbox" name="skills" value="loop-design-check"> loop-design-check <small>ADR-0024/0005 に接地。origin が ECC-customized</small></label>
+  </doc-ask>
+  <div data-if="skills~loop-design-check"><doc-note tone="warn">loop-design-check は origin が <code>ECC-customized</code> で、sync script の origin 検査（sync-from-local.sh:52-61）が止まる。自作に書き直し、<code>replaces:</code> に系譜を残して origin を反転する作業が増える。</doc-note></div>
+  <div data-if="skills~measurement-discipline"><doc-note tone="warn">measurement-discipline は Measure の隣接で、AKC のどの ADR も名指ししない。事例の出所（CA の RFC と memory）を一般化する作業が増える。</doc-note></div>
+  <div data-if="skills!~skill-creator"><doc-note tone="info">skill-creator を外すなら、payload の約 25 箇所を「skill 作成 skill（例: Anthropic 公式 skill-creator）」へ言い換える。claim 1.2 が大きくなる。</doc-note></div>
+
+  <doc-claim>
+    <p>sync の allowlist に 3 skill を足す。</p>
+    <doc-code diff file="scripts/sync-from-local.sh" start="33" title="scripts/sync-from-local.sh（akc-cycle）">
+<script type="text/plain">
+ SKILLS=(search-first learn-eval skill-stocktake skill-health rules-stocktake
+         agent-stocktake rules-distill skill-comply context-sync repo-asset-stocktake
+         generation-audit adr-writer harness-boundary review-to-lint llm-as-judge
+-        author-calibrated-eval jev-judgment-design)
++        author-calibrated-eval jev-judgment-design skill-creator verify-bootstrap
++        measurement-discipline)
+</script>
+    </doc-code>
+  </doc-claim>
+
+  <doc-claim>
+    <p>未同梱の skill への参照は一般語に言い換える。</p>
+    <doc-code title="言い換えの対応 · sketch" lang="text">
+<script type="text/plain">
+implementation-chain  search-first:3,79 / context-sync:281 / harness-boundary:3
+                      → "the dependency-intake step of your workflow"
+harness-sync          rules-stocktake:185 / agent-stocktake:255,301 / skill-health:162
+                      skill-stocktake:402 / repo-asset-stocktake:143 / llm-as-judge:176
+                      → "your sync to a public repo"
+readme-writer ほか     context-sync:53,110,144,167,249,250,264,284 / review-to-lint:12,96,111
+                      → "your README / llms.txt / graph writer"
+rfc-writer            harness-boundary:98 → "keep it as a draft in your task ledger"
+architect / html-plan context-sync:19,33,68… / adr-writer:158 / search-first:86 → 一般語
+harness ADR への相対リンク  agent-stocktake:85,170 / learn-eval:46 / rules-distill:57,58 → 除去
+</script>
+    </doc-code>
+    <doc-note tone="info">言い換えは harness 正本で行い、sync で akc-cycle に流す。harness 側でも意味が変わらない語を選ぶ。</doc-note>
+  </doc-claim>
+
+  <doc-claim>
+    <p>3 skill を英訳し、harness 固有の手順は契約として書く。</p>
+    <doc-code src="skills/verify-bootstrap/SKILL.md" lines="150-160" hl="158-159" wrap>
+      <doc-pin line="150" tone="info" title="harness の hook 契約">「verify.sh の契約を満たす hook がある環境向け」と書き直す。</doc-pin>
+      <doc-pin line="158" tone="risk" title="uvx / npx の on-demand 実行">directory の validation が unpinned launcher として hold しうる。</doc-pin>
+    </doc-code>
+    <doc-ask id="ja">
+      <p>英訳を harness 正本にも適用しますか？</p>
+      <label><input type="radio" name="ja" value="canonical" checked> 正本も英訳する <small>1.4.1 と同じ運用。日本語の trigger 語は description に残す</small></label>
+      <label><input type="radio" name="ja" value="payload-only"> payload だけ英訳する <small>sync script に翻訳段が要る</small></label>
+    </doc-ask>
+    <div data-if="ja=payload-only"><doc-note tone="warn">正本と payload が分岐し、sync のたびに英訳が上書きされる。sync script の改修が増える。</doc-note></div>
+  </doc-claim>
+</doc-claim>
+
+<!-- ═════ 2 ═════ -->
+<doc-claim>
+  <p>akc-cycle の README は入り方と引用を先に示す。</p>
+  <doc-mock frame="none" w="440" caption="見える本文は入り方まで。由来と設計は末尾の畳んだ節へ（構成は Step 1 で確定）。"><template>
+<div class="rd">
+  <div class="bar">shimo4228/akc-cycle · README.md</div>
+  <div class="in">
+    <h1>akc-cycle</h1>
+    <p>AI エージェントの経験を skill と rule に育てる 6 phase の cycle を、rules file 1 枚と plugin で入れる。</p>
+    <h2>Install</h2>
+    <p class="tag">Rules file（最小）</p>
+    <div class="cmd">cp rules/common/akc-cycle.md ~/.claude/rules/common/</div>
+    <p class="tag">Plugin（skill 層）</p>
+    <div class="cmd">/plugin install akc-cycle</div>
+    <p class="new" data-ref="listed">Listed in the Claude plugin directory (as of 2026-10-xx, v1.5.0)</p>
+    <h2>Cite</h2>
+    <p data-ref="cite">AKC concept DOI 10.5281/zenodo.19200726</p>
+    <div class="fold">▸ For tools and AI assistants</div>
+  </div>
+</div></template>
+    <doc-pin ref="listed" title="収載の 1 行">Published を確かめてから書く。</doc-pin>
+    <doc-pin ref="cite" anchor="bl" title="how-to-cite を足す">現状は無い。</doc-pin>
+  </doc-mock>
+
+  <doc-claim>
+    <p>README は readme-writer の Rewrite で、2 つの人間ゲートを通す。</p>
+    <doc-flow caption="⏸ は著者の確認。判定は fresh context の readme-judge。">
+<script type="text/plain">
+s1 = ⏸ Step 1 入口の設計
+s2 = Step 2 執筆
+s4 = Step 4 証拠 + readme-judge draft
+s5 = Step 5 final 判定
+s6 = ⏸ Step 6 通読 + About 案
+s7 = Step 7 commit / gh repo edit
+| s1 | s2 |
+| s4 | s5 |
+| s6 | s7 |
+s1 -> s2
+s2 -> s4
+s4 -> s5 : Publishable
+s5 -> s6
+s6 -> s7 : GO
+</script>
+    </doc-flow>
+  </doc-claim>
+
+  <doc-claim>
+    <p>収載は確認後に、日付と version つきの 1 行で書く。</p>
+    <doc-code title="README.md の 1 行 · sketch" lang="md">
+<script type="text/plain">
+Listed in the [Claude plugin directory](<portal が示す listing URL>) (as of 2026-10-xx, v1.5.0).
+</script>
+    </doc-code>
+    <doc-ask id="listing">
+      <p>収載の事実を README に書きますか？</p>
+      <label><input type="radio" name="listing" value="dated" checked> 日付と version つきの平文 1 行 <small>ロゴ・「公式」「Verified」は使わない</small></label>
+      <label><input type="radio" name="listing" value="none"> 書かない <small>claim 2.3 と 5 の該当行がなくなる</small></label>
+    </doc-ask>
+  </doc-claim>
+
+  <doc-claim>
+    <p>引用は AKC の concept DOI を指す。</p>
+    <doc-code title="README.md の Cite 節 · sketch" lang="md">
+<script type="text/plain">
+## How to cite
+akc-cycle is the install target of the Agent Knowledge Cycle (AKC).
+Cite AKC: Shimomoto, T. Agent Knowledge Cycle. Zenodo.
+https://doi.org/10.5281/zenodo.19200726
+</script>
+    </doc-code>
+    <doc-ask id="cite">
+      <p>akc-cycle 自身に引用の metadata を置きますか？</p>
+      <label><input type="radio" name="cite" value="readme" checked> README の Cite 節だけ <small>AKC の concept DOI を指す。release-doi の対象外のまま</small></label>
+      <label><input type="radio" name="cite" value="cff"> CITATION.cff も置く <small>GitHub の Cite ボタンが出る</small></label>
+      <label><input type="radio" name="cite" value="zenodo"> Zenodo 連携まで <small>akc-cycle が独自の DOI を持つ</small></label>
+    </doc-ask>
+  </doc-claim>
+</doc-claim>
+
+<!-- ═════ 3 ═════ -->
+<doc-claim>
+  <p>AKC の README は人間向け本文と LLM 向けの畳んだ節に分かれる。</p>
+  <doc-mock frame="none" w="440" caption="現状は英 17,374 字・日 20,454 字、details 0。why と設計を末尾の畳んだ節と docs/ へ移す。"><template>
+<div class="rd">
+  <div class="bar">shimo4228/agent-knowledge-cycle · README.md</div>
+  <div class="in">
+    <h1>Agent Knowledge Cycle (AKC)</h1>
+    <p class="tag" data-ref="tagline">A knowledge cycle for AI agents — agent behavior compounds, human judgment sharpens.</p>
+    <p data-ref="lead">AKC は coding agent を日々運用する人のための 6 phase の cycle。… attention and judgment … <span class="new">intent alignment</span> … changes the human too.</p>
+    <h2>Try it</h2>
+    <div class="cmd">rules file を入れる / plugin を入れる</div>
+    <h2>The cycle</h2>
+    <p class="dim">6 phase の表（短く）</p>
+    <h2>How to Cite</h2>
+    <div class="fold" data-ref="fold">▸ For tools and AI assistants — identity・why・core concepts・DOI・link map</div>
+  </div>
+</div></template>
+    <doc-pin ref="tagline" title="tagline は変えない">ADR-0021 を保つ。</doc-pin>
+    <doc-pin ref="lead" anchor="r" title="3 themes の語を lead に">ADR-0020 の先頭 30 行の条件を満たす。</doc-pin>
+    <doc-pin ref="fold" anchor="bl" title="LLM-read フロア">readme-writer ADR-0091 の置き場。</doc-pin>
+  </doc-mock>
+  <doc-ask id="floor">
+    <p>ADR-0020（floor は llms-full.txt）との衝突をどう扱いますか？</p>
+    <label><input type="radio" name="floor" value="note" checked> readme-writer に従い、ADR-0020 に注記を残す <small>戻せる変更なので注記で足りる</small></label>
+    <label><input type="radio" name="floor" value="adr"> 新 ADR-0029 で ADR-0020 を supersede する <small>判断の経緯を ADR として残す</small></label>
+    <label><input type="radio" name="floor" value="keep"> ADR-0020 のまま、見える本文だけ直す <small>畳んだ節を作らない。claim 3.2 の後半がなくなる</small></label>
+  </doc-ask>
+  <div data-if="floor=adr"><doc-note tone="info">ADR-0029 は README 改訂より先に main に入れる。根拠は readme-writer の取得実験（各条件 1 回、as-of 2026-10-08）で、AKC の証拠基準に照らして adr-writer の When to Use で判定する。</doc-note></div>
+
+  <doc-claim>
+    <p>tagline と 3 themes の語は lead に残す。</p>
+    <doc-code src="README.md" lines="7-17" hl="7,14-15">
+      <doc-pin line="7" tone="ok" title="ADR-0021 の tagline">変えない。</doc-pin>
+      <doc-pin line="15" tone="info" title="theme 1 と 3 はある">theme 2（intent alignment）の 1 句を足す。初出は今 :40。</doc-pin>
+    </doc-code>
+  </doc-claim>
+
+  <doc-claim>
+    <p>Why と設計の詳細は畳んだ節か docs/ へ移す。</p>
+    <doc-tree caption="en / ja は同じ見出しと同じ畳んだ節を持つ。最終の構成は Step 1 で著者が決める。">
+<script type="text/plain">
+README.md / README.ja.md
+  ~ (lead)                          # intent alignment の 1 句を足す
+  ~ Why AKC                         # 要点だけ残し、全文は畳んだ節へ
+  ~ What a running AKC looks like   # docs/ へ移す候補
+    The cycle                       # 表を残す
+  ~ Install                         # plugin 経路を足す
+  ~ Limitations / Positioning       # 畳んだ節へ
+    How to Cite
+  ~ Related Work                    # 畳んだ節へ
+  + <details> For tools and AI assistants   # フロア 5 要素
+</script>
+    </doc-tree>
+  </doc-claim>
+</doc-claim>
+
+<!-- ═════ 4 ═════ -->
+<doc-claim>
+  <p>AKC の docs と graph は akc-cycle の実態と一致する。</p>
+  <doc-code diff file="graph.jsonld" start="1277" title="graph.jsonld の akc-cycle ノード" wrap>
+<script type="text/plain">
+-      "description": "… plus — since v1.1.0 — a Claude Code plugin bundling the nine cycle-phase skills and their two subagents. …",
++      "description": "… plus a Claude Code plugin with the cycle-phase skills and companion skills grounded in AKC concepts, listed in the Claude plugin directory. …",
+</script>
+  </doc-code>
+
+  <doc-claim>
+    <p>drift 10 箇所を release 前の 1 commit で直す。</p>
+    <doc-tree caption="Zenodo は release 時点の repo を archive するので、release 前に直す。">
+<script type="text/plain">
+agent-knowledge-cycle/
+  ~ docs/akc-cycle.md:9,32-36     # six / nine の数と v1.1.0 の版差語
+  ~ graph.jsonld:1277             # nine skills と two subagents
+  ~ graph.jsonld:776              # 58 skills の集計値と six cycle skills
+  ~ llms.txt:67,133-149           # plugin 経路を足す
+  ~ llms-full.txt:31,81,113,124   # plugin 経路と companion
+  ~ README.md / README.ja.md      # Install と phase 表（claim 3 と同じ編集）
+</script>
+    </doc-tree>
+  </doc-claim>
+
+  <doc-claim>
+    <p>skill 数は書かず、経路と名前だけを書く。</p>
+    <doc-code diff file="docs/akc-cycle.md" start="32" title="docs/akc-cycle.md" wrap>
+<script type="text/plain">
+-Since v1.1.0 the same repository also ships the nine cycle-phase skills as a
+-Claude Code plugin (`/plugin marketplace add shimo4228/akc-cycle`) — the rules
++The same repository also ships the cycle-phase skills and their companion
++skills as a Claude Code plugin (`/plugin install akc-cycle`) — the rules
+ file stays the minimal floor, the plugin adds the skill layer. The repository's
+</script>
+    </doc-code>
+    <doc-note tone="info">接地リンク（README:70-73 ほか）は running instance の claude-harness のままにし、akc-cycle は配布経路として Install に書く。</doc-note>
+  </doc-claim>
+</doc-claim>
+
+<!-- ═════ 5 ═════ -->
+<doc-claim>
+  <p>著者は 1.5.0 の Published を見てから v2.9.0 を出す。</p>
+  <doc-machine name="rel" caption="halted は止まって報告する。live 版はそのまま残る。">
+<script type="text/plain">
+machine rel initial portal
+state portal      # 著者が portal で status と tracked を確かめる。
+state branch      # task branch で編入と README を完成させる。
+state live        # main に ff-only で入れ、directory が scan する。
+state published   # 1.5.0 が Published になる。
+state akc         # AKC の drift と README を直す。
+state released    # release-doi で tag と GitHub Release を作る。
+state doi   final # version DOI と SWHID を記録する。
+state halted final # 止まって著者に報告する。
+
+| portal | branch | live     | published |
+| .      | halted | .        | akc       |
+| .      | doi    | released | .         |
+
+portal    -ok->     branch    : Published
+portal    -no->     halted    : 未確認
+branch    -ff->     live      : push
+live      -pass->   published : scan
+live      -fail->   halted    : hold
+published -next->   akc
+akc       -tag->    released  : gh release
+released  -zenodo-> doi
+</script>
+  </doc-machine>
+  <doc-ask id="executor">
+    <p>実行者の決定: 誰が実装しますか？</p>
+    <label><input type="radio" name="executor" value="self" checked> このセッションが実装し、人間ゲートで止まる <small>skill・README の散文編集は dispatch の例外 (a)</small></label>
+    <label><input type="radio" name="executor" value="dispatch"> akc-cycle の編入を build session へ dispatch <small>このセッションは検収と release に残る</small></label>
+  </doc-ask>
+
+  <doc-claim>
+    <p>前提: 著者が portal で Published を確かめる。</p>
+    <doc-code title="portal で記録する値 · sketch" lang="yaml">
+<script type="text/plain">
+status: Published        # Approved では install できない
+tracked: main            # branch か tag
+auto_publish: ?          # 全 version 審査 / 初回のみ / 自分で初回
+listing_url: ?
+live_version: 1.4.2
+checked_at: 2026-10-xx
+</script>
+    </doc-code>
+    <doc-note tone="risk"><strong>未確認</strong> 公開側の 4 経路（official 315 件・community 2,284 件の marketplace.json、claude.com の listing、未ログインの directory）に akc-cycle は出ない。出典は著者の申告だけ。</doc-note>
+  </doc-claim>
+
+  <doc-claim>
+    <p>途中の commit を main に置かず、完成形だけを scan させる。</p>
+    <doc-code title="akc-cycle の作業順 · sketch" lang="bash">
+<script type="text/plain">
+git -C ~/MyAI_Lab/akc-cycle switch -c release/1.5.0
+scripts/sync-from-local.sh --dry-run     # 差分を見る
+scripts/sync-from-local.sh               # working tree に適用。commit しない
+git diff                                 # ⏸ 著者が通読する
+# plugin.json version 1.5.0 / marketplace.json / CHANGELOG / README / llms*
+git switch main && git merge --ff-only release/1.5.0 && git push   # ⏸ 公開
+</script>
+    </doc-code>
+    <doc-note tone="warn">security scan が fail すると、reviewer が clear するまで以降の version も止まる。編入前に launcher（uv run / uvx / npx）と binary を grep する。</doc-note>
+  </doc-claim>
+
+  <doc-claim>
+    <p>AKC は release-doi の 4 phase で v2.9.0 を出す。</p>
+    <doc-code title="AKC v2.9.0 の流れ · sketch" lang="text">
+<script type="text/plain">
+Phase 1-2  CHANGELOG / CITATION.cff / .zenodo.json / llms* を 2.9.0 に揃える
+           （DOI 欄は release commit では据え置き）
+Phase 3    verify と通読
+Phase 4    release commit → tag v2.9.0 → gh release create   ⏸ 公開
+Post       Zenodo の version DOI を CITATION.cff / README に反映、SWHID を記録
+           hf-sync で graph.jsonld を HF dataset に mirror
+</script>
+    </doc-code>
+  </doc-claim>
+</doc-claim>
+
+<!-- ═════ aux ═════ -->
+<doc-claim aux="shared">
+  <p>共有: README の証拠と判定は readme-writer の道具を使う。</p>
+  <doc-code title="claim 2 と 3 で使うコマンド" lang="bash">
+<script type="text/plain">
+uv run --quiet --directory ~/.claude/skills/readme-writer python -m scripts.readme_evidence <README> > <out>.json
+uv run --quiet --directory ~/.claude/skills/readme-writer python -m scripts.readme_render <README> --out <scratch>/render-r0 --surface repo
+# → readme-judge（draft → recheck → final → recheck、上限 2 ラウンド）
+</script>
+  </doc-code>
+</doc-claim>
+
+<doc-claim aux="scope">
+  <p>変えないもの</p>
+  <ul>
+    <li>akc-cycle の rules file（self-contained edition）の本文</li>
+    <li>既存 17 skill の振る舞い（参照の言い換えだけ）</li>
+    <li>AKC の tagline（ADR-0021）と en / ja の見出し対応</li>
+    <li>Hold の task-triage・session-judgment-mining と Exclude の skill 群</li>
+    <li>AKC の接地リンク先（claude-harness のまま）と ADR 0002–0028 の本文</li>
+  </ul>
+</doc-claim>
+
+</doc-plan>
+</main>
+</body></html>
