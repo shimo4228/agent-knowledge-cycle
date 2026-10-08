@@ -80,13 +80,13 @@ AKC has a concept DOI, [10.5281/zenodo.19200726](https://doi.org/10.5281/zenodo.
   title        = {Agent Knowledge Cycle (AKC)},
   year         = {2026},
   version      = {2.9.0},
-  doi          = {10.5281/zenodo.22960535},
-  url          = {https://doi.org/10.5281/zenodo.22960535},
+  doi          = {10.5281/zenodo.23238854},
+  url          = {https://doi.org/10.5281/zenodo.23238854},
   note         = {A knowledge cycle for AI agents -- agent behavior compounds, human judgment sharpens}
 }
 ```
 
-In text: Shimomoto, T. (2026). *Agent Knowledge Cycle (AKC)*. doi:[10.5281/zenodo.22960535](https://doi.org/10.5281/zenodo.22960535).
+In text: Shimomoto, T. (2026). *Agent Knowledge Cycle (AKC)*. doi:[10.5281/zenodo.23238854](https://doi.org/10.5281/zenodo.23238854).
 
 The companion paper, *Harness Alignment and Harness Drift: Why Intent, Unlike Correctness, Resists Automation*, is at doi:[10.5281/zenodo.20578272](https://doi.org/10.5281/zenodo.20578272).
 
