@@ -6,7 +6,7 @@ The cycle-as-a-single-rules-file lives in its own repository:
 It distills the six AKC phases (Research, Extract, Curate, Promote, Measure,
 Maintain) plus Scaffold Dissolution into one behavioral rules file you can drop
 into an agent's rules directory — the lightweight install path for the whole
-cycle, without installing the standalone [cycle skills](../README.md#the-cycle).
+cycle, without installing the [phase skills](../README.md#the-cycle).
 
 The rules file exists as **two deliberate editions** (since 2026-09-01), and which
 one you want depends on whether the cycle skills are installed:
@@ -25,12 +25,13 @@ one you want depends on whether the cycle skills are installed:
 ## Installing
 
 ```bash
-# clone, then copy the rule into your global rules directory
-cp rules/common/akc-cycle.md ~/.claude/rules/common/akc-cycle.md
+mkdir -p ~/.claude/rules
+curl -fsSL https://raw.githubusercontent.com/shimo4228/akc-cycle/main/rules/common/akc-cycle.md \
+  -o ~/.claude/rules/akc-cycle.md
 ```
 
-The same repository also ships the cycle-phase skills and companion skills
-grounded in AKC concepts as a Claude Code plugin (`/plugin marketplace add
+The same repository also ships the skills of all six phases, grouped by phase
+(the [phase table](../README.md#the-cycle)), as a Claude Code plugin (`/plugin marketplace add
 shimo4228/akc-cycle`, then `/plugin install akc-cycle@akc-cycle`) — the rules
 file stays the minimal floor, the plugin adds the skill layer. The repository's
 README covers the per-phase trigger table, both install paths, and the one-way

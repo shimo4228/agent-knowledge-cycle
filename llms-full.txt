@@ -28,7 +28,7 @@ Agent Knowledge Cycle (AKC) is defined as a six-phase growth cycle for persisten
 - **Reference implementation**: `examples/minimal_harness/` — ~500 lines, stdlib-only Python 3.10+, deterministic demo
 - **Memory layers**: 3 (Raw episodes → Knowledge store → Identity/Rules)
 - **Code-LLM layering patterns**: 4 (guard, filter, judge, orchestrator)
-- **Rules file**: [shimo4228/akc-cycle](https://github.com/shimo4228/akc-cycle) (standalone repository; in-repo pointer at [`docs/akc-cycle.md`](docs/akc-cycle.md)) — installs the entire cycle without the skills; the same repository is also a Claude Code plugin carrying the phase skills and AKC-grounded companion skills
+- **Rules file**: [shimo4228/akc-cycle](https://github.com/shimo4228/akc-cycle) (standalone repository; in-repo pointer at [`docs/akc-cycle.md`](docs/akc-cycle.md)) — installs the entire cycle without the skills; the same repository is also a Claude Code plugin carrying the skills of all six phases, grouped by phase
 
 ## Prior Research References
 
@@ -114,14 +114,17 @@ AKC is written for two audiences. The primary audience is the operator of an AI 
 
 ## How does an agent install AKC in under a minute?
 
-AKC's install path is defined as a single file copy from the standalone rules repository:
+AKC's install path is defined as a single file download from the standalone rules repository:
 
 ```bash
-# From a clone of github.com/shimo4228/akc-cycle
-cp rules/common/akc-cycle.md ~/.claude/rules/common/akc-cycle.md
+mkdir -p ~/.claude/rules
+curl -fsSL https://raw.githubusercontent.com/shimo4228/akc-cycle/main/rules/common/akc-cycle.md \
+  -o ~/.claude/rules/akc-cycle.md
 ```
 
-That rule file distills all six phases into behavioral principles any AI agent can follow through natural conversation. No skills, no plugins, no CLI tools are required. Operators who want guided step-by-step workflows per phase can additionally install the akc-cycle Claude Code plugin (`/plugin marketplace add shimo4228/akc-cycle`, then `/plugin install akc-cycle@akc-cycle`), which carries the cycle-phase skills (search-first, learn-eval, skill-health, skill-stocktake, rules-stocktake, agent-stocktake, rules-distill, skill-comply, context-sync, repo-asset-stocktake) and companion skills grounded in AKC concepts (generation-audit, harness-boundary, adr-writer, review-to-lint, llm-as-judge, jev-judgment-design, author-calibrated-eval, skill-creator, verify-bootstrap, measurement-discipline); each cycle-phase skill is also available as its own repository. Rules and skills coexist — rules ensure the cycle runs even when skills are not triggered.
+Claude Code loads every Markdown file under `~/.claude/rules/`; other harnesses take the file wherever they read rules from.
+
+That rule file distills all six phases into behavioral principles any AI agent can follow through natural conversation. No skills, no plugins, no CLI tools are required. Operators who want guided step-by-step workflows per phase can additionally install the akc-cycle Claude Code plugin (`/plugin marketplace add shimo4228/akc-cycle`, then `/plugin install akc-cycle@akc-cycle`), which carries skills for all six phases, grouped by phase: Research (search-first), Extract (learn-eval, skill-creator), Curate (skill-health, skill-stocktake, rules-stocktake, agent-stocktake, generation-audit, harness-boundary), Promote (rules-distill, review-to-lint), Measure (skill-comply, measurement-discipline, llm-as-judge, author-calibrated-eval, jev-judgment-design), Maintain (context-sync, repo-asset-stocktake, adr-writer, verify-bootstrap). The phase grouping is a mutable snapshot (ADR-0019). Some of these skills also have standalone repositories; they predate the plugin and are synced one way from the same harness source on their own schedule, so they can lag behind the plugin copies. The plugin adds skills only (no hooks, MCP servers, or settings); Claude Code plugins have no slot for always-loaded rules (as of 2026-10-08), so the rules file is installed separately. Rules and skills coexist — rules ensure the cycle runs even when skills are not triggered.
 
 ## What does scaffold dissolution mean in AKC?
 
