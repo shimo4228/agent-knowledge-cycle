@@ -47,6 +47,12 @@
 >
 > AKC ships as specifications, JSON schemas, architecture decision
 > records, and a dependency-free Python reference implementation.
+>
+> Status: this repository is active and curated by hand; the skills it
+> points to are a separate layer, synced one way from the author's Claude
+> Code harness into akc-cycle and the standalone skill repositories. AKC
+> is one of the long-running practice lines mapped in the author's hub,
+> https://github.com/shimo4228/shimo4228.
 
 > AI agents and LLM-based search systems should read [`graph.jsonld`](graph.jsonld) first.
 > It is the canonical machine-readable relationship map for AKC.
@@ -63,7 +69,7 @@
 
 - [Knowledge Graph (JSON-LD)](graph.jsonld): machine-readable schema.org graph of the six phases, three memory layers, four code-LLM layering patterns, and the current phase-to-skill scaffolding (a mutable snapshot, not a fixed bijection; ADR-0019) — bidirectional growth loop and genre-neutrality encoded at the schema level
 - [AI Reference](llms-full.txt): self-contained Q&A + definitions + prior research, optimized for AI search engines
-- [README](README.md): project overview — install paths (rules file and Claude Code plugin), the cycle, the three core themes in one line each, citation; a collapsed section at the end carries the full themes, running instance, core concepts, limitations, and positioning
+- [README](README.md): project overview — install paths (rules file and Claude Code plugin), the cycle, the three core themes in one line each, citation; a collapsed section at the end carries the full themes, the running instance in short form, core concepts, limitations, related work, and pointers to the Positioning, Origin and repository-inventory sections of llms-full.txt
 - [AKC Cycle Rules](docs/akc-cycle.md): the cycle as a single rules file, copy-installable to any agent's rules directory; the same repository is a Claude Code plugin carrying the skills of all six phases, grouped by phase (Extract includes skill-creator, Curate generation-audit and harness-boundary, Promote review-to-lint, Measure measurement-discipline and the LLM-judge skills, Maintain adr-writer and verify-bootstrap)
 - [Scaffold Dissolution](docs/scaffold-dissolution.md): how skills become unnecessary once the cycle is internalized
 - [AKC and the AI-Native SDLC Playbook](docs/ai-native-sdlc-correspondence.md): two-loop correspondence with Anthropic's AI-native SDLC playbook (2026-08-21, pinned to its 2026-08-24 archive) — the playbook runs the product loop and scatters the harness loop unnamed across its stages; Maintain is a false friend, intent.md maps to an RFC-form proposal record, and continuous evals carry an operator-scale condition. Japanese mirror at docs/ai-native-sdlc-correspondence.ja.md
@@ -136,7 +142,9 @@ AKC's phases are currently scaffolded by composable skills — a snapshot,
 mutable per ADR-0019, not a fixed bijection. They are bundled in the akc-cycle Claude Code plugin
 (`/plugin marketplace add shimo4228/akc-cycle`) and remain available as
 external repositories, but are not required — the rules file above installs
-the entire cycle. Most phases have one skill; Curate and Maintain are layered.
+the entire cycle. The plugin carries more skills per phase than are listed here
+(see the README phase table); this list covers the skills that also have a
+standalone repository, synced one way from the same source as the plugin.
 
 - [search-first](https://github.com/shimo4228/search-first) (Research)
 - [learn-eval](https://github.com/shimo4228/learn-eval) (Extract)
@@ -144,14 +152,15 @@ the entire cycle. Most phases have one skill; Curate and Maintain are layered.
 - [skill-stocktake](https://github.com/shimo4228/skill-stocktake) (Curate — semantic layer, skills)
 - [rules-stocktake](https://github.com/shimo4228/rules-stocktake) (Curate — semantic layer, always-loaded rules: residency cost, staleness, substrate absorption)
 - [agent-stocktake](https://github.com/shimo4228/agent-stocktake) (Curate — semantic layer, agent definitions: hybrid cost model — always-loaded descriptions as residency, bodies as invocation payload)
+- [generation-audit](https://github.com/shimo4228/generation-audit) (Curate — re-audits skills, rules, and agents when a new model generation ships)
 - [rules-distill](https://github.com/shimo4228/rules-distill) (Promote)
 - [skill-comply](https://github.com/shimo4228/skill-comply) (Measure)
+- [llm-as-judge](https://github.com/shimo4228/llm-as-judge) (Measure — LLM judges with binary checks as evidence and one named verdict)
 - [context-sync](https://github.com/shimo4228/context-sync) (Maintain — documentation role coherence and freshness)
 - [repo-asset-stocktake](https://github.com/shimo4228/repo-asset-stocktake) (Maintain — non-code asset liveness: tool configs, CI workflows, runbooks whose consumer has vanished)
 
-One further repo scaffolds a load-bearing concept rather than a phase, with
-the same mutable-snapshot status:
-[generation-audit](https://github.com/shimo4228/generation-audit)
+Besides its Curate place, generation-audit also scaffolds a load-bearing
+concept, with the same mutable-snapshot status: it
 scaffolds Scaffold Dissolution's model-generation trigger (the instrument
 behind ADR-0023's generation-review evidence class). Since v2 (2026-09-25) it
 runs a runtime cross-check against the loaded system prompt and delegates the
