@@ -385,7 +385,8 @@
       "@type": ["Concept", "DefinedTerm"],
       "name": "scaffold dissolution",
       "description": "Property that explicit AKC skills can be dropped once the cycle has been internalized. The skills are scaffolding, not the goal. Dissolution is the intended end state, not a fallback. Its model-generation trigger is currently scaffolded by the generation-audit skill (a snapshot, mutable; ADR-0019), the instrument that produces generation review, the fourth retirement evidence class (ADR-0023).",
-      "groundedIn": "https://github.com/shimo4228/agent-knowledge-cycle/blob/main/docs/adr/0009-akc-is-a-cycle-not-a-harness.md"
+      "groundedIn": "https://github.com/shimo4228/agent-knowledge-cycle/blob/main/docs/adr/0009-akc-is-a-cycle-not-a-harness.md",
+      "extends": "https://shimo4228.github.io/shimo4228/vocab#prior-art/scaffolding-wood-bruner-ross-1976"
     },
     {
       "@id": "https://shimo4228.github.io/shimo4228/vocab#akc/concept/signal-first",
@@ -860,6 +861,16 @@
       "description": "Position paper (Zenodo working paper, v1) deposited from the AKC line. Defines harness alignment — the continuous, human-gated activity of keeping an agent's harness aligned with the operator's evolving intent — and harness drift, its failure mode, against the software-evolution and alignment literatures; argues the three defining properties (continuous, human-gated, bidirectional) follow from a single root: intent, unlike correctness, cannot be automated the same way — an automated intent-check would freeze intent into a specification, reducing its automatable part to correctness work, and the moving criterion is the residue. Records a bibliographic bridge: audited 2026 drift coinages are severed from the classical software-evolution lineage, which harness drift reconnects by reference. Two-layer design: lean body for human readers, verified-verbatim footnotes as a density layer for LLM consumption. Scoped as provisional judgments from a months-old practice, offered as a position, not an empirical study."
     },
 
+    {
+      "@id": "https://shimo4228.github.io/shimo4228/vocab#prior-art/scaffolding-wood-bruner-ross-1976",
+      "@type": ["ExternalReference", "ScholarlyArticle"],
+      "name": "The Role of Tutoring in Problem Solving",
+      "author": "Wood, Bruner and Ross",
+      "datePublished": "1976",
+      "identifier": "doi:10.1111/j.1469-7610.1976.tb00381.x",
+      "url": "https://doi.org/10.1111/j.1469-7610.1976.tb00381.x",
+      "description": "Introduces scaffolding: a tutor's support that lets a learner complete a task beyond their unassisted reach, withdrawn as the learner's competence grows (Journal of Child Psychology and Psychiatry 17(2)). Upstream of the metaphor scaffold dissolution borrows — AKC's glossary calls its skills scaffolding in the Vygotskian sense. Only one of AKC's four dissolution pathways, internalization by the people and agent running the cycle, has a counterpart here; platform absorption, telemetry-verified retirement and model-generation turnover do not. Upstream citation for the metaphor, not ADR lineage."
+    },
     {
       "@id": "https://shimo4228.github.io/shimo4228/vocab#prior-art/coala",
       "@type": ["ExternalReference", "ScholarlyArticle"],

@@ -161,7 +161,13 @@ behavior lives; scaffold-as-install names AKC's own packaging.
 
 AKC's skills are scaffolding in the Vygotskian sense: as operator and
 agent internalize the cycle through practice, the explicit skill files
-become unnecessary and the rules alone sustain the loop. Dissolution is
+become unnecessary and the rules alone sustain the loop. The metaphor is
+borrowed: *scaffolding* is Wood, Bruner and Ross's term (1976,
+doi:10.1111/j.1469-7610.1976.tb00381.x) for support withdrawn as the
+learner's competence grows. AKC's own claim is narrower — the scaffold
+also dissolves through platform absorption, telemetry-verified
+retirement and model-generation turnover, which the tutoring literature
+does not cover. Dissolution is
 the **intended end state, not a fallback**; what is built to persist is
 the judgment lineage in the decision records. See
 [scaffold-dissolution.md](scaffold-dissolution.md) and ADR-0003 (the

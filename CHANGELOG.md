@@ -4,6 +4,10 @@ All notable changes to AKC are recorded here. AKC follows semantic
 versioning; breaking changes to positioning or public interfaces bump the
 major version.
 
+## Unreleased
+
+- Scaffold dissolution names its upstream: a `prior-art` node for Wood, Bruner and Ross, *The Role of Tutoring in Problem Solving* (1976, doi:10.1111/j.1469-7610.1976.tb00381.x), the source of the term *scaffolding*, joined by `extends` from the `scaffold-dissolution` concept; the glossary entry says the metaphor is borrowed and that platform absorption, telemetry-verified retirement and model-generation turnover lie outside the tutoring literature (authorship-strategy RFC-0033).
+
 ## v2.9.0 — README split for human and AI readers, plugin grouped by phase (2026-10-08)
 
 The cycle's install target, [akc-cycle](https://github.com/shimo4228/akc-cycle),
