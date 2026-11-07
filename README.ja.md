@@ -7,7 +7,7 @@ Language: [English](README.md) | 日本語
 
 **AI エージェントのための知識サイクル — エージェントの挙動は積み重なり、人間の判断は研ぎ澄まされる。**
 
-Agent Knowledge Cycle (AKC) は、コーディングエージェントなど常駐する AI を日々運用する人のための、6 つのフェーズからなるサイクルです。エージェントが繰り返し経験したことを、必要なときに読み込むスキルと常に従うルールに育てます。将来の挙動を変える変更には、どれも人間の承認が要り、誰が承認したかが名前で残ります。守るのはモデルの能力ではなく、運用する人間の注意と判断です。目指すのは意図との整合、つまり運用者の意図が変わっていっても設定をその意図に合わせ続けることで、これはテストだけでは確かめられません。そしてサイクルは人間も変えます。回すうちに、それを操る判断そのものが研がれていきます。Claude Code でも、毎セッション rules ディレクトリを読み込むほかのエージェントでも動きます。著者のほかの仕事は[著者のほかの仕事](#著者のほかの仕事)にまとめています。
+Agent Knowledge Cycle (AKC) は、コーディングエージェントなど常駐する AI を日々運用する人のための、6 つのフェーズからなるサイクルです。エージェントが繰り返し経験したことを、必要なときに読み込むスキルと常に従うルールに育てます。何を残し、何をルールに上げ、どの変更を人間に渡すかは運用者が決めます。守るのはモデルの能力ではなく、運用する人間の注意と判断です。目指すのは意図との整合、つまり運用者の意図が変わっていっても設定をその意図に合わせ続けることで、これはテストだけでは確かめられません。そしてサイクルは人間も変えます。回すうちに、それを操る判断そのものが研がれていきます。Claude Code でも、毎セッション rules ディレクトリを読み込むほかのエージェントでも動きます。著者のほかの仕事は[著者のほかの仕事](#著者のほかの仕事)にまとめています。
 
 ## 試す
 
@@ -110,7 +110,7 @@ MIT
 
 ### 概要
 
-Agent Knowledge Cycle (AKC) は引用できる研究プロジェクトです（concept DOI 10.5281/zenodo.19200726、MIT ライセンス、著者 Tatsuya Shimomoto、ORCID 0009-0002-6168-4162）。AI エージェントを運用する人が、エージェントの繰り返しの経験をスキルとルールに育てるための、人間の承認を挟む 6 フェーズのサイクルを定めます。AKC はハーネスの上で回るサイクルで、ハーネスそのものではありません（[ADR-0009](docs/decision-history/0009-akc-is-a-cycle-not-a-harness.md)）。扱う知識の種類は選ばず、振る舞いのパターンにも専門知識にも価値観にも使えます（[ADR-0011](docs/decision-history/0011-cycle-applies-to-any-knowledge-body.md)）。
+Agent Knowledge Cycle (AKC) は引用できる研究プロジェクトです（concept DOI 10.5281/zenodo.19200726、MIT ライセンス、著者 Tatsuya Shimomoto、ORCID 0009-0002-6168-4162）。AI エージェントを運用する人が、エージェントの繰り返しの経験をスキルとルールに育てるための、6 フェーズのサイクルを定めます。AKC はハーネスの上で回るサイクルで、ハーネスそのものではありません（[ADR-0009](docs/decision-history/0009-akc-is-a-cycle-not-a-harness.md)）。扱う知識の種類は選ばず、振る舞いのパターンにも専門知識にも価値観にも使えます（[ADR-0011](docs/decision-history/0011-cycle-applies-to-any-knowledge-body.md)）。
 
 このリポジトリは現在も更新中で、手作業で整えています。AKC は著者の拠点リポジトリにある長期プロジェクトの 1 つです。ドキュメントは英語の Markdown、概念グラフとスキーマは JSON です。提案の台帳（`rfcs/`）と `docs/plans/` は日本語で、この README と 2 つのドキュメント（足場の溶解、AI-native SDLC との対応）には日本語版があります。標準ライブラリだけの Python のリファレンスは、読むのにも動かすのにも API キーが要りません。リンク先のスキルは別の層で、著者の Claude Code ハーネスから akc-cycle と単独のスキルリポジトリへ一方向に同期されます。
 
@@ -127,16 +127,16 @@ AKC は 2026 年 2 月に、フェーズごとに 1 つ、6 つのスキルと�
 - **Enforcement（執行）**、正しさを受け持つ機械のゲート（[ADR-0008](docs/decision-history/0008-code-and-llm-collaboration.md)）: ハーネスの [hooks](https://github.com/shimo4228/claude-harness/tree/main/hooks)、[verify-bootstrap](https://github.com/shimo4228/claude-harness/tree/main/skills/verify-bootstrap)、[review-to-lint](https://github.com/shimo4228/claude-harness/tree/main/skills/review-to-lint)。
 - **Attention topology（注意の配置）**、judge / build / human の三役ループ。judge のセッションが各タスクの前提を確かめ、やる価値を決めて振り分け、新しい build のセッションが実装し、人間は方向を決めてタスクを受け入れます（[ADR-0024](docs/decision-history/0024-judge-build-human-three-role-loop.md)、[ADR-0028](docs/decision-history/0028-authority-by-artifact-class-in-the-three-role-loop.md)）: [task-triage](https://github.com/shimo4228/claude-harness/tree/main/skills/task-triage)。振り分け先の既定はクラウドのセッションで、ローカルの pane へは [herdr-toolkit](https://github.com/shimo4228/herdr-toolkit) を経由します。
 
-これらを貫くのが人間の承認ゲートです。動いているハーネスでは常駐ルール 1 本 [boundary.md](https://github.com/shimo4228/claude-harness/blob/main/rules/common/boundary.md) で、人間に渡す操作を並べています。どの変更が人間を待ち、どれが機械のゲートと judge の検収を通れば取り込まれるかは、成果物の種類で決まります（ADR-0028）。三役ループはこのゲートを規模に合わせて広げた姿で、モデルの判断を使って人間の判断を節約します。
+これらを貫くのは、何を人間に渡すかという運用者の境界です。動いているハーネスでは常駐ルール 1 本 [boundary.md](https://github.com/shimo4228/claude-harness/blob/main/rules/common/boundary.md) で、人間に渡す操作を並べています。どの変更が人間を待ち、どれが機械のゲートと judge の検収を通れば取り込まれるかは、成果物の種類で決まります（ADR-0028）。この一覧は運用者がハーネスに持つ資産で、AKC の構造上の要件ではありません。振る舞いを形づくる変更のすべてに名前つきの承認を求めた人間の承認ゲート（[ADR-0005](docs/decision-history/0005-human-approval-gate.md)）は、2026-11-07 に退役しました（[ADR-0029](docs/decision-history/0029-retire-human-approval-gate.md)）。三役ループは、モデルの判断を使って人間の判断を節約します。
 
 ### 中心となる概念
 
-- **人間の承認ゲート**: 振る舞いを形づくる成果物への変更には人間の承認が要り、承認した人の名前を残すという構造上の決まりです。承認は変更が入る前に出します（[ADR-0005](docs/decision-history/0005-human-approval-gate.md)）。ADR-0005 は例外を記録していません。これと異なる 3 つのスキルは、どれもそのスキル自身の確認方針によります（「試す」参照）。`context-sync` によるドキュメントの編集は、残すか戻すかで後から承認します。`review-to-lint` と `verify-bootstrap` は、書く前の確認の手順を持ちません。
+- **人間に渡す範囲の境界**: 人間を待つ変更と操作を運用者自身が並べた一覧で、ハーネスに置きます。AKC はその中身を定めません。2026-04 から 2026-11 まで、AKC は振る舞いを形づくる成果物への変更のすべてに名前つきの人間の承認を求めていました（[ADR-0005](docs/decision-history/0005-human-approval-gate.md)）。この要件は [ADR-0029](docs/decision-history/0029-retire-human-approval-gate.md) で退役しました。書く前に確かめないスキルもあり、どれもそのスキル自身の確認方針によります（「試す」参照）。`context-sync` によるドキュメントの編集は、残すか戻すかを後から決めます。`review-to-lint` と `verify-bootstrap` は、書く前の確認の手順を持ちません。
 - **Scaffold Dissolution（足場の溶解）**: 実践が吸収されたら簡素化か削除をするスキルとルールは、足場なしの新しい文脈で振る舞いが再現したときに初めて溶けたと数えます（[ADR-0022](docs/decision-history/0022-transfer-as-completion-test-for-dissolution.md)）。
 
 ### 限界
 
-双方向のループは人間の側で壊れえます。[ADR-0014](docs/decision-history/0014-failure-modes-of-the-bidirectional-loop.md) は、ゲートの形骸化（承認が時間とともに形だけになる）、スキルの劣化（運用者自身の判断が衰える）、委任とフィードバックの乖離（任せる量が増える一方で結果を読む量が減る）を名指ししています。成果物の側では harness drift として壊れ、両者は重なりえます。AKC は人間の承認ゲートを構造上の防御として保ちますが、これらのリスクをなくせるとは主張しません。人間が judge の「1 通に 1 判断」のダイジェストに答える代わりに生のタスク一覧を読むことが 2 サイクル続いたら、三役ループの主張は失効します（ADR-0024）。三役ループの証拠は薄く、2026-08-17 からの単独運用者の実践だけです。
+双方向のループは人間の側で壊れえます。[ADR-0014](docs/decision-history/0014-failure-modes-of-the-bidirectional-loop.md) は、ゲートの形骸化（承認が時間とともに形だけになる）、スキルの劣化（運用者自身の判断が衰える）、委任とフィードバックの乖離（任せる量が増える一方で結果を読む量が減る）を名指ししています。成果物の側では harness drift として壊れ、両者は重なりえます。AKC の防御は、Curate と Promote が運用者に決めさせることと、運用者の境界が並べたものに人間を置くことです（ADR-0014 が挙げた構造上のゲートは ADR-0029 で退役しました）。これらのリスクをなくせるとは主張しません。人間が judge の「1 通に 1 判断」のダイジェストに答える代わりに生のタスク一覧を読むことが 2 サイクル続いたら、三役ループの主張は失効します（ADR-0024）。三役ループの証拠は薄く、2026-08-17 からの単独運用者の実践だけです。
 
 ### 位置づけと起源
 

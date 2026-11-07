@@ -7,6 +7,7 @@ major version.
 ## Unreleased
 
 - Scaffold dissolution names its upstream: a `prior-art` node for Wood, Bruner and Ross, *The Role of Tutoring in Problem Solving* (1976, doi:10.1111/j.1469-7610.1976.tb00381.x), the source of the term *scaffolding*, joined by `extends` from the `scaffold-dissolution` concept; the glossary entry says the metaphor is borrowed and that platform absorption, telemetry-verified retirement and model-generation turnover lie outside the tutoring literature (authorship-strategy RFC-0033).
+- **Human Approval Gate retired as a structural requirement** ([ADR-0029](docs/decision-history/0029-retire-human-approval-gate.md), 2026-11-07). AKC no longer states that it is not autonomous or that every change to behavior-shaping artifacts requires a named human sign-off; what the human holds is the boundary of what is handed to a human, an enumeration the operator keeps in the harness. ADR-0005 stays as the record of 2026-04-09. README (en / ja), `CLAUDE.md`, `llms.txt`, `llms-full.txt`, `graph.jsonld` (the `human approval gate` concept described in the past tense, a node for ADR-0029 with `contrastsWith` ADR-0005), the glossary, and the two example READMEs now say so; the positioning delta against the agent-memory prior art (ADR-0013) is restated as loop ownership by the operator. The published DOI versions up to v2.9.0 still describe the gate.
 
 ## v2.9.0 — README split for human and AI readers, plugin grouped by phase (2026-10-08)
 

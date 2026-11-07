@@ -69,6 +69,9 @@ place where the human-gated property becomes architecture: "What can be
 verified without the operator runs unattended; every change that shapes
 behavior passes the gate, and intent enters the loop with it"
 ([position paper](https://doi.org/10.5281/zenodo.20578272), §5).
+Since ADR-0029 (2026-11-07) the line is not a structural requirement of
+AKC; it remains a criterion an operator can use when writing the list of
+what is handed to a human.
 
 ## Rules (layer)
 
@@ -81,39 +84,48 @@ that follows (ADR-0003). AKC's Promote writes to this layer.
 
 ## The gate (human approval gate)
 
-The structure that enforces the line of approval: before any change to
-future behavior, the harness stops and does not proceed until a named
-human passes it. **Approval is the act; the gate is the structure that
-enforces it.** The approval is *continuing* (every change, for the life
+**Retired on 2026-11-07** as a structural requirement of AKC
+([ADR-0029](decision-history/0029-retire-human-approval-gate.md)): what
+the human holds now is the boundary of what is handed to a human, an
+enumeration the operator keeps in the harness, and AKC does not prescribe
+its contents. From 2026-04-09 to 2026-11-07 the gate was the structure
+that enforced the line of approval: before any change to future
+behavior, the harness stopped and did not proceed until a named human
+passed it. **Approval was the act; the gate was the structure that
+enforced it.** The approval was *continuing* (every change, for the life
 of the install), *human* (a named operator, not an automated validator),
-and *structural* (no path routes around it) — no "auto-approve after N
+and *structural* (no path routed around it) — no "auto-approve after N
 days" escape hatch, no self-approval path. The commit history of gated
-artifacts becomes an audit trail of every intentional behavioral change.
+artifacts became an audit trail of every intentional behavioral change.
 See ADR-0005. In the first running instance, what the gate presents to
 the human was scaffolded by the
 [human-gate rule](https://github.com/shimo4228/human-gate) and its
 deterministic evidence-file hook until 2026-08-02, when that scaffold
 retired as the substrate absorbed its defaults (the repository remains
 published with its retirement note; ADR-0027's links-follow-running-state
-discipline). Since 2026-09-15 the gate's running instance is the
+discipline). From 2026-09-15 the gate's running instance was the
 harness's always-loaded
-[boundary rule](https://github.com/shimo4228/claude-harness/blob/main/rules/common/boundary.md).
-At scale the gate takes the judge/build/human three-role
-form (ADR-0024), with authority placed by artifact class (ADR-0028). AAP's glossary carries the sibling entry *approval
+[boundary rule](https://github.com/shimo4228/claude-harness/blob/main/rules/common/boundary.md),
+which since ADR-0029 is the operator's own boundary rather than an
+instance of an AKC requirement. ADR-0024 recorded the judge/build/human
+three-role loop as the gate at scale, with authority placed by artifact
+class (ADR-0028). AAP's glossary carries the sibling entry *approval
 gate* for its genre; both descend from the same Contemplative Agent
 decision.
 
 ## Three-role loop (judge / build / human)
 
-The operational form the gate takes under attention scarcity when what
-sits upstream of it is an open-ended task ledger rather than a single
-proposed change. A judge tier (a stronger-model session per repository)
+The form the human's part of the cycle takes under attention scarcity
+when what waits on the human is an open-ended task ledger rather than a
+single proposed change (ADR-0024 recorded it as the operational form of
+the gate). A judge tier (a stronger-model session per repository)
 verifies each task's premise, decides whether it is worth doing,
 dispatches accepted work, and independently inspects results; a build
 tier (a fresh session per task) implements and halts on a refuted
 premise; the human holds direction-setting and admission. Model judgment
-is spent to conserve human judgment. Authority is placed by artifact
-class: what shapes future behavior (ADR-0005's class, the control plane,
+is spent to conserve human judgment. In the author's harness authority
+is placed by artifact class — an operating choice, not a consequence of
+a structural gate, since ADR-0029: what shapes future behavior (ADR-0005's class, the control plane,
 the verification machinery) stays human at merge, and admitted task
 output outside that class merges on a deterministic gate plus the judge's
 inspection. AKC records the role topology only; ledger mechanics are
@@ -121,9 +133,10 @@ harness content. See ADR-0024 and ADR-0028.
 
 ## Promote
 
-The cycle phase that elevates a recurring pattern to the rules layer,
-through the gate — the highest-stakes instance of the line of approval,
-not its only one. See ADR-0005.
+The cycle phase that elevates a recurring pattern to the rules layer —
+the highest-stakes crossing of the line of approval, not its only one.
+Whether a promotion waits for a human is the operator's boundary
+(ADR-0029; ADR-0005 recorded the earlier gate).
 
 ## Harness
 
@@ -184,8 +197,8 @@ but probabilistically — it cannot be read, diffed, or reverted without
 retraining). AAP also carries a provisional five-criterion checklist for
 telling the two apart (external inspectability, locus of agency, failure
 visibility, causal recoverability, reversibility). AKC's dissolution is
-the healthy sense, and the gate plus the decision records are what keep
-it inspectable while it proceeds.
+the healthy sense, and the decision records and the operator's boundary
+are what keep it inspectable while it proceeds.
 
 ## Harness alignment
 
@@ -270,9 +283,12 @@ experimental):
   judgment-behavior coupling breaks; the loop still produces output, but
   output no human is meaningfully steering.
 
-The defenses are structural, not exhortative: the gate is a
-circuit-breaker, Curate and Promote are active judgment acts, and the
-gate forces articulation rather than a one-bit click. AKC does not claim
+The defenses ADR-0014 named are structural, not exhortative: the gate
+as a circuit-breaker, Curate and Promote as active judgment acts, and
+the gate's articulation rather than a one-bit click. Since the gate
+retired (ADR-0029), the circuit-breaker is whatever the operator's
+boundary places in front of a human; Curate and Promote remain the
+operator's decisions. AKC does not claim
 immunity — "a human determined to stop attending will diverge from the
 loop regardless of structure" (ADR-0014).
 
@@ -291,7 +307,8 @@ the agent invented becomes a rule and teaches itself as observed fact)
 and **grounding loss** (summaries of summaries drift abstraction hops
 away from events). The decisions: only the observed record is ground;
 the self-generated share of approved artifacts stays visible (Measure);
-the gate is the circuit-breaker before the always-loaded layer.
+ADR-0015 named the gate as the circuit-breaker before the always-loaded
+layer, a role that since ADR-0029 falls to the operator's boundary.
 Generalized from one production observation (the Contemplative Agent
 substrate) — experimental; "an expectation, not yet a measured
 dose-response." See ADR-0015 and ADR-0002.

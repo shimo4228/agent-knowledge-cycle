@@ -44,6 +44,7 @@ none it says "None — record". Lint reports of a missing Review-when on
 | [0026](0026-expiry-conditioned-knowledge.md) | Expiry-Conditioned Knowledge |
 | [0027](0027-mental-model-and-instance.md) | Mental Model and Instance — Core Owns Judgment, Instances Ground It |
 | [0028](0028-authority-by-artifact-class-in-the-three-role-loop.md) | Authority by Artifact Class in the Three-Role Loop |
+| [0029](0029-retire-human-approval-gate.md) | Retire the Human Approval Gate as a Structural Requirement |
 
 ADR numbers are permanent identifiers. Gaps (0001, 0006, 0007) reflect
 ADRs that were extracted from this repository in v2.0.0 as

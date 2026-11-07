@@ -26,15 +26,19 @@
 > recurring decisions are promoted to rules, and observable compliance
 > measurement replaces manual re-auditing. ADR-0012 records the
 > decision to front-load these three themes in the project's reading
-> surface. At scale, the human approval gate takes the form of the
+> surface. At scale, the operator's attention runs through the
 > judge/build/human three-role loop (ADR-0024): model judgment is spent
 > to conserve human judgment, the human keeps direction and admission,
-> and authority is placed by artifact class (ADR-0028) — behavior-shaping
-> changes wait for the human, admitted task output merges on a machine
-> gate plus the judge's inspection.
+> and in the author's harness authority is placed by artifact class
+> (ADR-0028) — behavior-shaping changes wait for the human, admitted task
+> output merges on a machine gate plus the judge's inspection. Which
+> changes are handed to a human is the operator's boundary, kept in the
+> harness; the structural human approval gate (ADR-0005) was retired on
+> 2026-11-07 (ADR-0029).
 >
 > AKC turns repeated agent experience into reusable knowledge that can
-> change future behavior under human approval. It can run inside Claude
+> change future behavior, with the operator deciding what is kept and
+> promoted. It can run inside Claude
 > Code or any comparable harness; the core is the experience-to-behavior
 > loop, not the particular scaffold.
 > That activity is harness alignment — keeping the harness aligned
@@ -106,6 +110,7 @@
 - [ADR-0026 Expiry-Conditioned Knowledge](docs/decision-history/0026-expiry-conditioned-knowledge.md): stored judgment carries its own expiry conditions — the ADR format gains a `## Review-when` section from 0024 onward (no backfill), weakening is annotated in place and dated, and rejection records are read as dated hypotheses rather than permanent vetoes; gives ADR-0019's provisionality a per-decision instrument
 - [ADR-0027 Mental Model and Instance](docs/decision-history/0027-mental-model-and-instance.md): replaces the mechanism/content cut with mental model / instance — core owns judgment (ADRs, concepts, cycle structure), running instances are owned downstream and linked as first-class grounding (every concept carries an instance edge where a public instance exists), inlining instance content stays prohibited, and links follow the running state (a retired instance is unlinked, dated — first applied to human-gate, retired 2026-08-02)
 - [ADR-0028 Authority by Artifact Class in the Three-Role Loop](docs/decision-history/0028-authority-by-artifact-class-in-the-three-role-loop.md): partially supersedes ADR-0024's human-held merge switch — a protected class (what ADR-0005 gates, the control plane, the verification machinery) stays human at merge; admitted task output outside it merges on a deterministic gate plus the judge tier's inspection, and the human's authority over it sits at admission and in a revert-count withdrawal condition. Evidence: ten days of single-operator practice, stated as thin
+- [ADR-0029 Retire the Human Approval Gate as a Structural Requirement](docs/decision-history/0029-retire-human-approval-gate.md): removes from AKC's definition the claims that AKC is not autonomous and that every behavior-shaping change structurally requires a named human sign-off (ADR-0005, 2026-04-09). The human holds the boundary of what is handed to a human — an enumeration the operator keeps in the harness, not a structural requirement of AKC; the three-role loop's human switch (ADR-0024, ADR-0028) stays as the author's operating choice. Motive (2026-11-07): in the author's personal practice the sign-off had become a ritual, and the substrate's permission classifier carries the same boundary surface
 
 ADR numbers are permanent identifiers; gaps (0001, 0006, 0007) reflect ADRs extracted in v2.0.0 as genre-specific content. From ADR-0024 onward each ADR carries a `## Review-when` expiry-conditions section (ADR-0026).
 

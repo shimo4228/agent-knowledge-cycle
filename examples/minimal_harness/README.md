@@ -15,7 +15,7 @@ only. No network. No API keys. Around 300 lines of code total.
 
 What this reference intentionally does **not** implement:
 
-- Layer 3 (identity / rules). That requires human review. See [ADR-0005](../../docs/decision-history/0005-human-approval-gate.md).
+- Layer 3 (identity / rules). Writing it is the caller's job, and the caller decides what to hand to a human. [ADR-0005](../../docs/decision-history/0005-human-approval-gate.md) records the gate that once required human review here; [ADR-0029](../../docs/decision-history/0029-retire-human-approval-gate.md) retired it.
 
 The forbidden-substring validation in `knowledge_store.py` is a
 defensive pattern inherited from upstream genre work (the security

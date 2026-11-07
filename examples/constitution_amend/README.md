@@ -13,7 +13,7 @@ The canonical implementation in contemplative-agent consists of two artifacts:
 - A Python function (`amend_constitution`) that orchestrates the pipeline: retrieves constitutional patterns from the knowledge store, filters via a view registry to the constitutional slice, runs a minimum-evidence check (≥3 patterns), and calls an LLM with the amend prompt.
 - A prompt template (`constitution_amend.md`) that instructs the LLM to amend the constitution while preserving structure, augmenting only (never deleting original clauses), and consolidating within a per-section cap.
 
-Files are not written by the function — the human approval gate (matching AKC's ADR-0005) is the caller's responsibility.
+Files are not written by the function — the caller writes them and decides what to hand to a human first (AKC's earlier structural gate, ADR-0005, was retired by ADR-0029).
 
 ## Mapping to the AKC cycle
 
