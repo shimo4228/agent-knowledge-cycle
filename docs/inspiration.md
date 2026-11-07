@@ -46,10 +46,10 @@ into a harness-neutral form:
 
 | AKC component | Prior art in contemplative-agent |
 |---------------|----------------------------------|
-| [ADR-0002 Immutable Episode Log](adr/0002-immutable-episode-log.md) | `src/contemplative_agent/core/episode_log.py`, ADR-0004 |
-| [ADR-0003 Three-Layer Distillation](adr/0003-three-layer-distillation.md) | `docs/adr/0004-three-layer-memory-architecture.md` |
-| [ADR-0004 Two-Stage Distill Pipeline](adr/0004-two-stage-distill-pipeline.md) | `docs/adr/0008-two-stage-distill-pipeline.md` |
-| [ADR-0005 Human Approval Gate](adr/0005-human-approval-gate.md) | `docs/adr/0012-human-approval-gate-for-behavior-modifying-commands.md` |
+| [ADR-0002 Immutable Episode Log](decision-history/0002-immutable-episode-log.md) | `src/contemplative_agent/core/episode_log.py`, ADR-0004 |
+| [ADR-0003 Three-Layer Distillation](decision-history/0003-three-layer-distillation.md) | `docs/decision-history/0004-three-layer-memory-architecture.md` |
+| [ADR-0004 Two-Stage Distill Pipeline](decision-history/0004-two-stage-distill-pipeline.md) | `docs/decision-history/0008-two-stage-distill-pipeline.md` |
+| [ADR-0005 Human Approval Gate](decision-history/0005-human-approval-gate.md) | `docs/decision-history/0012-human-approval-gate-for-behavior-modifying-commands.md` |
 | [`examples/minimal_harness/`](../examples/minimal_harness/) | `src/contemplative_agent/core/{episode_log,knowledge_store,distill}.py` |
 
 ## What AKC does not carry over
@@ -61,7 +61,7 @@ contemplative-agent elements are left upstream and are not part of AKC:
 - The identity templates in `config/templates/contemplative/`
 - The meditation adapter (`adapters/meditation/`) and Active Inference
   experiments
-- `docs/adr/0002-paper-faithful-ccai-implementation.md`
+- `docs/decision-history/0002-paper-faithful-ccai-implementation.md`
 - Any prompt text that references CCAI, axioms, or contemplative practice
 - The security triplet (Security by Absence, Single External Adapter,
   Untrusted Content Boundary) — these were carried in v1.x as ADR-0001,

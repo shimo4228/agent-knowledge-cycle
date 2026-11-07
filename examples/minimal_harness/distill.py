@@ -1,7 +1,7 @@
 # Adapted from contemplative-agent
 # (https://github.com/shimo4228/contemplative-agent) at commit 2dbde9d.
 # Stripped of project-specific content. This file is an independent,
-# harness-neutral reference for AKC. See docs/adr/0004-two-stage-distill-pipeline.md.
+# harness-neutral reference for AKC. See docs/decision-history/0004-two-stage-distill-pipeline.md.
 """Two-stage distill pipeline: free-form reasoning → structured format.
 
 Stage 1 is exploratory: the LLM reads raw episodes and thinks out loud.

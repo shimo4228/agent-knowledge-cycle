@@ -58,7 +58,7 @@ made explicit: six named phases, each with an owned asset and a place to run.
 ## Where the playbook gestures at each phase
 
 Conceding first, in the manner of
-[ADR-0013](adr/0013-positioning-within-agent-memory-literature.md): most of
+[ADR-0013](decision-history/0013-positioning-within-agent-memory-literature.md): most of
 what AKC's phases do is already gestured at somewhere in the playbook. The
 table locates each gesture and rates how strongly it corresponds.
 
@@ -109,7 +109,7 @@ event-and-schedule maintenance is sufficient, because someone is paid to
 notice what their play surfaces. AKC
 is written for the operator running the same loop alone, where all of those
 roles are one person and maintenance has no one to be assigned to
-([ADR-0010](adr/0010-human-cognitive-resource-as-central-constraint.md)). At
+([ADR-0010](decision-history/0010-human-cognitive-resource-as-central-constraint.md)). At
 that scale intake and audit have to be named phases or they do not happen at
 all.
 

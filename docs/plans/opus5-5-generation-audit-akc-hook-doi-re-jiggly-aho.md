@@ -36,7 +36,7 @@
 
 ### 1. 公開 copy の同期（skill `harness-sync`）— リンク先を先に揃える
 
-- `~/.claude/docs/adr/README.md` には別 session の未 commit の変更がある。dry-run でこれが diff に入るか
+- `~/.claude/docs/decision-history/README.md` には別 session の未 commit の変更がある。dry-run でこれが diff に入るか
   確かめ、入るなら報告してから進める
 - 集約 repo `~/MyAI_Lab/claude-harness`: dry-run の要約 → sync → commit → push
 - 単独 repo `~/MyAI_Lab/generation-audit` を v2 にする。script 同期か手動 curation かは、harness-sync の

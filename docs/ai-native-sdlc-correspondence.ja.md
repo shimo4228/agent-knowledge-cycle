@@ -51,7 +51,7 @@ playbook がしていないのは、この第二のループを**ループとし
 
 ## playbook が各 phase をどこで示唆しているか
 
-[ADR-0013](adr/0013-positioning-within-agent-memory-literature.md) の流儀に従い、まず
+[ADR-0013](decision-history/0013-positioning-within-agent-memory-literature.md) の流儀に従い、まず
 譲歩（concede）から: AKC の phase がやることの大半は、playbook のどこかで既に示唆
 されている。次の表は各示唆の位置を特定し、対応の強さを評定する。
 
@@ -94,7 +94,7 @@ REVIEW.md を月次で調整して human threshold を定め、各 policy には
 ところでは、出来事とスケジュールによる保守で足りる — 各自の play が浮かび上がらせるものに
 気づくことが、誰かの職務だからだ。AKC は同じループを 1 人で回す operator のために
 書かれている。そこでは上記の役割すべてが同一人物であり、保守を割り当てる先がいない
-（[ADR-0010](adr/0010-human-cognitive-resource-as-central-constraint.md)）。その規模では
+（[ADR-0010](decision-history/0010-human-cognitive-resource-as-central-constraint.md)）。その規模では
 intake と棚卸しは名前つきの phase にしなければ、そもそも起きない。
 
 人間の位置についても、2 つの文書はわずかに違う場所に立つ。playbook は、ボトルネックが

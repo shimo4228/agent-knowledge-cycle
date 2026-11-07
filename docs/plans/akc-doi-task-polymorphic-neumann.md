@@ -17,7 +17,7 @@ grill-me 面接での決定（著者確認済み）:
 
 - research wiki（非公開）の AKC ページを read-only 参照（ADR 候補マーク・矛盾節・外部出典の確認）。wiki パスは公開成果物に引用しない
 
-### 1. 新 ADR 3 本（docs/adr/0024〜0026）
+### 1. 新 ADR 3 本（docs/decision-history/0024〜0026）
 
 - **ADR-0024** — 題目案: "The Judge/Build/Human Three-Role Loop as the Operational Form of Attention Scarcity"。judge 層が台帳の全 open task を判定・dispatch、build 層が実装、human は最後のスイッチ（merge）のみ — human approval gate（ADR-0005）を attention-scarcity 制約下でスケールさせる運用形。T5 却下との関係を "Relationship to other ADRs" で日付つき注記
 - **ADR-0025** — 題目案: "LLM-First Artifact Readability"。artifact の読者・編集者は次セッションの LLM。可読性でなく検証可能性を保存（型・テスト・golden = 保存層、説明は derived）、基準の執行者は機械ゲート、人間可読性の予算は README と出力の文面のみ。Theme 1 の可読性予算への適用形、ADR-0008（code-LLM layering）の隣接。証拠: verify-bootstrap 4 軸選定・golden 凍結層・readme-writer 投資前提の反復実践
@@ -48,7 +48,7 @@ grill-me 面接での決定（著者確認済み）:
 
 ## 修正対象ファイル
 
-- `docs/adr/0024-*.md`, `0025-*.md`, `0026-*.md`（新規）
+- `docs/decision-history/0024-*.md`, `0025-*.md`, `0026-*.md`（新規）
 - `CLAUDE.md`（ADR format 節に optional Review-when を 1 行追記）
 - `graph.jsonld`
 - `llms-full.txt`, `llms.txt`

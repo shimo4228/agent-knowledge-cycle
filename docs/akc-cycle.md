@@ -47,4 +47,4 @@ Since 2026-09-01 the akc-cycle repo owns the self-contained edition outright
 (no longer mirrored from the harness), while the harness runs the pointer
 edition — the drift risk was resolved by making the two editions deliberately
 different rather than nominally identical. The decision records that motivate
-the cycle (the "why") stay here in [`docs/adr/`](adr/).
+the cycle (the "why") stay here in [`docs/decision-history/`](decision-history/).

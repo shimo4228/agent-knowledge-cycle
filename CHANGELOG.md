@@ -61,7 +61,7 @@ corrected under ADR-0027's links-follow-running-state discipline.
 
 ### Added
 
-- **[ADR-0028](docs/adr/0028-authority-by-artifact-class-in-the-three-role-loop.md)
+- **[ADR-0028](docs/decision-history/0028-authority-by-artifact-class-in-the-three-role-loop.md)
   — Authority by artifact class in the three-role loop** (accepted; partially
   supersedes ADR-0024 Decision 1). A protected class — what ADR-0005 gates
   (rules, skills, identity, documents that describe behavior), the control
@@ -128,7 +128,7 @@ beneath it.
 
 ### Added
 
-- **[ADR-0024](docs/adr/0024-judge-build-human-three-role-loop.md)
+- **[ADR-0024](docs/decision-history/0024-judge-build-human-three-role-loop.md)
   — The judge/build/human three-role loop** (accepted). The operational form
   the human approval gate (ADR-0005) takes under attention scarcity
   (ADR-0010) when the upstream artifact is an open-ended task ledger: a
@@ -141,7 +141,7 @@ beneath it.
   repo's first dated weakening record: a 2026-07-09 rejection of binding
   ledger hygiene to Maintain stands, while its premise is recorded as
   expired.
-- **[ADR-0025](docs/adr/0025-llm-first-artifact-readability.md)
+- **[ADR-0025](docs/decision-history/0025-llm-first-artifact-readability.md)
   — LLM-first artifact readability** (accepted). Names the reader: cycle
   artifacts — skills, rules, distilled knowledge, tests, decision records —
   are read, edited, and reviewed by the next session's LLM; the operator
@@ -151,7 +151,7 @@ beneath it.
   gate, not the human eye, enforces the standard; the human-readability
   budget has one line item. Adjacent to ADR-0008: 0008 answers who checks,
   0025 answers who reads.
-- **[ADR-0026](docs/adr/0026-expiry-conditioned-knowledge.md)
+- **[ADR-0026](docs/decision-history/0026-expiry-conditioned-knowledge.md)
   — Expiry-conditioned knowledge** (accepted). Stored judgment carries its
   own expiry conditions, the way intake already carries as-of dates. The
   ADR format gains a `## Review-when` section (required from 0024 onward,
@@ -160,7 +160,7 @@ beneath it.
   hypotheses, not permanent vetoes. The underlying harm rests on a
   single-operator subjective report with zero recorded instances at
   baseline — stated as such in the ADR's Status.
-- **[ADR-0027](docs/adr/0027-mental-model-and-instance.md)
+- **[ADR-0027](docs/decision-history/0027-mental-model-and-instance.md)
   — Mental model and instance** (accepted). Replaces the mechanism/content
   cut with mental model / instance: core owns judgment (ADRs, concepts,
   cycle structure); running instances are owned downstream and linked as
@@ -201,7 +201,7 @@ beneath it.
   layer, machine gates, public rfcs/ ledger run by the three-role loop).
 - daily-research URL corrected from the retired `claude-skill-daily-research`
   name in llms-full.txt and the codemap.
-- CLAUDE.md and docs/adr/README.md record the Review-when format change;
+- CLAUDE.md and docs/decision-history/README.md record the Review-when format change;
   llms.txt / llms-full.txt / glossary / codemap synced (ADR count 23,
   three new Q&A entries, three new glossary terms).
 
@@ -219,7 +219,7 @@ and the artifacts that produce the gate's verification evidence.
 
 ### Added
 
-- **[ADR-0022](docs/adr/0022-transfer-as-completion-test-for-dissolution.md)
+- **[ADR-0022](docs/decision-history/0022-transfer-as-completion-test-for-dissolution.md)
   — Transfer as the completion test for dissolution** (experimental; ADR
   count 18 → 20 together with ADR-0023). Same-context ablation
   indistinguishability cannot separate *internalized* from *carried by
@@ -232,7 +232,7 @@ and the artifacts that produce the gate's verification evidence.
   extraction method sustains positive gain (negative transfer to −36.3
   points). Sibling of ADR-0016: which surface to observe (0016), which
   distribution to test against (0022).
-- **[ADR-0023](docs/adr/0023-generation-review-as-a-fourth-evidence-class.md)
+- **[ADR-0023](docs/decision-history/0023-generation-review-as-a-fourth-evidence-class.md)
   — Generation review as a fourth retirement evidence class** (accepted).
   Silence, ablation, and transfer all detect an *absence* — of use, of
   effect, of portability — and are structurally blind to negative
@@ -346,7 +346,7 @@ by an instrument rather than by impression was recorded as evidence.
   published repository persists as the citable design-pattern artifact.
   First retirement decided by the silence check rather than narrative
   impression.
-- **[ADR-0020](docs/adr/0020-readme-minimal-floor.md) — Minimal-floor README
+- **[ADR-0020](docs/decision-history/0020-readme-minimal-floor.md) — Minimal-floor README
   with single-location theme presentation** (ADR count 17 → 18 together with
   ADR-0021). Amends ADR-0012 after its fix overshot into a double theme
   presentation and a three-table skill list (302 lines / 8 tables, observed
@@ -371,7 +371,7 @@ by an instrument rather than by impression was recorded as evidence.
   ADR-0019 the binding remains a mutable snapshot. Reflected in the README
   phase tables (en/ja), llms.txt, llms-full.txt, and graph.jsonld (new
   EcosystemRepo node with an `implements` edge to the Curate phase).
-- **Concept-corroboration wave cited in [ADR-0013](docs/adr/0013-positioning-within-agent-memory-literature.md)** (2026-07-08 addendum):
+- **Concept-corroboration wave cited in [ADR-0013](docs/decision-history/0013-positioning-within-agent-memory-literature.md)** (2026-07-08 addendum):
   seven externally verified 2026 papers that independently converge on named
   AKC concepts — SDB runtime patterns (arXiv:2605.20173 → code-LLM layering),
   Context Engineering 2.0 (arXiv:2510.26493 → signal-first / cognitive
@@ -391,7 +391,7 @@ by an instrument rather than by impression was recorded as evidence.
 
 ### Changed
 
-- **Tagline replaced ([ADR-0021](docs/adr/0021-replace-growth-tagline.md), 2026-07-08)**:
+- **Tagline replaced ([ADR-0021](docs/decision-history/0021-replace-growth-tagline.md), 2026-07-08)**:
   *"A knowledge cycle for AI agents — one that grows with the people who
   shape it"* → *"A knowledge cycle for AI agents — agent behavior
   compounds, human judgment sharpens."* The earlier phrasing collided
@@ -448,9 +448,9 @@ federation edges.
 ### Added
 
 - **`skill-health` published as Curate's code layer** — a standalone public repository ([`shimo4228/skill-health`](https://github.com/shimo4228/skill-health)) providing a deterministic structural lint for *missing-artifact* debt (a SKILL.md referencing a script, agent, or sibling skill that no longer exists on disk). Referenced like the other cycle skills across README en/ja (phase table + cycle-skills list), llms.txt, llms-full.txt, and graph.jsonld (new `EcosystemRepo` node, `implements` the Curate phase). Its SkillOps four-dimension rubric stays content-side in the skill, not in AKC core (mechanism-only rule).
-- **[ADR-0019](docs/adr/0019-cycle-structure-is-provisional.md) — The Cycle's Structure Is Provisional** (ADR count 15 → 16). Records the disposition to hold skills, bindings, and the phase set lightly, the Curate code-layer decision (enumerate-then-decide: skill-health structural / skill-stocktake semantic), and skill-comply's possible substrate absorption as an **experimental** observation (n=1, not a retirement). New `ADR` node in graph.jsonld; indexed in `docs/adr/README.md`.
+- **[ADR-0019](docs/decision-history/0019-cycle-structure-is-provisional.md) — The Cycle's Structure Is Provisional** (ADR count 15 → 16). Records the disposition to hold skills, bindings, and the phase set lightly, the Curate code-layer decision (enumerate-then-decide: skill-health structural / skill-stocktake semantic), and skill-comply's possible substrate absorption as an **experimental** observation (n=1, not a retirement). New `ADR` node in graph.jsonld; indexed in `docs/decision-history/README.md`.
 - **`Ask DeepWiki` and `GitMCP` badges** in README en/ja — LLM-queryable derivative-wiki and MCP doc surfaces.
-- **Skill-library-maintenance literature cited in [ADR-0013](docs/adr/0013-positioning-within-agent-memory-literature.md)** (2026-06-25 addendum): SkillOps (arXiv:2605.13716, the origin of the skill-health rubric), SoK: Agentic Skills (arXiv:2602.20867), and skill-usage-in-the-wild (Liu et al., arXiv:2604.04323). Added as `ExternalReference` nodes in graph.jsonld with Wikidata sameAs, into `.zenodo.json` references, and into the llms-full.txt Prior Research table.
+- **Skill-library-maintenance literature cited in [ADR-0013](docs/decision-history/0013-positioning-within-agent-memory-literature.md)** (2026-06-25 addendum): SkillOps (arXiv:2605.13716, the origin of the skill-health rubric), SoK: Agentic Skills (arXiv:2602.20867), and skill-usage-in-the-wild (Liu et al., arXiv:2604.04323). Added as `ExternalReference` nodes in graph.jsonld with Wikidata sameAs, into `.zenodo.json` references, and into the llms-full.txt Prior Research table.
 - **Knowledge-graph federation** — `isPartOf` hub link and a completed sibling mesh among the research lines; research-line abbreviations made referenceable via `alternateName`; output-side dual added to the signal-first concept (a research report is the delta against the project's knowledge frontier, not a digest); SSRN `sameAs` on the harness-alignment position paper; Wikidata QID `sameAs` on six newly cited-work nodes; a human-readable research-ecosystem hub link in README "Related Work".
 
 ### Changed
@@ -479,7 +479,7 @@ observation land.
 - **Position paper deposited and cross-linked** — *Harness Alignment and Harness Drift: Why Intent, Unlike Correctness, Resists Automation* (Zenodo working paper, concept DOI [10.5281/zenodo.20578272](https://doi.org/10.5281/zenodo.20578272), v1: 10.5281/zenodo.20578273, 2026-06-07) defines both ADR-0017 terms against the literature. Cross-linked from README en/ja (front-door line, "Why AKC", harness-engineering section, Related Publication), llms.txt, llms-full.txt, `.zenodo.json` (`isReferencedBy`), and graph.jsonld (ScholarlyArticle node with Wikidata sameAs); citation surfaces synced (zenodo references + graph ExternalReference + Wikidata P2860).
 - **Position-paper content reduced into the docs surfaces** — the paper's §3 structural argument (an automated intent-check freezes intent into a specification, reducing its automatable part to correctness work), the three-property labels (continuous / human-gated / bidirectional) with their single-root derivation, the two-layer failure framing (artifact-side harness drift / human-side failure twin, with empirical anchors in the automation-complacency and ironies-of-automation literatures), the §5 boundary phrasing (where the human-gated property becomes architecture), and the pre-deposit sweep findings (extended drift-coinage audit; "harness drift" disambiguated from its one other use) synced into `docs/glossary.md`, llms-full.txt (new Q: "What does the position paper claim?"), README en/ja, and graph.jsonld (paper node gains `definesConcept`; harness-alignment / harness-drift concept nodes gain `subjectOf`). ADRs unchanged: the argument layer stays in the paper (per ADR-0014's own layer rule), and ADR-0017 remains the canonical definition record.
 - **Concept glossary** at `docs/glossary.md`: load-bearing terms (the gate, attention ceiling, line of approval, harness, scaffold dissolution, harness alignment/drift, failure twin, self-reingestion, mechanism vs content, judgment lineage) defined with ADR pointers, cross-checked entry-by-entry against the AAP sibling glossary — the harness/scaffolding synonymy and the two senses of dissolution are now stated from AKC's side, mirroring AAP's treatment. The previous `docs/glossary.md` (a translation table) is renamed to `docs/translation-glossary.md`; llms.txt and CODEMAPS references updated.
-- **Downstream context mapping** — the reverse references the start-of-program repo was missing. Contemplative Agent's role is now recorded as two-way: upstream substrate for ADR-0002–0005 *and* the operational re-implementation of AKC in the autonomous-agent context (six phases mapped onto code, cycle run over its own episode logs with no fine-tuning, every promotion human-gated; demonstration ongoing) — synced across README en/ja, CLAUDE.md, llms.txt, llms-full.txt, CODEMAPS, and graph.jsonld (new `implements` edge from Contemplative Agent to the six-phase loop, new `workExample` edges from the AKC line). Research lines and repos that crystallized out of the same operation are recorded for the first time: authorship-strategy (10.5281/zenodo.20263316), attention-not-self (10.5281/zenodo.20262112), doctrine-corpus (10.5281/zenodo.20337008), existence-proof (10.5281/zenodo.20558800) in README en/ja + llms.txt + graph.jsonld; claude-harness, akc-mcp, daily-research, and the research-program hub in graph.jsonld + llms-full.txt only. Mapping discipline: relationship facts + DOIs only (mechanism-only rule). Recorded as **[ADR-0018](docs/adr/0018-record-downstream-applications-as-first-class-context.md)** (ADR count 14 → 15) — itself the record of a Maintain-phase execution on the repo's own self-description.
+- **Downstream context mapping** — the reverse references the start-of-program repo was missing. Contemplative Agent's role is now recorded as two-way: upstream substrate for ADR-0002–0005 *and* the operational re-implementation of AKC in the autonomous-agent context (six phases mapped onto code, cycle run over its own episode logs with no fine-tuning, every promotion human-gated; demonstration ongoing) — synced across README en/ja, CLAUDE.md, llms.txt, llms-full.txt, CODEMAPS, and graph.jsonld (new `implements` edge from Contemplative Agent to the six-phase loop, new `workExample` edges from the AKC line). Research lines and repos that crystallized out of the same operation are recorded for the first time: authorship-strategy (10.5281/zenodo.20263316), attention-not-self (10.5281/zenodo.20262112), doctrine-corpus (10.5281/zenodo.20337008), existence-proof (10.5281/zenodo.20558800) in README en/ja + llms.txt + graph.jsonld; claude-harness, akc-mcp, daily-research, and the research-program hub in graph.jsonld + llms-full.txt only. Mapping discipline: relationship facts + DOIs only (mechanism-only rule). Recorded as **[ADR-0018](docs/decision-history/0018-record-downstream-applications-as-first-class-context.md)** (ADR count 14 → 15) — itself the record of a Maintain-phase execution on the repo's own self-description.
 - **Scaffold dissolution: second observation (2026-06-10) and two new sections** in `docs/scaffold-dissolution.md` (en/ja). Dissolution by **platform absorption** is recorded as a third mechanism the original concept did not anticipate: the host harness shipped built-in equivalents of the hand-built verify/review loop ~3 months after it was assembled, and the resulting stocktake retired 6 skills + 1 rule (−1,429 lines) — itself a Curate run triggered conversationally, replicating the 2026-03-29 evidence. Two sections generalize the observation: the **information-differential law** of what survives (zero-differential universal procedures dissolve; personal context, external-service operations, and harness self-management persist), and a **completion criterion with predicted dissolution order** (skill-comply A/B as death determination; generally-stated principles dissolve first, the judgment thresholds in Extract/Promote — taste — last).
 
 ### Fixed
@@ -499,15 +499,15 @@ mirrors are retired in favor of English + Japanese.
 ### Added
 
 - **Four new ADRs (0013–0016)** closing the 2026-06-06 pre-paper gap analysis. ADR count 9 → 13 (gaps 0001/0006/0007 unchanged). A fifth candidate — demotion / rule retirement as Promote's structural inverse — was drafted and withdrawn the same day as premature: rules are already retired in practice through interactive curation (the gap analysis mistook a symmetry argument for observed pain), and the rule-layer-curation observation is deferred until it has a pain record:
-  - [ADR-0013](docs/adr/0013-positioning-within-agent-memory-literature.md) — positions AKC against the agent-memory / skill-learning literature (Voyager, AWM, ReMe, LangMem, Generative Agents, MemGPT, CoALA, the Externalization survey) via concede-then-locate: the operations are not novel in isolation; the human-owned loop, bidirectional growth target, and attention-side scarcity framing are the delta.
-  - [ADR-0014](docs/adr/0014-failure-modes-of-the-bidirectional-loop.md) (**experimental**) — names Theme 3's failure twin: gate complacency, deskilling, delegation-feedback divergence, with AKC's structural defenses.
-  - [ADR-0015](docs/adr/0015-loop-failure-modes-self-reingestion.md) (**experimental**) — the cycle feeds on its own output: agent-written rules and notes re-enter as distillation input, so the loop can degrade (echo, grounding loss) as well as correct. General principle distilled from a Contemplative Agent production observation; the observed record is the only ground, the self-generated share of promoted artifacts stays visible (Measure), the gate is the circuit-breaker.
-  - [ADR-0016](docs/adr/0016-measuring-thinking-centric-phases.md) — requires Measure instruments to promote agent text (reasoning, verdicts, plans) to observable events; tool-call-only instruments systematically under-report judgment-phase compliance.
+  - [ADR-0013](docs/decision-history/0013-positioning-within-agent-memory-literature.md) — positions AKC against the agent-memory / skill-learning literature (Voyager, AWM, ReMe, LangMem, Generative Agents, MemGPT, CoALA, the Externalization survey) via concede-then-locate: the operations are not novel in isolation; the human-owned loop, bidirectional growth target, and attention-side scarcity framing are the delta.
+  - [ADR-0014](docs/decision-history/0014-failure-modes-of-the-bidirectional-loop.md) (**experimental**) — names Theme 3's failure twin: gate complacency, deskilling, delegation-feedback divergence, with AKC's structural defenses.
+  - [ADR-0015](docs/decision-history/0015-loop-failure-modes-self-reingestion.md) (**experimental**) — the cycle feeds on its own output: agent-written rules and notes re-enter as distillation input, so the loop can degrade (echo, grounding loss) as well as correct. General principle distilled from a Contemplative Agent production observation; the observed record is the only ground, the self-generated share of promoted artifacts stays visible (Measure), the gate is the circuit-breaker.
+  - [ADR-0016](docs/decision-history/0016-measuring-thinking-centric-phases.md) — requires Measure instruments to promote agent text (reasoning, verdicts, plans) to observable events; tool-call-only instruments systematically under-report judgment-phase compliance.
 - **ADR-0005 addendum** — "Why the gate is the contribution, not a guardrail": contrasts AKC's named-human-sign-off promotion against the autonomous-promotion default of the self-evolving-agent corpus, and frames Promote as deliberately extrinsic metacognition.
 - **README `Limitations` section** and rewritten Related Work / References carrying the agent-memory prior art with full citations; mirrored in README.ja.md. Design Principle #2 sharpened with the text-observability requirement.
 - **akc-cycle.md** Measure step sharpened: compliance is checked in agent text (stated reasoning, verdicts) as well as tool calls — the install file's only change; explanatory material stays in the ADRs.
 - **graph.jsonld** gains nodes for the four new ADRs, loop failure modes, self-reingestion, and prior-art research lines with contrast edges. **glossary** gains the corresponding mechanism terms.
-- **[ADR-0017](docs/adr/0017-harness-alignment-and-drift.md) — harness alignment / harness drift vocabulary** (ADR count 13 → 14). Establishes both terms by derivation from established literature rather than fresh coinage, after a four-domain search confirmed no single established term covers the concept. Harness alignment extends intent alignment (Christiano 2018 — citation also newly added to the README, repairing a missing attribution) to the configuration layer and across time (cf. Lehman 1980, Law I); harness drift names the failure mode in lineage with architectural drift (Perry & Wolf 1992), practical drift (Snook 2000), and agent drift (arXiv:2601.04170); the contrast is autonomous, score-driven harness optimization (Meta-Harness, arXiv:2603.28052). Quotations verified against primary texts (Snook secondary-verified). Synced across README en/ja (new "Software-evolution and alignment literature" References table + harness-engineering section paragraph), glossary, llms.txt, llms-full.txt (new Q&A; Meta-Harness citation corrected to its actual title "End-to-End Optimization of Model Harnesses"), and graph.jsonld (2 Concept nodes, 1 ADR node, 6 prior-art nodes, contrast edges).
+- **[ADR-0017](docs/decision-history/0017-harness-alignment-and-drift.md) — harness alignment / harness drift vocabulary** (ADR count 13 → 14). Establishes both terms by derivation from established literature rather than fresh coinage, after a four-domain search confirmed no single established term covers the concept. Harness alignment extends intent alignment (Christiano 2018 — citation also newly added to the README, repairing a missing attribution) to the configuration layer and across time (cf. Lehman 1980, Law I); harness drift names the failure mode in lineage with architectural drift (Perry & Wolf 1992), practical drift (Snook 2000), and agent drift (arXiv:2601.04170); the contrast is autonomous, score-driven harness optimization (Meta-Harness, arXiv:2603.28052). Quotations verified against primary texts (Snook secondary-verified). Synced across README en/ja (new "Software-evolution and alignment literature" References table + harness-engineering section paragraph), glossary, llms.txt, llms-full.txt (new Q&A; Meta-Harness citation corrected to its actual title "End-to-End Optimization of Model Harnesses"), and graph.jsonld (2 Concept nodes, 1 ADR node, 6 prior-art nodes, contrast edges).
 
 ### Fixed
 
@@ -529,7 +529,7 @@ so the three core themes — (1) human cognitive-resource scarcity as the
 central constraint, (2) intent alignment over individual correctness, and
 (3) the cycle changing the human as much as the agent — appear in priority
 order before the six-phase mechanism. Tagline preserved per ADR-0010. See
-[ADR-0012](docs/adr/0012-front-load-three-core-themes.md) for the
+[ADR-0012](docs/decision-history/0012-front-load-three-core-themes.md) for the
 positioning rationale.
 
 ### Why v2.1.0 and not v2.0.1
@@ -574,7 +574,7 @@ door's signature changes enough that it deserves a minor bump.
 
 ### Added
 
-- **`docs/adr/0012-front-load-three-core-themes.md`** — new ADR
+- **`docs/decision-history/0012-front-load-three-core-themes.md`** — new ADR
   recording the front-door reorder decision and the verifiable
   commitments for the three themes appearing in priority order in
   README.md, llms.txt, and llms-full.txt.
@@ -638,12 +638,12 @@ major bump rather than a minor one.
 
 ### Removed
 
-- **`docs/adr/0001-security-by-absence.md`** — genre-specific to the
+- **`docs/decision-history/0001-security-by-absence.md`** — genre-specific to the
   contemplative-agent lineage. Extracted to local archive at
   `_archive/akc-security-triplet-2026-04/` for future re-expression.
-- **`docs/adr/0006-single-external-adapter.md`** — genre-specific.
+- **`docs/decision-history/0006-single-external-adapter.md`** — genre-specific.
   Extracted to the same archive.
-- **`docs/adr/0007-untrusted-content-boundary.md`** — genre-specific.
+- **`docs/decision-history/0007-untrusted-content-boundary.md`** — genre-specific.
   Extracted to the same archive.
 - **`docs/skills/llm-agent-security-principles.md`** — design-pattern
   skill that bundled the three security ADRs' concrete defense patterns.
@@ -654,13 +654,13 @@ major bump rather than a minor one.
 
 ### Added
 
-- **`docs/adr/0011-cycle-applies-to-any-knowledge-body.md`** — new ADR
+- **`docs/decision-history/0011-cycle-applies-to-any-knowledge-body.md`** — new ADR
   declaring genre neutrality as a first-class positioning statement, with
   three falsifiable commitments: no future AKC ADR encodes domain-specific
   content, `docs/skills/` hosts only cycle-mechanic skills, and external
   projects may cite AKC as their cycle substrate without AKC making
   claims about their content.
-- **`docs/adr/0009-akc-is-a-cycle-not-a-harness.md` 2026-04-19
+- **`docs/decision-history/0009-akc-is-a-cycle-not-a-harness.md` 2026-04-19
   addendum** — records the concrete security-triplet extraction that
   completes ADR-0009's demotion. Documents the consequences: ADR
   numbering gaps at 0001, 0006, 0007; design principles 9 → 8;
@@ -681,7 +681,7 @@ major bump rather than a minor one.
 - **README.md / README.ja.md** — repo tree, counts (8 ADRs, 8 design
   principles, 3 design-pattern skills), "Related Work" section (no
   longer mentions security-by-absence as prior-art inheritance).
-- **`docs/adr/README.md`** — index updated; note explaining the
+- **`docs/decision-history/README.md`** — index updated; note explaining the
   numbering gaps added.
 - **`docs/skills/README.md`** — design-pattern skill table shrunk from
   4 to 3 entries.
@@ -706,9 +706,9 @@ major bump rather than a minor one.
 
 ### Migration notes for v1.x citations and downstream repositories
 
-- External links pointing at `docs/adr/0001-security-by-absence.md`,
-  `docs/adr/0006-single-external-adapter.md`, or
-  `docs/adr/0007-untrusted-content-boundary.md` at `main` HEAD will
+- External links pointing at `docs/decision-history/0001-security-by-absence.md`,
+  `docs/decision-history/0006-single-external-adapter.md`, or
+  `docs/decision-history/0007-untrusted-content-boundary.md` at `main` HEAD will
   404. Commit-pinned links (via GitHub permalinks) continue to resolve.
   The content is preserved locally at
   `_archive/akc-security-triplet-2026-04/` on the author's machine;
@@ -745,7 +745,7 @@ upstream that preceded Contemplative Agent.
 
 ### Changed
 
-- **`docs/adr/0010-...md` Notes** — extended with an "Origin loop"
+- **`docs/decision-history/0010-...md` Notes** — extended with an "Origin loop"
   observation: the pipeline that named the signal-first principle had
   been practicing it for months. The principle was lived before it was
   stated.
@@ -766,7 +766,7 @@ signal-first, a new design principle is added, and "Why a cycle?" is
 extended with the cognitive-economy paragraph. No code changes; this is
 a documentation release.
 
-See [ADR-0010](docs/adr/0010-human-cognitive-resource-as-central-constraint.md)
+See [ADR-0010](docs/decision-history/0010-human-cognitive-resource-as-central-constraint.md)
 for the full rationale.
 
 ### Added
@@ -802,7 +802,7 @@ for the full rationale.
   `cognitive-economy`.
 - **llms.txt** — opening summary extended with the cognitive-resource
   axis. ADR-0010 added to the index.
-- **docs/adr/README.md** — ADR-0010 added to the index table.
+- **docs/decision-history/README.md** — ADR-0010 added to the index table.
 
 ### Not changed
 
@@ -822,7 +822,7 @@ harness." It is now a **knowledge cycle for AI agents — one that grows
 with the people who shape it**. No code changes; this is a positioning
 release with significant documentation updates.
 
-See [ADR-0009](docs/adr/0009-akc-is-a-cycle-not-a-harness.md) for the
+See [ADR-0009](docs/decision-history/0009-akc-is-a-cycle-not-a-harness.md) for the
 full rationale.
 
 ### Added
@@ -917,7 +917,7 @@ shipped inside the repository alongside the ADRs they correspond to.
 - **ADR-0001 Security by Absence** — added an Audit test section with
   a ready-to-run `git grep` compliance check and a pointer to the
   `llm-agent-security-principles` skill for the full "how" reference.
-- **docs/adr/README.md** — ADR-0008 added to the index.
+- **docs/decision-history/README.md** — ADR-0008 added to the index.
 - **llms.txt** — ADR-0008 entry and a design-pattern-skills section
   added.
 - **CITATION.cff** — bumped to v1.6.0, date updated.
@@ -939,7 +939,7 @@ research repository.
 
 ### Added
 
-- `docs/adr/` — seven new architecture decision records:
+- `docs/decision-history/` — seven new architecture decision records:
   - ADR-0001 Security by Absence as a First-Class Principle
   - ADR-0002 Immutable Episode Log as Source of Truth
   - ADR-0003 Three-Layer Distillation (Raw → Knowledge → Identity/Rules)

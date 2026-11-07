@@ -80,7 +80,7 @@ Through repeated AKC cycles, users develop an implicit understanding of when to 
 Each cycle leaves traces in the persistent layers:
 - **Rules** (`rules/`) absorb cycle principles through distillation
 - **Memory** (`memory/`) accumulates feedback and decision history
-- **ADRs** (`docs/adr/`) record design decisions
+- **ADRs** (`docs/decision-history/`) record design decisions
 
 These are loaded as context every session. The AI can follow cycle principles without reading skill files, because the principles are already embedded in the rules and memory it consumes.
 

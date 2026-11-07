@@ -1,12 +1,19 @@
-# Architecture Decision Records
+# Decision History
 
-AKC records design decisions as ADRs. Each ADR is short, dated, and
+AKC records what it decided and why, one dated entry per file (the
+entries keep their ADR-NNNN numbers). Each entry is short, dated, and
 self-contained: it states the context, the decision, the alternatives
-considered, and the consequences. ADRs are dated hypotheses, not
-permanent constraints: from ADR-0024 onward each carries a
-`## Review-when` section naming its expiry conditions (ADR-0026);
-earlier ADRs are read by their Context premises and Date — lint
-reports of a missing Review-when on 0002–0023 are expected, not debt.
+considered, and the consequences, in the past tense. Each entry is the
+judgment of the day it was written; the current mental model is whatever
+`graph.jsonld`, `docs/akc-cycle.md` and the other docs say now, plus the
+author's current instructions. The `Status` line and the dated notes in
+older entries are the state on those days. A new decision may conflict
+with an older entry, and the older entry stays as it is.
+
+A `## Review-when` section naming an entry's expiry conditions
+(ADR-0026) is optional; ADR-0024 onward carry one, and when an entry has
+none it says "None — record". Lint reports of a missing Review-when on
+0002–0023 are expected, not debt.
 
 ## Index
 
@@ -45,3 +52,9 @@ genre-specific content; see the ADR-0009 addendum for the reasoning.
 Several remaining ADRs are adapted from the [contemplative-agent](https://github.com/shimo4228/contemplative-agent)
 research repository, which served as prior art. Credit is given at the
 bottom of each ADR where applicable.
+
+## Template
+
+New entries use Date / Context / Decision / Review-when (optional) / Alternatives Considered /
+Consequences, with Decision in the past tense (what was done and why). File name:
+`NNNN-kebab-case-title.md`; numbers are never reused.

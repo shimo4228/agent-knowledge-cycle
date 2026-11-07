@@ -10,7 +10,7 @@
 
 - 層軸そのものは AKC に既出 — position paper §5「what can be verified without the operator runs
   unattended; every behavior-shaping change passes the gate」、`docs/glossary.md:46-57`
-  (line of approval)、`docs/adr/0005:86-90`（generator–verifier gap / no approved-by-the-LLM path）。
+  (line of approval)、`docs/decision-history/0005:86-90`（generator–verifier gap / no approved-by-the-LLM path）。
   ADR-0019 は新しい判断ではなく、論文 §5 が "first instance"（著者の日常運用）と呼ぶものの実装記録。
 - pointer page（`docs/akc-cycle.md` / `docs/skills/README.md`）は「why は AKC の ADR / how は配布 repo」
   という役割分割の片側であり、既存 4 件はすべて paired ADR を持つ。今回は埋めるべき why が AKC 側に無い。
@@ -20,7 +20,7 @@
   衝突して読まれる。
 
 **ただし 1 点だけ実質的な穴が見つかった。** `hook` / `permission` / `allowedTools` / `control plane` は
-`docs/adr/0005` にも `docs/glossary.md` にも **1 回も出現しない**（grep 実測）。ADR-0005 の decision table は
+`docs/decision-history/0005` にも `docs/glossary.md` にも **1 回も出現しない**（grep 実測）。ADR-0005 の decision table は
 episode log / knowledge store / rule / skill / identity / ADR・README の 6 行で、ハーネス自身の control plane
 （hooks、permission 付与、scheduled task 定義）を列挙していない。これらは records ではないが、
 **ゲートを執行する層それ自体**であり、無警戒だと agent がゲートを迂回する代わりに**ゲートを書き換えられる**。
@@ -72,7 +72,7 @@ pointer は paired ADR を要する）。control plane の列挙欠落のみ glo
   層軸は AKC に既出（paper §5 / glossary line of approval / ADR-0005）のため昇格せず、
   ADR-0019 は "first instance" の実装記録として harness 側に留まる。control plane の
   列挙欠落のみ AKC glossary + graph へ還元。
-- **`~/.claude/docs/adr/0019-human-gate-layer.md`** — Consequences / Negative の
+- **`~/.claude/docs/decision-history/0019-human-gate-layer.md`** — Consequences / Negative の
   「AKC への昇格が未了…drift しうる」を、確定した結論に差し替える。Alternatives (d)
   （AKC 側に先に concept / ADR を立てる案）の却下理由も、当時の「証拠が足りない」から
   検証後の「AKC に既出であり新しい judgment ではない」へ更新する。**Status / Date /
@@ -84,14 +84,14 @@ AKC repo とは変更先が異なるため、コミットは分ける。
 
 - **`llms-full.txt:100`** — position paper の要約段落。論文本文は control plane に言及していないため、
   ここに足すと source fidelity 違反になる。**編集しない**。
-- **`docs/adr/0005-human-approval-gate.md`** — 受理済みの歴史的判断記録。後から行を足さない。
+- **`docs/decision-history/0005-human-approval-gate.md`** — 受理済みの歴史的判断記録。後から行を足さない。
 - **新規 ADR / 新規 pointer page / 新規 standalone repo** — いずれも作らない（上記 Context の理由）。
 - `README.md` / `README.ja.md` / `docs/akc-cycle.md` / `docs/skills/README.md` / `CHANGELOG.md`
   （リリース時に扱う）。
 
 ## 語彙の制約（決定済み）
 
-- **"value layer" は使わない** — `docs/adr/0017:41,106` が "The alignment target is operator intent,
+- **"value layer" は使わない** — `docs/decision-history/0017:41,106` が "The alignment target is operator intent,
   not model values. This is not an AI-safety value-alignment claim." として意図的に排除している。
 - **新語を coin しない** — authorship-strategy ADR-0010（Coin Sparingly, Anchor Densely）。
   `line of approval` / `the gate` / `harness alignment` の既存 anchor だけを使う。
@@ -102,7 +102,7 @@ docs 変更のためビルド・テストは無い。以下で足りる。
 
 1. `python3 -c "import json; json.load(open('graph.jsonld'))"` — JSON-LD が壊れていないこと。
 2. `grep -n "control plane\|hook\|permission" docs/glossary.md graph.jsonld` — 両面に入り、
-   かつ `docs/adr/0005*` と `llms-full.txt` には入っていないこと（意図的な非対称の確認）。
+   かつ `docs/decision-history/0005*` と `llms-full.txt` には入っていないこと（意図的な非対称の確認）。
 3. `docs/glossary.md` の Line of approval 全文と graph の該当 description を読み比べ、
    ADR-0005 の table を偽って引用していないことを目視確認。
 4. `git status` — `docs/glossary.md` / `graph.jsonld` / `.notes/TASKS.md` の 3 ファイルのみ。

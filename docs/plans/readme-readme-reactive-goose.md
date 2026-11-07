@@ -24,7 +24,7 @@ intent alignment ×3 箇所、bidirectional loop ×2、harness drift ×4、6 pha
 
 | ファイル | 変更 |
 |---|---|
-| `docs/adr/0020-*.md` | 新設。「README を最小フロア型 + themes 単一箇所提示に移行、ADR-0012 の README 構造 commitment を改訂」。llms.txt 系 commitment は不変と明記。検証条件を新構造用に書き直す |
+| `docs/decision-history/0020-*.md` | 新設。「README を最小フロア型 + themes 単一箇所提示に移行、ADR-0012 の README 構造 commitment を改訂」。llms.txt 系 commitment は不変と明記。検証条件を新構造用に書き直す |
 | `README.md` | 全面改稿（~120-140 行目標、下のスケルトン） |
 | `README.ja.md` | 英語正本確定後に同じ diff でミラー改稿 |
 | `graph.jsonld` | ADR-0020 ノード追加（既存 ADR ノード規約に従う） |

@@ -8,13 +8,13 @@ The paired ADRs (the "why") remain in this repository.
 
 | Skill | Repository | Paired ADR(s) | One-line summary |
 |-------|------------|----------------------|------------------|
-| when-code-when-llm | [shimo4228/when-code-when-llm](https://github.com/shimo4228/when-code-when-llm) | [ADR-0008](../adr/0008-code-and-llm-collaboration.md) | Per-task decision: is this property structural or semantic? |
-| code-and-llm-collaboration | [shimo4228/code-and-llm-collaboration](https://github.com/shimo4228/code-and-llm-collaboration) | [ADR-0008](../adr/0008-code-and-llm-collaboration.md) | Per-pipeline decision: four layering patterns for mixing deterministic code and LLM calls |
-| signal-first-research | [shimo4228/signal-first-research](https://github.com/shimo4228/signal-first-research) | [ADR-0010](../adr/0010-human-cognitive-resource-as-central-constraint.md) | Design a research intake filter that admits only information likely to change your next action |
+| when-code-when-llm | [shimo4228/when-code-when-llm](https://github.com/shimo4228/when-code-when-llm) | [ADR-0008](../decision-history/0008-code-and-llm-collaboration.md) | Per-task decision: is this property structural or semantic? |
+| code-and-llm-collaboration | [shimo4228/code-and-llm-collaboration](https://github.com/shimo4228/code-and-llm-collaboration) | [ADR-0008](../decision-history/0008-code-and-llm-collaboration.md) | Per-pipeline decision: four layering patterns for mixing deterministic code and LLM calls |
+| signal-first-research | [shimo4228/signal-first-research](https://github.com/shimo4228/signal-first-research) | [ADR-0010](../decision-history/0010-human-cognitive-resource-as-central-constraint.md) | Design a research intake filter that admits only information likely to change your next action |
 
 Running instances of the judge pattern (ADR-0008) in the author's harness —
 relation facts, linked under the grounding rule of
-[ADR-0027](../adr/0027-mental-model-and-instance.md):
+[ADR-0027](../decision-history/0027-mental-model-and-instance.md):
 
 - [llm-as-judge](https://github.com/shimo4228/llm-as-judge) designs the LLM
   side of the pattern — binary checks as evidence, one named verdict, no

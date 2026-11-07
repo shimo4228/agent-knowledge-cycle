@@ -18,7 +18,7 @@ front-door documentation で必ず先に登場させる 3 つの load-bearing �
 2. [`llms.txt`](llms.txt) — navigation index
 3. [`llms-full.txt`](llms-full.txt) — consolidated Q&A + factual reference
 4. [`README.md`](README.md) (or [`README.ja.md`](README.ja.md)) — three themes、全体像
-5. [`docs/adr/`](docs/adr/) — judgment lineage (count の正本は llms-full.txt; gaps at 0001/0006/0007 are intentional)
+5. [`docs/decision-history/`](docs/decision-history/) — judgment lineage (count の正本は llms-full.txt; gaps at 0001/0006/0007 are intentional)
 
 ## Sibling projects (context を失わない)
 
@@ -99,9 +99,9 @@ HF 側の `README.md` (dataset card) は HF 用に customize されている (si
 - ADR は英語正本
 - llms.txt / llms-full.txt / graph.jsonld は英語のみ
 
-### ADR format
+### 記録の形式
 
-`docs/adr/` 直下に番号付き markdown。必須 section: **Status / Date / Context / Decision / Alternatives Considered / Consequences / Relationship to other ADRs** (lineage を記録する section。header 名はこの表記で統一)。実験的判断は Status 欄に `**experimental**` と太字で付記。ADR-0024 以降は `## Review-when` (失効条件) を Decision の直後に置く — ADR は日付つき仮説であり、0023 以前は backfill しない (ADR-0026)。
+`docs/decision-history/` 直下に番号付き markdown。記録は書かれた日の判断で、過去形で書く。節: **Date / Context / Decision / Alternatives Considered / Consequences**。**Review-when**（失効条件。AKC の expiry-conditioned knowledge の実装）は任意で、置くなら Decision の直後に書き、無ければ「None — record」と書く。過去の記録へのリンクは任意。実験的判断は Decision の冒頭に `**experimental**` と太字で付記する。旧記録の Status 欄・Relationship 節はその日の状態として残し、backfill しない。
 
 ### 「メンタルモデル」と「インスタンス」の区別 (ADR-0027。旧「mechanism/content」を supersede)
 
@@ -125,4 +125,4 @@ concept-level の正本は [`graph.jsonld`](graph.jsonld)（「X とは何か、
 
 - **Tagline**: *"A knowledge cycle for AI agents — agent behavior compounds, human judgment sharpens"* を README の en / ja 両方で保つ (ADR-0021)
 - **README の en / ja 対応**: 両版の H2 / H3 構造を揃える。訳語の正本は [`docs/translation-glossary.md`](docs/translation-glossary.md)
-- **4 パターンの正本は ADR-0008**: guard / filter / judge / orchestrator の定義が graph.jsonld・llms-full.txt と食い違ったら ADR-0008 が正で、他が drift
+- **4 パターン**（guard / filter / judge / orchestrator）の現行の定義は graph.jsonld が持ち、llms-full.txt はそれに揃える。定義の経緯は ADR-0008

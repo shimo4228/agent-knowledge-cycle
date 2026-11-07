@@ -8,14 +8,14 @@ only. No network. No API keys. Around 300 lines of code total.
 
 | File | Layer / concept | ADR |
 |------|-----------------|-----|
-| `episode_log.py` | Layer 1 — append-only JSONL, `umask(0o177)`, daily partitioning | [ADR-0002](../../docs/adr/0002-immutable-episode-log.md) |
-| `knowledge_store.py` | Layer 2 — distilled patterns, time decay, forbidden-substring validation | [ADR-0003](../../docs/adr/0003-three-layer-distillation.md) |
-| `distill.py` | Two-stage distill pipeline (free-form → format), LLM-agnostic | [ADR-0004](../../docs/adr/0004-two-stage-distill-pipeline.md) |
+| `episode_log.py` | Layer 1 — append-only JSONL, `umask(0o177)`, daily partitioning | [ADR-0002](../../docs/decision-history/0002-immutable-episode-log.md) |
+| `knowledge_store.py` | Layer 2 — distilled patterns, time decay, forbidden-substring validation | [ADR-0003](../../docs/decision-history/0003-three-layer-distillation.md) |
+| `distill.py` | Two-stage distill pipeline (free-form → format), LLM-agnostic | [ADR-0004](../../docs/decision-history/0004-two-stage-distill-pipeline.md) |
 | `demo.py` | End-to-end run with a deterministic fake LLM | — |
 
 What this reference intentionally does **not** implement:
 
-- Layer 3 (identity / rules). That requires human review. See [ADR-0005](../../docs/adr/0005-human-approval-gate.md).
+- Layer 3 (identity / rules). That requires human review. See [ADR-0005](../../docs/decision-history/0005-human-approval-gate.md).
 
 The forbidden-substring validation in `knowledge_store.py` is a
 defensive pattern inherited from upstream genre work (the security

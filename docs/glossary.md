@@ -1,8 +1,11 @@
 # Glossary
 
 Key terms used across the ADRs, the cycle documentation, and the
-companion paper. Definitions here are navigation summaries; **the ADRs
-are canonical** — when a definition and an ADR diverge, the ADR wins.
+companion paper. Definitions here are navigation summaries. The
+concept-level canonical source is [`graph.jsonld`](../graph.jsonld); when
+a definition here and the graph diverge, the graph holds. The
+[decision history](decision-history/README.md) records how each term came
+about, as of each entry's date.
 For the English ↔ Japanese rendering table, see
 [translation-glossary.md](translation-glossary.md).
 

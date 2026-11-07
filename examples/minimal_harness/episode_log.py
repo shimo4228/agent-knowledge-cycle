@@ -1,7 +1,7 @@
 # Adapted from contemplative-agent
 # (https://github.com/shimo4228/contemplative-agent) at commit 2dbde9d.
 # Stripped of project-specific content. This file is an independent,
-# harness-neutral reference for AKC. See docs/adr/0002-immutable-episode-log.md.
+# harness-neutral reference for AKC. See docs/decision-history/0002-immutable-episode-log.md.
 """Layer 1: EpisodeLog — append-only daily JSONL episode storage.
 
 One record per line: {"ts": ISO8601, "type": str, "data": dict}

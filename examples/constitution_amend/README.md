@@ -46,6 +46,6 @@ Replicating the pattern for a different values system (a different constitution,
 
 ## Related
 
-- [ADR-0011 Cycle Applies to Any Knowledge Body](../../docs/adr/0011-cycle-applies-to-any-knowledge-body.md) — the positioning statement that makes this example legitimate.
+- [ADR-0011 Cycle Applies to Any Knowledge Body](../../docs/decision-history/0011-cycle-applies-to-any-knowledge-body.md) — the positioning statement that makes this example legitimate.
 - [`minimal_harness/`](../minimal_harness/) — the behavioral-pattern counterpart. Same mechanism, different knowledge body.
 - [`docs/inspiration.md`](../../docs/inspiration.md) — contemplative-agent as prior art and upstream home for genre-specific content.

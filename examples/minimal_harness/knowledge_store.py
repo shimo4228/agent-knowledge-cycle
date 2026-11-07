@@ -1,7 +1,7 @@
 # Adapted from contemplative-agent
 # (https://github.com/shimo4228/contemplative-agent) at commit 2dbde9d.
 # Stripped of project-specific content. This file is an independent,
-# harness-neutral reference for AKC. See docs/adr/0003-three-layer-distillation.md.
+# harness-neutral reference for AKC. See docs/decision-history/0003-three-layer-distillation.md.
 """Layer 2: KnowledgeStore — distilled patterns with time decay.
 
 Each pattern: {"pattern": str, "distilled": iso8601, "importance": float,

@@ -19,7 +19,7 @@ as-of 2026-10-08。統合元: 外部 notes（`~/.cache/claude-research-notes/202
   - `~/MyAI_Lab/akc-cycle/scripts/sync-from-local.sh --dry-run` の出力はヘッダ行のみ = 既存 17 skill は harness 正本と内容差分ゼロ。
   - anthropics/claude-plugins-official（315 件）と anthropics/claude-plugins-community（2,284 件）の `.claude-plugin/marketplace.json`（main）を jq で "akc" / "shimo4228" 検索 → 該当 0 件。
   - https://claude.com/ja/marketplace/plugins/akc-cycle は "Nothing to see here"。https://claude.ai/directory（未ログイン）で "akc" 検索 → 該当なし（未ログインで plugin が出る画面かは不明）。
-- README 材料: scratchpad の readme_evidence 出力 3 件、`~/.claude/skills/readme-writer/SKILL.md`（全文）、AKC の `docs/adr/0012-front-load-three-core-themes.md` / `0020-readme-minimal-floor.md` / `0021-replace-growth-tagline.md`（全文）、AKC README.md:1-60,120-150 と H2 一覧。readme-judge の checklist、`references/about.md`、akc-cycle README 本文、現在の GitHub About は読んでいない。
+- README 材料: scratchpad の readme_evidence 出力 3 件、`~/.claude/skills/readme-writer/SKILL.md`（全文）、AKC の `docs/decision-history/0012-front-load-three-core-themes.md` / `0020-readme-minimal-floor.md` / `0021-replace-growth-tagline.md`（全文）、AKC README.md:1-60,120-150 と H2 一覧。readme-judge の checklist、`references/about.md`、akc-cycle README 本文、現在の GitHub About は読んでいない。
 
 ## Found
 
@@ -222,5 +222,5 @@ AKC 側の拘束（本文を読んだ）
 - https://raw.githubusercontent.com/shimo4228/akc-cycle/main/CHANGELOG.md
 - https://support.claude.com/en/articles/13145338-anthropic-software-directory-terms（要約器経由）、https://www.anthropic.com/legal/trademark-guidelines（Last Updated 2024-08-01、要約器経由）
 - `~/.cache/claude-research-notes/2026-10-08-akc-cycle-directory/external.md` , `.../2026-10-08-akc-cycle-selection/internal.md`
-- `~/.claude/skills/readme-writer/SKILL.md` ; AKC `docs/adr/0012-front-load-three-core-themes.md` , `0020-readme-minimal-floor.md` , `0021-replace-growth-tagline.md` ; AKC `README.md`（1-60, 120-150, H2 一覧）, `README.ja.md`（H2 一覧）
+- `~/.claude/skills/readme-writer/SKILL.md` ; AKC `docs/decision-history/0012-front-load-three-core-themes.md` , `0020-readme-minimal-floor.md` , `0021-replace-growth-tagline.md` ; AKC `README.md`（1-60, 120-150, H2 一覧）, `README.ja.md`（H2 一覧）
 - scratchpad `.../scratchpad/readme/{agent-knowledge-cycle_README.md,agent-knowledge-cycle_README.ja.md,akc-cycle_README.md}.txt`

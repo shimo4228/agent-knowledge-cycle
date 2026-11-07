@@ -197,173 +197,173 @@
     },
 
     {
-      "@id": "https://github.com/shimo4228/agent-knowledge-cycle/blob/main/docs/adr/0002-immutable-episode-log.md",
+      "@id": "https://github.com/shimo4228/agent-knowledge-cycle/blob/main/docs/decision-history/0002-immutable-episode-log.md",
       "@type": ["ADR", "TechArticle"],
       "name": "ADR-0002: Immutable Episode Log as Source of Truth",
       "description": "The raw episode log is append-only and immutable; every higher layer is a derivation. Treats accumulated state as the auditable trail rather than as authority."
     },
     {
-      "@id": "https://github.com/shimo4228/agent-knowledge-cycle/blob/main/docs/adr/0003-three-layer-distillation.md",
+      "@id": "https://github.com/shimo4228/agent-knowledge-cycle/blob/main/docs/decision-history/0003-three-layer-distillation.md",
       "@type": ["ADR", "TechArticle"],
       "name": "ADR-0003: Three-Layer Distillation (Raw → Knowledge → Identity / Rules)",
       "description": "The memory architecture: Layer 1 raw, Layer 2 knowledge, Layer 3 identity / rules. Decouples rate of change so principles stay stable while implementations evolve independently."
     },
     {
-      "@id": "https://github.com/shimo4228/agent-knowledge-cycle/blob/main/docs/adr/0004-two-stage-distill-pipeline.md",
+      "@id": "https://github.com/shimo4228/agent-knowledge-cycle/blob/main/docs/decision-history/0004-two-stage-distill-pipeline.md",
       "@type": ["ADR", "TechArticle"],
       "name": "ADR-0004: Two-Stage Distill Pipeline (Free-form → Format)",
       "description": "Free-form reasoning followed by structured formatting. Decouples thinking from formatting so the model is not asked to do both simultaneously."
     },
     {
-      "@id": "https://github.com/shimo4228/agent-knowledge-cycle/blob/main/docs/adr/0005-human-approval-gate.md",
+      "@id": "https://github.com/shimo4228/agent-knowledge-cycle/blob/main/docs/decision-history/0005-human-approval-gate.md",
       "@type": ["ADR", "TechArticle"],
       "name": "ADR-0005: Human Approval Gate for Behavior-Modifying Changes",
       "description": "Every change that modifies future agent behavior — skills, rules, identity — requires named human sign-off. The cycle is not autonomous; the gate is structural."
     },
     {
-      "@id": "https://github.com/shimo4228/agent-knowledge-cycle/blob/main/docs/adr/0008-code-and-llm-collaboration.md",
+      "@id": "https://github.com/shimo4228/agent-knowledge-cycle/blob/main/docs/decision-history/0008-code-and-llm-collaboration.md",
       "@type": ["ADR", "TechArticle"],
       "name": "ADR-0008: Code and LLM Collaboration",
       "description": "Four code-LLM layering patterns — guard, filter, judge, orchestrator — formalize when to use code, when to use the LLM, and how to layer them. The patterns recur across all six phases."
     },
     {
-      "@id": "https://github.com/shimo4228/agent-knowledge-cycle/blob/main/docs/adr/0009-akc-is-a-cycle-not-a-harness.md",
+      "@id": "https://github.com/shimo4228/agent-knowledge-cycle/blob/main/docs/decision-history/0009-akc-is-a-cycle-not-a-harness.md",
       "@type": ["ADR", "TechArticle"],
       "name": "ADR-0009: AKC is a Cycle, Not a Harness",
       "description": "AKC is the cycle — the mechanism — not the substrate. Distinguishes AKC from harness frameworks; the cycle is portable across harnesses, the harness is not the cycle."
     },
     {
-      "@id": "https://github.com/shimo4228/agent-knowledge-cycle/blob/main/docs/adr/0010-human-cognitive-resource-as-central-constraint.md",
+      "@id": "https://github.com/shimo4228/agent-knowledge-cycle/blob/main/docs/decision-history/0010-human-cognitive-resource-as-central-constraint.md",
       "@type": ["ADR", "TechArticle"],
       "name": "ADR-0010: Human Cognitive Resource as Central Constraint",
       "description": "Human attention and judgment, not compute or context, is the central constraint that does not scale with the model. Every other framework optimizes the agent side; AKC asks the inverse question."
     },
     {
-      "@id": "https://github.com/shimo4228/agent-knowledge-cycle/blob/main/docs/adr/0011-cycle-applies-to-any-knowledge-body.md",
+      "@id": "https://github.com/shimo4228/agent-knowledge-cycle/blob/main/docs/decision-history/0011-cycle-applies-to-any-knowledge-body.md",
       "@type": ["ADR", "TechArticle"],
       "name": "ADR-0011: Cycle Applies to Any Knowledge Body (Genre-Neutral)",
       "description": "The cycle applies to behavioral patterns, domain expertise, and constitutional values alike — not specific to one genre of knowledge. Genre-neutrality is structural, not aspirational."
     },
     {
-      "@id": "https://github.com/shimo4228/agent-knowledge-cycle/blob/main/docs/adr/0012-front-load-three-core-themes.md",
+      "@id": "https://github.com/shimo4228/agent-knowledge-cycle/blob/main/docs/decision-history/0012-front-load-three-core-themes.md",
       "@type": ["ADR", "TechArticle"],
       "name": "ADR-0012: Front-load the Three Core Themes in Front-door Documentation",
       "description": "Three themes — human attention as constraint, intent alignment over correctness, bidirectional growth — must appear in the project's reading surface before deeper material. Reading-order discipline."
     },
     {
-      "@id": "https://github.com/shimo4228/agent-knowledge-cycle/blob/main/docs/adr/0013-positioning-within-agent-memory-literature.md",
+      "@id": "https://github.com/shimo4228/agent-knowledge-cycle/blob/main/docs/decision-history/0013-positioning-within-agent-memory-literature.md",
       "@type": ["ADR", "TechArticle"],
       "name": "ADR-0013: Positioning Within the Agent-Memory Literature",
       "description": "Explicit Related-Work positioning. Concedes that AKC's operations (skill induction, memory refinement, reflection) are not novel in isolation — Voyager, Agent Workflow Memory, ReMe, LangMem, Generative Agents, MemGPT, and CoALA name each one — then locates AKC's delta on the shared axis: a structural human approval gate where the prior art runs autonomously, a bidirectional human-judgment target where the prior art optimizes the agent, and human attention as the scarce resource where the prior art treats agent capability or context as binding. Orthogonal to ADR-0009's harness positioning."
     },
     {
-      "@id": "https://github.com/shimo4228/agent-knowledge-cycle/blob/main/docs/adr/0014-failure-modes-of-the-bidirectional-loop.md",
+      "@id": "https://github.com/shimo4228/agent-knowledge-cycle/blob/main/docs/decision-history/0014-failure-modes-of-the-bidirectional-loop.md",
       "@type": ["ADR", "TechArticle"],
       "name": "ADR-0014: Failure Modes of the Bidirectional Loop",
       "description": "Theme 3's failure twin. A loop that can grow human judgment can also erode it. Names three mechanism-level failure modes — gate complacency, deskilling, delegation-feedback divergence — and the structural defenses already in the cycle: the approval gate as circuit-breaker, Curate and Promote as active-judgment acts, and the gate's diff-and-commit operation as forced articulation. Experimental."
     },
     {
-      "@id": "https://github.com/shimo4228/agent-knowledge-cycle/blob/main/docs/adr/0015-loop-failure-modes-self-reingestion.md",
+      "@id": "https://github.com/shimo4228/agent-knowledge-cycle/blob/main/docs/decision-history/0015-loop-failure-modes-self-reingestion.md",
       "@type": ["ADR", "TechArticle"],
       "name": "ADR-0015: Self-Reingestion — When the Cycle Feeds on Its Own Output",
       "description": "The cycle feeds on its own output: promoted rules load into every session and shape the records, and agent-written notes are read again by the next distillation. As the self-generated share of the input grows, the agent's phrasings echo back as if they were facts and each re-summarization weakens the link to the original events — a cycle designed to prevent knowledge decay can become the decay vector. Distilled from a production observation in the Contemplative Agent substrate. Guards: only the record of what happened is observed ground, the self-generated share of promoted artifacts is kept visible (Measure), and the Human Approval Gate is the circuit-breaker. Experimental."
     },
     {
-      "@id": "https://github.com/shimo4228/agent-knowledge-cycle/blob/main/docs/adr/0016-measuring-thinking-centric-phases.md",
+      "@id": "https://github.com/shimo4228/agent-knowledge-cycle/blob/main/docs/decision-history/0016-measuring-thinking-centric-phases.md",
       "@type": ["ADR", "TechArticle"],
       "name": "ADR-0016: Measuring Thinking-Centric Phases",
       "description": "A Measure instrument that observes only tool calls systematically under-reports the thinking-centric phases (Research, Curate) whose load-bearing behavior lives in agent text — reasoning, verdicts, plans — not in side effects. Records the falsifiable claim and the corrective: a Measure instrument must promote agent text to observable events before scoring. Ties the Measure phase to Theme 2 (intent alignment lives in reasoning; correctness lives in tool calls)."
     },
     {
-      "@id": "https://github.com/shimo4228/agent-knowledge-cycle/blob/main/docs/adr/0017-harness-alignment-and-drift.md",
+      "@id": "https://github.com/shimo4228/agent-knowledge-cycle/blob/main/docs/decision-history/0017-harness-alignment-and-drift.md",
       "@type": ["ADR", "TechArticle"],
       "name": "ADR-0017: Harness Alignment and Harness Drift",
       "description": "Establishes two terms by derivation from established literature rather than fresh coinage — the second positioning ADR after ADR-0013, applied to the software-evolution and alignment literatures. Harness alignment: the continuous, human-gated activity of keeping an agent's harness (skills, rules, prompts, documentation) aligned with the operator's evolving intent — extends intent alignment (Christiano 2018) to the configuration layer and across time (cf. Lehman's Law of Continuing Change, 1980). Harness drift: the failure mode, in lineage with architectural drift (Perry & Wolf 1992), practical drift (Snook 2000), and agent drift (arXiv:2601.04170). Contrast: autonomous, score-driven harness optimization (Meta-Harness, arXiv:2603.28052). Also records the verified vocabulary gap: the 2026 agent-drift literature does not cite the classical software-evolution lineage."
     },
     {
-      "@id": "https://github.com/shimo4228/agent-knowledge-cycle/blob/main/docs/adr/0018-record-downstream-applications-as-first-class-context.md",
+      "@id": "https://github.com/shimo4228/agent-knowledge-cycle/blob/main/docs/decision-history/0018-record-downstream-applications-as-first-class-context.md",
       "@type": ["ADR", "TechArticle"],
       "name": "ADR-0018: Record Downstream Applications as First-Class Context",
       "description": "The start-of-program repository did not know its own downstream: Contemplative Agent's description was past-direction only (upstream substrate), and four DOI-registered downstream repositories were unmentioned — surfaced as observed pain when the position paper could not cite AKC as its own primary source. Records the corrective: downstream applications are first-class context. Contemplative Agent's role is two-way (substrate for ADR-0002–0005 and operational re-implementation running the six-phase cycle over its own episode logs, every promotion human-gated, demonstration ongoing); crystallized research lines are recorded with relationship facts and DOIs only, importing no downstream content (the mechanism-only rule as then worded; its vocabulary was superseded by ADR-0027's mental-model/instance cut, which extends this ADR's discipline into a standing grounding expectation). Itself the record of a Maintain-phase execution on the repository's own self-description."
     },
     {
-      "@id": "https://github.com/shimo4228/agent-knowledge-cycle/blob/main/docs/adr/0019-cycle-structure-is-provisional.md",
+      "@id": "https://github.com/shimo4228/agent-knowledge-cycle/blob/main/docs/decision-history/0019-cycle-structure-is-provisional.md",
       "@type": ["ADR", "TechArticle"],
       "name": "ADR-0019: The Cycle's Structure Is Provisional — Skills, Bindings, and Phases Held Lightly",
       "description": "AKC holds its own structure provisionally: no layer of the cycle's self-description — skills, the phase-to-skill binding, or the six-phase set — is a fixed essence. Operationalizes the Emptiness axiom (contemplative-axioms, Laukkonen et al. 2025) for AKC's own frame, correcting a reification error in which the 'bijective' binding was read as an invariant that forbade a second Curate skill. Three concrete moves: (1) the binding is reworded across graph.jsonld, the README phase table, and llms.txt from 'bound bijectively to X' to 'currently scaffolded by X (a mutable snapshot)'; (2) Curate is layered — its structural / code layer is skill-health (a dangling-reference, missing-artifact scan; an ADR-0008 guard, deterministic), its semantic / judgment layer is skill-stocktake — enumerate-then-decide, skill-health published as a standalone repository and referenced like the other cycle skills, its SkillOps four-dimension rubric staying content-side; (3) the skill set both grows (skill-health joins) and dissolves (skill-comply's compliance-checking is a candidate for substrate absorption by the host harness, recorded experimental n=1, not retired). The six-phase count is de-reified but not removed — provisional is not arbitrary; the structures remain the load-bearing current articulation, held lightly. The ADR is itself provisional. Extends ADR-0009, applies ADR-0008, bounded by ADR-0011, continues ADR-0018, grounded in contemplative-axioms (Emptiness).",
-      "groundedIn": "https://github.com/shimo4228/agent-knowledge-cycle/blob/main/docs/adr/0009-akc-is-a-cycle-not-a-harness.md"
+      "groundedIn": "https://github.com/shimo4228/agent-knowledge-cycle/blob/main/docs/decision-history/0009-akc-is-a-cycle-not-a-harness.md"
     },
     {
-      "@id": "https://github.com/shimo4228/agent-knowledge-cycle/blob/main/docs/adr/0020-readme-minimal-floor.md",
+      "@id": "https://github.com/shimo4228/agent-knowledge-cycle/blob/main/docs/decision-history/0020-readme-minimal-floor.md",
       "@type": ["ADR", "TechArticle"],
       "name": "ADR-0020: Minimal-floor README with Single-location Theme Presentation",
       "description": "Amends ADR-0012's README-side prescription after its fix overshot: front-loading the three core themes produced a double presentation (a four-paragraph 'What is AKC?' plus a three-subsection 'Why AKC') and a skill list spread across three tables, growing the README to 302 lines / 8 tables — observed as operator pain on 2026-07-07. The corrective: README.md moves to a minimal floor — the three themes get exactly one full presentation (in 'Why AKC', fixed order: cognitive resource → intent alignment → the cycle changes the human too), the skill list collapses to the single phase→skill table, and design principles, references, the harness-engineering comparison, and adoption levels become pointers into the existing machine-readable floor (llms-full.txt, individual ADRs) rather than second copies. ADR-0012's front-load principle (theme phrases in the first thirty lines, themes before mechanism) and its llms.txt / llms-full.txt commitments remain in force unchanged; llms-full.txt gains explicit responsibility as the canonical information floor. Second correction in the same front-door alignment family: ADR-0012 corrected invisibility, ADR-0020 corrects the overshoot into repetition. Same spirit as ADR-0019 applied to the document layer — the README's shape is a provisional structure, revised on observed pain and recorded rather than silently patched.",
-      "groundedIn": "https://github.com/shimo4228/agent-knowledge-cycle/blob/main/docs/adr/0012-front-load-three-core-themes.md"
+      "groundedIn": "https://github.com/shimo4228/agent-knowledge-cycle/blob/main/docs/decision-history/0012-front-load-three-core-themes.md"
     },
     {
-      "@id": "https://github.com/shimo4228/agent-knowledge-cycle/blob/main/docs/adr/0021-replace-growth-tagline.md",
+      "@id": "https://github.com/shimo4228/agent-knowledge-cycle/blob/main/docs/decision-history/0021-replace-growth-tagline.md",
       "@type": ["ADR", "TechArticle"],
       "name": "ADR-0021: Replace the Growth Tagline",
       "description": "Replaces the tagline 'A knowledge cycle for AI agents — one that grows with the people who shape it' (introduced by ADR-0009, preservation reaffirmed by ADR-0010 and ADR-0012) with 'A knowledge cycle for AI agents — agent behavior compounds, human judgment sharpens.' The earlier phrasing collided with the tagline of a widely adopted agent-centric autonomous self-improvement product ('The agent that grows with you', February 2026), which predated it by two months — a semantically inverting collision: that product's 'grows' is ungated agent-side self-improvement, precisely the framework class AKC positions against, so the surface similarity read AKC as derivative and obscured its human-gated, bidirectional core. The new parallel two-clause form abandons the shared relative-clause-with-'grows with' structure, encodes bidirectionality in the syntax itself (one clause per end of the loop), and carries theme 1 (human judgment) and theme 3 (bidirectional loop) simultaneously; 'judgment sharpens' was already canonical AKC vocabulary (coin-sparingly / anchor-densely). Supersedes only the tagline-preservation clauses of ADR-0010 and ADR-0012; the cycle-not-harness repositioning (ADR-0009), the three-theme front-loading discipline, and the ADR-0012/0020 Measure checklists stand unchanged.",
-      "groundedIn": "https://github.com/shimo4228/agent-knowledge-cycle/blob/main/docs/adr/0009-akc-is-a-cycle-not-a-harness.md"
+      "groundedIn": "https://github.com/shimo4228/agent-knowledge-cycle/blob/main/docs/decision-history/0009-akc-is-a-cycle-not-a-harness.md"
     },
     {
-      "@id": "https://github.com/shimo4228/agent-knowledge-cycle/blob/main/docs/adr/0022-transfer-as-completion-test-for-dissolution.md",
+      "@id": "https://github.com/shimo4228/agent-knowledge-cycle/blob/main/docs/decision-history/0022-transfer-as-completion-test-for-dissolution.md",
       "@type": ["ADR", "TechArticle"],
       "name": "ADR-0022: Transfer as the Completion Test for Dissolution",
       "description": "Experimental. Revises the dissolution Completion Criterion (docs/scaffold-dissolution.md) from one test to two: same-context ablation indistinguishability (running compliance with and without the rule loaded) is necessary evidence but cannot separate internalization from context-carry — the surrounding context carrying the behavior locally; the completion evidence is held-out transfer — the same judgment reproducing in a context that shares the principle but not the surface instances (a different repository, task genre, or session lineage; instance-disjoint, not merely re-run). Records the falsifiable claim that a criterion testing only same-context ablation will retire rules that were context-carried, not internalized. External trigger: EvoAgentBench (arXiv:2607.05202), whose ability-supported yet instance-disjoint split shows skill value is decided at transfer — curated content positive in all 24 cells, no automatic extraction method sustaining positive gain, negative transfer to −36.3 points. Names three retirement evidence classes: silence (retires an artifact, claims nothing about internalization), ablation (necessary), transfer (completion certificate). Sibling of ADR-0016: 0016 specifies which surface a Measure instrument observes (agent text), 0022 which distribution it tests against (held-out). No reference instrument shipped — solo-operator-scale held-out construction remains an open instrument-design question. Status experimental: external evidence plus structural argument, zero own-cycle transfer observations.",
-      "siblingOf": "https://github.com/shimo4228/agent-knowledge-cycle/blob/main/docs/adr/0016-measuring-thinking-centric-phases.md",
-      "groundedIn": "https://github.com/shimo4228/agent-knowledge-cycle/blob/main/docs/adr/0019-cycle-structure-is-provisional.md"
+      "siblingOf": "https://github.com/shimo4228/agent-knowledge-cycle/blob/main/docs/decision-history/0016-measuring-thinking-centric-phases.md",
+      "groundedIn": "https://github.com/shimo4228/agent-knowledge-cycle/blob/main/docs/decision-history/0019-cycle-structure-is-provisional.md"
     },
     {
-      "@id": "https://github.com/shimo4228/agent-knowledge-cycle/blob/main/docs/adr/0023-generation-review-as-a-fourth-evidence-class.md",
+      "@id": "https://github.com/shimo4228/agent-knowledge-cycle/blob/main/docs/decision-history/0023-generation-review-as-a-fourth-evidence-class.md",
       "@type": ["ADR", "TechArticle"],
       "name": "ADR-0023: Generation Review as a Fourth Retirement Evidence Class",
       "description": "Names a fourth retirement evidence class for Scaffold Dissolution (docs/scaffold-dissolution.md), alongside ADR-0022's three. Records the falsifiable claim that silence, ablation, and transfer are structurally blind to negative information differential — a rule whose premise expired at a model generation boundary, where the firing itself is the cost. Silence cannot fire for an always-loaded rule by construction; same-context ablation correctly reports a difference, which reads as load-bearing when the load is borne in the wrong direction; transfer inherits the defect, since an expired constraint reproduces its effect in a held-out context perfectly well. The first three classes all detect an absence (of use, of effect, of portability) because the three mechanisms they were built against leave the scaffold redundant; model-capability turnover leaves it harmful. Adds generation review: an audit scheduled by the model release cadence rather than the usage log, which cannot wait for the next stocktake, and which admits the platform vendor's own prompt-engineering guidance as evidence about the substrate's capability — retiring the constraint for every user-agent pair at once (as platform absorption does) while claiming nothing about anyone's internalization. Own-cycle observation 2026-07-25: after Anthropic reported cutting Claude Code's system prompt by over 80% for the Claude 5 generation with no measurable coding-eval loss, the operator's always-loaded rules layer was cut from 43,971 to 19,240 characters (−56%, 20 to 14 files) with nothing discarded that had a home; every retired rule had been firing, so the silence check read the layer as maximally healthy. Also adds the negative pole to the information-differential law: differential zero wastes context and can wait for the next stocktake, differential negative degrades the behavior the rule was written to protect. Third member of the instrument series after ADR-0016 (which surface a Measure instrument observes) and ADR-0022 (which distribution it tests against): 0023 specifies what schedules it and what it is blind to. No instrument shipped — conflict cost is asserted by the vendor for the vendor's own evaluations and inferred here from the structure of the rules found, never measured locally; a local metric remains an open instrument-design question. The two-vector framing (inward / downward) is retained: model turnover triggers the downward audit with the substrate's judgment in place of its features, and is not a third vector.",
-      "siblingOf": "https://github.com/shimo4228/agent-knowledge-cycle/blob/main/docs/adr/0022-transfer-as-completion-test-for-dissolution.md",
-      "groundedIn": "https://github.com/shimo4228/agent-knowledge-cycle/blob/main/docs/adr/0019-cycle-structure-is-provisional.md"
+      "siblingOf": "https://github.com/shimo4228/agent-knowledge-cycle/blob/main/docs/decision-history/0022-transfer-as-completion-test-for-dissolution.md",
+      "groundedIn": "https://github.com/shimo4228/agent-knowledge-cycle/blob/main/docs/decision-history/0019-cycle-structure-is-provisional.md"
     },
     {
-      "@id": "https://github.com/shimo4228/agent-knowledge-cycle/blob/main/docs/adr/0024-judge-build-human-three-role-loop.md",
+      "@id": "https://github.com/shimo4228/agent-knowledge-cycle/blob/main/docs/decision-history/0024-judge-build-human-three-role-loop.md",
       "@type": ["ADR", "TechArticle"],
       "name": "ADR-0024: The Judge/Build/Human Three-Role Loop as the Operational Form of Attention Scarcity",
       "description": "Names the judge/build/human three-role loop a mechanism-level concept: the operational form the human approval gate (ADR-0005) takes under the attention-scarcity constraint (ADR-0010) when the artifact upstream of the gate is an open-ended task ledger rather than a single proposed change. Filing a task is the cheapest operation in the system, so ledgers grow; by 2026-08-17 the operator's observed ledgers held no dispatchable work — the bottleneck was judgment, not implementation (in one sibling repository, review-origin filings accounted for 22 of 30 new entries; a manual dispatch on 2026-08-16 found 2 of 7 task premises refuted at pre-implementation verification — operator-harness records, not reproducible from this repository). The loop: a judge tier (one stronger-model session per repository) verifies each task's premise against the code, decides worth-doing, dispatches accepted work, and independently inspects results; a build tier (a fresh session per task) implements and halts on a refuted premise; the human holds direction-setting, a one-decision-per-message digest, and the final merge switch. The gate stays binary and human at merge — what moves upstream to the judge tier is attention, not authority. Scope boundary: AKC records the role topology only; ledger formats, claim/lease mechanics, and scheduling are harness content, recorded as relation facts on the ecosystem node. Annotates (does not reverse) a 2026-07-09 rejection that kept ledger hygiene out of the Maintain phase: that disposition stands, but its premise — that there was nothing beyond hygiene to promote — expired when the three-role topology emerged; rejection records are dated hypotheses per ADR-0026. Evidence: roughly two weeks of single-operator practice (2026-08-17 through 2026-09-01), stated as such. Note (2026-09-25, ADR-0028): the human-held merge switch is narrowed to a protected class — what ADR-0005 gates, the control plane, and the verification machinery; admitted task output outside that class merges on a deterministic gate plus the judge tier's inspection.",
-      "groundedIn": "https://github.com/shimo4228/agent-knowledge-cycle/blob/main/docs/adr/0010-human-cognitive-resource-as-central-constraint.md",
-      "extends": "https://github.com/shimo4228/agent-knowledge-cycle/blob/main/docs/adr/0005-human-approval-gate.md"
+      "groundedIn": "https://github.com/shimo4228/agent-knowledge-cycle/blob/main/docs/decision-history/0010-human-cognitive-resource-as-central-constraint.md",
+      "extends": "https://github.com/shimo4228/agent-knowledge-cycle/blob/main/docs/decision-history/0005-human-approval-gate.md"
     },
     {
-      "@id": "https://github.com/shimo4228/agent-knowledge-cycle/blob/main/docs/adr/0025-llm-first-artifact-readability.md",
+      "@id": "https://github.com/shimo4228/agent-knowledge-cycle/blob/main/docs/decision-history/0025-llm-first-artifact-readability.md",
       "@type": ["ADR", "TechArticle"],
       "name": "ADR-0025: LLM-First Artifact Readability",
       "description": "Names the reader of the cycle's artifacts explicitly: the default reader, editor, and reviewer of skills, rules, distilled knowledge, tests, and decision records is the next session's LLM — on 2026-08-31 the operator confirmed that humans read only the README and the surface text of outputs. Optimizing for this reader is the quality bar itself, a change of audience rather than a lowering: the LLM reader is often less forgiving than a human one, and ambiguous, clever, or bloated artifacts come back as bounced edits. LLM readability consists of locality (self-contained units that fit in context) over deep abstraction, explicitness over cleverness, types and invariant comments as beacons; the measuring stick is context economy, not human cognitive load. What is preserved is verifiability, not readability — explanations are derivable on demand, while the preservation layer is what cannot be regenerated: types, tests, frozen goldens, stated invariants. The enforcer of the standard is the machine gate, not the human eye (gates selected on LLM-first axes — bug class, canonical diff-stable formatting, edit-reliability budgets, boundary type enforcement — with human-aesthetic style linters deliberately absent); an artifact that fails its gate is unacceptable even if nobody reads it. The human-readability budget has one line item: the README and output surface text (ADR-0020's minimal floor unchanged). Adjacent to ADR-0008, not overlapping: 0008 answers who checks (code vs. LLM), 0025 answers who reads. Review-when: unreliable explanation-regeneration across a substrate generation, or human co-editing returning as a primary mode.",
-      "siblingOf": "https://github.com/shimo4228/agent-knowledge-cycle/blob/main/docs/adr/0008-code-and-llm-collaboration.md",
-      "groundedIn": "https://github.com/shimo4228/agent-knowledge-cycle/blob/main/docs/adr/0010-human-cognitive-resource-as-central-constraint.md"
+      "siblingOf": "https://github.com/shimo4228/agent-knowledge-cycle/blob/main/docs/decision-history/0008-code-and-llm-collaboration.md",
+      "groundedIn": "https://github.com/shimo4228/agent-knowledge-cycle/blob/main/docs/decision-history/0010-human-cognitive-resource-as-central-constraint.md"
     },
     {
-      "@id": "https://github.com/shimo4228/agent-knowledge-cycle/blob/main/docs/adr/0026-expiry-conditioned-knowledge.md",
+      "@id": "https://github.com/shimo4228/agent-knowledge-cycle/blob/main/docs/decision-history/0026-expiry-conditioned-knowledge.md",
       "@type": ["ADR", "TechArticle"],
       "name": "ADR-0026: Expiry-Conditioned Knowledge",
       "description": "External knowledge in the LLM and agent field goes stale on a roughly one-week scale, and the cycle's intake already honors that (as-of dates, primary-source verification) — but the cycle's own storage ran on the opposite assumption: decision records, curated knowledge, and rejection records were written once and read back months later as if permanent, constraining new ideas after their premises died. Operator report 2026-08-19 (subjective, zero recorded case-level instances at baseline — stated as such): sessions felt bound by past decision records five days after a declaration that 'decision records are scaffolds' was added — the declaration alone had not changed the felt behavior; the structural remedy was adopted instead. ADR-0026 makes stored judgment expiry-conditioned: every recommendation or decision states what observation or premise failure would void or weaken it (a recommendation that cannot name an expiry condition is freshness-unknown and weighted weakly); the AKC ADR format gains a `## Review-when` section after Decision, required from ADR-0024 onward with an explicit null rendering, and deliberately not backfilled into 0002–0023 (a retrofitted expiry condition would be invented post hoc — the exact false precision the ADR warns against); weakening is annotated in place, dated, never deleted, and where the weakened record cannot carry a published annotation the weakening is recorded in the new ADR instead. Rejection records get the same reading — dated hypotheses, not permanent vetoes; divergence-stage ideation must not use them as refutation (verification happens at adoption), and ADR-0024's Decision 3 — recording the 2026-07-09 triage rejection's surviving scope and expired premise — is the first instance of the reading. Gives ADR-0019's provisionality a per-decision instrument; generation review's external clock (ADR-0023) is one class of expiry condition. Its own Review-when: three consecutive 'none' renderings demote the section; native substrate freshness-tracking makes it a downward-dissolution candidate.",
-      "siblingOf": "https://github.com/shimo4228/agent-knowledge-cycle/blob/main/docs/adr/0023-generation-review-as-a-fourth-evidence-class.md",
-      "groundedIn": "https://github.com/shimo4228/agent-knowledge-cycle/blob/main/docs/adr/0019-cycle-structure-is-provisional.md"
+      "siblingOf": "https://github.com/shimo4228/agent-knowledge-cycle/blob/main/docs/decision-history/0023-generation-review-as-a-fourth-evidence-class.md",
+      "groundedIn": "https://github.com/shimo4228/agent-knowledge-cycle/blob/main/docs/decision-history/0019-cycle-structure-is-provisional.md"
     },
     {
-      "@id": "https://github.com/shimo4228/agent-knowledge-cycle/blob/main/docs/adr/0027-mental-model-and-instance.md",
+      "@id": "https://github.com/shimo4228/agent-knowledge-cycle/blob/main/docs/decision-history/0027-mental-model-and-instance.md",
       "@type": ["ADR", "TechArticle"],
       "name": "ADR-0027: Mental Model and Instance — Core Owns Judgment, Instances Ground It",
       "description": "Replaces the mechanism/content cut of the mechanism-only inclusion rule with mental model / instance. AKC core owns the mental model — judgments (ADRs), concepts (graph.jsonld), the cycle structure — while running instances (skills, rules, hooks, gates, loops) are owned downstream and linked as first-class grounding rather than excluded: every mechanism concept carries an edge to at least one public instance where one exists (an implements-direction edge in the graph, a link in the front door), and a concept with no public instance says so. What remains prohibited is inlining instance content into core; the domain-genre position is unchanged (ADR-0011), and instances stay downstream (ADR-0009 — linking is not hosting). Links follow the running state: a retired instance's front-door link is removed or annotated, dated — first applied to the human-gate rule, retired from the operator's harness 2026-08-02 and unlinked from the README on the author's 2026-09-01 direction, with the repository kept as published history. Trigger: on 2026-09-01 the old rule was cited in session to withhold the Worldviews/Enforcement instance links while ten skill links already stood, and the author judged the rule was obstructing understanding — 'content' had conflated domain genre (stays out) with running instances (ground the model). Extends ADR-0018's relationship-facts discipline into a standing grounding expectation; reads the old rule as an expired dated hypothesis per ADR-0026.",
-      "groundedIn": "https://github.com/shimo4228/agent-knowledge-cycle/blob/main/docs/adr/0018-record-downstream-applications-as-first-class-context.md"
+      "groundedIn": "https://github.com/shimo4228/agent-knowledge-cycle/blob/main/docs/decision-history/0018-record-downstream-applications-as-first-class-context.md"
     },
     {
-      "@id": "https://github.com/shimo4228/agent-knowledge-cycle/blob/main/docs/adr/0028-authority-by-artifact-class-in-the-three-role-loop.md",
+      "@id": "https://github.com/shimo4228/agent-knowledge-cycle/blob/main/docs/decision-history/0028-authority-by-artifact-class-in-the-three-role-loop.md",
       "@type": [
         "ADR",
         "TechArticle"
       ],
       "name": "ADR-0028: Authority by Artifact Class in the Three-Role Loop",
       "description": "Partially supersedes ADR-0024's human-held merge switch. Authority in the judge/build/human loop is placed by artifact class: a protected class — what ADR-0005 gates (rules, skills, identity, documents that describe behavior), the control plane (hooks, permissions, scheduled tasks, settings), and the verification machinery (the verify gate, CI configuration, test assertions the admitted task did not name) — stays binary and human at merge; admitted task output outside that class merges once a deterministic gate passes on the exact change and the judge tier's inspection passes. The human's authority over task output sits at admission (which tasks exist, on what acceptance conditions) and in a revert-count withdrawal condition (more than two human reverts of judge-merged commits in a rolling three months returns the switch to the human). The instance moved first — the operator's harness changed on 2026-09-15 (claude-harness ADR-0069) — and the model follows on the author's judgment. Evidence is ten days of single-operator practice (five tasks released as done, zero reverts on main), stated as thin; the judge and build tiers share a model family, so the two checks are outside the build session but not uncorrelated.",
-      "groundedIn": "https://github.com/shimo4228/agent-knowledge-cycle/blob/main/docs/adr/0005-human-approval-gate.md",
-      "extends": "https://github.com/shimo4228/agent-knowledge-cycle/blob/main/docs/adr/0024-judge-build-human-three-role-loop.md"
+      "groundedIn": "https://github.com/shimo4228/agent-knowledge-cycle/blob/main/docs/decision-history/0005-human-approval-gate.md",
+      "extends": "https://github.com/shimo4228/agent-knowledge-cycle/blob/main/docs/decision-history/0024-judge-build-human-three-role-loop.md"
     },
 
     {
@@ -371,21 +371,21 @@
       "@type": ["Concept", "DefinedTerm"],
       "name": "six-phase loop",
       "description": "Bidirectional growth loop running Research, Extract, Curate, Promote, Measure, Maintain. Each phase is currently scaffolded by composable skills — a mutable snapshot, not a fixed bijection (ADR-0019); the cycle stays stable even as individual skills are added, layered, or dissolved.",
-      "groundedIn": "https://github.com/shimo4228/agent-knowledge-cycle/blob/main/docs/adr/0009-akc-is-a-cycle-not-a-harness.md"
+      "groundedIn": "https://github.com/shimo4228/agent-knowledge-cycle/blob/main/docs/decision-history/0009-akc-is-a-cycle-not-a-harness.md"
     },
     {
       "@id": "https://shimo4228.github.io/shimo4228/vocab#concept/three-layer-structure",
       "@type": ["Concept", "DefinedTerm"],
       "name": "three-layer structure",
       "description": "AKC's stacked architecture: principles (ADRs), patterns (design-pattern skills), implementation (composable skills). Separating layers decouples rate of change.",
-      "groundedIn": "https://github.com/shimo4228/agent-knowledge-cycle/blob/main/docs/adr/0003-three-layer-distillation.md"
+      "groundedIn": "https://github.com/shimo4228/agent-knowledge-cycle/blob/main/docs/decision-history/0003-three-layer-distillation.md"
     },
     {
       "@id": "https://shimo4228.github.io/shimo4228/vocab#concept/scaffold-dissolution",
       "@type": ["Concept", "DefinedTerm"],
       "name": "scaffold dissolution",
       "description": "Property that explicit AKC skills can be dropped once the cycle has been internalized. The skills are scaffolding, not the goal. Dissolution is the intended end state, not a fallback. Its model-generation trigger is currently scaffolded by the generation-audit skill (a snapshot, mutable; ADR-0019), the instrument that produces generation review, the fourth retirement evidence class (ADR-0023).",
-      "groundedIn": "https://github.com/shimo4228/agent-knowledge-cycle/blob/main/docs/adr/0009-akc-is-a-cycle-not-a-harness.md",
+      "groundedIn": "https://github.com/shimo4228/agent-knowledge-cycle/blob/main/docs/decision-history/0009-akc-is-a-cycle-not-a-harness.md",
       "extends": "https://shimo4228.github.io/shimo4228/vocab#prior-art/scaffolding-wood-bruner-ross-1976"
     },
     {
@@ -393,7 +393,7 @@
       "@type": ["Concept", "DefinedTerm"],
       "name": "signal-first",
       "description": "Research-phase signal-first principle: what information would actually change the next action? Anything outside that is out of scope. Search widely, intake narrowly — and the same filter governs the output, not only the intake: a research report is the delta against the project's current knowledge frontier (this graph), not a digest of accumulated content. (ADR-0010 derivative — the 'what the human need not read' principle applied to reporting.)",
-      "groundedIn": "https://github.com/shimo4228/agent-knowledge-cycle/blob/main/docs/adr/0010-human-cognitive-resource-as-central-constraint.md"
+      "groundedIn": "https://github.com/shimo4228/agent-knowledge-cycle/blob/main/docs/decision-history/0010-human-cognitive-resource-as-central-constraint.md"
     },
     {
       "@id": "https://shimo4228.github.io/shimo4228/vocab#akc/concept/intent-alignment",
@@ -401,8 +401,8 @@
       "name": "intent alignment",
       "description": "Sustaining alignment between agent behavior and the operator's evolving intent across sessions, distinguished from per-output correctness. Intent itself moves as judgment sharpens through use; correctness can be checked by tests, alignment cannot.",
       "groundedIn": [
-        "https://github.com/shimo4228/agent-knowledge-cycle/blob/main/docs/adr/0010-human-cognitive-resource-as-central-constraint.md",
-        "https://github.com/shimo4228/agent-knowledge-cycle/blob/main/docs/adr/0012-front-load-three-core-themes.md"
+        "https://github.com/shimo4228/agent-knowledge-cycle/blob/main/docs/decision-history/0010-human-cognitive-resource-as-central-constraint.md",
+        "https://github.com/shimo4228/agent-knowledge-cycle/blob/main/docs/decision-history/0012-front-load-three-core-themes.md"
       ]
     },
     {
@@ -412,8 +412,8 @@
       "description": "The continuous, human-gated activity of keeping an agent's harness — its configuration layer: skills, rules, prompts, documentation — aligned with the operator's evolving intent. Extends intent alignment (Christiano 2018) from agent behavior to the artifacts that shape behavior, and across time: alignment is sustained through a cycle, not configured once (cf. Lehman's Law of Continuing Change, 1980). The alignment target is operator intent, not model values. Three defining properties hold simultaneously — continuous, human-gated, bidirectional (the loop's own running moves its own target) — derived from a single root in the position paper (10.5281/zenodo.20578272, §3): intent has no verifier outside the operator, and verifying intent sharpens the judgment doing the verifying. The contrast is harness optimization (Meta-Harness, arXiv:2603.28052): autonomous, score-driven improvement on the correctness axis. AKC's six phases operationalize harness alignment: Measure and Maintain detect harness drift; Curate and Promote correct it through the human approval gate.",
       "subjectOf": "https://doi.org/10.5281/zenodo.20578272",
       "groundedIn": [
-        "https://github.com/shimo4228/agent-knowledge-cycle/blob/main/docs/adr/0017-harness-alignment-and-drift.md",
-        "https://github.com/shimo4228/agent-knowledge-cycle/blob/main/docs/adr/0009-akc-is-a-cycle-not-a-harness.md"
+        "https://github.com/shimo4228/agent-knowledge-cycle/blob/main/docs/decision-history/0017-harness-alignment-and-drift.md",
+        "https://github.com/shimo4228/agent-knowledge-cycle/blob/main/docs/decision-history/0009-akc-is-a-cycle-not-a-harness.md"
       ],
       "extends": "https://shimo4228.github.io/shimo4228/vocab#akc/concept/intent-alignment",
       "hasFailureMode": "https://shimo4228.github.io/shimo4228/vocab#akc/concept/harness-drift",
@@ -425,7 +425,7 @@
       "name": "harness drift",
       "description": "Harness alignment's failure mode: the gradual uncoupling of the harness from operator intent when the cycle does not run — skills go stale, rules stop matching practice, documentation diverges from code. Named in lineage with architectural drift (Perry & Wolf 1992: divergence by insensitivity), practical drift (Snook 2000: practice uncoupling from written procedure), and agent drift (arXiv:2601.04170: behavioral-level deviation from original intent). An artifact-side failure, distinct from the human-side loop failure modes of ADR-0014 (gate complacency, deskilling, delegation-feedback divergence); the two compound but are recorded separately. The position paper's pre-deposit audit (10.5281/zenodo.20578272, §6) extended the lineage check to three further 2026 drift coinages — constraint drift, memory drift, belief deviation — finding the same absence of the classical lineage, and disambiguates the term from its one other use (benchmark-comparability, Moghadasi & Ghaderi 2026).",
       "subjectOf": "https://doi.org/10.5281/zenodo.20578272",
-      "groundedIn": "https://github.com/shimo4228/agent-knowledge-cycle/blob/main/docs/adr/0017-harness-alignment-and-drift.md",
+      "groundedIn": "https://github.com/shimo4228/agent-knowledge-cycle/blob/main/docs/decision-history/0017-harness-alignment-and-drift.md",
       "derivesFrom": [
         "https://shimo4228.github.io/shimo4228/vocab#prior-art/architectural-drift-perry-wolf",
         "https://shimo4228.github.io/shimo4228/vocab#prior-art/practical-drift-snook",
@@ -437,7 +437,7 @@
       "@type": ["Concept", "DefinedTerm"],
       "name": "bidirectional growth loop",
       "description": "Agent behavior and human judgment co-develop. As the human curates and promotes knowledge, their judgment about what makes good agent behavior also sharpens. Not a one-directional optimization loop.",
-      "groundedIn": "https://github.com/shimo4228/agent-knowledge-cycle/blob/main/docs/adr/0012-front-load-three-core-themes.md",
+      "groundedIn": "https://github.com/shimo4228/agent-knowledge-cycle/blob/main/docs/decision-history/0012-front-load-three-core-themes.md",
       "hasFailureMode": "https://shimo4228.github.io/shimo4228/vocab#akc/concept/loop-failure-modes"
     },
     {
@@ -445,14 +445,14 @@
       "@type": ["Concept", "DefinedTerm"],
       "name": "loop failure modes",
       "description": "The failure twin of the bidirectional growth loop. A loop that can grow human judgment can also erode it. Three mechanism-level failure modes: gate complacency (a reliable agent trains default-approval, thinning the judgment behind the Promote gate), deskilling (over-delegation starves the supervisory faculty that review depends on), and delegation-feedback divergence (delegation continues while the coupling that would correct the agent breaks, so the loop still produces output no human is steering). The cycle's existing structure resists, but does not immunize against, these modes.",
-      "groundedIn": "https://github.com/shimo4228/agent-knowledge-cycle/blob/main/docs/adr/0014-failure-modes-of-the-bidirectional-loop.md"
+      "groundedIn": "https://github.com/shimo4228/agent-knowledge-cycle/blob/main/docs/decision-history/0014-failure-modes-of-the-bidirectional-loop.md"
     },
     {
       "@id": "https://shimo4228.github.io/shimo4228/vocab#akc/concept/self-reingestion",
       "@type": ["Concept", "DefinedTerm"],
       "name": "self-reingestion",
       "description": "A failure mode of the cycle: the agent's own output re-enters as input — promoted rules load into every session and shape what the records contain, and agent-written notes and summaries are read again by the next distillation. As the self-generated share of the input grows, two degradations follow: echo (the agent's own phrasings, re-read across cycles, are eventually promoted as if they were observed facts) and grounding loss (each re-summarization weakens the link to the original events). The strength of the effect tracks the self-generated share of the input — installs with a human in every session dilute it, autonomous self-narrative-heavy installs concentrate it. Observed in production in the Contemplative Agent substrate; distilled to the mechanism level by ADR-0015. Guards: only the record of what happened is observed ground, the self-generated share is kept visible (Measure), and the Human Approval Gate breaks the loop before generated content reaches the always-loaded layer.",
-      "groundedIn": "https://github.com/shimo4228/agent-knowledge-cycle/blob/main/docs/adr/0015-loop-failure-modes-self-reingestion.md"
+      "groundedIn": "https://github.com/shimo4228/agent-knowledge-cycle/blob/main/docs/decision-history/0015-loop-failure-modes-self-reingestion.md"
     },
     {
       "@id": "https://shimo4228.github.io/shimo4228/vocab#akc/concept/observed-vs-generated",
@@ -460,8 +460,8 @@
       "name": "observed-vs-generated composition signal",
       "description": "A Measure-phase observability metric introduced by ADR-0015: the share of a promoted artifact's input that is the agent's own earlier output versus observed record. It is an observability signal, not an intervention — it does not change retrieval, ranking, or promotion. Its purpose is to make self-reingestion visible so a rising self-generated share can be noticed before it compounds. The encoding (per-artifact counts, sampled audit) is left to the harness.",
       "groundedIn": [
-        "https://github.com/shimo4228/agent-knowledge-cycle/blob/main/docs/adr/0015-loop-failure-modes-self-reingestion.md",
-        "https://github.com/shimo4228/agent-knowledge-cycle/blob/main/docs/adr/0002-immutable-episode-log.md"
+        "https://github.com/shimo4228/agent-knowledge-cycle/blob/main/docs/decision-history/0015-loop-failure-modes-self-reingestion.md",
+        "https://github.com/shimo4228/agent-knowledge-cycle/blob/main/docs/decision-history/0002-immutable-episode-log.md"
       ]
     },
     {
@@ -469,42 +469,42 @@
       "@type": ["Concept", "DefinedTerm"],
       "name": "two-stage distill pipeline",
       "description": "Free-form reasoning followed by structured formatting. Decouples thinking from formatting so the model is not asked to do both simultaneously. Codified as ADR-0004.",
-      "groundedIn": "https://github.com/shimo4228/agent-knowledge-cycle/blob/main/docs/adr/0004-two-stage-distill-pipeline.md"
+      "groundedIn": "https://github.com/shimo4228/agent-knowledge-cycle/blob/main/docs/decision-history/0004-two-stage-distill-pipeline.md"
     },
     {
       "@id": "https://shimo4228.github.io/shimo4228/vocab#akc/concept/human-approval-gate",
       "@type": ["Concept", "DefinedTerm"],
       "name": "human approval gate",
       "description": "Structural checkpoint for behavior-modifying writes. AKC is not autonomous; every change to the artifacts that shape future behavior — skills, rules, identity — requires named human sign-off. The same criterion reaches the harness's own control plane (hooks, permission grants, scheduled task definitions), since a change there moves the gate itself, and the artifacts that produce the gate's verification evidence (tests, lint and CI configuration, review prompts, dependency manifests), since a change there moves what counts as verified. Codified as ADR-0005, whose decision table enumerates the first group. Was scaffolded in the first running instance by the human-gate rule and its evidence-file notice hook until 2026-08-02, when that scaffold was retired as the substrate absorbed its defaults (downward dissolution; the presentation split — full text for behavior-shaping, control-plane, and evidence-producing artifacts, a fixed-schema intent summary for implementation code — remains recorded here and in the human-gate repository's retirement note). At scale the gate takes the judge/build/human three-role form (ADR-0024).",
-      "groundedIn": "https://github.com/shimo4228/agent-knowledge-cycle/blob/main/docs/adr/0005-human-approval-gate.md"
+      "groundedIn": "https://github.com/shimo4228/agent-knowledge-cycle/blob/main/docs/decision-history/0005-human-approval-gate.md"
     },
     {
       "@id": "https://shimo4228.github.io/shimo4228/vocab#akc/concept/genre-neutral",
       "@type": ["Concept", "DefinedTerm"],
       "name": "genre-neutral",
       "description": "The cycle applies to behavioral patterns, domain expertise, and constitutional values alike — not specific to one genre of knowledge. Codified as ADR-0011.",
-      "groundedIn": "https://github.com/shimo4228/agent-knowledge-cycle/blob/main/docs/adr/0011-cycle-applies-to-any-knowledge-body.md"
+      "groundedIn": "https://github.com/shimo4228/agent-knowledge-cycle/blob/main/docs/decision-history/0011-cycle-applies-to-any-knowledge-body.md"
     },
     {
       "@id": "https://shimo4228.github.io/shimo4228/vocab#akc/concept/cognitive-economy",
       "@type": ["Concept", "DefinedTerm"],
       "name": "cognitive economy",
       "description": "Treats human attention and judgment as the scarce resource. Information that does not change an action does not deserve to be held; intake is where attention is spent.",
-      "groundedIn": "https://github.com/shimo4228/agent-knowledge-cycle/blob/main/docs/adr/0010-human-cognitive-resource-as-central-constraint.md"
+      "groundedIn": "https://github.com/shimo4228/agent-knowledge-cycle/blob/main/docs/decision-history/0010-human-cognitive-resource-as-central-constraint.md"
     },
     {
       "@id": "https://shimo4228.github.io/shimo4228/vocab#akc/concept/code-llm-layering",
       "@type": ["Concept", "DefinedTerm"],
       "name": "code-LLM layering",
       "description": "Four patterns formalize when to use code, when to use the LLM, and how to layer them: guard (code validates LLM output against schema, forbidden-pattern, and size checks after generation, before it touches persistent state), filter (code narrows a large, noisy input before the LLM is invoked), judge (LLM decides among bounded options provided by code, which enforces the deterministic action), orchestrator (code owns the loop — termination, retries, state — and the LLM is the worker doing one semantic task per step). Codified as ADR-0008.",
-      "groundedIn": "https://github.com/shimo4228/agent-knowledge-cycle/blob/main/docs/adr/0008-code-and-llm-collaboration.md"
+      "groundedIn": "https://github.com/shimo4228/agent-knowledge-cycle/blob/main/docs/decision-history/0008-code-and-llm-collaboration.md"
     },
     {
       "@id": "https://shimo4228.github.io/shimo4228/vocab#akc/concept/three-role-loop",
       "@type": ["Concept", "DefinedTerm"],
       "name": "judge/build/human three-role loop",
       "description": "The operational form the human approval gate takes under attention scarcity when the upstream artifact is an open-ended task ledger: a judge tier (stronger-model session) verifies premises, decides worth-doing, dispatches, and independently inspects results; a build tier (a fresh session per task) implements and halts on a refuted premise; the human holds direction-setting and admission. Model judgment is spent to conserve human judgment. Authority is placed by artifact class (ADR-0028): what ADR-0005 gates, the control plane, and the verification machinery stay human at merge; admitted task output outside that class merges once a deterministic gate and the judge tier's inspection pass, with the human's authority over it placed at admission and in a revert-count withdrawal condition. AKC records the role topology only; ledger mechanics are harness content. Codified as ADR-0024, with merge authority by artifact class in ADR-0028.",
-      "groundedIn": "https://github.com/shimo4228/agent-knowledge-cycle/blob/main/docs/adr/0024-judge-build-human-three-role-loop.md",
+      "groundedIn": "https://github.com/shimo4228/agent-knowledge-cycle/blob/main/docs/decision-history/0024-judge-build-human-three-role-loop.md",
       "appliesTo": "https://shimo4228.github.io/shimo4228/vocab#akc/concept/human-approval-gate"
     },
     {
@@ -512,7 +512,7 @@
       "@type": ["Concept", "DefinedTerm"],
       "name": "LLM-first artifact readability",
       "description": "The default reader, editor, and reviewer of cycle artifacts — skills, rules, distilled knowledge, tests, decision records — is the next session's LLM. Locality over deep abstraction, explicitness over cleverness, context economy as the measuring stick; verifiability (types, tests, frozen goldens, invariants) is the preservation layer, prose explanations are derivable on demand; the machine gate, not the human eye, enforces the standard. The human-readability budget has one line item: the README and output surface text. Codified as ADR-0025.",
-      "groundedIn": "https://github.com/shimo4228/agent-knowledge-cycle/blob/main/docs/adr/0025-llm-first-artifact-readability.md",
+      "groundedIn": "https://github.com/shimo4228/agent-knowledge-cycle/blob/main/docs/decision-history/0025-llm-first-artifact-readability.md",
       "appliesTo": "https://shimo4228.github.io/shimo4228/vocab#akc/concept/cognitive-economy"
     },
     {
@@ -520,7 +520,7 @@
       "@type": ["Concept", "DefinedTerm"],
       "name": "expiry-conditioned knowledge",
       "description": "Stored judgment carries its own expiry conditions: a decision or recommendation states what observation or premise failure would void or weaken it, intake states its as-of date, and a recommendation that cannot name an expiry condition is freshness-unknown and weighted weakly. Weakening is annotated in place, dated, never deleted; rejection records are dated hypotheses, not permanent vetoes. In AKC's ADR format this is the `## Review-when` section (ADR-0024 onward, no backfill). Codified as ADR-0026.",
-      "groundedIn": "https://github.com/shimo4228/agent-knowledge-cycle/blob/main/docs/adr/0026-expiry-conditioned-knowledge.md",
+      "groundedIn": "https://github.com/shimo4228/agent-knowledge-cycle/blob/main/docs/decision-history/0026-expiry-conditioned-knowledge.md",
       "appliesTo": "https://shimo4228.github.io/shimo4228/vocab#concept/scaffold-dissolution"
     },
 
@@ -529,28 +529,28 @@
       "@type": ["Concept", "DefinedTerm"],
       "name": "code-LLM pattern: guard",
       "description": "Post-LLM output validation. Code validates LLM output against schema, forbidden-pattern, and size checks after generation, before it touches persistent state. The LLM produces structured output; code is the gate it must pass before any durable write.",
-      "groundedIn": "https://github.com/shimo4228/agent-knowledge-cycle/blob/main/docs/adr/0008-code-and-llm-collaboration.md"
+      "groundedIn": "https://github.com/shimo4228/agent-knowledge-cycle/blob/main/docs/decision-history/0008-code-and-llm-collaboration.md"
     },
     {
       "@id": "https://shimo4228.github.io/shimo4228/vocab#akc/pattern/filter",
       "@type": ["Concept", "DefinedTerm"],
       "name": "code-LLM pattern: filter",
       "description": "Pre-LLM input narrowing. Code narrows a large, noisy input first — by date, type, size, or structural relevance — before the LLM is invoked, and the LLM does semantic work on the curated subset. Used when the filtering criteria are mechanical but the accept-criteria are semantic.",
-      "groundedIn": "https://github.com/shimo4228/agent-knowledge-cycle/blob/main/docs/adr/0008-code-and-llm-collaboration.md"
+      "groundedIn": "https://github.com/shimo4228/agent-knowledge-cycle/blob/main/docs/decision-history/0008-code-and-llm-collaboration.md"
     },
     {
       "@id": "https://shimo4228.github.io/shimo4228/vocab#akc/pattern/judge",
       "@type": ["Concept", "DefinedTerm"],
       "name": "code-LLM pattern: judge",
       "description": "LLM judge + code enforce. The LLM decides among bounded, named options provided by code (accept / reject / score); code then takes the deterministic action, with a human gate for high-stakes changes (ADR-0005). Used when the decision is semantic but the option space is enumerable and the consequent action must stay code-owned.",
-      "groundedIn": "https://github.com/shimo4228/agent-knowledge-cycle/blob/main/docs/adr/0008-code-and-llm-collaboration.md"
+      "groundedIn": "https://github.com/shimo4228/agent-knowledge-cycle/blob/main/docs/decision-history/0008-code-and-llm-collaboration.md"
     },
     {
       "@id": "https://shimo4228.github.io/shimo4228/vocab#akc/pattern/orchestrator",
       "@type": ["Concept", "DefinedTerm"],
       "name": "code-LLM pattern: orchestrator",
       "description": "Code owns the loop; the LLM is the worker. A deterministic loop owns termination, retries, state, and error handling, and the LLM does one focused semantic task per step. The LLM never owns termination or durable state. Never invert this.",
-      "groundedIn": "https://github.com/shimo4228/agent-knowledge-cycle/blob/main/docs/adr/0008-code-and-llm-collaboration.md"
+      "groundedIn": "https://github.com/shimo4228/agent-knowledge-cycle/blob/main/docs/decision-history/0008-code-and-llm-collaboration.md"
     },
 
     {
@@ -627,7 +627,7 @@
       "url": "https://github.com/shimo4228/skill-health",
       "extends": "https://doi.org/10.5281/zenodo.19200726",
       "implements": "https://shimo4228.github.io/shimo4228/vocab#akc-phase/curate",
-      "groundedIn": "https://github.com/shimo4228/agent-knowledge-cycle/blob/main/docs/adr/0019-cycle-structure-is-provisional.md"
+      "groundedIn": "https://github.com/shimo4228/agent-knowledge-cycle/blob/main/docs/decision-history/0019-cycle-structure-is-provisional.md"
     },
     {
       "@id": "https://github.com/shimo4228/agent-stocktake",
@@ -637,7 +637,7 @@
       "url": "https://github.com/shimo4228/agent-stocktake",
       "extends": "https://doi.org/10.5281/zenodo.19200726",
       "implements": "https://shimo4228.github.io/shimo4228/vocab#akc-phase/curate",
-      "groundedIn": "https://github.com/shimo4228/agent-knowledge-cycle/blob/main/docs/adr/0019-cycle-structure-is-provisional.md"
+      "groundedIn": "https://github.com/shimo4228/agent-knowledge-cycle/blob/main/docs/decision-history/0019-cycle-structure-is-provisional.md"
     },
     {
       "@id": "https://github.com/shimo4228/generation-audit",
@@ -647,7 +647,7 @@
       "url": "https://github.com/shimo4228/generation-audit",
       "extends": "https://doi.org/10.5281/zenodo.19200726",
       "implements": ["https://shimo4228.github.io/shimo4228/vocab#concept/scaffold-dissolution", "https://shimo4228.github.io/shimo4228/vocab#akc-phase/curate"],
-      "groundedIn": "https://github.com/shimo4228/agent-knowledge-cycle/blob/main/docs/adr/0023-generation-review-as-a-fourth-evidence-class.md"
+      "groundedIn": "https://github.com/shimo4228/agent-knowledge-cycle/blob/main/docs/decision-history/0023-generation-review-as-a-fourth-evidence-class.md"
     },
     {
       "@id": "https://github.com/shimo4228/human-gate",
@@ -657,7 +657,7 @@
       "url": "https://github.com/shimo4228/human-gate",
       "extends": "https://doi.org/10.5281/zenodo.19200726",
       "implements": "https://shimo4228.github.io/shimo4228/vocab#akc/concept/human-approval-gate",
-      "groundedIn": "https://github.com/shimo4228/agent-knowledge-cycle/blob/main/docs/adr/0005-human-approval-gate.md"
+      "groundedIn": "https://github.com/shimo4228/agent-knowledge-cycle/blob/main/docs/decision-history/0005-human-approval-gate.md"
     },
     {
       "@id": "https://github.com/shimo4228/repo-asset-stocktake",
@@ -880,7 +880,7 @@
       "identifier": "arXiv:2309.02427",
       "url": "https://arxiv.org/abs/2309.02427",
       "description": "Prior art named in ADR-0013's Related-Work positioning. Provides the framework vocabulary (modular memory, structured action space, decision procedure) that makes the agent-memory literature commensurable. Cited as prior art for positioning, not consulted during AKC's construction; AKC contrasts on loop ownership (human gate), bidirectional human-judgment target, and human-attention scarcity.",
-      "groundedIn": "https://github.com/shimo4228/agent-knowledge-cycle/blob/main/docs/adr/0013-positioning-within-agent-memory-literature.md"
+      "groundedIn": "https://github.com/shimo4228/agent-knowledge-cycle/blob/main/docs/decision-history/0013-positioning-within-agent-memory-literature.md"
     },
     {
       "@id": "https://shimo4228.github.io/shimo4228/vocab#prior-art/voyager",
@@ -891,7 +891,7 @@
       "identifier": "arXiv:2305.16291",
       "url": "https://arxiv.org/abs/2305.16291",
       "description": "Prior art named in ADR-0013's Related-Work positioning. Maintains an ever-growing skill library of executable code induced from gameplay — in AKC vocabulary, Extract-then-Promote run end to end, autonomously. AKC concedes the operation is not novel and locates its delta: the prior art closes the loop without a human in it; AKC's Promote requires named human sign-off.",
-      "groundedIn": "https://github.com/shimo4228/agent-knowledge-cycle/blob/main/docs/adr/0013-positioning-within-agent-memory-literature.md"
+      "groundedIn": "https://github.com/shimo4228/agent-knowledge-cycle/blob/main/docs/decision-history/0013-positioning-within-agent-memory-literature.md"
     },
     {
       "@id": "https://shimo4228.github.io/shimo4228/vocab#prior-art/generative-agents",
@@ -902,7 +902,7 @@
       "identifier": "arXiv:2304.03442",
       "url": "https://arxiv.org/abs/2304.03442",
       "description": "Prior art named in ADR-0013's Related-Work positioning. Introduced a reflection step that synthesizes observations into higher-level inferences stored for later retrieval — the Extract / reflection operation AKC concedes as precedent. AKC contrasts on who owns the loop and on framing human attention, not agent capability, as the scarce resource.",
-      "groundedIn": "https://github.com/shimo4228/agent-knowledge-cycle/blob/main/docs/adr/0013-positioning-within-agent-memory-literature.md"
+      "groundedIn": "https://github.com/shimo4228/agent-knowledge-cycle/blob/main/docs/decision-history/0013-positioning-within-agent-memory-literature.md"
     },
     {
       "@id": "https://shimo4228.github.io/shimo4228/vocab#prior-art/memgpt",
@@ -913,7 +913,7 @@
       "identifier": "arXiv:2310.08560",
       "url": "https://arxiv.org/abs/2310.08560",
       "description": "Prior art named in ADR-0013's Related-Work positioning. Formalizes a memory hierarchy with paging between context and external store. Its binding constraint is the context window; AKC (ADR-0010) names a different ceiling — human attention and judgment — so the two solve scarcity on different resources and can coexist.",
-      "groundedIn": "https://github.com/shimo4228/agent-knowledge-cycle/blob/main/docs/adr/0013-positioning-within-agent-memory-literature.md"
+      "groundedIn": "https://github.com/shimo4228/agent-knowledge-cycle/blob/main/docs/decision-history/0013-positioning-within-agent-memory-literature.md"
     },
     {
       "@id": "https://shimo4228.github.io/shimo4228/vocab#prior-art/reme",
@@ -924,7 +924,7 @@
       "identifier": "arXiv:2512.10696",
       "url": "https://arxiv.org/abs/2512.10696",
       "description": "Prior art named in ADR-0013's Related-Work positioning. A dynamic procedural-memory framework that continuously refines what is stored — a Curate-and-Promote loop by another name, run autonomously. AKC concedes the refinement operation as precedent and locates its delta in the structural human approval gate where ReMe runs without a human in the write path.",
-      "groundedIn": "https://github.com/shimo4228/agent-knowledge-cycle/blob/main/docs/adr/0013-positioning-within-agent-memory-literature.md"
+      "groundedIn": "https://github.com/shimo4228/agent-knowledge-cycle/blob/main/docs/decision-history/0013-positioning-within-agent-memory-literature.md"
     },
     {
       "@id": "https://shimo4228.github.io/shimo4228/vocab#prior-art/agent-workflow-memory",
@@ -935,7 +935,7 @@
       "identifier": "arXiv:2409.07429",
       "url": "https://arxiv.org/abs/2409.07429",
       "description": "Prior art named in ADR-0013's Related-Work positioning. Induces commonly reused routines (workflows) from agent trajectories and feeds them back into subsequent generations — Extract-then-Promote without a human in the write path. AKC concedes the induction operation and contrasts on loop ownership and on optimizing the operator's judgment, not only the agent's task success.",
-      "groundedIn": "https://github.com/shimo4228/agent-knowledge-cycle/blob/main/docs/adr/0013-positioning-within-agent-memory-literature.md"
+      "groundedIn": "https://github.com/shimo4228/agent-knowledge-cycle/blob/main/docs/decision-history/0013-positioning-within-agent-memory-literature.md"
     },
     {
       "@id": "https://shimo4228.github.io/shimo4228/vocab#prior-art/intent-alignment-christiano",
@@ -945,7 +945,7 @@
       "datePublished": "2018",
       "description": "Vocabulary lineage named in ADR-0017. Coined intent alignment: an aligned AI \"is trying to do what H wants it to do\" — motivation, not competence. Treats the operator's wants as static; AKC's harness alignment extends the term to the configuration layer and across time, where intent itself evolves.",
       "url": "https://ai-alignment.com/clarifying-ai-alignment-cec47cd69dd6",
-      "groundedIn": "https://github.com/shimo4228/agent-knowledge-cycle/blob/main/docs/adr/0017-harness-alignment-and-drift.md"
+      "groundedIn": "https://github.com/shimo4228/agent-knowledge-cycle/blob/main/docs/decision-history/0017-harness-alignment-and-drift.md"
     },
     {
       "@id": "https://shimo4228.github.io/shimo4228/vocab#prior-art/lehman-laws",
@@ -956,7 +956,7 @@
       "identifier": "doi:10.1109/PROC.1980.11805",
       "url": "https://doi.org/10.1109/PROC.1980.11805",
       "description": "Vocabulary lineage named in ADR-0017. Law I (Continuing Change): an E-type program \"undergoes continual change or becomes progressively less useful\"; \"evolution is an intrinsic, feedback driven, property of software\" (Proceedings of the IEEE 68(9)). Lehman's driver of change is the world the program is embedded in; harness alignment's driver is the operator's evolving intent.",
-      "groundedIn": "https://github.com/shimo4228/agent-knowledge-cycle/blob/main/docs/adr/0017-harness-alignment-and-drift.md"
+      "groundedIn": "https://github.com/shimo4228/agent-knowledge-cycle/blob/main/docs/decision-history/0017-harness-alignment-and-drift.md"
     },
     {
       "@id": "https://shimo4228.github.io/shimo4228/vocab#prior-art/architectural-drift-perry-wolf",
@@ -967,7 +967,7 @@
       "identifier": "doi:10.1145/141874.141884",
       "url": "https://doi.org/10.1145/141874.141884",
       "description": "Vocabulary lineage named in ADR-0017. Defines architectural drift — \"due to insensitivity about the architecture\", leading \"more to inadaptability than to disasters\" (ACM SIGSOFT SEN 17(4)) — the canonical academic name for divergence-by-insensitivity. Assumes a fixed intended architecture; harness drift's reference point (operator intent) itself evolves.",
-      "groundedIn": "https://github.com/shimo4228/agent-knowledge-cycle/blob/main/docs/adr/0017-harness-alignment-and-drift.md"
+      "groundedIn": "https://github.com/shimo4228/agent-knowledge-cycle/blob/main/docs/decision-history/0017-harness-alignment-and-drift.md"
     },
     {
       "@id": "https://shimo4228.github.io/shimo4228/vocab#prior-art/practical-drift-snook",
@@ -976,7 +976,7 @@
       "author": "Snook, S. A.",
       "datePublished": "2000",
       "description": "Vocabulary lineage named in ADR-0017. Names practical drift: practice slowly uncoupling from written procedure (cited as characterized in secondary literature; book text not directly verified). Names the failure process at the rules-vs-practice boundary; harness alignment names the counter-activity.",
-      "groundedIn": "https://github.com/shimo4228/agent-knowledge-cycle/blob/main/docs/adr/0017-harness-alignment-and-drift.md"
+      "groundedIn": "https://github.com/shimo4228/agent-knowledge-cycle/blob/main/docs/decision-history/0017-harness-alignment-and-drift.md"
     },
     {
       "@id": "https://shimo4228.github.io/shimo4228/vocab#prior-art/meta-harness",
@@ -987,8 +987,8 @@
       "description": "Contrast named in ADR-0017, and the framing ADR-0009 rejected for AKC itself. Defines the harness as \"the code that determines what information to store, retrieve, and present to the model\" and improves it autonomously against benchmark scores — harness optimization, the correctness axis. Harness alignment is the human-gated counterpart on the intent axis; the two are complementary, not competing.",
       "url": "https://arxiv.org/abs/2603.28052",
       "groundedIn": [
-        "https://github.com/shimo4228/agent-knowledge-cycle/blob/main/docs/adr/0017-harness-alignment-and-drift.md",
-        "https://github.com/shimo4228/agent-knowledge-cycle/blob/main/docs/adr/0009-akc-is-a-cycle-not-a-harness.md"
+        "https://github.com/shimo4228/agent-knowledge-cycle/blob/main/docs/decision-history/0017-harness-alignment-and-drift.md",
+        "https://github.com/shimo4228/agent-knowledge-cycle/blob/main/docs/decision-history/0009-akc-is-a-cycle-not-a-harness.md"
       ]
     },
     {
@@ -999,7 +999,7 @@
       "datePublished": "2026",
       "description": "Vocabulary lineage named in ADR-0017. Defines agent drift as \"the progressive degradation of agent behavior, decision quality, and inter-agent coherence over extended interaction sequences\" and semantic drift as \"progressive deviation from original intent\". Its reference list contains no classical software-engineering literature (no Lehman, Perry & Wolf, Parnas, or Snook) — the vocabulary gap harness drift bridges by explicit lineage to both bodies.",
       "url": "https://arxiv.org/abs/2601.04170",
-      "groundedIn": "https://github.com/shimo4228/agent-knowledge-cycle/blob/main/docs/adr/0017-harness-alignment-and-drift.md"
+      "groundedIn": "https://github.com/shimo4228/agent-knowledge-cycle/blob/main/docs/decision-history/0017-harness-alignment-and-drift.md"
     },
     {
       "@id": "https://shimo4228.github.io/shimo4228/vocab#prior-art/automation-complacency-parasuraman-manzey",
@@ -1077,7 +1077,7 @@
       "identifier": "arXiv:2311.09735",
       "url": "https://arxiv.org/abs/2311.09735",
       "description": "Measurement framework behind the geo-writer snapshot in ADR-0010 — the first Measure-phase self-application to AKC's own documentation. The README is scored before and after the cognitive-economy change on GEO-derived checks (entity density, question-heading prominence, chunk self-containment, definition density), with both snapshots retained in version control so successive ADRs can track the README's GEO trajectory over time.",
-      "groundedIn": "https://github.com/shimo4228/agent-knowledge-cycle/blob/main/docs/adr/0010-human-cognitive-resource-as-central-constraint.md"
+      "groundedIn": "https://github.com/shimo4228/agent-knowledge-cycle/blob/main/docs/decision-history/0010-human-cognitive-resource-as-central-constraint.md"
     },
     {
       "@id": "https://shimo4228.github.io/shimo4228/vocab#prior-art/intrinsic-metacognitive-learning",
@@ -1089,7 +1089,7 @@
       "url": "https://arxiv.org/abs/2506.05109",
       "about": "https://shimo4228.github.io/shimo4228/vocab#akc/concept/human-approval-gate",
       "description": "Taxonomy named in ADR-0005's defense of the human approval gate. In its intrinsic/extrinsic distinction, AKC's gate is extrinsic metacognition — a human-designed loop with a human evaluator at the decision point — and stays so by design, not by immaturity: behavior-modifying writes remain gated because they are where the operator's evolving intent enters the loop.",
-      "groundedIn": "https://github.com/shimo4228/agent-knowledge-cycle/blob/main/docs/adr/0005-human-approval-gate.md"
+      "groundedIn": "https://github.com/shimo4228/agent-knowledge-cycle/blob/main/docs/decision-history/0005-human-approval-gate.md"
     },
     {
       "@id": "https://shimo4228.github.io/shimo4228/vocab#prior-art/externalization-review",
@@ -1101,7 +1101,7 @@
       "url": "https://arxiv.org/abs/2604.08224",
       "about": "https://shimo4228.github.io/shimo4228/vocab#concept/three-layer-structure",
       "description": "Field map named in ADR-0013's Related-Work positioning. Frames the field as three coupled forms of externalization — memory, skills, protocols — coordinated by harness engineering as the unification layer; AKC accepts that it sits squarely inside this frame, overlapping the memory and skills quadrants, and locates its delta in loop ownership rather than in the externalization operations themselves.",
-      "groundedIn": "https://github.com/shimo4228/agent-knowledge-cycle/blob/main/docs/adr/0013-positioning-within-agent-memory-literature.md"
+      "groundedIn": "https://github.com/shimo4228/agent-knowledge-cycle/blob/main/docs/decision-history/0013-positioning-within-agent-memory-literature.md"
     },
     {
       "@id": "https://shimo4228.github.io/shimo4228/vocab#prior-art/skillops",
@@ -1112,7 +1112,7 @@
       "identifier": "arXiv:2605.13716",
       "url": "https://arxiv.org/abs/2605.13716",
       "description": "Prior art named in ADR-0013's 2026-06-25 addendum. Frames 'skill technical debt' and a four-dimension library-health diagnosis (utility, compatibility, risk, validation), and proposes a self-maintaining skill ecosystem that prunes, validates, and de-duplicates skills autonomously — the Curate and Maintain operations run without a human in the write path. AKC concedes the maintenance operations as precedent and locates its delta in the structural human approval gate (ADR-0005): SkillOps's defining adjective is self-maintaining, where AKC's Curate and Promote require named human sign-off.",
-      "groundedIn": "https://github.com/shimo4228/agent-knowledge-cycle/blob/main/docs/adr/0013-positioning-within-agent-memory-literature.md"
+      "groundedIn": "https://github.com/shimo4228/agent-knowledge-cycle/blob/main/docs/decision-history/0013-positioning-within-agent-memory-literature.md"
     },
     {
       "@id": "https://shimo4228.github.io/shimo4228/vocab#prior-art/skill-lifecycle-sok",
@@ -1123,7 +1123,7 @@
       "identifier": "arXiv:2602.20867",
       "url": "https://arxiv.org/abs/2602.20867",
       "description": "Field map named in ADR-0013's 2026-06-25 addendum. Maps a seven-stage skill lifecycle (discovery, practice, distillation, storage, retrieval, execution, evaluation/update) for the skill layer the way the Externalization survey maps the broader field. AKC's six-phase cycle overlaps this lifecycle; the delta is not the stages but loop ownership — the human approval gate — and the framing of human attention as the scarce resource.",
-      "groundedIn": "https://github.com/shimo4228/agent-knowledge-cycle/blob/main/docs/adr/0013-positioning-within-agent-memory-literature.md"
+      "groundedIn": "https://github.com/shimo4228/agent-knowledge-cycle/blob/main/docs/decision-history/0013-positioning-within-agent-memory-literature.md"
     },
     {
       "@id": "https://shimo4228.github.io/shimo4228/vocab#prior-art/skillsbench",
@@ -1134,7 +1134,7 @@
       "identifier": "arXiv:2604.04323",
       "url": "https://arxiv.org/abs/2604.04323",
       "description": "Empirical corroboration named in ADR-0013's 2026-06-25 addendum. Finds that skill benefits are fragile — degrading toward the no-skill baseline as the library grows large and uncurated and the agent must retrieve from many real-world skills rather than be handed a hand-crafted one. Independent support for ADR-0010's claim that curation is the load-bearing, attention-bound act: the scarce resource is the human judgment that decides what stays, not the storage that holds it. Corroboration rather than precedent.",
-      "groundedIn": "https://github.com/shimo4228/agent-knowledge-cycle/blob/main/docs/adr/0013-positioning-within-agent-memory-literature.md"
+      "groundedIn": "https://github.com/shimo4228/agent-knowledge-cycle/blob/main/docs/decision-history/0013-positioning-within-agent-memory-literature.md"
     },
     {
       "@id": "https://shimo4228.github.io/shimo4228/vocab#prior-art/sdb-runtime-patterns",
@@ -1146,7 +1146,7 @@
       "url": "https://arxiv.org/abs/2605.20173",
       "about": "https://shimo4228.github.io/shimo4228/vocab#akc/concept/code-llm-layering",
       "description": "Corroboration named in ADR-0013's 2026-07-08 addendum. Names the stochastic-deterministic boundary (SDB) — a four-part contract of proposer, verifier, commit step, and reject signal — as the load-bearing primitive of production agent runtimes, and organizes runtime design into coordination, state, and control concerns around it. A production-derived formalization of code-LLM layering: code decides, the LLM proposes.",
-      "groundedIn": "https://github.com/shimo4228/agent-knowledge-cycle/blob/main/docs/adr/0013-positioning-within-agent-memory-literature.md"
+      "groundedIn": "https://github.com/shimo4228/agent-knowledge-cycle/blob/main/docs/decision-history/0013-positioning-within-agent-memory-literature.md"
     },
     {
       "@id": "https://shimo4228.github.io/shimo4228/vocab#prior-art/context-engineering-2",
@@ -1158,7 +1158,7 @@
       "url": "https://arxiv.org/abs/2510.26493",
       "about": ["https://shimo4228.github.io/shimo4228/vocab#akc/concept/signal-first", "https://shimo4228.github.io/shimo4228/vocab#akc/concept/cognitive-economy"],
       "description": "Corroboration named in ADR-0013's 2026-07-08 addendum. Treats the selection and shaping of what reaches the model as a discipline in its own right, with a history predating LLMs. Independent convergence with signal-first (information that changes no action is not taken in) and cognitive economy (attention managed as the scarce budget).",
-      "groundedIn": "https://github.com/shimo4228/agent-knowledge-cycle/blob/main/docs/adr/0013-positioning-within-agent-memory-literature.md"
+      "groundedIn": "https://github.com/shimo4228/agent-knowledge-cycle/blob/main/docs/decision-history/0013-positioning-within-agent-memory-literature.md"
     },
     {
       "@id": "https://shimo4228.github.io/shimo4228/vocab#prior-art/cognitive-divergence",
@@ -1170,7 +1170,7 @@
       "url": "https://arxiv.org/abs/2603.26707",
       "about": ["https://shimo4228.github.io/shimo4228/vocab#akc/concept/cognitive-economy", "https://shimo4228.github.io/shimo4228/vocab#akc/concept/loop-failure-modes"],
       "description": "Corroboration named in ADR-0013's 2026-07-08 addendum. Quantifies the asymmetry cognitive economy assumes — model context windows expanding roughly 3,906-fold (2017-2026) while human effective context span contracts — and names a self-reinforcing delegation feedback loop, the coupling ADR-0014 records as delegation-feedback divergence.",
-      "groundedIn": "https://github.com/shimo4228/agent-knowledge-cycle/blob/main/docs/adr/0013-positioning-within-agent-memory-literature.md"
+      "groundedIn": "https://github.com/shimo4228/agent-knowledge-cycle/blob/main/docs/decision-history/0013-positioning-within-agent-memory-literature.md"
     },
     {
       "@id": "https://shimo4228.github.io/shimo4228/vocab#prior-art/skillc",
@@ -1182,7 +1182,7 @@
       "url": "https://arxiv.org/abs/2605.27899",
       "about": "https://shimo4228.github.io/shimo4228/vocab#concept/scaffold-dissolution",
       "description": "Corroboration named in ADR-0013's 2026-07-08 addendum. Converts the gap between skill-injected and skill-free rollouts into a direct learning signal for skill internalization, withdrawing the scaffold as the gap closes — scaffold dissolution operationalized as a measurable, driveable process rather than an end-state aspiration.",
-      "groundedIn": "https://github.com/shimo4228/agent-knowledge-cycle/blob/main/docs/adr/0013-positioning-within-agent-memory-literature.md"
+      "groundedIn": "https://github.com/shimo4228/agent-knowledge-cycle/blob/main/docs/decision-history/0013-positioning-within-agent-memory-literature.md"
     },
     {
       "@id": "https://shimo4228.github.io/shimo4228/vocab#prior-art/format-cost-separation",
@@ -1194,7 +1194,7 @@
       "url": "https://arxiv.org/abs/2604.16736",
       "about": "https://shimo4228.github.io/shimo4228/vocab#akc/concept/two-stage-distill",
       "description": "Corroboration named in ADR-0013's 2026-07-08 addendum. Proves a Format-Cost Separation Theorem: deferred rendering is at least as token-efficient as direct generation for any format whose overhead multiplier exceeds one. Upgrades ADR-0004's two-stage distill pipeline — think free-form first, format second — from an empirical rule to a conditionally optimal design.",
-      "groundedIn": "https://github.com/shimo4228/agent-knowledge-cycle/blob/main/docs/adr/0013-positioning-within-agent-memory-literature.md"
+      "groundedIn": "https://github.com/shimo4228/agent-knowledge-cycle/blob/main/docs/decision-history/0013-positioning-within-agent-memory-literature.md"
     },
     {
       "@id": "https://shimo4228.github.io/shimo4228/vocab#prior-art/verification-bottleneck",
@@ -1206,7 +1206,7 @@
       "url": "https://arxiv.org/abs/2601.17055",
       "about": ["https://shimo4228.github.io/shimo4228/vocab#akc/concept/loop-failure-modes", "https://shimo4228.github.io/shimo4228/vocab#akc/concept/bidirectional-growth-loop"],
       "description": "Corroboration named in ADR-0013's 2026-07-08 addendum. A three-wave longitudinal record of the loop failure modes in a human population: participants leaned on AI most heavily for the hardest tasks, exactly where their verification confidence and accuracy were lowest — the bidirectional growth loop observed running in reverse.",
-      "groundedIn": "https://github.com/shimo4228/agent-knowledge-cycle/blob/main/docs/adr/0013-positioning-within-agent-memory-literature.md"
+      "groundedIn": "https://github.com/shimo4228/agent-knowledge-cycle/blob/main/docs/decision-history/0013-positioning-within-agent-memory-literature.md"
     },
     {
       "@id": "https://shimo4228.github.io/shimo4228/vocab#prior-art/agent-human-interaction-security",
@@ -1218,7 +1218,7 @@
       "url": "https://arxiv.org/abs/2605.24309",
       "about": "https://shimo4228.github.io/shimo4228/vocab#akc/concept/intent-alignment",
       "description": "Corroboration named in ADR-0013's 2026-07-08 addendum. Analyzes 59 academic papers against 21 production agent systems: the academically favored mechanisms (intent anchoring, trust labeling) see zero production deployment while human-centric mechanisms — policy specification, runtime approval, scope configuration — dominate industry practice. The intent-alignment theme's industry-academia gap, measured.",
-      "groundedIn": "https://github.com/shimo4228/agent-knowledge-cycle/blob/main/docs/adr/0013-positioning-within-agent-memory-literature.md"
+      "groundedIn": "https://github.com/shimo4228/agent-knowledge-cycle/blob/main/docs/decision-history/0013-positioning-within-agent-memory-literature.md"
     },
     {
       "@id": "https://shimo4228.github.io/shimo4228/vocab#prior-art/evoagentbench",
@@ -1230,7 +1230,7 @@
       "url": "https://arxiv.org/abs/2607.05202",
       "about": "https://shimo4228.github.io/shimo4228/vocab#concept/scaffold-dissolution",
       "description": "Controlled corroboration named in ADR-0013's 2026-07-23 addendum, and the external evidence base of ADR-0022. Benchmarks agent self-evolution as ability transfer under an ability-supported yet instance-disjoint split (528/267 train/test; every test task backed by verified training-side ability support, no instance repeated). Curated ability content — the curator-side Anchor Skill reference, explicitly not a deployable method — transfers positively in all 24 domain-scaffold-backbone cells; no automatic extraction method evaluated (Memento, ReasoningBank, GEPA) sustains positive gain in all settings, with negative transfer reaching −36.3 points in software engineering. The first controlled comparison on the axis of the human-gate delta (ADR-0005), and the demonstration that same-distribution gain does not certify internalization — the trigger for ADR-0022's held-out transfer completion test.",
-      "groundedIn": ["https://github.com/shimo4228/agent-knowledge-cycle/blob/main/docs/adr/0013-positioning-within-agent-memory-literature.md", "https://github.com/shimo4228/agent-knowledge-cycle/blob/main/docs/adr/0022-transfer-as-completion-test-for-dissolution.md"]
+      "groundedIn": ["https://github.com/shimo4228/agent-knowledge-cycle/blob/main/docs/decision-history/0013-positioning-within-agent-memory-literature.md", "https://github.com/shimo4228/agent-knowledge-cycle/blob/main/docs/decision-history/0022-transfer-as-completion-test-for-dissolution.md"]
     },
 
     {
@@ -1242,9 +1242,9 @@
       "identifier": "arXiv:2604.27707",
       "url": "https://arxiv.org/abs/2604.27707",
       "about": "https://shimo4228.github.io/shimo4228/vocab#concept/three-layer-structure",
-      "contrastsWith": "https://github.com/shimo4228/agent-knowledge-cycle/blob/main/docs/adr/0009-akc-is-a-cycle-not-a-harness.md",
+      "contrastsWith": "https://github.com/shimo4228/agent-knowledge-cycle/blob/main/docs/decision-history/0009-akc-is-a-cycle-not-a-harness.md",
       "description": "Paradigm challenge named in ADR-0013's 2026-08-08 addendum — the first entry that disputes the class AKC belongs to rather than conceding precedent or supplying evidence. Argues that vector stores, RAG, scratchpads, and context-window management 'do not implement memory: they implement lookup', a category error framed through Complementary Learning Systems theory: agents implement the fast hippocampal half without the slow neocortical consolidation half. Theorem 1 (Compositional Sample Complexity Separation) quantifies the cost — retrieval needs Omega(k^2) samples against a parametric learner's O((d log(1/delta)+log(1/beta))/delta), a separation ratio of Omega(k^2/d) on compositionally novel tasks. v2 concludes with co-existence rather than abandonment: episodic retrieval is the legitimate fast-learning half and 'should remain the operating substrate until a candidate update passes selection, retention, security, and regression checks', paired with a consolidation channel (fine-tuning, knowledge editing, test-time training, self-distillation) carrying episodic experience into persistent adaptive state. The challenge lands on ADR-0009's harness-portability trade — AKC's durable output is text and touches no weights, so it has no consolidation channel in this sense and claims none — not on the human approval gate; the paper's checkpoint language names the gate's structural position while leaving automated verification, not named human sign-off, as its owner. Bounded by the paper's own limitations: the separation is conditional and 'not a universal ranking of ICL and fine-tuning', no compute-matched frontier experiment demonstrates the Frozen Novice effect, and large-scale consolidation reliability remains unsolved.",
-      "groundedIn": "https://github.com/shimo4228/agent-knowledge-cycle/blob/main/docs/adr/0013-positioning-within-agent-memory-literature.md"
+      "groundedIn": "https://github.com/shimo4228/agent-knowledge-cycle/blob/main/docs/decision-history/0013-positioning-within-agent-memory-literature.md"
     },
 
     {
@@ -1254,7 +1254,7 @@
       "description": "JSON schema for the Layer 1 episode log record. Append-only, daily-partitioned JSONL with owner-only permissions. Codifies the immutable source-of-truth shape (ADR-0002).",
       "encodingFormat": "application/schema+json",
       "appliesTo": "https://shimo4228.github.io/shimo4228/vocab#memory-layer/episode-log",
-      "groundedIn": "https://github.com/shimo4228/agent-knowledge-cycle/blob/main/docs/adr/0002-immutable-episode-log.md"
+      "groundedIn": "https://github.com/shimo4228/agent-knowledge-cycle/blob/main/docs/decision-history/0002-immutable-episode-log.md"
     },
     {
       "@id": "https://github.com/shimo4228/agent-knowledge-cycle/blob/main/schemas/knowledge.schema.json",
@@ -1263,7 +1263,7 @@
       "description": "JSON schema for the Layer 2 knowledge record. Time-decayed and forbidden-substring validated patterns distilled from Layer 1 episodes (ADR-0003).",
       "encodingFormat": "application/schema+json",
       "appliesTo": "https://shimo4228.github.io/shimo4228/vocab#memory-layer/knowledge",
-      "groundedIn": "https://github.com/shimo4228/agent-knowledge-cycle/blob/main/docs/adr/0003-three-layer-distillation.md"
+      "groundedIn": "https://github.com/shimo4228/agent-knowledge-cycle/blob/main/docs/decision-history/0003-three-layer-distillation.md"
     },
 
     {
@@ -1275,9 +1275,9 @@
       "codeRepository": "https://github.com/shimo4228/agent-knowledge-cycle",
       "implements": "https://shimo4228.github.io/shimo4228/vocab#concept/six-phase-loop",
       "groundedIn": [
-        "https://github.com/shimo4228/agent-knowledge-cycle/blob/main/docs/adr/0003-three-layer-distillation.md",
-        "https://github.com/shimo4228/agent-knowledge-cycle/blob/main/docs/adr/0004-two-stage-distill-pipeline.md",
-        "https://github.com/shimo4228/agent-knowledge-cycle/blob/main/docs/adr/0011-cycle-applies-to-any-knowledge-body.md"
+        "https://github.com/shimo4228/agent-knowledge-cycle/blob/main/docs/decision-history/0003-three-layer-distillation.md",
+        "https://github.com/shimo4228/agent-knowledge-cycle/blob/main/docs/decision-history/0004-two-stage-distill-pipeline.md",
+        "https://github.com/shimo4228/agent-knowledge-cycle/blob/main/docs/decision-history/0011-cycle-applies-to-any-knowledge-body.md"
       ]
     },
 
@@ -1286,7 +1286,7 @@
       "@type": "TechArticle",
       "name": "akc-cycle (single-file cycle rules)",
       "description": "The install entry point for the AKC cycle: a single rules file copy-installable to any agent's rules directory (installs all six phases without the skill repos), plus a Claude Code plugin carrying the skills of all six phases, grouped by phase (the companion skills formerly listed apart are placed in the phase where they are used, among them skill-creator under Extract, verify-bootstrap under Maintain and measurement-discipline under Measure; a mutable snapshot per ADR-0019). Published as a standalone repository that is also its own plugin marketplace; the AKC repository points to it instead of carrying a divergent copy. Canonical sources are the author's live harness, mirrored one-way. Operational form of scaffold dissolution — the cycle floor becomes a rules-layer concern, with the skill layer as an optional plugin on top.",
-      "groundedIn": "https://github.com/shimo4228/agent-knowledge-cycle/blob/main/docs/adr/0009-akc-is-a-cycle-not-a-harness.md"
+      "groundedIn": "https://github.com/shimo4228/agent-knowledge-cycle/blob/main/docs/decision-history/0009-akc-is-a-cycle-not-a-harness.md"
     },
 
     {
@@ -1295,7 +1295,7 @@
       "name": "when-code-when-llm (design-pattern skill)",
       "description": "Per-task decision: is this property structural or semantic? Long-form 'how' guide paired 1:1 with ADR-0008. Provides concrete patterns, code sketches, and audit checklists to operationalize the code-vs-LLM choice.",
       "implements": "https://shimo4228.github.io/shimo4228/vocab#akc/concept/code-llm-layering",
-      "groundedIn": "https://github.com/shimo4228/agent-knowledge-cycle/blob/main/docs/adr/0008-code-and-llm-collaboration.md"
+      "groundedIn": "https://github.com/shimo4228/agent-knowledge-cycle/blob/main/docs/decision-history/0008-code-and-llm-collaboration.md"
     },
     {
       "@id": "https://github.com/shimo4228/code-and-llm-collaboration",
@@ -1309,7 +1309,7 @@
         "https://shimo4228.github.io/shimo4228/vocab#akc/pattern/judge",
         "https://shimo4228.github.io/shimo4228/vocab#akc/pattern/orchestrator"
       ],
-      "groundedIn": "https://github.com/shimo4228/agent-knowledge-cycle/blob/main/docs/adr/0008-code-and-llm-collaboration.md"
+      "groundedIn": "https://github.com/shimo4228/agent-knowledge-cycle/blob/main/docs/decision-history/0008-code-and-llm-collaboration.md"
     },
     {
       "@id": "https://github.com/shimo4228/signal-first-research",
@@ -1317,14 +1317,14 @@
       "name": "signal-first-research (design-pattern skill)",
       "description": "Designing a research intake filter that admits only information likely to change the next action. Long-form 'how' guide paired 1:1 with ADR-0010. Operationalizes the signal-first principle as a Research-phase filter.",
       "implements": "https://shimo4228.github.io/shimo4228/vocab#akc/concept/signal-first",
-      "groundedIn": "https://github.com/shimo4228/agent-knowledge-cycle/blob/main/docs/adr/0010-human-cognitive-resource-as-central-constraint.md"
+      "groundedIn": "https://github.com/shimo4228/agent-knowledge-cycle/blob/main/docs/decision-history/0010-human-cognitive-resource-as-central-constraint.md"
     },
     {
       "@id": "https://github.com/shimo4228/agent-knowledge-cycle/blob/main/docs/ai-native-sdlc-correspondence.md",
       "@type": "TechArticle",
       "name": "AKC and the AI-Native SDLC Playbook (correspondence)",
       "description": "Two-loop positioning against Anthropic's AI-native SDLC playbook (published 2026-08-21; pinned to the 2026-08-24 archived version): the playbook's six stages run the product loop, while the configuration-maintenance habits it scatters across Stages 3-6 are AKC's harness loop left unnamed. Flags the Maintain false friend (production monitoring vs docs/artifact hygiene), maps intent.md to an RFC-form proposal record, and states an operator-scale condition on continuous evals (deterministic tier at every scale, judge tier once the corpus earns its triage). Concede-then-locate in the ADR-0013 lineage; dated addenda for future playbook revisions. Japanese mirror: docs/ai-native-sdlc-correspondence.ja.md.",
-      "groundedIn": "https://github.com/shimo4228/agent-knowledge-cycle/blob/main/docs/adr/0013-positioning-within-agent-memory-literature.md"
+      "groundedIn": "https://github.com/shimo4228/agent-knowledge-cycle/blob/main/docs/decision-history/0013-positioning-within-agent-memory-literature.md"
     }
   ]
 }
